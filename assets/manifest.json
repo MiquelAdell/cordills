@@ -19,9 +19,19 @@
     },
     "jquery.js": {
       "bower": ["jquery"]
+    },
+    "animation.gsap.js": {
+      "files": [
+        "../bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"
+      ]
+    },
+    "debug.addIndicators.js": {
+      "files": [
+        "../bower_components/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js"
+      ]
     }
   },
   "config": {
-    "devUrl": "http://example.dev"
+    "devUrl": "http://miqueladell.com"
   }
 }

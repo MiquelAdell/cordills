@@ -1,0 +1,21 @@
+.front-page-sections .parallax-bacgkround {
+	background-size: 50px;
+	opacity:0.3;
+}
+
+.parallaxParent {
+	height: 100vh;
+	overflow: hidden;
+}
+.parallaxParent > * {
+	height: 200%;
+	position: relative;
+	top: -100%;
+}
+
+.section-icon {
+	width: 150px;
+	height: 150px;
+	background-size: 150px;
+	float: left;
+}
