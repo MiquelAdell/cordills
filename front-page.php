@@ -20,7 +20,7 @@ $page_query = new WP_Query( $args );
 			<div class="front-page-section" id="page_id-<?=$post->ID?>">
 
 				<div id="parallax<?= $i; ?>" class="parallaxParent">
-					<div class="parallax-bacgkround" style="background-image: url('<?= get_template_directory_uri(); ?>/dist/images/section<?= $i; ?>.jpg');"></div>
+					<div class="parallax-bacgkround" style="background-image: url('<?= get_template_directory_uri(); ?>/dist/images/icon<?= $i; ?>.png');"></div>
 				</div>
 				<div class="spacer s1">
 					<div class="box2">
