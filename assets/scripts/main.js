@@ -75,36 +75,28 @@
   $(document).ready(UTIL.loadEvents);
 
 
-
-
-  $.getScript('/app/themes/cordills/dist/scripts/animation.gsap.js', function() {
-    $.getScript('/app/themes/cordills/dist/scripts/debug.addIndicators.js', function() {
-
-      //// SCROLL MAGIC
+      // SCROLL MAGIC
       var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", duration: "200%"}});
-
       // build scenes
-      new ScrollMagic.Scene({triggerElement: "#parallax1"})
-      .setTween("#parallax1 > div", {y: "80%", ease: Linear.easeNone})
+      new ScrollMagic.Scene({triggerElement: ".parallax-parent-1"})
+      .setTween(".parallax-parent1 > .parallax-content", {y: "80%", ease: Linear.easeNone})
       .addTo(controller);
 
-      new ScrollMagic.Scene({triggerElement: "#parallax2"})
-      .setTween("#parallax2 > div", {y: "80%", ease: Linear.easeNone})
+      new ScrollMagic.Scene({triggerElement: ".parallax-parent-2"})
+      .setTween(".parallax-parent2 > .parallax-content", {y: "80%", ease: Linear.easeNone})
       .addTo(controller);
 
-      new ScrollMagic.Scene({triggerElement: "#parallax3"})
-      .setTween("#parallax3 > div", {y: "80%", ease: Linear.easeNone})
+      new ScrollMagic.Scene({triggerElement: ".parallax-parent-3"})
+      .setTween(".parallax-parent3 > .parallax-content", {y: "80%", ease: Linear.easeNone})
       .addTo(controller);
 
-      new ScrollMagic.Scene({triggerElement: "#parallax4"})
-      .setTween("#parallax4 > div", {y: "80%", ease: Linear.easeNone})
+      new ScrollMagic.Scene({triggerElement: ".parallax-parent-4"})
+      .setTween(".parallax-parent4 > .parallax-content", {y: "80%", ease: Linear.easeNone})
       .addTo(controller);
 
-      new ScrollMagic.Scene({triggerElement: "#parallax5"})
-      .setTween("#parallax5 > div", {y: "80%", ease: Linear.easeNone})
+      new ScrollMagic.Scene({triggerElement: ".parallax-parent-5"})
+      .setTween(".parallax-parent5 > .parallax-content", {y: "80%", ease: Linear.easeNone})
       .addTo(controller);
-    });
-  });
 
 
 
