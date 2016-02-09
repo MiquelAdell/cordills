@@ -1,23 +1,47 @@
+.home header {
+	display: none;
+}
+// .home .container,
+// .home .main
+// .home .row{
+// 	margin: 0;
+// 	padding: 0;
+// 	width: 100vw;
+// }
+
 .front-page-sections .parallax-bacgkround {
 	background-size: 50px;
 	opacity:0.3;
+	width: 100%;
+    height: 100%;
 }
 
-.parallaxParent {
+.front-page-section {
 	height: 100vh;
-	overflow: hidden;
+	width: 100vw;
 }
-.parallaxParent > * {
+
+.parallax-parent {
+	height: 100vh;
+}
+.parallax-content {
 	height: 200%;
 	position: relative;
 	top: -100%;
 }
 
 .section-icon {
-	width: 150px;
-	height: 150px;
-	background-size: 150px;
+	width: 20%;
+	height: 20%;
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
 	float: left;
+}
+
+.section-text {
+	float: left;
+	width: 60%;
 }
 
 #page_id-5 {

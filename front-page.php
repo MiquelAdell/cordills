@@ -1,7 +1,7 @@
 <?php
 $args = array(
   'post_type' => 'page',
-  'post__in' => array( 7, 9, 5, 12, 16 ), //list of page_ids
+  'post__in' => array( 5, 7, 9, 12, 16 ), //list of page_ids
   'order' => "ASC"
 );
 $page_query = new WP_Query( $args );
@@ -17,20 +17,21 @@ $page_query = new WP_Query( $args );
 
 		<?php while( $page_query->have_posts() ) : $page_query->the_post(); ?>
 
-			<div class="front-page-section" id="page_id-<?=$post->ID?>">
+			<section id="page_id-<?=$post->ID?>" class="front-page-section parallax-parent parallax-parent-<?= $i; ?>">
 
-				<div id="parallax<?= $i; ?>" class="parallaxParent">
-					<div class="parallax-bacgkround" style="background-image: url('<?= get_template_directory_uri(); ?>/dist/images/icon<?= $i; ?>.png');"></div>
+				<div class="parallax-bacgkround" style="background-image: url('<?= get_template_directory_uri(); ?>/dist/images/icon<?= $i; ?>.png');">
 				</div>
-				<div class="spacer s1">
-					<div class="box2">
+				<div class="parallax-content">
+					<div class="section-icon section-icon-<?= $i; ?>" style="background-image: url('<?= get_template_directory_uri(); ?>/dist/images/icon<?= $i; ?>.png');">
+
+					</div>
+					<div class="section-text">
 						<?php get_template_part('templates/page', 'header'); ?>
-                        <div class="section-icon section-icon-<?= $i; ?>" style="background-image: url('<?= get_template_directory_uri(); ?>/dist/images/icon<?= $i; ?>.png');"></div>
 					    <?php get_template_part('templates/content', 'page'); ?>
 					</div>
 				</div>
 
-			</div>
+			</section>
 			<?php $i++; ?>
 		<?php endwhile; ?>
 	</div> <!-- eo .front-page-sections -->
