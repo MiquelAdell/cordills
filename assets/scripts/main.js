@@ -28,6 +28,17 @@
     'home': {
       init: function() {
         // JavaScript to be fired on the home page
+        var controller = new ScrollMagic.Controller();
+
+        var scene1 = new ScrollMagic.Scene({triggerElement: ".trigger-1", duration: 300})
+        .setPin(".pin-1")
+        .addIndicators({name: "1 (duration: 300)"}) // add indicators (requires plugin)
+        .addTo(controller);
+
+        var scene2 = new ScrollMagic.Scene({triggerElement: ".pin-1"})
+        .setPin(".pin-1")
+        .addIndicators({name: "2 (duration: 0)"}) // add indicators (requires plugin)
+        .addTo(controller);
 
       },
       finalize: function() {
