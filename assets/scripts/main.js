@@ -33,27 +33,7 @@
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
         // SCROLL MAGIC
-        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", duration: "200%"}});
-        // build scenes
-        new ScrollMagic.Scene({triggerElement: ".parallax-parent-1"})
-        .setTween(".parallax-parent1 > .parallax-content", {y: "80%", ease: Linear.easeNone})
-        .addTo(controller);
 
-        new ScrollMagic.Scene({triggerElement: ".parallax-parent-2"})
-        .setTween(".parallax-parent2 > .parallax-content", {y: "80%", ease: Linear.easeNone})
-        .addTo(controller);
-
-        new ScrollMagic.Scene({triggerElement: ".parallax-parent-3"})
-        .setTween(".parallax-parent3 > .parallax-content", {y: "80%", ease: Linear.easeNone})
-        .addTo(controller);
-
-        new ScrollMagic.Scene({triggerElement: ".parallax-parent-4"})
-        .setTween(".parallax-parent4 > .parallax-content", {y: "80%", ease: Linear.easeNone})
-        .addTo(controller);
-
-        new ScrollMagic.Scene({triggerElement: ".parallax-parent-5"})
-        .setTween(".parallax-parent5 > .parallax-content", {y: "80%", ease: Linear.easeNone})
-        .addTo(controller);
       }
     },
     // About us page, note the change from about-us to about_us.
