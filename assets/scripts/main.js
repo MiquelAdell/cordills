@@ -28,22 +28,33 @@
     'home': {
       init: function() {
         // JavaScript to be fired on the home page
-        var controller = new ScrollMagic.Controller();
-
-        var scene1 = new ScrollMagic.Scene({triggerElement: ".trigger-1", duration: 300})
-        .setPin(".pin-1")
-        .addIndicators({name: "1 (duration: 300)"}) // add indicators (requires plugin)
-        .addTo(controller);
-
-        var scene2 = new ScrollMagic.Scene({triggerElement: ".pin-1"})
-        .setPin(".pin-1")
-        .addIndicators({name: "2 (duration: 0)"}) // add indicators (requires plugin)
-        .addTo(controller);
-
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
         // SCROLL MAGIC
+        var controller = new ScrollMagic.Controller();
+
+        var scenes = [];
+        var accumulatedHeight = 0;
+
+        for (var i = 0; i < 4; i++){
+          var height = $('section').eq(i).height();
+
+          if(accumulatedHeight === 0){
+            accumulatedHeight = -(height / 2);
+          }
+
+          var id = i+1;
+
+          scenes[i] = new ScrollMagic.Scene({
+            offset: accumulatedHeight, duration: height
+          })
+          .setPin(".pin-"+id)
+          .addIndicators({name: id+" (duration: "+height+")"}) // add indicators (requires plugin)
+          .addTo(controller);
+
+          accumulatedHeight += height;
+        }
 
       }
     },

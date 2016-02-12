@@ -21,16 +21,21 @@ $page_query = new WP_Query( $args );
 				<div class="vertical-center">
 					<div class="container section-container">
 						<div class="row">
-							<div class="trigger-<?= $i; ?> spacer s0"></div>
 
-							<div class="section-icon-holder col-xs-3 col-sm-3 pin-<?= $i; ?>">
-								<div class="section-icon section-icon-<?= $i; ?> center-block" style="background-image: url('<?= get_template_directory_uri(); ?>/dist/images/icon<?= $i; ?>.png');">
+							<div class=" col-xs-3 col-sm-3">
+								<div class="section-icon-holder pin-<?= $i; ?>">
+									<div class="section-icon section-icon-<?= $i; ?> center-block" style="background-image: url('<?= get_template_directory_uri(); ?>/dist/images/icon<?= $i; ?>.png');">
+									</div>
 								</div>
 							</div>
 
 							<div class="section-text col-xs-7 col-sm-7 col-sm-offset-1">
-								<?php get_template_part('templates/page', 'header'); ?>
-								<?php get_template_part('templates/content', 'page'); ?>
+								<div class="vertical-center">
+									<div class="holder">
+										<?php get_template_part('templates/page', 'header'); ?>
+										<?php get_template_part('templates/content', 'page'); ?>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
