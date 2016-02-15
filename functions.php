@@ -35,3 +35,8 @@ function my_connection_types() {
     ) );
 }
 add_action( 'p2p_init', 'my_connection_types' );
+
+include_once('custom-post-types/areas-post-type.php');
+include_once('custom-post-types/projects-post-type.php');
+include_once('custom-post-types/technologies-post-type.php');
+include_once('custom-post-types/testimonials-post-type.php');
