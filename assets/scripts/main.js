@@ -31,6 +31,18 @@
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
+        var placeIcons = function(){
+          $('.section-icon').each(function(){
+            var marginTop = ($( window ).height() / 2) - ($(this).height() / 2);
+            $('.section-icon').css('margin-top',marginTop);
+          });
+        };
+
+        $( window ).resize(function() {
+          placeIcons();
+        });
+        placeIcons();
+
         $('.section-icon').each(function(){
           var marginTop = ($( window ).height() / 2) - ($(this).height() / 2);
           $('.section-icon').css('margin-top',marginTop);
