@@ -31,30 +31,98 @@
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
+        $('.section-icon').each(function(){
+          var marginTop = ($( window ).height() / 2) - ($(this).height() / 2);
+          $('.section-icon').css('margin-top',marginTop);
+        });
+
         // SCROLL MAGIC
         var controller = new ScrollMagic.Controller();
-
         var scenes = [];
-        var accumulatedHeight = 0;
+        var nElements = $('section').length;
 
-        for (var i = 0; i < 4; i++){
-          var height = $('section').eq(i).height();
 
-          if(accumulatedHeight === 0){
-            accumulatedHeight = -(height / 2);
+        for (var i = 0; i < nElements; i++){
+          var sectionHeight, duration, id, offset, iconHeight;
+
+          sectionHeight = $('section').first().height();
+          iconHeight = $('.section-icon').first().height();
+          id = i+1;
+
+          if(i === 0){
+              offset = 0;
+          } else {
+              offset = sectionHeight*(i-1)+sectionHeight/2 ;
           }
 
-          var id = i+1;
+          if(i === 0){
+            duration =  sectionHeight / 2;
+          } else if(i === (nElements-1)){
+            duration =  sectionHeight / 2;
+          } else {
+            duration =  sectionHeight;
+          }
 
           scenes[i] = new ScrollMagic.Scene({
-            offset: accumulatedHeight, duration: height
+            offset: offset, duration: duration
           })
-          .setPin(".pin-"+id)
-          .addIndicators({name: id+" (duration: "+height+")"}) // add indicators (requires plugin)
           .addTo(controller);
-
-          accumulatedHeight += height;
         }
+
+        $.each(scenes,function(index,scene){
+
+          scene.on("progress", function (event) {
+            $('.section-icon').hide();
+            $('.section-icon').eq(index).show();
+
+            var pixelsFromTop = sectionHeight*scene.progress();
+            var pixelsToBottom = sectionHeight - pixelsFromTop;
+            var clipping = 0;
+
+            if(
+                (
+                  index > 0 && pixelsFromTop < iconHeight/2
+                ) || (
+                  index+1 === nElements && pixelsFromTop < iconHeight
+                )
+              ) {
+              //PREV
+              if(index+1 === nElements){
+                clipping = iconHeight/2 - pixelsFromTop/2;
+              }
+              else {
+                clipping = iconHeight/2 - pixelsFromTop;
+
+              }
+
+              $('.section-icon').eq(index-1).show();
+              $('.section-icon').eq(index).css({'clip':'rect('+clipping+'px auto auto auto)'});
+
+            } else if(
+              (
+                index === 0 && pixelsToBottom < iconHeight
+              ) || (
+                index >= 1 && index+1 < nElements && pixelsToBottom < iconHeight/2
+              )
+            ) {
+              //NEXT
+              if(index === 0){
+                clipping = iconHeight - (pixelsFromTop+iconHeight-sectionHeight)/2;
+              }
+              else {
+                clipping = iconHeight/2+pixelsToBottom;
+              }
+
+              $('.section-icon').eq(index+1).show();
+              $('.section-icon').eq(index+1).css({'clip':'rect('+clipping+'px auto auto auto)'});
+
+            } else {
+
+              $('.section-icon').eq(index).css({'clip':'rect(auto auto auto auto)'});
+            }
+
+          });
+        });
 
       }
     },

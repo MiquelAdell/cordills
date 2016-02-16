@@ -11,6 +11,10 @@ header {
 	color: black;
 }
 
+.home.page .section-container {
+	overflow: hidden;
+}
+
 .front-page-section {
 	height: 100vh;
 }
@@ -40,19 +44,19 @@ header {
 }
 
 #page_id-5 .section-icon {
-	background-color: #88766c;
+	background-color: #ebbd65;
 }
 
 #page_id-7 .section-icon {
-	background-color: #45372e;
+	background-color: #6b8884;
 }
 
 #page_id-9 .section-icon {
-	background-color: #88766c;
+	background-color: #ebbd65;
 }
 
 #page_id-12 .section-icon {
-	background-color: #45372e;
+	background-color: #6b8884;
 }
 
 
@@ -66,19 +70,12 @@ header {
 
 
 .section-icon {
-	position: relative;
-	margin-top: -100px;
+	position: fixed;
+	top: 0;
+
 }
 
 .front-page-section {
 	position: relative;
+	overflow: hidden;
 }
-
-#page_id-5 { z-index: 10; }
-#page_id-7 { z-index: 20; }
-#page_id-9 { z-index: 30; }
-#page_id-12 { z-index: 40; }
-.section-icon-1 { z-index: 15; }
-.section-icon-1 { z-index: 25; }
-.section-icon-1 { z-index: 35; }
-.section-icon-1 { z-index: 45; }

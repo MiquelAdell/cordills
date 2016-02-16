@@ -24,7 +24,7 @@ $page_query = new WP_Query( $args );
 
 							<div class=" col-xs-3 col-sm-3">
 								<div class="section-icon-holder pin-<?= $i; ?>">
-									<div class="section-icon section-icon-<?= $i; ?> center-block" style="background-image: url('<?= get_template_directory_uri(); ?>/dist/images/icon<?= $i; ?>.png');">
+									<div class="section-icon section-icon-<?= $i; ?>" style="background-image: url('<?= get_template_directory_uri(); ?>/dist/images/icon<?= $i; ?>.png');">
 									</div>
 								</div>
 							</div>
