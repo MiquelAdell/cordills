@@ -6,6 +6,31 @@ $main-sm-columns:       12;
 $sidebar-sm-columns:    4;
 
 // Colors
-$brand-primary:         #EBBD63;
-// $brand-secondary:       #6C8784;
-// $brand-highlighted:     #EB6361;
+// defaults are for reference
+
+// $brand-primary:         darken(#428bca, 6.5%) !default; // #337ab7
+// $brand-success:         #5cb85c !default;
+// $brand-info:            #5bc0de !default;
+// $brand-warning:         #f0ad4e !default;
+// $brand-danger:          #d9534f !default;
+
+// $body-bg:               #fff !default;
+// $text-color:            $gray-dark !default;
+
+//gray-dark equals #333 but we do not have that defined here
+
+$page-header-border-color: #333;
+$highlight-primary:     #EBBD63;
+$highlight-secondary:   #6b8884;
+
+// other colors:
+$red:     #e86062;
+$browm:   #87776b;
+
+// Fonts
+$font-family-sans-serif: "ff-tisa-sans-web-pro", Helvetica, Arial, sans-serif;
+$font-family-serif:      "ff-tisa-web-pro", "Times New Roman", Times, serif;
+$headings-font-family:   "ff-tisa-web-pro";
+
+$font-size-base:        15px; //from 14px
+$font-size-h1:          50px; //from 36 with font 14px

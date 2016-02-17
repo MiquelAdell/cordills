@@ -27,36 +27,21 @@ header {
 	background-size: contain;
 }
 
-#page_id-5 {
-	background-color: #6b8884;
+.front-page-section:nth-child(odd) {
+	background-color: $highlight-primary;
 }
 
-#page_id-7 {
-	background-color: #ebbd65;
+.front-page-section:nth-child(even) {
+	background-color: $highlight-secondary;
 }
 
-#page_id-9 {
-	background-color: #6b8884;
+
+.front-page-section:nth-child(odd) .section-icon {
+	background-color: $highlight-secondary;
 }
 
-#page_id-12 {
-	background-color: #ebbd65;
-}
-
-#page_id-5 .section-icon {
-	background-color: #ebbd65;
-}
-
-#page_id-7 .section-icon {
-	background-color: #6b8884;
-}
-
-#page_id-9 .section-icon {
-	background-color: #ebbd65;
-}
-
-#page_id-12 .section-icon {
-	background-color: #6b8884;
+.front-page-section:nth-child(even) .section-icon {
+	background-color: $highlight-primary;
 }
 
 
