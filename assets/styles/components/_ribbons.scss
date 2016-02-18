@@ -1,0 +1,68 @@
+/* The ribbons */
+.ribbon-holder {
+  overflow:hidden;
+}
+.corner-ribbon{
+  width: 295px;
+  position: relative;
+  top: 10px;
+  left: -114px;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 1px;
+  color: #FFF;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  display: block;
+  font-weight: bold;
+  font-family: $headings-font-family;
+  background: $red;
+}
+
+a.corner-ribbon,
+a.corner-ribbon:hover{
+  text-decoration: none;
+  color: #FFF;
+}
+
+/* Custom styles */
+
+.corner-ribbon.sticky{
+  position: fixed;
+}
+
+.corner-ribbon.shadow{
+  box-shadow: 0 0 3px rgba(0,0,0,.3);
+}
+
+/* Different positions */
+
+.corner-ribbon.top-left{
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.corner-ribbon.top-right{
+  top: 25px;
+  right: -50px;
+  left: auto;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.corner-ribbon.bottom-left{
+  top: auto;
+  bottom: 25px;
+  left: -50px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.corner-ribbon.bottom-right{
+  top: auto;
+  right: -50px;
+  bottom: 25px;
+  left: auto;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}

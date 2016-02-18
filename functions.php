@@ -29,8 +29,8 @@ unset($file, $filepath);
 
 function my_connection_types() {
     p2p_register_connection_type( array(
-        'name' => 'posts_to_pages',
-        'from' => 'post',
+        'name' => 'highlighted_project',
+        'from' => 'project',
         'to' => 'page'
     ) );
 }
