@@ -59,7 +59,7 @@
         var controller = new ScrollMagic.Controller();
         var scenes = [];
         var nElements = $('section').length;
-
+        var lastMillisecondScrolled = 0;
 
         for (var i = 0; i < nElements; i++){
           var sectionHeight, duration, id, offset, iconHeight;
@@ -82,11 +82,17 @@
             duration =  sectionHeight;
           }
 
+
           scenes[i] = new ScrollMagic.Scene({
             offset: offset, duration: duration
           })
           .addTo(controller);
         }
+
+        globalScene = new ScrollMagic.Scene({
+          offset: 0, duration: $('body').height()
+        });
+        console.log("globalScene",globalScene);
 
         $.each(scenes,function(index,scene){
 
@@ -142,6 +148,47 @@
 
           });
         });
+
+        //magnetism
+        var stopped = true;
+        var respositioning = false;
+        console.log(scenes);
+        $(document).on( 'scroll', 'body', function(){
+          if(!respositioning){
+            var d = new Date();
+            lastMillisecondScrolled = d.getTime();
+            var stopped = false;
+          }
+        });
+
+
+        var repositionIfNeeded = function(){
+          if(!stopped){
+            var d = new Date();
+            currentMillisecond = d.getTime();
+            if(currentMillisecond - lastMillisecondScrolled > 100){
+              //a tenth of a seccond has passed without scroll
+              //reposition
+              stopped = true;
+              respositioning = true;
+
+              // console.log("foo");
+              controller.scrollTo(function (newScrollPos) {
+                $("html, body").animate({scrollTop: newScrollPos},function(){
+                  stopped = true;
+                  respositioning = false;
+                  // console.log("reposition has finished.");
+                });
+              });
+              controller.scrollTo(100);
+            }
+          }
+        };
+
+        //clock
+        var clock = setInterval(function(){
+          repositionIfNeeded();
+        }, 33);
 
       }
     },
