@@ -1,3 +1,23 @@
+// HELPERS
+// TODO: move this as an external library
+jQuery.fn.extend({
+  scrollBottom: function () {
+    return $(this).scrollTop() + $(this).height();
+  },
+  top: function () {
+    return $(this).position().top;
+  },
+  left: function () {
+    return $(this).position().left;
+  },
+  bottom: function () {
+    return $(this).position().top+$(this).height();
+  },
+  right: function () {
+    return $(this).position().left+$(this).width();
+  }
+});
+
 /* ========================================================================
  * DOM-based Routing
  * Based on http://goo.gl/EUTi53 by Paul Irish
@@ -89,11 +109,6 @@
           .addTo(controller);
         }
 
-        globalScene = new ScrollMagic.Scene({
-          offset: 0, duration: $('body').height()
-        });
-        console.log("globalScene",globalScene);
-
         $.each(scenes,function(index,scene){
 
           scene.on("progress", function (event) {
@@ -152,36 +167,65 @@
         //magnetism
         var stopped = true;
         var respositioning = false;
-        console.log(scenes);
-        $(document).on( 'scroll', 'body', function(){
+        var globalScene = new ScrollMagic.Scene({
+          offset: 0, duration: $('body').height() - $(window).height()/2
+        })
+        .addTo(controller);
+        globalScene.on("progress", function (event) {
           if(!respositioning){
             var d = new Date();
             lastMillisecondScrolled = d.getTime();
-            var stopped = false;
+            stopped = false;
           }
         });
 
 
-        var repositionIfNeeded = function(){
-          if(!stopped){
-            var d = new Date();
-            currentMillisecond = d.getTime();
-            if(currentMillisecond - lastMillisecondScrolled > 100){
-              //a tenth of a seccond has passed without scroll
-              //reposition
-              stopped = true;
-              respositioning = true;
 
-              // console.log("foo");
-              controller.scrollTo(function (newScrollPos) {
-                $("html, body").animate({scrollTop: newScrollPos},function(){
-                  stopped = true;
-                  respositioning = false;
-                  // console.log("reposition has finished.");
-                });
-              });
-              controller.scrollTo(100);
-            }
+        var repositionIfNeeded = function(){
+          if(stopped){
+            return;
+          }
+          var d = new Date();
+          currentMillisecond = d.getTime();
+          var millisecondsWithoutScroll = currentMillisecond - lastMillisecondScrolled;
+          if(millisecondsWithoutScroll > 50){
+            //a third of a second has passed without scroll
+            var found = false;
+            $('section').each(function(){
+              if(!found){
+                var offsetTop = $(window).scrollTop() - $(this).top();
+                var offsetMinimum = $('section').first().height() * 0.33;
+                //Dettect if we need to reposition because we are at least than 33% of a bonduary
+
+                if(Math.abs(offsetTop) < offsetMinimum){
+                  found = true;
+                  if(offsetTop === 0){
+                    //stopped
+                    repositioning = false;
+                    stopped = true;
+                  }
+                  else {
+                    //go to this top
+                    respositioning = true;
+                    stopped = true;
+                    closestSectionId = $(this).index();
+                  }
+                }
+
+                if(respositioning){
+                  controller.scrollTo(function (newScrollPos) {
+                    repositioning = true;
+                    stopped = true;
+                    $("html, body").animate({scrollTop: newScrollPos},function(){
+                      stopped = true;
+                      respositioning = false;
+                    });
+                  });
+                  controller.scrollTo($('section').eq(closestSectionId).top());
+                }
+              }
+
+            });
           }
         };
 
