@@ -43,6 +43,12 @@ header {
 .front-page-section:nth-child(even) .section-icon {
 	background-color: $highlight-primary;
 }
+//
+// .front-page-section:nth-child(odd) .section-icon,
+// .front-page-section:nth-child(even) .section-icon {
+// 	background-color: #ddd;
+// 	border: 2px solid white;
+// }
 
 
 .vertical-center {
