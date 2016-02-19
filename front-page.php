@@ -22,14 +22,14 @@ $page_query = new WP_Query( $args );
 					<div class="container section-container">
 						<div class="row">
 
-							<div class=" col-xs-3 col-sm-3">
-								<div class="section-icon-holder pin-<?= $i; ?>">
-									<div class="section-icon section-icon-<?= $i; ?>" style="background-image: url('<?= get_template_directory_uri(); ?>/dist/images/icon<?= $i; ?>.png');">
+								<div class="col-xs-12 col-xs-offset-0 col-md-3 col-md-offset-0">
+									<div class="section-icon-holder">
+										<div class="section-icon section-icon-<?= $i; ?>" style="background-image: url('<?= get_template_directory_uri(); ?>/dist/images/icon<?= $i; ?>.png');">
+										</div>
 									</div>
 								</div>
-							</div>
 
-							<div class="section-text col-xs-7 col-sm-7 col-sm-offset-1">
+							<div class="section-text col-xs-12 col-xs-offset-0 col-md-8 col-md-offset-1">
 								<div class="vertical-center">
 									<div class="holder">
 										<?php
@@ -51,7 +51,7 @@ $page_query = new WP_Query( $args );
 												// Display connected pages
 												if ( $connected->have_posts() ) :
 													?>
-													<div class="project-on-homepage well ribbon-holder">
+													<div class="project-on-homepage well ribbon-holder" style="background-color: #87776b; border-color: #3b2d23">
 														<?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
 															<a href="" class="corner-ribbon top-left shadow">
 																<?=the_title()?>
@@ -63,7 +63,7 @@ $page_query = new WP_Query( $args );
 															<? if( !empty($image) ): ?>
 																<img class="project-image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
 															<?php endif; ?>
-															<a href="/projects">Veure més</a>
+															<a href="/projects" style="color: white; font-weight: bold; text-align:">Veure més</a>
 														<?php endwhile; ?>
 													</div>
 

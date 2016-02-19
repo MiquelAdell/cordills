@@ -1,56 +1,4 @@
-header {
-	display: none;
-}
-
-.home.page .main {
-	margin: 0;
-	padding: 0;
-}
-.home.page {
-	background-color: white;
-	color: black;
-}
-
-.home.page .section-container {
-	overflow: hidden;
-}
-
-.front-page-section {
-	height: 100vh;
-}
-.section-icon {
-	background-repeat: no-repeat;
-	background-position: center center;
-	border-radius: 50%;
-	height: 200px;
-	width: 200px;
-	background-size: contain;
-}
-
-.front-page-section:nth-child(odd) {
-	background-color: $highlight-primary;
-}
-
-.front-page-section:nth-child(even) {
-	background-color: $highlight-secondary;
-}
-
-
-.front-page-section:nth-child(odd) .section-icon {
-	background-color: $highlight-secondary;
-}
-
-.front-page-section:nth-child(even) .section-icon {
-	background-color: $highlight-primary;
-}
-//
-// .front-page-section:nth-child(odd) .section-icon,
-// .front-page-section:nth-child(even) .section-icon {
-// 	background-color: #ddd;
-// 	border: 2px solid white;
-// }
-
-
+// HELPERS
 .vertical-center {
   min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
   min-height: 100vh; /* These two lines are counted as one :-)       */
@@ -60,22 +8,65 @@ header {
 }
 
 
-.section-icon {
-	position: fixed;
-	top: 0;
-
+// HOME PAGE LAYOUT
+header {
+	display: none; // we'll need this eventually
 }
+
+.home.page .main {
+	margin: 0;
+	padding: 0;
+}
+
 
 .front-page-section {
-	position: relative;
-	overflow: hidden;
+	height: 100vh;
 }
 
+.section-icon-holder {
+	height: 100%;
+	padding-bottom: 100%;
+	position: relative;
+}
+.section-icon {
+	background-repeat: no-repeat;
+	background-position: center center;
+	border-radius: 50%;
+	background-size: contain;
+
+	position: absolute;
+	top: 0; bottom: 0; left: 0; right: 0;
+}
+
+
+// .front-page-section:nth-child(odd) .section-icon,
+// .front-page-section:nth-child(even) .section-icon {
+// 	background-color: #ddd;
+// 	border: 2px solid white;
+// }
+
+
+// PROJECT SECTION
 
 .project-image {
 	width: 100%;
+	max-width: 500px;
+	margin: 0 auto;
+	clear: both;
+	display: block;
 }
 
 .project-on-homepage h2 {
 	text-align: center;
+}
+
+// COLORS
+.front-page-section:nth-child(odd),
+.front-page-section:nth-child(even) .section-icon {
+	background-color: $highlight-primary;
+}
+
+.front-page-section:nth-child(even),
+.front-page-section:nth-child(odd) .section-icon {
+	background-color: $highlight-secondary;
 }
