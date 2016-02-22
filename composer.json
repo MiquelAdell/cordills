@@ -1,5 +1,5 @@
 {
-  "name": "cordills/cordills",
+  "name": "miqueladell/cordills",
   "type": "wordpress-theme",
   "license": "MIT",
   "description": "The best WordPress starter theme with a modern front-end development workflow. Based on HTML5 Boilerplate, gulp, Bower, and Bootstrap.",
@@ -22,6 +22,16 @@
    ],
   "require": {
     "php": ">=5.4.0",
-    "composer/installers": "~1.0"
+    "composer/installers": "~1.0",
+    "roots/soil": "3.6.2",
+    "wpackagist-plugin/wp-migrate-db": "^0.7.2",
+    "jjgrainger/wp-custom-post-type-class": "^1.4",
+    "wpackagist-plugin/advanced-custom-fields": "^4.4",
+    "wpackagist-plugin/akismet": "^3.1",
+    "wpackagist-plugin/post-type-switcher": "^1.5",
+    "wpackagist-plugin/posts-to-posts": "^1.6",
+    "wpackagist-plugin/advanced-excerpt": "^4.2.3",
+    "wpackagist-plugin/password-protected": "^2.0.2",
+    "roots/wp-stage-switcher": "2.0.0"
   }
 }
