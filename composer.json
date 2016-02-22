@@ -33,5 +33,17 @@
     "wpackagist-plugin/advanced-excerpt": "^4.2.3",
     "wpackagist-plugin/password-protected": "^2.0.2",
     "roots/wp-stage-switcher": "2.0.0"
+  },
+  "extra": {
+    "installer-paths": {
+      "../../mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "../../plugins/{$name}/": ["type:wordpress-plugin"],
+      "../../themes/{$name}/": ["type:wordpress-theme"]
+    },
+    "wordpress-install-dir": "web/wp"
+  },
+  "require-dev": {
+    "raveren/kint": "^1.0"
+
   }
 }
