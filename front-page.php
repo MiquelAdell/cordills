@@ -35,6 +35,14 @@ $page_query = new WP_Query( $args );
 										<?php
 										get_template_part('templates/page', 'header');
 
+										$call_to_action = null;
+                                        if( get_field( "call_to_action" ) ) {
+                                            ob_start();
+                                            the_field('call_to_action');
+                                            $call_to_action = ob_get_contents();
+                                            ob_end_clean();
+                                        }
+
 										switch($post->ID){
 											case 5; // presentation
 												get_template_part('templates/content', 'page');
@@ -44,14 +52,11 @@ $page_query = new WP_Query( $args );
 												  'nopaging' => true,
 												) );
 
-												ob_start();
-												the_field('call_to_action');
-												$call_to_action = ob_get_contents();
-												ob_end_clean();
+
 												// Display connected pages
-												if ( $connected->have_posts() ) :
+												if ( $connected->have_posts() ) {
 													?>
-													<div class="project-on-homepage well ribbon-holder" style="background-color: #87776b; border-color: #3b2d23">
+													<div class="project-on-homepage well ribbon-holder">
 														<?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
 															<a href="" class="corner-ribbon top-left shadow">
 																<?=the_title()?>
@@ -63,21 +68,46 @@ $page_query = new WP_Query( $args );
 															<? if( !empty($image) ): ?>
 																<img class="project-image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
 															<?php endif; ?>
-															<a href="/projects" style="color: white; font-weight: bold; text-align:">Veure més</a>
+															<a href="/projects">Veure més</a>
 														<?php endwhile; ?>
 													</div>
 
 													<?php
 													// Prevent weirdness
 													wp_reset_postdata();
-													echo $call_to_action;
-												endif;
+												}
 
 
 
 												break;
-											case 7; // areas
+											case 7; // stages
 												get_template_part('templates/content', 'page');
+
+												$args = array(
+													'post_type' => 'stage',
+													'posts_per_page' => -1
+												);
+												$stages = new WP_Query( $args );
+
+												// Display connected pages
+												if ( $stages->have_posts() ) {
+													?>
+													<div>
+														<?php while ( $stages->have_posts() ) : $stages->the_post(); ?>
+															<div class="col-sm-3"> <!-- MARK do you know how it is that 3 does the effect of 2 here? -->
+																<a href="">
+																	<?=the_title()?>
+																</a>
+
+																<p><?=the_content()?></p>
+															</div>
+														<?php endwhile; ?>
+													</div>
+													<?php
+													// Prevent weirdness
+													wp_reset_postdata();
+												}
+
 												break;
 											case 9; // technologies
 												get_template_part('templates/content', 'page');
@@ -86,7 +116,9 @@ $page_query = new WP_Query( $args );
 												get_template_part('templates/content', 'page');
 												break;
 										}
-										?>
+
+                                        ?>
+                                        <div class='call-to-action'><?=$call_to_action?></div>
 									</div>
 								</div>
 							</div>

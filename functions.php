@@ -36,7 +36,105 @@ function my_connection_types() {
 }
 add_action( 'p2p_init', 'my_connection_types' );
 
-include_once('custom-post-types/areas-post-type.php');
-include_once('custom-post-types/projects-post-type.php');
-include_once('custom-post-types/technologies-post-type.php');
-include_once('custom-post-types/testimonials-post-type.php');
+
+//** CUSTOM POST TYPES ** //
+
+// Projects custom post type
+$projects = new CPT(array(
+    'post_type_name' => 'project',
+    'singular' => __('Project'),
+    'plural' => __('Projects'),
+    'slug' => 'project'
+));
+
+$projects->columns(array(
+    'cb' => '<input type="checkbox" />',
+    'title' => __('Name'),
+    'image' => __('Full mockup')
+));
+
+$projects->populate_column('image', function($column, $post) {
+    $image = get_field('full_mockup');
+    echo "<img src='".$image['sizes']['thumbnail']."'>";
+});
+
+$projects->menu_icon("dashicons-desktop");
+
+
+// Stages in the process custom post type
+$stages = new CPT(array(
+    'post_type_name' => 'stage',
+    'singular' => __('Stages in the process'),
+    'plural' => __('Parts of the process'),
+    'slug' => 'stage'
+));
+
+$stages->columns(array(
+    'cb' => '<input type="checkbox" />',
+    'title' => __('Name')
+));
+
+$stages->menu_icon("dashicons-layout");
+
+
+// Technologies custom post type
+$technologies = new CPT(array(
+    'post_type_name' => 'technology',
+    'singular' => __('Technology'),
+    'plural' => __('Technologies'),
+    'slug' => 'technology'
+));
+
+$technologies->register_taxonomy(array(
+    'taxonomy_name' => 'area',
+    'singular' => __('area'),
+    'plural' => __('areas'),
+    'slug' => 'area'
+));
+
+$technologies->columns(array(
+    'cb' => '<input type="checkbox" />',
+    'title' => __('Name')
+));
+
+$technologies->menu_icon("dashicons-awards");
+
+
+// Testimonials custom post type
+$testimonials = new CPT(array(
+    'post_type_name' => 'testimonial',
+    'singular' => __('Testimonial'),
+    'plural' => __('Testimonials'),
+    'slug' => 'testimonial'
+));
+
+$testimonials->columns(array(
+    'cb' => '<input type="checkbox" />',
+    'title' => __('Name'),
+    'company_name' => __('Company name'),
+    'project_name' => __('Project Name'),
+    'date' => __('Date'),
+    'image' => __('Image')
+));
+
+$testimonials->sortable(array(
+    'name' => array('name', false),
+    'company_name' => array('company_name', false),
+    'project_name' => array('project_name', false)
+));
+
+$testimonials->populate_column('company_name', function($column, $post) {
+    echo get_field('company_name');
+});
+
+$testimonials->populate_column('project_name', function($column, $post) {
+    echo get_field('project_name');
+});
+
+$testimonials->populate_column('image', function($column, $post) {
+    $image = get_field('image');
+    ob_start();
+    echo "<a href='".get_edit_post_link()."'><img src='".$image['sizes']['thumbnail']."'></a>";
+});
+
+$testimonials->menu_icon("dashicons-testimonial");
