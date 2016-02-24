@@ -80,37 +80,77 @@ $page_query = new WP_Query( $args );
 
 
 												break;
+
 											case 7; // stages
 												get_template_part('templates/content', 'page');
 
 												$args = array(
+													'post_type' => 'technology',
+													'posts_per_page' => -1,
+													'order'   => 'ASC'
+												);
+												$technologies = new WP_Query( $args );
+
+
+												// Display connected pages
+												if ( $stages->have_posts() ) {
+													?>
+													<?php while ( $stages->have_posts() ) : $stages->the_post(); ?>
+
+														<div class='iconHolder'>
+															<div class='icon'>
+																<i class="<?=get_field('icon')?>"></i>
+																<h2><?=the_title()?></h2>
+															</div>
+														</div>
+
+													<?php endwhile; ?>
+													<?php
+													// Prevent weirdness
+													wp_reset_postdata();
+												}
+												break;
+
+											case 9; // technologies
+												get_template_part('templates/content', 'page');
+
+												$args = array(
 													'post_type' => 'stage',
-													'posts_per_page' => -1
+													'posts_per_page' => -1,
+													'order'   => 'ASC'
 												);
 												$stages = new WP_Query( $args );
 
 												// Display connected pages
 												if ( $stages->have_posts() ) {
 													?>
-													<div>
-														<?php while ( $stages->have_posts() ) : $stages->the_post(); ?>
-															<div class="col-sm-3"> <!-- MARK do you know how it is that 3 does the effect of 2 here? -->
+													<?php while ( $stages->have_posts() ) : $stages->the_post(); ?>
+														<div class=' col-sm-6'>
+															<div class="stage"> <!-- MARK do you know how it is that 3 does the effect of 2 here? -->
 																<a href="">
-																	<?=the_title()?>
+																	<div class="front">
+																		<div class='iconHolder'>
+																			<div class='icon'>
+																				<i class="<?=get_field('icon')?>"></i>
+																				<h2><?=the_title()?></h2>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="back">
+																		<div class='iconHolder'>
+																			<div class='icon'>
+																				<?=the_content()?>
+																			</div>
+																		</div>
+																	</div>
 																</a>
-
-																<p><?=the_content()?></p>
 															</div>
-														<?php endwhile; ?>
-													</div>
+														</div>
+													<?php endwhile; ?>
 													<?php
 													// Prevent weirdness
 													wp_reset_postdata();
-												}
 
-												break;
-											case 9; // technologies
-												get_template_part('templates/content', 'page');
 												break;
 											case 16; // testimonials
 												get_template_part('templates/content', 'page');

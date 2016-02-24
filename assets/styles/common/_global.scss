@@ -1,5 +1,57 @@
+.stage {
+    display: block;
+    text-align: center;
+    height: 250px;
+}
 
+.stage h2 {
+    color: $highlight-secondary;
+    font-size: 2em;
+}
 
+.stage .front {
+}
+
+.stage .back {
+    display: none;
+}
+
+.stage:hover .back {
+    display: block;
+    color: $highlight-secondary;
+    font-weight: bold;
+    text-align: justify;
+}
+
+.stage:hover .front {
+    display: none;
+}
+
+.stage a,
+.stage a:hover {
+
+}
+
+.stage .iconHolder {
+
+}
+
+.stage .icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 5%;
+    background-color: $highlight-primary;
+    padding: 1em;
+    margin: 1em;
+}
+
+.stage .fa {
+    font-size: 6em;
+    color: $highlight-secondary;
+}
 
 .home .well {
     background-color: #87776b;

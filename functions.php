@@ -71,8 +71,13 @@ $stages = new CPT(array(
 
 $stages->columns(array(
     'cb' => '<input type="checkbox" />',
-    'title' => __('Name')
+    'title' => __('Name'),
+    'font_icon' => __('Icon')
 ));
+
+$stages->populate_column('font_icon', function($column, $post) {
+  echo "<i class='".get_field('icon')."'></i> ".get_field('icon');
+});
 
 $stages->menu_icon("dashicons-layout");
 
@@ -94,8 +99,13 @@ $technologies->register_taxonomy(array(
 
 $technologies->columns(array(
     'cb' => '<input type="checkbox" />',
-    'title' => __('Name')
+    'title' => __('Name'),
+    'font_icon' => __('Icon')
 ));
+
+$technologies->populate_column('font_icon', function($column, $post) {
+  echo "<i class='".get_field('icon')."'></i> ".get_field('icon');
+});
 
 $technologies->menu_icon("dashicons-awards");
 
