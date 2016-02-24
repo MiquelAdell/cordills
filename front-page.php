@@ -37,10 +37,15 @@ $page_query = new WP_Query( $args );
 
 										$call_to_action = null;
                                         if( get_field( "call_to_action" ) ) {
-                                            ob_start();
-                                            the_field('call_to_action');
-                                            $call_to_action = ob_get_contents();
-                                            ob_end_clean();
+											ob_start();
+											?>
+											<div class='call_to_action'>
+												<div class='lead'><?=the_field('call_to_action_text')?></div>
+												<a href="<?=the_field('call_to_action_target')?>" class="btn btn-default" role="button"><?=the_field('call_to_action_button_text')?></a>
+											</div>
+											<?php
+											$call_to_action = ob_get_contents();
+											ob_end_clean();
                                         }
 
 										switch($post->ID){
@@ -58,7 +63,7 @@ $page_query = new WP_Query( $args );
 													?>
 													<div class="project-on-homepage well ribbon-holder">
 														<?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
-															<a href="" class="corner-ribbon top-left shadow">
+															<a href="<?=get_permalink()?>" class="corner-ribbon top-left shadow">
 																<?=the_title()?>
 															</a>
 															<?
@@ -68,10 +73,9 @@ $page_query = new WP_Query( $args );
 															<? if( !empty($image) ): ?>
 																<img class="project-image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
 															<?php endif; ?>
-															<a href="/projects">Veure més</a>
+															<a href="/project">Veure més</a>
 														<?php endwhile; ?>
 													</div>
-
 													<?php
 													// Prevent weirdness
 													wp_reset_postdata();
@@ -80,38 +84,7 @@ $page_query = new WP_Query( $args );
 
 
 												break;
-
 											case 7; // stages
-												get_template_part('templates/content', 'page');
-
-												$args = array(
-													'post_type' => 'technology',
-													'posts_per_page' => -1,
-													'order'   => 'ASC'
-												);
-												$technologies = new WP_Query( $args );
-
-
-												// Display connected pages
-												if ( $stages->have_posts() ) {
-													?>
-													<?php while ( $stages->have_posts() ) : $stages->the_post(); ?>
-
-														<div class='iconHolder'>
-															<div class='icon'>
-																<i class="<?=get_field('icon')?>"></i>
-																<h2><?=the_title()?></h2>
-															</div>
-														</div>
-
-													<?php endwhile; ?>
-													<?php
-													// Prevent weirdness
-													wp_reset_postdata();
-												}
-												break;
-
-											case 9; // technologies
 												get_template_part('templates/content', 'page');
 
 												$args = array(
@@ -125,9 +98,9 @@ $page_query = new WP_Query( $args );
 												if ( $stages->have_posts() ) {
 													?>
 													<?php while ( $stages->have_posts() ) : $stages->the_post(); ?>
-														<div class=' col-sm-6'>
-															<div class="stage"> <!-- MARK do you know how it is that 3 does the effect of 2 here? -->
-																<a href="">
+														<div class='col-sm-6'>  <!-- MARK do you know how it is that 3 does the effect of 2 here? -->
+															<div class="stage">
+																<a href="<?=get_permalink()?>">
 																	<div class="front">
 																		<div class='iconHolder'>
 																			<div class='icon'>
@@ -150,15 +123,137 @@ $page_query = new WP_Query( $args );
 													<?php
 													// Prevent weirdness
 													wp_reset_postdata();
+												}
 
 												break;
+
+											case 9; // technologies
+												get_template_part('templates/content', 'page');
+
+												?>
+												<div class="front-page-technologies">
+
+														<?php
+														$areas = get_terms( 'area');
+														foreach($areas as $area){
+															?>
+															<div class='col-sm-3'>
+																<?
+																$args = array(
+																	'post_type' => 'technology',
+																	'posts_per_page' => -1,
+																	'order'   => 'ASC',
+																	'tax_query' => array(
+																		array(
+																			'taxonomy' => 'area',
+																			'field'    => 'slug',
+																			'terms'    => $area->slug,
+																		),
+																	),
+
+																);
+																$technologies = new WP_Query( $args );
+
+																// Display connected pages
+																if ( $technologies->have_posts() ) {
+																	?>
+																	<div class="front-page-technology">
+																		<h2><?=$area->name?></h2>
+																		<div class='icons'>
+																			<?php while ( $technologies->have_posts() ) : $technologies->the_post(); ?>
+																				<span class='icon'>
+																					<a href="<?=get_permalink()?>">
+																						<h3>
+																							<i class="<?=get_field('icon')?>" data-toggle="tooltip" title="<?=the_title()?>"></i>
+																						</h3>
+																					</a>
+																				</span>
+																			<?php endwhile; ?>
+																		</div>
+																		<?php
+																		// Prevent weirdness
+																		wp_reset_postdata();
+																		?>
+																	</div>
+																	<?php
+																}
+																?>
+															</div>
+															<?php
+														}
+														?>
+													</div>
+												<?php
+
+												break;
+
 											case 16; // testimonials
 												get_template_part('templates/content', 'page');
+												?>
+							                    <div class="col-md-8" data-wow-delay="0.2s">
+							                        <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+							                            <!-- Bottom Carousel Indicators -->
+							                            <ol class="carousel-indicators">
+							                                <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive " src="https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg" alt="">
+							                                </li>
+							                                <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive" src="https://s3.amazonaws.com/uifaces/faces/twitter/rssems/128.jpg" alt="">
+							                                </li>
+							                                <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive" src="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg" alt="">
+							                                </li>
+							                            </ol>
+
+							                            <!-- Carousel Slides / Quotes -->
+							                            <div class="carousel-inner text-center">
+
+							                                <!-- Quote 1 -->
+							                                <div class="item active">
+							                                    <blockquote>
+							                                        <div class="row">
+							                                            <div class="col-sm-8 col-sm-offset-2">
+
+							                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. !</p>
+							                                                <small>Someone famous</small>
+							                                            </div>
+							                                        </div>
+							                                    </blockquote>
+							                                </div>
+							                                <!-- Quote 2 -->
+							                                <div class="item">
+							                                    <blockquote>
+							                                        <div class="row">
+							                                            <div class="col-sm-8 col-sm-offset-2">
+
+							                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+							                                                <small>Someone famous</small>
+							                                            </div>
+							                                        </div>
+							                                    </blockquote>
+							                                </div>
+							                                <!-- Quote 3 -->
+							                                <div class="item">
+							                                    <blockquote>
+							                                        <div class="row">
+							                                            <div class="col-sm-8 col-sm-offset-2">
+
+							                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. .</p>
+							                                                <small>Someone famous</small>
+							                                            </div>
+							                                        </div>
+							                                    </blockquote>
+							                                </div>
+							                            </div>
+
+							                            <!-- Carousel Buttons Next/Prev -->
+							                            <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+							                            <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+							                        </div>
+							                    </div>
+
+												<?
 												break;
 										}
-
                                         ?>
-                                        <div class='call-to-action'><?=$call_to_action?></div>
+										<?=$call_to_action?>
 									</div>
 								</div>
 							</div>

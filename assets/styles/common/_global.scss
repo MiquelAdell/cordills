@@ -54,11 +54,32 @@
 }
 
 .home .well {
-    background-color: #87776b;
-    border-color: #3b2d23
+    background-color: $brown;
+    border-color: $brown-darker;
 }
 
 .home .well a {
-    color: #FFF;
+    color: $white;
     font-weight: bold;
+}
+
+.front-page-technology h2 {
+    text-decoration: underline;
+    text-align: center;
+}
+
+.front-page-technology .icons {
+    text-align: center;
+    width: 100%;
+    float: left;
+}
+
+.front-page-technology h3 {
+    display: inline;
+}
+
+.front-page-technology .icon i {
+    float: left;
+    color: $gray-dark;
+    margin: 0 0.5em;
 }
