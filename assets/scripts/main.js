@@ -112,7 +112,7 @@ $(function () { $("[data-toggle='tooltip']").tooltip(); });
             scenes[i] = new ScrollMagic.Scene({
               offset: offset, duration: duration
             })
-            .addIndicators({name: "i: "+i+" offset: "+offset+" duration: "+duration})
+            // .addIndicators({name: "i: "+i+" offset: "+offset+" duration: "+duration})
             .addTo(controller);
           }
 
