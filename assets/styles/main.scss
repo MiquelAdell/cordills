@@ -2,7 +2,7 @@
 
 // Automatically injected Bower dependencies via wiredep (never manually edit this block)
 // bower:scss
-@import '../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
 @import "common/global";
@@ -22,3 +22,4 @@
 
 @import "../../bower_components/font-awesome/scss/font-awesome";
 @import "../../bower_components/font-mfizz/css/font-mfizz";
+@import "components/_testimonials.scss";

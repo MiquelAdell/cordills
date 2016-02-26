@@ -1,57 +1,54 @@
 <?php the_content(); ?>
 <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
 
-<div class="col-md-8" data-wow-delay="0.2s">
+
+<?
+$args = array( 'post_type' => 'testimonial', 'posts_per_page' => 5 );
+$testimonialLoop = new WP_Query( $args );
+?>
+
+
+<div class="col-md-12" data-wow-delay="0.2s" class='quote-carousel-holder'>
     <div class="carousel slide" data-ride="carousel" id="quote-carousel">
-        <!-- Bottom Carousel Indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive " src="https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg" alt="">
-            </li>
-            <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive" src="https://s3.amazonaws.com/uifaces/faces/twitter/rssems/128.jpg" alt="">
-            </li>
-            <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive" src="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg" alt="">
-            </li>
+            <?
+            $i = 0;
+            while ( $testimonialLoop->have_posts() ) : $testimonialLoop->the_post();
+                $image = get_field('image');
+                if( !empty($image) ){
+                    ?>
+                    <li data-target="#quote-carousel" data-slide-to="<?=$i?>" class="
+                        <?php if ($i === 0): ?>active<?php endif ?>
+                    "><img class="img-responsive " src="<?=$image['url']?>" alt="<?=$image['alt']?>"></li>
+                    <?
+                }
+                $i++;
+            endwhile;
+            ?>
         </ol>
 
         <!-- Carousel Slides / Quotes -->
-        <div class="carousel-inner text-center">
+        <div class="carousel-inner text-center ">
 
-            <!-- Quote 1 -->
-            <div class="item active">
-                <blockquote>
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2">
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. !</p>
-                            <small>Someone famous</small>
+            <?
+            $i = 0;
+            while ( $testimonialLoop->have_posts() ) : $testimonialLoop->the_post();
+                ?>
+                <!-- Quote <?=$i?> -->
+                <div class="item
+                    <?php if ($i === 0): ?>active<?php endif ?>
+                ">
+                    <blockquote>
+                        <div>
+                            <div class='excerpt'><? the_excerpt(); ?></div>
+                            <small><? the_title(); ?></small>
                         </div>
-                    </div>
-                </blockquote>
-            </div>
-            <!-- Quote 2 -->
-            <div class="item">
-                <blockquote>
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2">
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-                            <small>Someone famous</small>
-                        </div>
-                    </div>
-                </blockquote>
-            </div>
-            <!-- Quote 3 -->
-            <div class="item">
-                <blockquote>
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2">
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. .</p>
-                            <small>Someone famous</small>
-                        </div>
-                    </div>
-                </blockquote>
-            </div>
+                    </blockquote>
+                </div>
+                <?
+                $i++;
+            endwhile;
+            ?>
         </div>
 
         <!-- Carousel Buttons Next/Prev -->

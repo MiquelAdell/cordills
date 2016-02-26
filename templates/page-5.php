@@ -1,14 +1,14 @@
-<?php the_content(); ?>
-<?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
-
 <?php
 $connected = new WP_Query( array(
   'connected_type' => 'highlighted_project',
   'connected_items' => 5,
   'nopaging' => true,
 ) );
+?>
+<?php the_content(); ?>
+<?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
 
-
+<?php
 // Display connected pages
 if ( $connected->have_posts() ) {
     ?>
@@ -24,7 +24,7 @@ if ( $connected->have_posts() ) {
             <? if( !empty($image) ): ?>
                 <img class="project-image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
             <?php endif; ?>
-            <a href="/project">Veure més</a>
+            <a href="/project"><?=__('See more')?></a>
         <?php endwhile; ?>
     </div>
     <?php

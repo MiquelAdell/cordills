@@ -1,3 +1,18 @@
+<?php
+$call_to_action = null;
+if( get_field( "call_to_action_text" ) ) {
+    ob_start();
+    ?>
+    <div class='call_to_action'>
+        <div class='lead'><?=the_field('call_to_action_text')?></div>
+        <a href="<?=the_field('call_to_action_target')?>" class="btn btn-default" role="button"><?=the_field('call_to_action_button_text')?></a>
+    </div>
+    <?php
+    $call_to_action = ob_get_contents();
+    ob_end_clean();
+}
+?>
+
 <section id="page_id-<?=$post->ID?>" class="front-page-section">
     <div class="vertical-center">
         <div class="container section-container">
@@ -14,20 +29,6 @@
                     <div class="vertical-center">
                         <div class="holder">
                             <?php
-
-
-                            $call_to_action = null;
-                            if( get_field( "call_to_action" ) ) {
-                                ob_start();
-                                ?>
-                                <div class='call_to_action'>
-                                    <div class='lead'><?=the_field('call_to_action_text')?></div>
-                                    <a href="<?=the_field('call_to_action_target')?>" class="btn btn-default" role="button"><?=the_field('call_to_action_button_text')?></a>
-                                </div>
-                                <?php
-                                $call_to_action = ob_get_contents();
-                                ob_end_clean();
-                            }
                             get_template_part('templates/page', 'header');
                             get_template_part('templates/page-'.$post->ID);
                             ?>

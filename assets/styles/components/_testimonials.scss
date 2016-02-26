@@ -1,5 +1,8 @@
 /* Carousel */
-
+.quote-carousel-holder {
+    border: 2px solid black;
+    border-radius: 5px;
+}
 #quote-carousel {
     padding: 0 10px 30px 10px;
     margin-top: 30px;
@@ -11,7 +14,7 @@
 }
 #quote-carousel .carousel-control {
     background: none;
-    color: #CACACA;
+    color: $highlight-primary;
     font-size: 2.3em;
     text-shadow: none;
     margin-top: 30px;
@@ -33,18 +36,18 @@
     height: 50px;
     margin: 5px;
     cursor: pointer;
-    border: 4px solid #CCC;
+    border: 4px solid $brown;
     border-radius: 50px;
     opacity: 0.4;
     overflow: hidden;
     transition: all 0.4s;
 }
 #quote-carousel .carousel-indicators .active {
-    background: #333333;
+    background: $brown;
     width: 128px;
     height: 128px;
     border-radius: 100px;
-    border-color: #f33;
+    border-color: $highlight-primary;
     opacity: 1;
     overflow: hidden;
 }
@@ -60,4 +63,15 @@
     font-family: 'Fontawesome';
     float: left;
     margin-right: 10px;
+}
+
+.item blockquote p:after {
+    content: "\f10e";
+    font-family: 'Fontawesome';
+    float: right;
+    margin-left: 10px;
+}
+
+blockquote small {
+    color: white;
 }
