@@ -1,15 +1,17 @@
 h1 {
-    color: $highlight-primary;
+    color: $title-color;
+    font-family: $font-family-serif;
+    text-align: center;
 }
 
 .page-header {
-	border-bottom-color: $highlight-primary;
+	border-bottom-color: $title-color;
 }
 
-a,
-a:hover {
-    color: $highlight-secondary;
-}
+a
+    color: $link-color;
+    &:hover
+          background: darken($link-color, 80%)
 
 
 
@@ -20,7 +22,7 @@ a:hover {
 }
 
 .stage h2 {
-    color: $highlight-secondary;
+    color: $link-color;
     font-size: 2em;
 }
 
@@ -33,7 +35,7 @@ a:hover {
 
 .stage:hover .back {
     display: block;
-    color: $highlight-secondary;
+    color: $link-color;
     font-weight: bold;
     text-align: justify;
 }
@@ -63,11 +65,11 @@ a:hover {
 
 .stage .fa {
     font-size: 6em;
-    color: $highlight-secondary;
+    color: $link-color;
 }
 
 .home .well {
-    color: $highlight-secondary;
+    color: $link-color;
 }
 
 .home .well a {
@@ -95,6 +97,6 @@ a:hover {
 
 .front-page-technology .icon i {
     float: left;
-    color: $highlight-secondary;
+    color: $link-color;
     margin: 0 0.5em;
 }
