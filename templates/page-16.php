@@ -33,15 +33,35 @@ $testimonialLoop = new WP_Query( $args );
             <?
             $i = 0;
             while ( $testimonialLoop->have_posts() ) : $testimonialLoop->the_post();
+                $testimonial = get_post();
+                // If the text is an excerpt:
+                $connected = new WP_Query( array(
+                  'connected_type' => 'testimonied_project'
+                ) );
+
+                if(true){
+                    $link = "<a href='".get_permalink()."'>".__('read the full testimonial')."</a>";
+                }
+                else {
+                    $link = "<a href='".get_permalink()."'>".__('see the project')."</a>";
+                }
+
                 ?>
-                <!-- Quote <?=$i?> -->
                 <div class="item
                     <?php if ($i === 0): ?>active<?php endif ?>
                 ">
                     <blockquote>
                         <div>
-                            <div class='excerpt'><? the_excerpt(); ?></div>
-                            <small><? the_title(); ?></small>
+                            <div class='excerpt'>
+                                <?php the_excerpt(); ?>
+                                <?=$link?>
+                            </div>
+                            <small>
+                                <? the_title(); ?>
+                                <?php if (!empty(get_field('company_name'))): ?>
+                                    , <?=__('from')?> <?=text_with_link(get_field('company_name'),get_field('company_url'))?>
+                                <?php endif; ?>
+                            </small>
                         </div>
                     </blockquote>
                 </div>

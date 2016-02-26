@@ -58,14 +58,14 @@
     border-left: none;
     margin: 0;
 }
-.item blockquote p:before {
+.item blockquote .excerpt:before {
     content: "\f10d";
     font-family: 'Fontawesome';
     float: left;
     margin-right: 10px;
 }
 
-.item blockquote p:after {
+.item blockquote .excerpt:after {
     content: "\f10e";
     font-family: 'Fontawesome';
     float: right;

@@ -33,8 +33,23 @@ function my_connection_types() {
         'from' => 'project',
         'to' => 'page'
     ) );
+
+    p2p_register_connection_type( array(
+        'name' => 'testimonied_project',
+        'from' => 'project',
+        'to' => 'testimonial'
+    ) );
 }
 add_action( 'p2p_init', 'my_connection_types' );
+
+function text_with_link($text, $link = null) {
+  if($link){
+    return "<a href='".$link."'>".$text."</a>";
+  }
+  else {
+    return $text;
+  }
+}
 
 
 //** CUSTOM POST TYPES ** //
@@ -122,7 +137,6 @@ $testimonials->columns(array(
     'cb' => '<input type="checkbox" />',
     'title' => __('Name'),
     'company_name' => __('Company name'),
-    'project_name' => __('Project Name'),
     'date' => __('Date'),
     'image' => __('Image')
 ));
