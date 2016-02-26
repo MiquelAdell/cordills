@@ -1,0 +1,100 @@
+h1 {
+    color: $highlight-primary;
+}
+
+.page-header {
+	border-bottom-color: $highlight-primary;
+}
+
+a,
+a:hover {
+    color: $highlight-secondary;
+}
+
+
+
+.stage {
+    display: block;
+    text-align: center;
+    height: 250px;
+}
+
+.stage h2 {
+    color: $highlight-secondary;
+    font-size: 2em;
+}
+
+.stage .front {
+}
+
+.stage .back {
+    display: none;
+}
+
+.stage:hover .back {
+    display: block;
+    color: $highlight-secondary;
+    font-weight: bold;
+    text-align: justify;
+}
+
+.stage:hover .front {
+    display: none;
+}
+
+.stage a,
+.stage a:hover {
+
+}
+
+.stage .iconHolder {
+
+}
+
+.stage .icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1em;
+    margin: 1em;
+}
+
+.stage .fa {
+    font-size: 6em;
+    color: $highlight-secondary;
+}
+
+.home .well {
+    color: $highlight-secondary;
+}
+
+.home .well a {
+    font-weight: bold;
+}
+
+.front-page-technology {
+    width: 100%;
+}
+
+.front-page-technology h2 {
+    text-decoration: underline;
+    text-align: center;
+}
+
+.front-page-technology .icons {
+    text-align: center;
+    width: 100%;
+    float: left;
+}
+
+.front-page-technology h3 {
+    display: inline;
+}
+
+.front-page-technology .icon i {
+    float: left;
+    color: $highlight-secondary;
+    margin: 0 0.5em;
+}

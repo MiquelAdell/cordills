@@ -10,7 +10,9 @@
     "bootstrap-sass": "3.3.6",
     "gsap": "GreenSock-JS#^1.18.2",
     "scrollmagic": "2.0.5",
-    "responsive-bootstrap-toolkit": "responsive-toolkit#^2.5.1"
+    "responsive-bootstrap-toolkit": "responsive-toolkit#^2.5.1",
+    "font-awesome": "fontawesome#^4.5.0",
+    "font-mfizz": "^2.0.1"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -45,6 +47,16 @@
         "./scrollmagic/uncompressed/ScrollMagic.js",
         "./scrollmagic/uncompressed/plugins/animation.gsap.js",
         "./scrollmagic/uncompressed/plugins/debug.addIndicators.js"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "./fonts/*"
+      ]
+    },
+    "font-mfizz": {
+      "main": [
+        "./fonts/*"
       ]
     }
   }

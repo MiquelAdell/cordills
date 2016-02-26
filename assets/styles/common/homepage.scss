@@ -39,13 +39,6 @@ header {
 }
 
 
-// .front-page-section:nth-child(odd) .section-icon,
-// .front-page-section:nth-child(even) .section-icon {
-// 	background-color: #ddd;
-// 	border: 2px solid white;
-// }
-
-
 // PROJECT SECTION
 
 .project-image {
@@ -61,12 +54,31 @@ header {
 }
 
 // COLORS
-.front-page-section:nth-child(odd),
-.front-page-section:nth-child(even) .section-icon {
+.front-page-section:nth-child(1) .section-icon {
 	background-color: $highlight-primary;
 }
 
-.front-page-section:nth-child(even),
-.front-page-section:nth-child(odd) .section-icon {
+.front-page-section:nth-child(2) .section-icon {
+	background-color: $red;
+}
+
+.front-page-section:nth-child(3) .section-icon {
 	background-color: $highlight-secondary;
+}
+
+.front-page-section:nth-child(4) .section-icon {
+	background-color: $brown-darker;
+}
+
+
+.front-page-section:nth-child(odd) {
+	background-color: $gray-lighter;
+}
+
+.front-page-section:nth-child(even) {
+}
+
+.front-page-section:nth-child(1) {
+	background-color: $brown-darker;
+	color: white;
 }

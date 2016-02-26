@@ -22,6 +22,9 @@ $.fn.cssNum = function(){
   return parseFloat($.fn.css.apply(this,arguments));
 };
 
+$(function () { $("[data-toggle='tooltip']").tooltip(); });
+
+
 /* ========================================================================
  * DOM-based Routing
  * Based on http://goo.gl/EUTi53 by Paul Irish
@@ -109,7 +112,7 @@ $.fn.cssNum = function(){
             scenes[i] = new ScrollMagic.Scene({
               offset: offset, duration: duration
             })
-            .addIndicators({name: "i: "+i+" offset: "+offset+" duration: "+duration})
+            // .addIndicators({name: "i: "+i+" offset: "+offset+" duration: "+duration})
             .addTo(controller);
           }
 
