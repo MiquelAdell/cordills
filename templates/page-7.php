@@ -15,7 +15,7 @@ if ( $stages->have_posts() ) {
   ?>
   <div clas='row'>
   <?php while ( $stages->have_posts() ) : $stages->the_post(); ?>
-    <div class='col-sm-6'>
+    <div class='col-sm-4 col-sm-offset-1 text-center well'>
       <div class="stage">
         <a href="<?=get_permalink()?>">
           <div class="front">

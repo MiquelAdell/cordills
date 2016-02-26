@@ -1,3 +1,18 @@
+h1 {
+    color: $highlight-primary;
+}
+
+.page-header {
+	border-bottom-color: $highlight-primary;
+}
+
+a,
+a:hover {
+    color: $highlight-secondary;
+}
+
+
+
 .stage {
     display: block;
     text-align: center;
@@ -42,8 +57,6 @@
     bottom: 0;
     left: 0;
     right: 0;
-    border-radius: 5%;
-    background-color: $highlight-primary;
     padding: 1em;
     margin: 1em;
 }
@@ -54,12 +67,10 @@
 }
 
 .home .well {
-    background-color: $brown;
-    border-color: $brown-darker;
+    color: $highlight-secondary;
 }
 
 .home .well a {
-    color: $white;
     font-weight: bold;
 }
 
@@ -84,6 +95,6 @@
 
 .front-page-technology .icon i {
     float: left;
-    color: $gray-dark;
+    color: $highlight-secondary;
     margin: 0 0.5em;
 }
