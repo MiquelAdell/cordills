@@ -13,8 +13,9 @@ $stages = new WP_Query( $args );
 // Display connected pages
 if ( $stages->have_posts() ) {
   ?>
+  <div clas='row'>
   <?php while ( $stages->have_posts() ) : $stages->the_post(); ?>
-    <div class='col-sm-6'>  <!-- MARK do you know how it is that 3 does the effect of 2 here? -->
+    <div class='col-sm-6'>
       <div class="stage">
         <a href="<?=get_permalink()?>">
           <div class="front">
@@ -36,6 +37,7 @@ if ( $stages->have_posts() ) {
       </div>
     </div>
   <?php endwhile; ?>
+  </div>
   <?php
   // Prevent weirdness
   wp_reset_postdata();

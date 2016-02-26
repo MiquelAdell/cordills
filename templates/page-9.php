@@ -1,13 +1,13 @@
 <?php the_content(); ?>
 <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
 
-<div class="front-page-technologies">
+<div class="front-page-technologies col-sm-12"> <!-- //TODO MARK: I'm a bit confused with this -->
 
   <?php
   $areas = get_terms( 'area');
   foreach($areas as $area){
     ?>
-    <div class='col-sm-3'>
+    <div class='col-sm-3 text-center'>
       <?
       $args = array(
         'post_type' => 'technology',
