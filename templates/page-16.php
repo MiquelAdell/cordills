@@ -9,11 +9,13 @@ $testimonialLoop = new WP_Query( $args );
 
 
 <div class="col-md-12" data-wow-delay="0.2s" class='quote-carousel-holder'>
-    <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+    <div class="carousel slide" data-interval="false" data-ride="carousel" id="quote-carousel">
         <ol class="carousel-indicators">
             <?
             $i = 0;
-            while ( $testimonialLoop->have_posts() ) : $testimonialLoop->the_post();
+            while ( $testimonialLoop->have_posts() ) :
+                $testimonialLoop->the_post();
+
                 $image = get_field('image');
                 if( !empty($image) ){
                     ?>
@@ -24,6 +26,7 @@ $testimonialLoop = new WP_Query( $args );
                 }
                 $i++;
             endwhile;
+            wp_reset_postdata();
             ?>
         </ol>
 
@@ -32,18 +35,34 @@ $testimonialLoop = new WP_Query( $args );
 
             <?
             $i = 0;
-            while ( $testimonialLoop->have_posts() ) : $testimonialLoop->the_post();
+            while ( $testimonialLoop->have_posts() ) :
+                $testimonialLoop->the_post();
                 $testimonial = get_post();
+
+                $has_read_more = mb_strpos($testimonial->post_content,'<!--more-->') !== false;
+                $text = get_the_excerpt();
+                if($has_read_more){
+                    $text .= "…";
+                }
                 // If the text is an excerpt:
                 $connected = new WP_Query( array(
-                  'connected_type' => 'testimonied_project'
+                  'connected_type' => 'testimonied_project',
+                  'connected_items' => $testimonial->ID,
+                  'orderby' => 'DESC',
+                  'posts_per_page' => 1
                 ) );
 
-                if(true){
-                    $link = "<a href='".get_permalink()."'>".__('read the full testimonial')."</a>";
+                $connected_project = false;
+                if ( $connected->have_posts() ) {
+                  $connected_project = $connected->post;
                 }
-                else {
-                    $link = "<a href='".get_permalink()."'>".__('see the project')."</a>";
+
+                $link = false;
+                if($has_read_more){
+                    $link = "<div class='read-more-text'><a href='".get_permalink()."'>".__('read the full testimonial')."</a></div>";
+                }
+                else if($connected_project){
+                    $link = "<div class='read-more-text'><a href='".get_permalink()."'>".__('see the project')."</a></div>";
                 }
 
                 ?>
@@ -52,22 +71,23 @@ $testimonialLoop = new WP_Query( $args );
                 ">
                     <blockquote>
                         <div>
-                            <div class='excerpt'>
-                                <?php the_excerpt(); ?>
-                                <?=$link?>
-                            </div>
+                            <div class='excerpt'><?=$text?></div>
                             <small>
-                                <? the_title(); ?>
-                                <?php if (!empty(get_field('company_name'))): ?>
-                                    , <?=__('from')?> <?=text_with_link(get_field('company_name'),get_field('company_url'))?>
-                                <?php endif; ?>
+                                <?
+                                the_title();
+                                if (!empty(get_field('company_name'))) {
+                                    echo ", ".__('from')." ".text_with_link(get_field('company_name'),get_field('company_url'));
+                                }
+                                ?>
                             </small>
+                            <?=$link?>
                         </div>
                     </blockquote>
                 </div>
                 <?
                 $i++;
             endwhile;
+            wp_reset_postdata();
             ?>
         </div>
 
