@@ -8,11 +8,12 @@ h1 {
 	border-bottom-color: $title-color;
 }
 
-a
+a {
     color: $link-color;
-    &:hover
-          background: darken($link-color, 80%)
-
+}
+    a:hover {
+          background: darken($link-color, 80%);
+    }
 
 
 .stage {
