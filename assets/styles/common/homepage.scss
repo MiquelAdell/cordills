@@ -55,19 +55,19 @@ header {
 
 // COLORS
 .front-page-section:nth-child(1) .section-icon {
-	background-color: $highlight-primary;
+	background-color: $scene-1-color;
 }
 
 .front-page-section:nth-child(2) .section-icon {
-	background-color: $red;
+	background-color: $scene-2-color;
 }
 
 .front-page-section:nth-child(3) .section-icon {
-	background-color: $highlight-secondary;
+	background-color: $scene-3-color;
 }
 
 .front-page-section:nth-child(4) .section-icon {
-	background-color: $brown-darker;
+	background-color: $scene-4-color;
 }
 
 
@@ -79,6 +79,6 @@ header {
 }
 
 .front-page-section:nth-child(1) {
-	background-color: $brown-darker;
+	background-color: $darkest-background-color;
 	color: white;
 }
