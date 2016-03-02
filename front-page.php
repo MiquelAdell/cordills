@@ -16,7 +16,7 @@ $page_query = new WP_Query( $args );
 	<div class="front-page-sections">
 
 		<?php while( $page_query->have_posts() ) : $page_query->the_post(); ?>
-			<? get_template_part('templates/page-section'); ?>
+			<?php get_template_part('templates/page-section'); ?>
 		<?php endwhile; ?>
 	</div> <!-- eo .front-page-sections -->
 <?php else:

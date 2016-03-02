@@ -17,11 +17,11 @@ if ( $connected->have_posts() ) {
             <a href="<?=get_permalink()?>" class="corner-ribbon top-left shadow">
                 <?=the_title()?>
             </a>
-            <?
+            <?php
             $image = get_field('full_mockup');
             ?>
 
-            <? if( !empty($image) ): ?>
+            <?php if( !empty($image) ): ?>
                 <img class="project-image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
             <?php endif; ?>
             <a href="/project"><?=__('See more')?></a>
