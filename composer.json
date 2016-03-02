@@ -33,7 +33,8 @@
     "wpackagist-plugin/advanced-excerpt": "^4.2.3",
     "wpackagist-plugin/password-protected": "^2.0.2",
     "roots/wp-stage-switcher": "2.0.0",
-    "roots/wp-password-bcrypt": "^1.0"
+    "roots/wp-password-bcrypt": "^1.0",
+    "wpackagist-plugin/kau-boys-backend-localization": "^2.1"
   },
   "extra": {
     "installer-paths": {
