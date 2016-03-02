@@ -157,7 +157,6 @@ $testimonials->populate_column('project_name', function($column, $post) {
 
 $testimonials->populate_column('image', function($column, $post) {
     $image = get_field('image');
-    ob_start();
     echo "<a href='".get_edit_post_link()."'><img src='".$image['sizes']['thumbnail']."'></a>";
 });
 

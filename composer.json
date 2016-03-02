@@ -32,7 +32,8 @@
     "wpackagist-plugin/posts-to-posts": "^1.6",
     "wpackagist-plugin/advanced-excerpt": "^4.2.3",
     "wpackagist-plugin/password-protected": "^2.0.2",
-    "roots/wp-stage-switcher": "2.0.0"
+    "roots/wp-stage-switcher": "2.0.0",
+    "roots/wp-password-bcrypt": "^1.0"
   },
   "extra": {
     "installer-paths": {
