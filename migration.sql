@@ -1,26 +1,29 @@
-# WordPress MySQL database migration
+# ************************************************************
+# Sequel Pro SQL dump
+# Version 4529
 #
-# Generated: Wednesday 2. March 2016 14:18 UTC
-# Hostname: localhost
-# Database: `example_dev`
-# --------------------------------------------------------
-
-/*!40101 SET NAMES utf8mb4 */;
-
-SET sql_mode='NO_AUTO_VALUE_ON_ZERO';
-
-
-
+# http://www.sequelpro.com/
+# https://github.com/sequelpro/sequelpro
 #
-# Delete any existing table `wp_commentmeta`
-#
+# Host: 127.0.0.1 (MySQL 5.5.47-0ubuntu0.14.04.1)
+# Database: wordpress_default
+# Generation Time: 2016-03-02 15:43:33 +0000
+# ************************************************************
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table wp_commentmeta
+# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `wp_commentmeta`;
-
-
-#
-# Table structure of table `wp_commentmeta`
-#
 
 CREATE TABLE `wp_commentmeta` (
   `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -33,26 +36,11 @@ CREATE TABLE `wp_commentmeta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-#
-# Data contents of table `wp_commentmeta`
-#
 
-#
-# End of data contents of table `wp_commentmeta`
-# --------------------------------------------------------
-
-
-
-#
-# Delete any existing table `wp_comments`
-#
+# Dump of table wp_comments
+# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `wp_comments`;
-
-
-#
-# Table structure of table `wp_comments`
-#
 
 CREATE TABLE `wp_comments` (
   `comment_ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -79,26 +67,11 @@ CREATE TABLE `wp_comments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-#
-# Data contents of table `wp_comments`
-#
 
-#
-# End of data contents of table `wp_comments`
-# --------------------------------------------------------
-
-
-
-#
-# Delete any existing table `wp_links`
-#
+# Dump of table wp_links
+# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `wp_links`;
-
-
-#
-# Table structure of table `wp_links`
-#
 
 CREATE TABLE `wp_links` (
   `link_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -119,26 +92,11 @@ CREATE TABLE `wp_links` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-#
-# Data contents of table `wp_links`
-#
 
-#
-# End of data contents of table `wp_links`
-# --------------------------------------------------------
-
-
-
-#
-# Delete any existing table `wp_options`
-#
+# Dump of table wp_options
+# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `wp_options`;
-
-
-#
-# Table structure of table `wp_options`
-#
 
 CREATE TABLE `wp_options` (
   `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -147,157 +105,173 @@ CREATE TABLE `wp_options` (
   `autoload` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'yes',
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=402 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+LOCK TABLES `wp_options` WRITE;
+/*!40000 ALTER TABLE `wp_options` DISABLE KEYS */;
+
+INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`)
+VALUES
+	(1,'siteurl','http://local.wordpress.dev/','yes'),
+	(2,'home','http://local.wordpress.dev/','yes'),
+	(3,'blogname','Miquel Adell','yes'),
+	(4,'blogdescription','Programador freelance: Creo pàgines amb WordPress, pico PHP, commitejo Gits, administro servidors, faig coses al núvol','yes'),
+	(5,'users_can_register','0','yes'),
+	(6,'admin_email','miquel@miqueladell.com','yes'),
+	(7,'start_of_week','1','yes'),
+	(8,'use_balanceTags','0','yes'),
+	(9,'use_smilies','1','yes'),
+	(10,'require_name_email','1','yes'),
+	(11,'comments_notify','1','yes'),
+	(12,'posts_per_rss','10','yes'),
+	(13,'rss_use_excerpt','0','yes'),
+	(14,'mailserver_url','mail.example.com','yes'),
+	(15,'mailserver_login','login@example.com','yes'),
+	(16,'mailserver_pass','password','yes'),
+	(17,'mailserver_port','110','yes'),
+	(18,'default_category','1','yes'),
+	(19,'default_comment_status','open','yes'),
+	(20,'default_ping_status','open','yes'),
+	(21,'default_pingback_flag','1','yes'),
+	(22,'posts_per_page','10','yes'),
+	(23,'date_format','F j, Y','yes'),
+	(24,'time_format','g:i a','yes'),
+	(25,'links_updated_date_format','F j, Y g:i a','yes'),
+	(26,'comment_moderation','0','yes'),
+	(27,'moderation_notify','1','yes'),
+	(28,'permalink_structure','/%postname%/','yes'),
+	(29,'hack_file','0','yes'),
+	(30,'blog_charset','UTF-8','yes'),
+	(31,'moderation_keys','','no'),
+	(32,'active_plugins','a:6:{i:0;s:30:\"advanced-custom-fields/acf.php\";i:1;s:37:\"advanced-excerpt/advanced-excerpt.php\";i:3;s:54:\"kau-boys-backend-localization/backend_localization.php\";i:4;s:41:\"post-type-switcher/post-type-switcher.php\";i:5;s:33:\"posts-to-posts/posts-to-posts.php\";i:7;s:31:\"wp-migrate-db/wp-migrate-db.php\";}','yes'),
+	(33,'category_base','','yes'),
+	(34,'ping_sites','http://rpc.pingomatic.com/','yes'),
+	(35,'comment_max_links','2','yes'),
+	(36,'gmt_offset','','yes'),
+	(37,'default_email_category','1','yes'),
+	(38,'recently_edited','','no'),
+	(39,'template','cordills','yes'),
+	(40,'stylesheet','cordills','yes'),
+	(41,'comment_whitelist','1','yes'),
+	(42,'blacklist_keys','','no'),
+	(43,'comment_registration','0','yes'),
+	(44,'html_type','text/html','yes'),
+	(45,'use_trackback','0','yes'),
+	(46,'default_role','subscriber','yes'),
+	(47,'db_version','35700','yes'),
+	(48,'uploads_use_yearmonth_folders','1','yes'),
+	(49,'upload_path','','yes'),
+	(50,'blog_public','1','yes'),
+	(51,'default_link_category','2','yes'),
+	(52,'show_on_front','page','yes'),
+	(53,'tag_base','','yes'),
+	(54,'show_avatars','1','yes'),
+	(55,'avatar_rating','G','yes'),
+	(56,'upload_url_path','','yes'),
+	(57,'thumbnail_size_w','150','yes'),
+	(58,'thumbnail_size_h','150','yes'),
+	(59,'thumbnail_crop','1','yes'),
+	(60,'medium_size_w','300','yes'),
+	(61,'medium_size_h','300','yes'),
+	(62,'avatar_default','mystery','yes'),
+	(63,'large_size_w','1024','yes'),
+	(64,'large_size_h','1024','yes'),
+	(65,'image_default_link_type','none','yes'),
+	(66,'image_default_size','','yes'),
+	(67,'image_default_align','','yes'),
+	(68,'close_comments_for_old_posts','0','yes'),
+	(69,'close_comments_days_old','14','yes'),
+	(70,'thread_comments','1','yes'),
+	(71,'thread_comments_depth','5','yes'),
+	(72,'page_comments','0','yes'),
+	(73,'comments_per_page','50','yes'),
+	(74,'default_comments_page','newest','yes'),
+	(75,'comment_order','asc','yes'),
+	(76,'sticky_posts','a:0:{}','yes'),
+	(77,'widget_categories','a:2:{i:2;a:4:{s:5:\"title\";s:0:\"\";s:5:\"count\";i:0;s:12:\"hierarchical\";i:0;s:8:\"dropdown\";i:0;}s:12:\"_multiwidget\";i:1;}','yes'),
+	(78,'widget_text','a:2:{i:1;a:0:{}s:12:\"_multiwidget\";i:1;}','yes'),
+	(79,'widget_rss','a:2:{i:1;a:0:{}s:12:\"_multiwidget\";i:1;}','yes'),
+	(80,'uninstall_plugins','a:1:{s:33:\"posts-to-posts/posts-to-posts.php\";a:2:{i:0;s:11:\"P2P_Storage\";i:1;s:9:\"uninstall\";}}','no'),
+	(81,'timezone_string','Europe/Madrid','yes'),
+	(82,'page_for_posts','0','yes'),
+	(83,'page_on_front','2','yes'),
+	(84,'default_post_format','0','yes'),
+	(85,'link_manager_enabled','0','yes'),
+	(86,'finished_splitting_shared_terms','1','yes'),
+	(87,'site_icon','0','yes'),
+	(88,'medium_large_size_w','768','yes'),
+	(89,'medium_large_size_h','0','yes'),
+	(90,'initial_db_version','35700','yes'),
+	(91,'wp_user_roles','a:5:{s:13:\"administrator\";a:2:{s:4:\"name\";s:13:\"Administrator\";s:12:\"capabilities\";a:61:{s:13:\"switch_themes\";b:1;s:11:\"edit_themes\";b:1;s:16:\"activate_plugins\";b:1;s:12:\"edit_plugins\";b:1;s:10:\"edit_users\";b:1;s:10:\"edit_files\";b:1;s:14:\"manage_options\";b:1;s:17:\"moderate_comments\";b:1;s:17:\"manage_categories\";b:1;s:12:\"manage_links\";b:1;s:12:\"upload_files\";b:1;s:6:\"import\";b:1;s:15:\"unfiltered_html\";b:1;s:10:\"edit_posts\";b:1;s:17:\"edit_others_posts\";b:1;s:20:\"edit_published_posts\";b:1;s:13:\"publish_posts\";b:1;s:10:\"edit_pages\";b:1;s:4:\"read\";b:1;s:8:\"level_10\";b:1;s:7:\"level_9\";b:1;s:7:\"level_8\";b:1;s:7:\"level_7\";b:1;s:7:\"level_6\";b:1;s:7:\"level_5\";b:1;s:7:\"level_4\";b:1;s:7:\"level_3\";b:1;s:7:\"level_2\";b:1;s:7:\"level_1\";b:1;s:7:\"level_0\";b:1;s:17:\"edit_others_pages\";b:1;s:20:\"edit_published_pages\";b:1;s:13:\"publish_pages\";b:1;s:12:\"delete_pages\";b:1;s:19:\"delete_others_pages\";b:1;s:22:\"delete_published_pages\";b:1;s:12:\"delete_posts\";b:1;s:19:\"delete_others_posts\";b:1;s:22:\"delete_published_posts\";b:1;s:20:\"delete_private_posts\";b:1;s:18:\"edit_private_posts\";b:1;s:18:\"read_private_posts\";b:1;s:20:\"delete_private_pages\";b:1;s:18:\"edit_private_pages\";b:1;s:18:\"read_private_pages\";b:1;s:12:\"delete_users\";b:1;s:12:\"create_users\";b:1;s:17:\"unfiltered_upload\";b:1;s:14:\"edit_dashboard\";b:1;s:14:\"update_plugins\";b:1;s:14:\"delete_plugins\";b:1;s:15:\"install_plugins\";b:1;s:13:\"update_themes\";b:1;s:14:\"install_themes\";b:1;s:11:\"update_core\";b:1;s:10:\"list_users\";b:1;s:12:\"remove_users\";b:1;s:13:\"promote_users\";b:1;s:18:\"edit_theme_options\";b:1;s:13:\"delete_themes\";b:1;s:6:\"export\";b:1;}}s:6:\"editor\";a:2:{s:4:\"name\";s:6:\"Editor\";s:12:\"capabilities\";a:34:{s:17:\"moderate_comments\";b:1;s:17:\"manage_categories\";b:1;s:12:\"manage_links\";b:1;s:12:\"upload_files\";b:1;s:15:\"unfiltered_html\";b:1;s:10:\"edit_posts\";b:1;s:17:\"edit_others_posts\";b:1;s:20:\"edit_published_posts\";b:1;s:13:\"publish_posts\";b:1;s:10:\"edit_pages\";b:1;s:4:\"read\";b:1;s:7:\"level_7\";b:1;s:7:\"level_6\";b:1;s:7:\"level_5\";b:1;s:7:\"level_4\";b:1;s:7:\"level_3\";b:1;s:7:\"level_2\";b:1;s:7:\"level_1\";b:1;s:7:\"level_0\";b:1;s:17:\"edit_others_pages\";b:1;s:20:\"edit_published_pages\";b:1;s:13:\"publish_pages\";b:1;s:12:\"delete_pages\";b:1;s:19:\"delete_others_pages\";b:1;s:22:\"delete_published_pages\";b:1;s:12:\"delete_posts\";b:1;s:19:\"delete_others_posts\";b:1;s:22:\"delete_published_posts\";b:1;s:20:\"delete_private_posts\";b:1;s:18:\"edit_private_posts\";b:1;s:18:\"read_private_posts\";b:1;s:20:\"delete_private_pages\";b:1;s:18:\"edit_private_pages\";b:1;s:18:\"read_private_pages\";b:1;}}s:6:\"author\";a:2:{s:4:\"name\";s:6:\"Author\";s:12:\"capabilities\";a:10:{s:12:\"upload_files\";b:1;s:10:\"edit_posts\";b:1;s:20:\"edit_published_posts\";b:1;s:13:\"publish_posts\";b:1;s:4:\"read\";b:1;s:7:\"level_2\";b:1;s:7:\"level_1\";b:1;s:7:\"level_0\";b:1;s:12:\"delete_posts\";b:1;s:22:\"delete_published_posts\";b:1;}}s:11:\"contributor\";a:2:{s:4:\"name\";s:11:\"Contributor\";s:12:\"capabilities\";a:5:{s:10:\"edit_posts\";b:1;s:4:\"read\";b:1;s:7:\"level_1\";b:1;s:7:\"level_0\";b:1;s:12:\"delete_posts\";b:1;}}s:10:\"subscriber\";a:2:{s:4:\"name\";s:10:\"Subscriber\";s:12:\"capabilities\";a:2:{s:4:\"read\";b:1;s:7:\"level_0\";b:1;}}}','yes'),
+	(92,'widget_search','a:2:{i:2;a:1:{s:5:\"title\";s:0:\"\";}s:12:\"_multiwidget\";i:1;}','yes'),
+	(93,'widget_recent-posts','a:2:{i:2;a:2:{s:5:\"title\";s:0:\"\";s:6:\"number\";i:5;}s:12:\"_multiwidget\";i:1;}','yes'),
+	(94,'widget_recent-comments','a:2:{i:2;a:2:{s:5:\"title\";s:0:\"\";s:6:\"number\";i:5;}s:12:\"_multiwidget\";i:1;}','yes'),
+	(95,'widget_archives','a:2:{i:2;a:3:{s:5:\"title\";s:0:\"\";s:5:\"count\";i:0;s:8:\"dropdown\";i:0;}s:12:\"_multiwidget\";i:1;}','yes'),
+	(96,'widget_meta','a:2:{i:2;a:1:{s:5:\"title\";s:0:\"\";}s:12:\"_multiwidget\";i:1;}','yes'),
+	(97,'sidebars_widgets','a:4:{s:19:\"wp_inactive_widgets\";a:0:{}s:15:\"sidebar-primary\";a:6:{i:0;s:8:\"search-2\";i:1;s:14:\"recent-posts-2\";i:2;s:17:\"recent-comments-2\";i:3;s:10:\"archives-2\";i:4;s:12:\"categories-2\";i:5;s:6:\"meta-2\";}s:14:\"sidebar-footer\";N;s:13:\"array_version\";i:3;}','yes'),
+	(100,'bedrock_autoloader','a:2:{s:7:\"plugins\";a:0:{}s:5:\"count\";i:0;}','yes'),
+	(101,'widget_pages','a:1:{s:12:\"_multiwidget\";i:1;}','yes'),
+	(102,'widget_calendar','a:1:{s:12:\"_multiwidget\";i:1;}','yes'),
+	(103,'widget_tag_cloud','a:1:{s:12:\"_multiwidget\";i:1;}','yes'),
+	(104,'widget_nav_menu','a:1:{s:12:\"_multiwidget\";i:1;}','yes'),
+	(105,'cron','a:4:{i:1456963740;a:3:{s:16:\"wp_version_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:17:\"wp_update_plugins\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:16:\"wp_update_themes\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1457007841;a:1:{s:19:\"wp_scheduled_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1457012128;a:1:{s:30:\"wp_scheduled_auto_draft_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}s:7:\"version\";i:2;}','yes'),
+	(113,'auth_key','o#) .Nty.Yo^T1j9-cSyst~|$w Et:3GNjh6-b5)DLZ>t]V%{y8Wpb7!xqfD[LVO','yes'),
+	(114,'auth_salt','gi)&edO&M>eC_!4]%ZF.XoVYwl&2||)vThw!Ca2QD*ZAU0<:=<A?2^99#4Z=b6Gw','yes'),
+	(115,'logged_in_key','v% vd&zo8RgB_q4ybQ3^DrH`|a*,A}]v6Viy6C=.$O+R]hj0t?@@,=]YXC?=1DOj','yes'),
+	(116,'logged_in_salt','YVnz#zF?^x~,3zw@IFxi|bQh;z@ DB5o][x27m0J:L7W`TaPvZq{:K51t~D a4=C','yes'),
+	(117,'nonce_key','P<=:k@n^8K!va;Oy@H^(FbRel}*?`1%UE@Ag6MbCoo?k0qCu>Z_3U6JSLqj8B,Y(','yes'),
+	(118,'nonce_salt','+LOaA#p+eU83RleBy$DRcK+y2uvD7H)tzL&vSHsbQ5Zaz?0o=J(>BYVaV^+8)CjR','yes'),
+	(121,'can_compress_scripts','0','yes'),
+	(139,'recently_activated','a:1:{s:41:\"password-protected/password-protected.php\";i:1456495676;}','yes'),
+	(142,'theme_mods_sage','a:1:{s:16:\"sidebars_widgets\";a:2:{s:4:\"time\";i:1454072630;s:4:\"data\";a:2:{s:19:\"wp_inactive_widgets\";a:0:{}s:9:\"sidebar-1\";a:6:{i:0;s:8:\"search-2\";i:1;s:14:\"recent-posts-2\";i:2;s:17:\"recent-comments-2\";i:3;s:10:\"archives-2\";i:4;s:12:\"categories-2\";i:5;s:6:\"meta-2\";}}}}','yes'),
+	(143,'current_theme','Sage Starter Theme','yes'),
+	(144,'theme_mods_cordills','a:2:{i:0;b:0;s:18:\"nav_menu_locations\";a:1:{s:18:\"primary_navigation\";i:3;}}','yes'),
+	(145,'theme_switched','','yes'),
+	(155,'acf_version','4.4.5','yes'),
+	(222,'widget_p2p','a:1:{s:12:\"_multiwidget\";i:1;}','yes'),
+	(223,'p2p_storage','4','yes'),
+	(226,'category_children','a:0:{}','yes'),
+	(240,'WPLANG','','yes'),
+	(248,'widget_akismet_widget','a:1:{s:12:\"_multiwidget\";i:1;}','yes'),
+	(280,'rewrite_rules','a:144:{s:11:\"^wp-json/?$\";s:22:\"index.php?rest_route=/\";s:14:\"^wp-json/(.*)?\";s:33:\"index.php?rest_route=/$matches[1]\";s:47:\"category/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$\";s:52:\"index.php?category_name=$matches[1]&feed=$matches[2]\";s:42:\"category/(.+?)/(feed|rdf|rss|rss2|atom)/?$\";s:52:\"index.php?category_name=$matches[1]&feed=$matches[2]\";s:35:\"category/(.+?)/page/?([0-9]{1,})/?$\";s:53:\"index.php?category_name=$matches[1]&paged=$matches[2]\";s:17:\"category/(.+?)/?$\";s:35:\"index.php?category_name=$matches[1]\";s:44:\"tag/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$\";s:42:\"index.php?tag=$matches[1]&feed=$matches[2]\";s:39:\"tag/([^/]+)/(feed|rdf|rss|rss2|atom)/?$\";s:42:\"index.php?tag=$matches[1]&feed=$matches[2]\";s:32:\"tag/([^/]+)/page/?([0-9]{1,})/?$\";s:43:\"index.php?tag=$matches[1]&paged=$matches[2]\";s:14:\"tag/([^/]+)/?$\";s:25:\"index.php?tag=$matches[1]\";s:45:\"type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$\";s:50:\"index.php?post_format=$matches[1]&feed=$matches[2]\";s:40:\"type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$\";s:50:\"index.php?post_format=$matches[1]&feed=$matches[2]\";s:33:\"type/([^/]+)/page/?([0-9]{1,})/?$\";s:51:\"index.php?post_format=$matches[1]&paged=$matches[2]\";s:15:\"type/([^/]+)/?$\";s:33:\"index.php?post_format=$matches[1]\";s:32:\"area/[^/]+/attachment/([^/]+)/?$\";s:32:\"index.php?attachment=$matches[1]\";s:42:\"area/[^/]+/attachment/([^/]+)/trackback/?$\";s:37:\"index.php?attachment=$matches[1]&tb=1\";s:62:\"area/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:57:\"area/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:57:\"area/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$\";s:50:\"index.php?attachment=$matches[1]&cpage=$matches[2]\";s:38:\"area/[^/]+/attachment/([^/]+)/embed/?$\";s:43:\"index.php?attachment=$matches[1]&embed=true\";s:21:\"area/([^/]+)/embed/?$\";s:37:\"index.php?area=$matches[1]&embed=true\";s:25:\"area/([^/]+)/trackback/?$\";s:31:\"index.php?area=$matches[1]&tb=1\";s:33:\"area/([^/]+)/page/?([0-9]{1,})/?$\";s:44:\"index.php?area=$matches[1]&paged=$matches[2]\";s:40:\"area/([^/]+)/comment-page-([0-9]{1,})/?$\";s:44:\"index.php?area=$matches[1]&cpage=$matches[2]\";s:29:\"area/([^/]+)(?:/([0-9]+))?/?$\";s:43:\"index.php?area=$matches[1]&page=$matches[2]\";s:21:\"area/[^/]+/([^/]+)/?$\";s:32:\"index.php?attachment=$matches[1]\";s:31:\"area/[^/]+/([^/]+)/trackback/?$\";s:37:\"index.php?attachment=$matches[1]&tb=1\";s:51:\"area/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:46:\"area/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:46:\"area/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$\";s:50:\"index.php?attachment=$matches[1]&cpage=$matches[2]\";s:27:\"area/[^/]+/([^/]+)/embed/?$\";s:43:\"index.php?attachment=$matches[1]&embed=true\";s:35:\"project/[^/]+/attachment/([^/]+)/?$\";s:32:\"index.php?attachment=$matches[1]\";s:45:\"project/[^/]+/attachment/([^/]+)/trackback/?$\";s:37:\"index.php?attachment=$matches[1]&tb=1\";s:65:\"project/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:60:\"project/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:60:\"project/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$\";s:50:\"index.php?attachment=$matches[1]&cpage=$matches[2]\";s:41:\"project/[^/]+/attachment/([^/]+)/embed/?$\";s:43:\"index.php?attachment=$matches[1]&embed=true\";s:24:\"project/([^/]+)/embed/?$\";s:40:\"index.php?project=$matches[1]&embed=true\";s:28:\"project/([^/]+)/trackback/?$\";s:34:\"index.php?project=$matches[1]&tb=1\";s:36:\"project/([^/]+)/page/?([0-9]{1,})/?$\";s:47:\"index.php?project=$matches[1]&paged=$matches[2]\";s:43:\"project/([^/]+)/comment-page-([0-9]{1,})/?$\";s:47:\"index.php?project=$matches[1]&cpage=$matches[2]\";s:32:\"project/([^/]+)(?:/([0-9]+))?/?$\";s:46:\"index.php?project=$matches[1]&page=$matches[2]\";s:24:\"project/[^/]+/([^/]+)/?$\";s:32:\"index.php?attachment=$matches[1]\";s:34:\"project/[^/]+/([^/]+)/trackback/?$\";s:37:\"index.php?attachment=$matches[1]&tb=1\";s:54:\"project/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:49:\"project/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:49:\"project/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$\";s:50:\"index.php?attachment=$matches[1]&cpage=$matches[2]\";s:30:\"project/[^/]+/([^/]+)/embed/?$\";s:43:\"index.php?attachment=$matches[1]&embed=true\";s:38:\"technology/[^/]+/attachment/([^/]+)/?$\";s:32:\"index.php?attachment=$matches[1]\";s:48:\"technology/[^/]+/attachment/([^/]+)/trackback/?$\";s:37:\"index.php?attachment=$matches[1]&tb=1\";s:68:\"technology/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:63:\"technology/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:63:\"technology/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$\";s:50:\"index.php?attachment=$matches[1]&cpage=$matches[2]\";s:44:\"technology/[^/]+/attachment/([^/]+)/embed/?$\";s:43:\"index.php?attachment=$matches[1]&embed=true\";s:27:\"technology/([^/]+)/embed/?$\";s:43:\"index.php?technology=$matches[1]&embed=true\";s:31:\"technology/([^/]+)/trackback/?$\";s:37:\"index.php?technology=$matches[1]&tb=1\";s:39:\"technology/([^/]+)/page/?([0-9]{1,})/?$\";s:50:\"index.php?technology=$matches[1]&paged=$matches[2]\";s:46:\"technology/([^/]+)/comment-page-([0-9]{1,})/?$\";s:50:\"index.php?technology=$matches[1]&cpage=$matches[2]\";s:35:\"technology/([^/]+)(?:/([0-9]+))?/?$\";s:49:\"index.php?technology=$matches[1]&page=$matches[2]\";s:27:\"technology/[^/]+/([^/]+)/?$\";s:32:\"index.php?attachment=$matches[1]\";s:37:\"technology/[^/]+/([^/]+)/trackback/?$\";s:37:\"index.php?attachment=$matches[1]&tb=1\";s:57:\"technology/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:52:\"technology/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:52:\"technology/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$\";s:50:\"index.php?attachment=$matches[1]&cpage=$matches[2]\";s:33:\"technology/[^/]+/([^/]+)/embed/?$\";s:43:\"index.php?attachment=$matches[1]&embed=true\";s:39:\"testimonial/[^/]+/attachment/([^/]+)/?$\";s:32:\"index.php?attachment=$matches[1]\";s:49:\"testimonial/[^/]+/attachment/([^/]+)/trackback/?$\";s:37:\"index.php?attachment=$matches[1]&tb=1\";s:69:\"testimonial/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:64:\"testimonial/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:64:\"testimonial/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$\";s:50:\"index.php?attachment=$matches[1]&cpage=$matches[2]\";s:45:\"testimonial/[^/]+/attachment/([^/]+)/embed/?$\";s:43:\"index.php?attachment=$matches[1]&embed=true\";s:28:\"testimonial/([^/]+)/embed/?$\";s:44:\"index.php?testimonial=$matches[1]&embed=true\";s:32:\"testimonial/([^/]+)/trackback/?$\";s:38:\"index.php?testimonial=$matches[1]&tb=1\";s:40:\"testimonial/([^/]+)/page/?([0-9]{1,})/?$\";s:51:\"index.php?testimonial=$matches[1]&paged=$matches[2]\";s:47:\"testimonial/([^/]+)/comment-page-([0-9]{1,})/?$\";s:51:\"index.php?testimonial=$matches[1]&cpage=$matches[2]\";s:36:\"testimonial/([^/]+)(?:/([0-9]+))?/?$\";s:50:\"index.php?testimonial=$matches[1]&page=$matches[2]\";s:28:\"testimonial/[^/]+/([^/]+)/?$\";s:32:\"index.php?attachment=$matches[1]\";s:38:\"testimonial/[^/]+/([^/]+)/trackback/?$\";s:37:\"index.php?attachment=$matches[1]&tb=1\";s:58:\"testimonial/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:53:\"testimonial/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:53:\"testimonial/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$\";s:50:\"index.php?attachment=$matches[1]&cpage=$matches[2]\";s:34:\"testimonial/[^/]+/([^/]+)/embed/?$\";s:43:\"index.php?attachment=$matches[1]&embed=true\";s:12:\"robots\\.txt$\";s:18:\"index.php?robots=1\";s:48:\".*wp-(atom|rdf|rss|rss2|feed|commentsrss2)\\.php$\";s:18:\"index.php?feed=old\";s:20:\".*wp-app\\.php(/.*)?$\";s:19:\"index.php?error=403\";s:18:\".*wp-register.php$\";s:23:\"index.php?register=true\";s:32:\"feed/(feed|rdf|rss|rss2|atom)/?$\";s:27:\"index.php?&feed=$matches[1]\";s:27:\"(feed|rdf|rss|rss2|atom)/?$\";s:27:\"index.php?&feed=$matches[1]\";s:20:\"page/?([0-9]{1,})/?$\";s:28:\"index.php?&paged=$matches[1]\";s:27:\"comment-page-([0-9]{1,})/?$\";s:38:\"index.php?&page_id=2&cpage=$matches[1]\";s:41:\"comments/feed/(feed|rdf|rss|rss2|atom)/?$\";s:42:\"index.php?&feed=$matches[1]&withcomments=1\";s:36:\"comments/(feed|rdf|rss|rss2|atom)/?$\";s:42:\"index.php?&feed=$matches[1]&withcomments=1\";s:44:\"search/(.+)/feed/(feed|rdf|rss|rss2|atom)/?$\";s:40:\"index.php?s=$matches[1]&feed=$matches[2]\";s:39:\"search/(.+)/(feed|rdf|rss|rss2|atom)/?$\";s:40:\"index.php?s=$matches[1]&feed=$matches[2]\";s:32:\"search/(.+)/page/?([0-9]{1,})/?$\";s:41:\"index.php?s=$matches[1]&paged=$matches[2]\";s:14:\"search/(.+)/?$\";s:23:\"index.php?s=$matches[1]\";s:47:\"author/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$\";s:50:\"index.php?author_name=$matches[1]&feed=$matches[2]\";s:42:\"author/([^/]+)/(feed|rdf|rss|rss2|atom)/?$\";s:50:\"index.php?author_name=$matches[1]&feed=$matches[2]\";s:35:\"author/([^/]+)/page/?([0-9]{1,})/?$\";s:51:\"index.php?author_name=$matches[1]&paged=$matches[2]\";s:17:\"author/([^/]+)/?$\";s:33:\"index.php?author_name=$matches[1]\";s:69:\"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$\";s:80:\"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&feed=$matches[4]\";s:64:\"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$\";s:80:\"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&feed=$matches[4]\";s:57:\"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/page/?([0-9]{1,})/?$\";s:81:\"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&paged=$matches[4]\";s:39:\"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/?$\";s:63:\"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]\";s:56:\"([0-9]{4})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$\";s:64:\"index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]\";s:51:\"([0-9]{4})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$\";s:64:\"index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]\";s:44:\"([0-9]{4})/([0-9]{1,2})/page/?([0-9]{1,})/?$\";s:65:\"index.php?year=$matches[1]&monthnum=$matches[2]&paged=$matches[3]\";s:26:\"([0-9]{4})/([0-9]{1,2})/?$\";s:47:\"index.php?year=$matches[1]&monthnum=$matches[2]\";s:43:\"([0-9]{4})/feed/(feed|rdf|rss|rss2|atom)/?$\";s:43:\"index.php?year=$matches[1]&feed=$matches[2]\";s:38:\"([0-9]{4})/(feed|rdf|rss|rss2|atom)/?$\";s:43:\"index.php?year=$matches[1]&feed=$matches[2]\";s:31:\"([0-9]{4})/page/?([0-9]{1,})/?$\";s:44:\"index.php?year=$matches[1]&paged=$matches[2]\";s:13:\"([0-9]{4})/?$\";s:26:\"index.php?year=$matches[1]\";s:27:\".?.+?/attachment/([^/]+)/?$\";s:32:\"index.php?attachment=$matches[1]\";s:37:\".?.+?/attachment/([^/]+)/trackback/?$\";s:37:\"index.php?attachment=$matches[1]&tb=1\";s:57:\".?.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:52:\".?.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:52:\".?.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$\";s:50:\"index.php?attachment=$matches[1]&cpage=$matches[2]\";s:33:\".?.+?/attachment/([^/]+)/embed/?$\";s:43:\"index.php?attachment=$matches[1]&embed=true\";s:16:\"(.?.+?)/embed/?$\";s:41:\"index.php?pagename=$matches[1]&embed=true\";s:20:\"(.?.+?)/trackback/?$\";s:35:\"index.php?pagename=$matches[1]&tb=1\";s:40:\"(.?.+?)/feed/(feed|rdf|rss|rss2|atom)/?$\";s:47:\"index.php?pagename=$matches[1]&feed=$matches[2]\";s:35:\"(.?.+?)/(feed|rdf|rss|rss2|atom)/?$\";s:47:\"index.php?pagename=$matches[1]&feed=$matches[2]\";s:28:\"(.?.+?)/page/?([0-9]{1,})/?$\";s:48:\"index.php?pagename=$matches[1]&paged=$matches[2]\";s:35:\"(.?.+?)/comment-page-([0-9]{1,})/?$\";s:48:\"index.php?pagename=$matches[1]&cpage=$matches[2]\";s:24:\"(.?.+?)(?:/([0-9]+))?/?$\";s:47:\"index.php?pagename=$matches[1]&page=$matches[2]\";s:27:\"[^/]+/attachment/([^/]+)/?$\";s:32:\"index.php?attachment=$matches[1]\";s:37:\"[^/]+/attachment/([^/]+)/trackback/?$\";s:37:\"index.php?attachment=$matches[1]&tb=1\";s:57:\"[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:52:\"[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:52:\"[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$\";s:50:\"index.php?attachment=$matches[1]&cpage=$matches[2]\";s:33:\"[^/]+/attachment/([^/]+)/embed/?$\";s:43:\"index.php?attachment=$matches[1]&embed=true\";s:16:\"([^/]+)/embed/?$\";s:37:\"index.php?name=$matches[1]&embed=true\";s:20:\"([^/]+)/trackback/?$\";s:31:\"index.php?name=$matches[1]&tb=1\";s:40:\"([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$\";s:43:\"index.php?name=$matches[1]&feed=$matches[2]\";s:35:\"([^/]+)/(feed|rdf|rss|rss2|atom)/?$\";s:43:\"index.php?name=$matches[1]&feed=$matches[2]\";s:28:\"([^/]+)/page/?([0-9]{1,})/?$\";s:44:\"index.php?name=$matches[1]&paged=$matches[2]\";s:35:\"([^/]+)/comment-page-([0-9]{1,})/?$\";s:44:\"index.php?name=$matches[1]&cpage=$matches[2]\";s:24:\"([^/]+)(?:/([0-9]+))?/?$\";s:43:\"index.php?name=$matches[1]&page=$matches[2]\";s:16:\"[^/]+/([^/]+)/?$\";s:32:\"index.php?attachment=$matches[1]\";s:26:\"[^/]+/([^/]+)/trackback/?$\";s:37:\"index.php?attachment=$matches[1]&tb=1\";s:46:\"[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:41:\"[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$\";s:49:\"index.php?attachment=$matches[1]&feed=$matches[2]\";s:41:\"[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$\";s:50:\"index.php?attachment=$matches[1]&cpage=$matches[2]\";s:22:\"[^/]+/([^/]+)/embed/?$\";s:43:\"index.php?attachment=$matches[1]&embed=true\";}','yes'),
+	(299,'advanced_excerpt','a:14:{s:6:\"length\";i:40;s:11:\"length_type\";s:5:\"words\";s:9:\"no_custom\";i:1;s:12:\"no_shortcode\";i:1;s:6:\"finish\";s:5:\"exact\";s:8:\"ellipsis\";s:8:\"&hellip;\";s:9:\"read_more\";s:13:\"Read the rest\";s:8:\"add_link\";i:0;s:12:\"allowed_tags\";a:0:{}s:11:\"the_excerpt\";i:1;s:11:\"the_content\";i:1;s:20:\"the_content_no_break\";i:0;s:13:\"exclude_pages\";a:0:{}s:19:\"allowed_tags_option\";s:15:\"dont_remove_any\";}','yes'),
+	(303,'password_protected_version','2.0.2','yes'),
+	(318,'nav_menu_options','a:2:{i:0;b:0;s:8:\"auto_add\";a:0:{}}','yes'),
+	(349,'area_children','a:0:{}','yes'),
+	(406,'wpmdb_settings','a:9:{s:3:\"key\";s:40:\"U/Emzo9OP0qpK6LAbuqv3q3tiva9lYtqtKQbMqCq\";s:10:\"allow_pull\";b:0;s:10:\"allow_push\";b:0;s:8:\"profiles\";a:0:{}s:7:\"licence\";s:0:\"\";s:10:\"verify_ssl\";b:0;s:17:\"blacklist_plugins\";a:0:{}s:11:\"max_request\";i:1048576;s:22:\"delay_between_requests\";i:0;}','yes'),
+	(407,'wpmdb_schema_version','1','yes'),
+	(408,'_site_transient_update_core','O:8:\"stdClass\":4:{s:7:\"updates\";a:1:{i:0;O:8:\"stdClass\":10:{s:8:\"response\";s:6:\"latest\";s:8:\"download\";s:59:\"https://downloads.wordpress.org/release/wordpress-4.4.2.zip\";s:6:\"locale\";s:5:\"en_US\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:59:\"https://downloads.wordpress.org/release/wordpress-4.4.2.zip\";s:10:\"no_content\";s:70:\"https://downloads.wordpress.org/release/wordpress-4.4.2-no-content.zip\";s:11:\"new_bundled\";s:71:\"https://downloads.wordpress.org/release/wordpress-4.4.2-new-bundled.zip\";s:7:\"partial\";b:0;s:8:\"rollback\";b:0;}s:7:\"current\";s:5:\"4.4.2\";s:7:\"version\";s:5:\"4.4.2\";s:11:\"php_version\";s:5:\"5.2.4\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"4.4\";s:15:\"partial_version\";s:0:\"\";}}s:12:\"last_checked\";i:1456931615;s:15:\"version_checked\";s:5:\"4.4.2\";s:12:\"translations\";a:0:{}}','yes'),
+	(409,'_site_transient_update_plugins','O:8:\"stdClass\":5:{s:12:\"last_checked\";i:1456931641;s:7:\"checked\";a:10:{s:30:\"advanced-custom-fields/acf.php\";s:5:\"4.4.5\";s:37:\"advanced-excerpt/advanced-excerpt.php\";s:5:\"4.2.3\";s:19:\"akismet/akismet.php\";s:5:\"3.1.7\";s:54:\"kau-boys-backend-localization/backend_localization.php\";s:5:\"2.1.7\";s:9:\"hello.php\";s:3:\"1.6\";s:41:\"password-protected/password-protected.php\";s:5:\"2.0.2\";s:33:\"posts-to-posts/posts-to-posts.php\";s:5:\"1.6.5\";s:41:\"post-type-switcher/post-type-switcher.php\";s:5:\"1.7.0\";s:39:\"wp-stage-switcher/wp-stage-switcher.php\";s:5:\"2.0.0\";s:31:\"wp-migrate-db/wp-migrate-db.php\";s:5:\"0.7.2\";}s:8:\"response\";a:0:{}s:12:\"translations\";a:0:{}s:9:\"no_update\";a:9:{s:30:\"advanced-custom-fields/acf.php\";O:8:\"stdClass\":6:{s:2:\"id\";s:5:\"21367\";s:4:\"slug\";s:22:\"advanced-custom-fields\";s:6:\"plugin\";s:30:\"advanced-custom-fields/acf.php\";s:11:\"new_version\";s:5:\"4.4.5\";s:3:\"url\";s:53:\"https://wordpress.org/plugins/advanced-custom-fields/\";s:7:\"package\";s:71:\"https://downloads.wordpress.org/plugin/advanced-custom-fields.4.4.5.zip\";}s:37:\"advanced-excerpt/advanced-excerpt.php\";O:8:\"stdClass\":6:{s:2:\"id\";s:3:\"875\";s:4:\"slug\";s:16:\"advanced-excerpt\";s:6:\"plugin\";s:37:\"advanced-excerpt/advanced-excerpt.php\";s:11:\"new_version\";s:5:\"4.2.3\";s:3:\"url\";s:47:\"https://wordpress.org/plugins/advanced-excerpt/\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/plugin/advanced-excerpt.4.2.3.zip\";}s:19:\"akismet/akismet.php\";O:8:\"stdClass\":6:{s:2:\"id\";s:2:\"15\";s:4:\"slug\";s:7:\"akismet\";s:6:\"plugin\";s:19:\"akismet/akismet.php\";s:11:\"new_version\";s:5:\"3.1.7\";s:3:\"url\";s:38:\"https://wordpress.org/plugins/akismet/\";s:7:\"package\";s:56:\"https://downloads.wordpress.org/plugin/akismet.3.1.7.zip\";}s:54:\"kau-boys-backend-localization/backend_localization.php\";O:8:\"stdClass\":6:{s:2:\"id\";s:5:\"10017\";s:4:\"slug\";s:29:\"kau-boys-backend-localization\";s:6:\"plugin\";s:54:\"kau-boys-backend-localization/backend_localization.php\";s:11:\"new_version\";s:5:\"2.1.7\";s:3:\"url\";s:60:\"https://wordpress.org/plugins/kau-boys-backend-localization/\";s:7:\"package\";s:78:\"https://downloads.wordpress.org/plugin/kau-boys-backend-localization.2.1.7.zip\";}s:9:\"hello.php\";O:8:\"stdClass\":6:{s:2:\"id\";s:4:\"3564\";s:4:\"slug\";s:11:\"hello-dolly\";s:6:\"plugin\";s:9:\"hello.php\";s:11:\"new_version\";s:3:\"1.6\";s:3:\"url\";s:42:\"https://wordpress.org/plugins/hello-dolly/\";s:7:\"package\";s:58:\"https://downloads.wordpress.org/plugin/hello-dolly.1.6.zip\";}s:41:\"password-protected/password-protected.php\";O:8:\"stdClass\":7:{s:2:\"id\";s:5:\"28951\";s:4:\"slug\";s:18:\"password-protected\";s:6:\"plugin\";s:41:\"password-protected/password-protected.php\";s:11:\"new_version\";s:5:\"2.0.2\";s:3:\"url\";s:49:\"https://wordpress.org/plugins/password-protected/\";s:7:\"package\";s:67:\"https://downloads.wordpress.org/plugin/password-protected.2.0.2.zip\";s:14:\"upgrade_notice\";s:55:\"Only redirect to allowed domain names when logging out.\";}s:33:\"posts-to-posts/posts-to-posts.php\";O:8:\"stdClass\":6:{s:2:\"id\";s:5:\"14657\";s:4:\"slug\";s:14:\"posts-to-posts\";s:6:\"plugin\";s:33:\"posts-to-posts/posts-to-posts.php\";s:11:\"new_version\";s:5:\"1.6.5\";s:3:\"url\";s:45:\"https://wordpress.org/plugins/posts-to-posts/\";s:7:\"package\";s:63:\"https://downloads.wordpress.org/plugin/posts-to-posts.1.6.5.zip\";}s:41:\"post-type-switcher/post-type-switcher.php\";O:8:\"stdClass\":6:{s:2:\"id\";s:5:\"15112\";s:4:\"slug\";s:18:\"post-type-switcher\";s:6:\"plugin\";s:41:\"post-type-switcher/post-type-switcher.php\";s:11:\"new_version\";s:5:\"1.7.0\";s:3:\"url\";s:49:\"https://wordpress.org/plugins/post-type-switcher/\";s:7:\"package\";s:67:\"https://downloads.wordpress.org/plugin/post-type-switcher.1.7.0.zip\";}s:31:\"wp-migrate-db/wp-migrate-db.php\";O:8:\"stdClass\":6:{s:2:\"id\";s:4:\"9135\";s:4:\"slug\";s:13:\"wp-migrate-db\";s:6:\"plugin\";s:31:\"wp-migrate-db/wp-migrate-db.php\";s:11:\"new_version\";s:5:\"0.7.2\";s:3:\"url\";s:44:\"https://wordpress.org/plugins/wp-migrate-db/\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/plugin/wp-migrate-db.0.7.2.zip\";}}}','yes'),
+	(410,'_site_transient_timeout_theme_roots','1456933416','yes'),
+	(411,'_site_transient_theme_roots','a:4:{s:8:\"cordills\";s:7:\"/themes\";s:13:\"twentyfifteen\";s:7:\"/themes\";s:14:\"twentyfourteen\";s:7:\"/themes\";s:13:\"twentysixteen\";s:7:\"/themes\";}','yes'),
+	(412,'_site_transient_update_themes','O:8:\"stdClass\":4:{s:12:\"last_checked\";i:1456931617;s:7:\"checked\";a:4:{s:8:\"cordills\";s:5:\"8.4.1\";s:13:\"twentyfifteen\";s:3:\"1.4\";s:14:\"twentyfourteen\";s:3:\"1.6\";s:13:\"twentysixteen\";s:3:\"1.1\";}s:8:\"response\";a:0:{}s:12:\"translations\";a:0:{}}','yes'),
+	(413,'_site_transient_timeout_browser_93c424ae4d0e7469a4221c7407b7931e','1457536418','yes'),
+	(414,'_site_transient_browser_93c424ae4d0e7469a4221c7407b7931e','a:9:{s:8:\"platform\";s:9:\"Macintosh\";s:4:\"name\";s:6:\"Chrome\";s:7:\"version\";s:13:\"48.0.2564.116\";s:10:\"update_url\";s:28:\"http://www.google.com/chrome\";s:7:\"img_src\";s:49:\"http://s.wordpress.org/images/browsers/chrome.png\";s:11:\"img_src_ssl\";s:48:\"https://wordpress.org/images/browsers/chrome.png\";s:15:\"current_version\";s:2:\"18\";s:7:\"upgrade\";b:0;s:8:\"insecure\";b:0;}','yes'),
+	(415,'_transient_timeout_feed_ac0b00fe65abe10e0c5b588f3ed8c7ca','1456974820','no'),
+	(416,'_transient_timeout_feed_mod_ac0b00fe65abe10e0c5b588f3ed8c7ca','1456974820','no'),
+	(417,'_transient_feed_mod_ac0b00fe65abe10e0c5b588f3ed8c7ca','1456931620','no'),
+	(418,'_transient_timeout_feed_d117b5738fbd35bd8c0391cda1f2b5d9','1456974822','no'),
+	(419,'_transient_timeout_feed_mod_d117b5738fbd35bd8c0391cda1f2b5d9','1456974822','no'),
+	(420,'_transient_feed_mod_d117b5738fbd35bd8c0391cda1f2b5d9','1456931622','no'),
+	(421,'_transient_timeout_feed_b9388c83948825c1edaef0d856b7b109','1456974824','no'),
+	(422,'_transient_feed_b9388c83948825c1edaef0d856b7b109','a:4:{s:5:\"child\";a:1:{s:0:\"\";a:1:{s:3:\"rss\";a:1:{i:0;a:6:{s:4:\"data\";s:3:\"\n	\n\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:7:\"version\";s:3:\"2.0\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:1:{s:0:\"\";a:1:{s:7:\"channel\";a:1:{i:0;a:6:{s:4:\"data\";s:117:\"\n		\n		\n		\n		\n		\n		\n				\n\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n		\n\n	\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:7:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:34:\"WordPress Plugins » View: Popular\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:45:\"https://wordpress.org/plugins/browse/popular/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:34:\"WordPress Plugins » View: Popular\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"language\";a:1:{i:0;a:5:{s:4:\"data\";s:5:\"en-US\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Wed, 02 Mar 2016 14:43:17 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:9:\"generator\";a:1:{i:0;a:5:{s:4:\"data\";s:25:\"http://bbpress.org/?v=1.1\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"item\";a:30:{i:0;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:16:\"TinyMCE Advanced\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:57:\"https://wordpress.org/plugins/tinymce-advanced/#post-2082\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Wed, 27 Jun 2007 15:00:26 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:35:\"2082@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:71:\"Enables the advanced features of TinyMCE, the WordPress WYSIWYG editor.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:10:\"Andrew Ozz\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:1;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:22:\"Advanced Custom Fields\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:64:\"https://wordpress.org/plugins/advanced-custom-fields/#post-25254\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Thu, 17 Mar 2011 04:07:30 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:36:\"25254@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:68:\"Customise WordPress with powerful, professional and intuitive fields\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:12:\"elliotcondon\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:2;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:19:\"Google XML Sitemaps\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:64:\"https://wordpress.org/plugins/google-sitemap-generator/#post-132\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Fri, 09 Mar 2007 22:31:32 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:34:\"132@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:105:\"This plugin will generate a special XML sitemap which will help search engines to better index your blog.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:14:\"Arne Brachhold\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:3;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:21:\"Regenerate Thumbnails\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:62:\"https://wordpress.org/plugins/regenerate-thumbnails/#post-6743\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Sat, 23 Aug 2008 14:38:58 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:35:\"6743@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:76:\"Allows you to regenerate your thumbnails after changing the thumbnail sizes.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:25:\"Alex Mills (Viper007Bond)\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:4;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:11:\"Hello Dolly\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:52:\"https://wordpress.org/plugins/hello-dolly/#post-5790\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Thu, 29 May 2008 22:11:34 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:35:\"5790@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:150:\"This is not just a plugin, it symbolizes the hope and enthusiasm of an entire generation summed up in two words sung most famously by Louis Armstrong.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:14:\"Matt Mullenweg\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:5;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:18:\"Wordfence Security\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:51:\"https://wordpress.org/plugins/wordfence/#post-29832\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Sun, 04 Sep 2011 03:13:51 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:36:\"29832@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:138:\"The Wordfence WordPress security plugin provides free enterprise-class WordPress security, protecting your website from hacks and malware.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:9:\"Wordfence\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:6;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:9:\"Yoast SEO\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:54:\"https://wordpress.org/plugins/wordpress-seo/#post-8321\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Thu, 01 Jan 2009 20:34:44 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:35:\"8321@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:114:\"Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using Yoast SEO plugin.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:13:\"Joost de Valk\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:7;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:21:\"Really Simple CAPTCHA\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:62:\"https://wordpress.org/plugins/really-simple-captcha/#post-9542\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Mon, 09 Mar 2009 02:17:35 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:35:\"9542@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:138:\"Really Simple CAPTCHA is a CAPTCHA module intended to be called from other plugins. It is originally created for my Contact Form 7 plugin.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:16:\"Takayuki Miyoshi\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:8;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:14:\"WP Super Cache\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:55:\"https://wordpress.org/plugins/wp-super-cache/#post-2572\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Mon, 05 Nov 2007 11:40:04 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:35:\"2572@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:73:\"A very fast caching engine for WordPress that produces static html files.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:16:\"Donncha O Caoimh\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:9;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:14:\"W3 Total Cache\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:56:\"https://wordpress.org/plugins/w3-total-cache/#post-12073\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Wed, 29 Jul 2009 18:46:31 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:36:\"12073@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:132:\"Easy Web Performance Optimization (WPO) using caching: browser, page, object, database, minify and content delivery network support.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:16:\"Frederick Townes\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:10;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:14:\"Duplicate Post\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:55:\"https://wordpress.org/plugins/duplicate-post/#post-2646\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Wed, 05 Dec 2007 17:40:03 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:35:\"2646@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:22:\"Clone posts and pages.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:4:\"Lopo\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:11;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:15:\"NextGEN Gallery\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:56:\"https://wordpress.org/plugins/nextgen-gallery/#post-1169\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Mon, 23 Apr 2007 20:08:06 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:35:\"1169@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:121:\"The most popular WordPress gallery plugin and one of the most popular plugins of all time with over 13 million downloads.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:9:\"Alex Rabe\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:12;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:7:\"Akismet\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:46:\"https://wordpress.org/plugins/akismet/#post-15\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Fri, 09 Mar 2007 22:11:30 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:33:\"15@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:98:\"Akismet checks your comments against the Akismet Web service to see if they look like spam or not.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:14:\"Matt Mullenweg\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:13;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:14:\"Contact Form 7\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:55:\"https://wordpress.org/plugins/contact-form-7/#post-2141\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Thu, 02 Aug 2007 12:45:03 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:35:\"2141@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:54:\"Just another contact form plugin. Simple but flexible.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:16:\"Takayuki Miyoshi\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:14;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:18:\"WordPress Importer\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:60:\"https://wordpress.org/plugins/wordpress-importer/#post-18101\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Thu, 20 May 2010 17:42:45 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:36:\"18101@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:101:\"Import posts, pages, comments, custom fields, categories, tags and more from a WordPress export file.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:14:\"Brian Colinger\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:15;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:19:\"All in One SEO Pack\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:59:\"https://wordpress.org/plugins/all-in-one-seo-pack/#post-753\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Fri, 30 Mar 2007 20:08:18 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:34:\"753@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:150:\"The most downloaded plugin for WordPress (almost 30 million downloads). Use All in One SEO Pack to automatically optimize your site for Search Engines\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:8:\"uberdose\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:16;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:25:\"Google Analytics by Yoast\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:71:\"https://wordpress.org/plugins/google-analytics-for-wordpress/#post-2316\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Fri, 14 Sep 2007 12:15:27 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:35:\"2316@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:124:\"Track your WordPress site easily with the latest tracking codes and lots added data for search result pages and error pages.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:13:\"Joost de Valk\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:17;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:11:\"WP-PageNavi\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:51:\"https://wordpress.org/plugins/wp-pagenavi/#post-363\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Fri, 09 Mar 2007 23:17:57 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:34:\"363@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:49:\"Adds a more advanced paging navigation interface.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:11:\"Lester Chan\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:18;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:24:\"Jetpack by WordPress.com\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:49:\"https://wordpress.org/plugins/jetpack/#post-23862\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Thu, 20 Jan 2011 02:21:38 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:36:\"23862@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:107:\"Increase your traffic, view your stats, speed up your site, and protect yourself from hackers with Jetpack.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:9:\"Tim Moore\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:19;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:11:\"WooCommerce\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:53:\"https://wordpress.org/plugins/woocommerce/#post-29860\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Mon, 05 Sep 2011 08:13:36 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:36:\"29860@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:97:\"WooCommerce is a powerful, extendable eCommerce plugin that helps you sell anything. Beautifully.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:9:\"WooThemes\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:20;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:16:\"Disable Comments\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:58:\"https://wordpress.org/plugins/disable-comments/#post-26907\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Fri, 27 May 2011 04:42:58 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:36:\"26907@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:134:\"Allows administrators to globally disable comments on their site. Comments can be disabled according to post type. Multisite friendly.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:10:\"Samir Shah\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:21;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:26:\"Page Builder by SiteOrigin\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:59:\"https://wordpress.org/plugins/siteorigin-panels/#post-51888\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Thu, 11 Apr 2013 10:36:42 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:36:\"51888@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:111:\"Build responsive page layouts using the widgets you know and love using this simple drag and drop page builder.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:11:\"Greg Priday\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:22;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:18:\"WP Multibyte Patch\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:60:\"https://wordpress.org/plugins/wp-multibyte-patch/#post-28395\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Thu, 14 Jul 2011 12:22:53 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:36:\"28395@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:71:\"Multibyte functionality enhancement for the WordPress Japanese package.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:13:\"plugin-master\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:23;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:27:\"Black Studio TinyMCE Widget\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:69:\"https://wordpress.org/plugins/black-studio-tinymce-widget/#post-31973\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Thu, 10 Nov 2011 15:06:14 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:36:\"31973@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:39:\"The visual editor widget for Wordpress.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:12:\"Marco Chiesi\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:24;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:46:\"iThemes Security (formerly Better WP Security)\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:60:\"https://wordpress.org/plugins/better-wp-security/#post-21738\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Fri, 22 Oct 2010 22:06:05 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:36:\"21738@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:150:\"Protect your WordPress site by hiding vital areas of your site, protecting access to important files, preventing brute-force login attempts, detecting\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:7:\"iThemes\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:25;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:33:\"Google Analytics Dashboard for WP\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:75:\"https://wordpress.org/plugins/google-analytics-dashboard-for-wp/#post-50539\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Sun, 10 Mar 2013 17:07:11 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:36:\"50539@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:127:\"Displays Google Analytics reports in your WordPress Dashboard. Inserts the latest Google Analytics tracking code in your pages.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:10:\"Alin Marcu\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:26;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:30:\"Clef Two-Factor Authentication\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:48:\"https://wordpress.org/plugins/wpclef/#post-47509\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Thu, 27 Dec 2012 01:25:57 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:36:\"47509@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:138:\"Modern two-factor that people love to use: strong authentication without passwords or tokens; single sign on/off; magical user experience.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:9:\"Dave Ross\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:27;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:34:\"UpdraftPlus Backup and Restoration\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:53:\"https://wordpress.org/plugins/updraftplus/#post-38058\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Mon, 21 May 2012 15:14:11 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:36:\"38058@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:148:\"Backup and restoration made easy. Complete backups; manual or scheduled (backup to S3, Dropbox, Google Drive, Rackspace, FTP, SFTP, email + others).\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:14:\"David Anderson\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:28;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:10:\"Duplicator\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:52:\"https://wordpress.org/plugins/duplicator/#post-26607\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Mon, 16 May 2011 12:15:41 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:36:\"26607@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:88:\"Duplicate, clone, backup, move and transfer an entire site from one location to another.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:10:\"Cory Lamle\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:29;a:6:{s:4:\"data\";s:30:\"\n			\n			\n			\n			\n			\n			\n					\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:2:{s:0:\"\";a:5:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:11:\"Meta Slider\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:51:\"https://wordpress.org/plugins/ml-slider/#post-49521\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Thu, 14 Feb 2013 16:56:31 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:36:\"49521@https://wordpress.org/plugins/\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:145:\"Easy to use WordPress slider plugin. Create SEO optimised responsive slideshows with Nivo Slider, Flex Slider, Coin Slider and Responsive Slides.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:11:\"Matcha Labs\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}}}s:27:\"http://www.w3.org/2005/Atom\";a:1:{s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:0:\"\";s:7:\"attribs\";a:1:{s:0:\"\";a:3:{s:4:\"href\";s:46:\"https://wordpress.org/plugins/rss/view/popular\";s:3:\"rel\";s:4:\"self\";s:4:\"type\";s:19:\"application/rss+xml\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}}}}}}}}s:4:\"type\";i:128;s:7:\"headers\";a:12:{s:6:\"server\";s:5:\"nginx\";s:4:\"date\";s:29:\"Wed, 02 Mar 2016 15:13:44 GMT\";s:12:\"content-type\";s:23:\"text/xml; charset=UTF-8\";s:10:\"connection\";s:5:\"close\";s:4:\"vary\";s:15:\"Accept-Encoding\";s:25:\"strict-transport-security\";s:11:\"max-age=360\";s:7:\"expires\";s:29:\"Wed, 02 Mar 2016 15:18:17 GMT\";s:13:\"cache-control\";s:0:\"\";s:6:\"pragma\";s:0:\"\";s:13:\"last-modified\";s:31:\"Wed, 02 Mar 2016 14:43:17 +0000\";s:15:\"x-frame-options\";s:10:\"SAMEORIGIN\";s:4:\"x-nc\";s:11:\"HIT lax 250\";}s:5:\"build\";s:14:\"20130911040210\";}','no'),
+	(423,'_transient_timeout_feed_mod_b9388c83948825c1edaef0d856b7b109','1456974824','no'),
+	(424,'_transient_feed_mod_b9388c83948825c1edaef0d856b7b109','1456931624','no'),
+	(425,'_transient_timeout_plugin_slugs','1457018115','no'),
+	(426,'_transient_plugin_slugs','a:6:{i:0;s:30:\"advanced-custom-fields/acf.php\";i:1;s:37:\"advanced-excerpt/advanced-excerpt.php\";i:2;s:54:\"kau-boys-backend-localization/backend_localization.php\";i:3;s:33:\"posts-to-posts/posts-to-posts.php\";i:4;s:41:\"post-type-switcher/post-type-switcher.php\";i:5;s:31:\"wp-migrate-db/wp-migrate-db.php\";}','no'),
+	(427,'_transient_timeout_dash_88ae138922fe95674369b1cb3d215a2b','1456974824','no'),
+	(428,'_transient_dash_88ae138922fe95674369b1cb3d215a2b','<div class=\"rss-widget\"><ul><li><a class=\'rsswidget\' href=\'https://wordpress.org/news/2016/02/contributor-weekend-one-hour-video/\'>Contributor Weekend: One-Hour Video</a> <span class=\"rss-date\">February 26, 2016</span><div class=\"rssSummary\">It’s time for our second global contributor weekend, and this time we’re focusing on the video team. For this month’s challenge, in honor of it being our second month, you have two options for how you can participate! The challenge for this month overall is to work with at least one hour worth of WordCamp video, which [&hellip;]</div></li></ul></div><div class=\"rss-widget\"><ul><li><a class=\'rsswidget\' href=\'http://wptavern.com/the-wordpress-plugin-directory-will-no-longer-accept-frameworks\'>WPTavern: The WordPress Plugin Directory Will No Longer Accept Frameworks</a></li><li><a class=\'rsswidget\' href=\'http://wptavern.com/poetica-acquired-by-conde-nast-open-source-wordpress-plugin-will-be-discontinued\'>WPTavern: Poetica Acquired by Condé Nast, Open Source WordPress Plugin Will Be Discontinued</a></li><li><a class=\'rsswidget\' href=\'http://wptavern.com/axe-an-open-source-javascript-library-for-automating-accessibility-testing\'>WPTavern: aXe: An Open Source JavaScript Library for Automating Accessibility Testing</a></li></ul></div><div class=\"rss-widget\"><ul><li class=\'dashboard-news-plugin\'><span>Popular Plugin:</span> <a href=\'https://wordpress.org/plugins/siteorigin-panels/\' class=\'dashboard-news-plugin-link\'>Page Builder by SiteOrigin</a>&nbsp;<span>(<a href=\'plugin-install.php?tab=plugin-information&amp;plugin=siteorigin-panels&amp;_wpnonce=053285d585&amp;TB_iframe=true&amp;width=600&amp;height=800\' class=\'thickbox\' title=\'Page Builder by SiteOrigin\'>Install</a>)</span></li></ul></div>','no'),
+	(430,'_site_transient_timeout_available_translations','1456942729','yes'),
+	(431,'_site_transient_available_translations','a:77:{s:3:\"ary\";a:8:{s:8:\"language\";s:3:\"ary\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-12 10:15:45\";s:12:\"english_name\";s:15:\"Moroccan Arabic\";s:11:\"native_name\";s:31:\"العربية المغربية\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.4.2/ary.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ar\";i:3;s:3:\"ary\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:16:\"المتابعة\";}}s:2:\"ar\";a:8:{s:8:\"language\";s:2:\"ar\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-07 13:09:53\";s:12:\"english_name\";s:6:\"Arabic\";s:11:\"native_name\";s:14:\"العربية\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.4.2/ar.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ar\";i:2;s:3:\"ara\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:16:\"المتابعة\";}}s:2:\"az\";a:8:{s:8:\"language\";s:2:\"az\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-07 20:53:51\";s:12:\"english_name\";s:11:\"Azerbaijani\";s:11:\"native_name\";s:16:\"Azərbaycan dili\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.4.2/az.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"az\";i:2;s:3:\"aze\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:5:\"Davam\";}}s:3:\"azb\";a:8:{s:8:\"language\";s:3:\"azb\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-11 22:42:10\";s:12:\"english_name\";s:17:\"South Azerbaijani\";s:11:\"native_name\";s:29:\"گؤنئی آذربایجان\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.4.2/azb.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"az\";i:3;s:3:\"azb\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:5:\"bg_BG\";a:8:{s:8:\"language\";s:5:\"bg_BG\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-08 08:50:29\";s:12:\"english_name\";s:9:\"Bulgarian\";s:11:\"native_name\";s:18:\"Български\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/bg_BG.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"bg\";i:2;s:3:\"bul\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:22:\"Продължение\";}}s:5:\"bn_BD\";a:8:{s:8:\"language\";s:5:\"bn_BD\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-08 13:17:04\";s:12:\"english_name\";s:7:\"Bengali\";s:11:\"native_name\";s:15:\"বাংলা\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/bn_BD.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"bn\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:23:\"এগিয়ে চল.\";}}s:5:\"bs_BA\";a:8:{s:8:\"language\";s:5:\"bs_BA\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-04 09:40:25\";s:12:\"english_name\";s:7:\"Bosnian\";s:11:\"native_name\";s:8:\"Bosanski\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/bs_BA.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"bs\";i:2;s:3:\"bos\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:7:\"Nastavi\";}}s:2:\"ca\";a:8:{s:8:\"language\";s:2:\"ca\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-01-16 13:48:03\";s:12:\"english_name\";s:7:\"Catalan\";s:11:\"native_name\";s:7:\"Català\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.4.2/ca.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ca\";i:2;s:3:\"cat\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continua\";}}s:3:\"ceb\";a:8:{s:8:\"language\";s:3:\"ceb\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-16 15:34:57\";s:12:\"english_name\";s:7:\"Cebuano\";s:11:\"native_name\";s:7:\"Cebuano\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.4.2/ceb.zip\";s:3:\"iso\";a:2:{i:2;s:3:\"ceb\";i:3;s:3:\"ceb\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:7:\"Padayun\";}}s:2:\"cy\";a:8:{s:8:\"language\";s:2:\"cy\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-01-26 16:01:40\";s:12:\"english_name\";s:5:\"Welsh\";s:11:\"native_name\";s:7:\"Cymraeg\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.4.2/cy.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"cy\";i:2;s:3:\"cym\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Parhau\";}}s:5:\"da_DK\";a:8:{s:8:\"language\";s:5:\"da_DK\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-08 22:48:20\";s:12:\"english_name\";s:6:\"Danish\";s:11:\"native_name\";s:5:\"Dansk\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/da_DK.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"da\";i:2;s:3:\"dan\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:12:\"Forts&#230;t\";}}s:5:\"de_CH\";a:8:{s:8:\"language\";s:5:\"de_CH\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-08 14:19:21\";s:12:\"english_name\";s:20:\"German (Switzerland)\";s:11:\"native_name\";s:17:\"Deutsch (Schweiz)\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/de_CH.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"de\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:10:\"Fortfahren\";}}s:5:\"de_DE\";a:8:{s:8:\"language\";s:5:\"de_DE\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-29 10:47:54\";s:12:\"english_name\";s:6:\"German\";s:11:\"native_name\";s:7:\"Deutsch\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/de_DE.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"de\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:10:\"Fortfahren\";}}s:12:\"de_DE_formal\";a:8:{s:8:\"language\";s:12:\"de_DE_formal\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-26 16:11:56\";s:12:\"english_name\";s:15:\"German (Formal)\";s:11:\"native_name\";s:13:\"Deutsch (Sie)\";s:7:\"package\";s:71:\"https://downloads.wordpress.org/translation/core/4.4.2/de_DE_formal.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"de\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:10:\"Fortfahren\";}}s:2:\"el\";a:8:{s:8:\"language\";s:2:\"el\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-03-01 18:27:32\";s:12:\"english_name\";s:5:\"Greek\";s:11:\"native_name\";s:16:\"Ελληνικά\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.4.2/el.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"el\";i:2;s:3:\"ell\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:16:\"Συνέχεια\";}}s:5:\"en_CA\";a:8:{s:8:\"language\";s:5:\"en_CA\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-06 23:10:59\";s:12:\"english_name\";s:16:\"English (Canada)\";s:11:\"native_name\";s:16:\"English (Canada)\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/en_CA.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"en\";i:2;s:3:\"eng\";i:3;s:3:\"eng\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:5:\"en_GB\";a:8:{s:8:\"language\";s:5:\"en_GB\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-01-14 21:14:29\";s:12:\"english_name\";s:12:\"English (UK)\";s:11:\"native_name\";s:12:\"English (UK)\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/en_GB.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"en\";i:2;s:3:\"eng\";i:3;s:3:\"eng\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:5:\"en_NZ\";a:8:{s:8:\"language\";s:5:\"en_NZ\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-08 13:34:17\";s:12:\"english_name\";s:21:\"English (New Zealand)\";s:11:\"native_name\";s:21:\"English (New Zealand)\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/en_NZ.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"en\";i:2;s:3:\"eng\";i:3;s:3:\"eng\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:5:\"en_ZA\";a:8:{s:8:\"language\";s:5:\"en_ZA\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-15 11:52:35\";s:12:\"english_name\";s:22:\"English (South Africa)\";s:11:\"native_name\";s:22:\"English (South Africa)\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/en_ZA.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"en\";i:2;s:3:\"eng\";i:3;s:3:\"eng\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:5:\"en_AU\";a:8:{s:8:\"language\";s:5:\"en_AU\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-07 04:39:48\";s:12:\"english_name\";s:19:\"English (Australia)\";s:11:\"native_name\";s:19:\"English (Australia)\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/en_AU.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"en\";i:2;s:3:\"eng\";i:3;s:3:\"eng\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:2:\"eo\";a:8:{s:8:\"language\";s:2:\"eo\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-01-25 13:07:29\";s:12:\"english_name\";s:9:\"Esperanto\";s:11:\"native_name\";s:9:\"Esperanto\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.4.2/eo.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"eo\";i:2;s:3:\"epo\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Daŭrigi\";}}s:5:\"es_CL\";a:8:{s:8:\"language\";s:5:\"es_CL\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-01-28 19:55:54\";s:12:\"english_name\";s:15:\"Spanish (Chile)\";s:11:\"native_name\";s:17:\"Español de Chile\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/es_CL.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"es\";i:2;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_VE\";a:8:{s:8:\"language\";s:5:\"es_VE\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-01-13 06:14:13\";s:12:\"english_name\";s:19:\"Spanish (Venezuela)\";s:11:\"native_name\";s:21:\"Español de Venezuela\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/es_VE.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"es\";i:2;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_GT\";a:8:{s:8:\"language\";s:5:\"es_GT\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-09 18:08:52\";s:12:\"english_name\";s:19:\"Spanish (Guatemala)\";s:11:\"native_name\";s:21:\"Español de Guatemala\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/es_GT.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"es\";i:2;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_PE\";a:8:{s:8:\"language\";s:5:\"es_PE\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-01-24 15:17:36\";s:12:\"english_name\";s:14:\"Spanish (Peru)\";s:11:\"native_name\";s:17:\"Español de Perú\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/es_PE.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"es\";i:2;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_CO\";a:8:{s:8:\"language\";s:5:\"es_CO\";s:7:\"version\";s:6:\"4.3-RC\";s:7:\"updated\";s:19:\"2015-08-04 06:10:33\";s:12:\"english_name\";s:18:\"Spanish (Colombia)\";s:11:\"native_name\";s:20:\"Español de Colombia\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.3-RC/es_CO.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"es\";i:2;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_MX\";a:8:{s:8:\"language\";s:5:\"es_MX\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-07 17:35:10\";s:12:\"english_name\";s:16:\"Spanish (Mexico)\";s:11:\"native_name\";s:19:\"Español de México\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/es_MX.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"es\";i:2;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_AR\";a:8:{s:8:\"language\";s:5:\"es_AR\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-23 00:46:01\";s:12:\"english_name\";s:19:\"Spanish (Argentina)\";s:11:\"native_name\";s:21:\"Español de Argentina\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/es_AR.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"es\";i:2;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_ES\";a:8:{s:8:\"language\";s:5:\"es_ES\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-13 12:28:49\";s:12:\"english_name\";s:15:\"Spanish (Spain)\";s:11:\"native_name\";s:8:\"Español\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/es_ES.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"es\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:2:\"et\";a:8:{s:8:\"language\";s:2:\"et\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-18 06:44:22\";s:12:\"english_name\";s:8:\"Estonian\";s:11:\"native_name\";s:5:\"Eesti\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.4.2/et.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"et\";i:2;s:3:\"est\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Jätka\";}}s:2:\"eu\";a:8:{s:8:\"language\";s:2:\"eu\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-07 21:19:15\";s:12:\"english_name\";s:6:\"Basque\";s:11:\"native_name\";s:7:\"Euskara\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.4.2/eu.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"eu\";i:2;s:3:\"eus\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Jarraitu\";}}s:5:\"fa_IR\";a:8:{s:8:\"language\";s:5:\"fa_IR\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-01-31 19:24:20\";s:12:\"english_name\";s:7:\"Persian\";s:11:\"native_name\";s:10:\"فارسی\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/fa_IR.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"fa\";i:2;s:3:\"fas\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:10:\"ادامه\";}}s:2:\"fi\";a:8:{s:8:\"language\";s:2:\"fi\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-23 06:49:15\";s:12:\"english_name\";s:7:\"Finnish\";s:11:\"native_name\";s:5:\"Suomi\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.4.2/fi.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"fi\";i:2;s:3:\"fin\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:5:\"Jatka\";}}s:5:\"fr_BE\";a:8:{s:8:\"language\";s:5:\"fr_BE\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-08 13:47:35\";s:12:\"english_name\";s:16:\"French (Belgium)\";s:11:\"native_name\";s:21:\"Français de Belgique\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/fr_BE.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"fr\";i:2;s:3:\"fra\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuer\";}}s:5:\"fr_FR\";a:8:{s:8:\"language\";s:5:\"fr_FR\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-11 10:20:56\";s:12:\"english_name\";s:15:\"French (France)\";s:11:\"native_name\";s:9:\"Français\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/fr_FR.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"fr\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuer\";}}s:5:\"fr_CA\";a:8:{s:8:\"language\";s:5:\"fr_CA\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-09 02:16:19\";s:12:\"english_name\";s:15:\"French (Canada)\";s:11:\"native_name\";s:19:\"Français du Canada\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/fr_CA.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"fr\";i:2;s:3:\"fra\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuer\";}}s:2:\"gd\";a:8:{s:8:\"language\";s:2:\"gd\";s:7:\"version\";s:5:\"4.3.3\";s:7:\"updated\";s:19:\"2015-09-24 15:25:30\";s:12:\"english_name\";s:15:\"Scottish Gaelic\";s:11:\"native_name\";s:9:\"Gàidhlig\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.3.3/gd.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"gd\";i:2;s:3:\"gla\";i:3;s:3:\"gla\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:15:\"Lean air adhart\";}}s:5:\"gl_ES\";a:8:{s:8:\"language\";s:5:\"gl_ES\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-01-13 16:48:03\";s:12:\"english_name\";s:8:\"Galician\";s:11:\"native_name\";s:6:\"Galego\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/gl_ES.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"gl\";i:2;s:3:\"glg\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:3:\"haz\";a:8:{s:8:\"language\";s:3:\"haz\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-05 00:59:09\";s:12:\"english_name\";s:8:\"Hazaragi\";s:11:\"native_name\";s:15:\"هزاره گی\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.4.2/haz.zip\";s:3:\"iso\";a:1:{i:3;s:3:\"haz\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:10:\"ادامه\";}}s:5:\"he_IL\";a:8:{s:8:\"language\";s:5:\"he_IL\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-28 21:55:44\";s:12:\"english_name\";s:6:\"Hebrew\";s:11:\"native_name\";s:16:\"עִבְרִית\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/he_IL.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"he\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:12:\"להמשיך\";}}s:5:\"hi_IN\";a:8:{s:8:\"language\";s:5:\"hi_IN\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-06 14:16:56\";s:12:\"english_name\";s:5:\"Hindi\";s:11:\"native_name\";s:18:\"हिन्दी\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/hi_IN.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"hi\";i:2;s:3:\"hin\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:12:\"जारी\";}}s:2:\"hr\";a:8:{s:8:\"language\";s:2:\"hr\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-24 11:33:48\";s:12:\"english_name\";s:8:\"Croatian\";s:11:\"native_name\";s:8:\"Hrvatski\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.4.2/hr.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"hr\";i:2;s:3:\"hrv\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:7:\"Nastavi\";}}s:5:\"hu_HU\";a:8:{s:8:\"language\";s:5:\"hu_HU\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-03 14:37:42\";s:12:\"english_name\";s:9:\"Hungarian\";s:11:\"native_name\";s:6:\"Magyar\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/hu_HU.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"hu\";i:2;s:3:\"hun\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:7:\"Tovább\";}}s:2:\"hy\";a:8:{s:8:\"language\";s:2:\"hy\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-04 07:13:54\";s:12:\"english_name\";s:8:\"Armenian\";s:11:\"native_name\";s:14:\"Հայերեն\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.4.2/hy.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"hy\";i:2;s:3:\"hye\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:20:\"Շարունակել\";}}s:5:\"id_ID\";a:8:{s:8:\"language\";s:5:\"id_ID\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-21 16:17:50\";s:12:\"english_name\";s:10:\"Indonesian\";s:11:\"native_name\";s:16:\"Bahasa Indonesia\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/id_ID.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"id\";i:2;s:3:\"ind\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Lanjutkan\";}}s:5:\"is_IS\";a:8:{s:8:\"language\";s:5:\"is_IS\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-08 00:20:24\";s:12:\"english_name\";s:9:\"Icelandic\";s:11:\"native_name\";s:9:\"Íslenska\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/is_IS.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"is\";i:2;s:3:\"isl\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Áfram\";}}s:5:\"it_IT\";a:8:{s:8:\"language\";s:5:\"it_IT\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-01-30 18:58:39\";s:12:\"english_name\";s:7:\"Italian\";s:11:\"native_name\";s:8:\"Italiano\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/it_IT.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"it\";i:2;s:3:\"ita\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continua\";}}s:2:\"ja\";a:8:{s:8:\"language\";s:2:\"ja\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-25 13:08:14\";s:12:\"english_name\";s:8:\"Japanese\";s:11:\"native_name\";s:9:\"日本語\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.4.2/ja.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"ja\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"続ける\";}}s:5:\"ka_GE\";a:8:{s:8:\"language\";s:5:\"ka_GE\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-09 08:53:31\";s:12:\"english_name\";s:8:\"Georgian\";s:11:\"native_name\";s:21:\"ქართული\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/ka_GE.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ka\";i:2;s:3:\"kat\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:30:\"გაგრძელება\";}}s:5:\"ko_KR\";a:8:{s:8:\"language\";s:5:\"ko_KR\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-24 00:12:01\";s:12:\"english_name\";s:6:\"Korean\";s:11:\"native_name\";s:9:\"한국어\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/ko_KR.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ko\";i:2;s:3:\"kor\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"계속\";}}s:5:\"lt_LT\";a:8:{s:8:\"language\";s:5:\"lt_LT\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-08 20:07:24\";s:12:\"english_name\";s:10:\"Lithuanian\";s:11:\"native_name\";s:15:\"Lietuvių kalba\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/lt_LT.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"lt\";i:2;s:3:\"lit\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Tęsti\";}}s:5:\"ms_MY\";a:8:{s:8:\"language\";s:5:\"ms_MY\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-01-28 05:41:39\";s:12:\"english_name\";s:5:\"Malay\";s:11:\"native_name\";s:13:\"Bahasa Melayu\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/ms_MY.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ms\";i:2;s:3:\"msa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Teruskan\";}}s:5:\"my_MM\";a:8:{s:8:\"language\";s:5:\"my_MM\";s:7:\"version\";s:6:\"4.1.10\";s:7:\"updated\";s:19:\"2015-03-26 15:57:42\";s:12:\"english_name\";s:17:\"Myanmar (Burmese)\";s:11:\"native_name\";s:15:\"ဗမာစာ\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.1.10/my_MM.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"my\";i:2;s:3:\"mya\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:54:\"ဆက်လက်လုပ်ေဆာင်ပါ။\";}}s:5:\"nb_NO\";a:8:{s:8:\"language\";s:5:\"nb_NO\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-07 10:01:09\";s:12:\"english_name\";s:19:\"Norwegian (Bokmål)\";s:11:\"native_name\";s:13:\"Norsk bokmål\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/nb_NO.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"nb\";i:2;s:3:\"nob\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Fortsett\";}}s:12:\"nl_NL_formal\";a:8:{s:8:\"language\";s:12:\"nl_NL_formal\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-01-20 13:35:50\";s:12:\"english_name\";s:14:\"Dutch (Formal)\";s:11:\"native_name\";s:20:\"Nederlands (Formeel)\";s:7:\"package\";s:71:\"https://downloads.wordpress.org/translation/core/4.4.2/nl_NL_formal.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"nl\";i:2;s:3:\"nld\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Doorgaan\";}}s:5:\"nl_NL\";a:8:{s:8:\"language\";s:5:\"nl_NL\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-23 18:59:13\";s:12:\"english_name\";s:5:\"Dutch\";s:11:\"native_name\";s:10:\"Nederlands\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/nl_NL.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"nl\";i:2;s:3:\"nld\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Doorgaan\";}}s:5:\"nn_NO\";a:8:{s:8:\"language\";s:5:\"nn_NO\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-14 12:19:44\";s:12:\"english_name\";s:19:\"Norwegian (Nynorsk)\";s:11:\"native_name\";s:13:\"Norsk nynorsk\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/nn_NO.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"nn\";i:2;s:3:\"nno\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Hald fram\";}}s:3:\"oci\";a:8:{s:8:\"language\";s:3:\"oci\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-08 16:21:37\";s:12:\"english_name\";s:7:\"Occitan\";s:11:\"native_name\";s:7:\"Occitan\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.4.2/oci.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"oc\";i:2;s:3:\"oci\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Contunhar\";}}s:5:\"pl_PL\";a:8:{s:8:\"language\";s:5:\"pl_PL\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-26 19:07:19\";s:12:\"english_name\";s:6:\"Polish\";s:11:\"native_name\";s:6:\"Polski\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/pl_PL.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"pl\";i:2;s:3:\"pol\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Kontynuuj\";}}s:2:\"ps\";a:8:{s:8:\"language\";s:2:\"ps\";s:7:\"version\";s:6:\"4.1.10\";s:7:\"updated\";s:19:\"2015-03-29 22:19:48\";s:12:\"english_name\";s:6:\"Pashto\";s:11:\"native_name\";s:8:\"پښتو\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.1.10/ps.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ps\";i:2;s:3:\"pus\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"دوام\";}}s:5:\"pt_BR\";a:8:{s:8:\"language\";s:5:\"pt_BR\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-10 18:05:56\";s:12:\"english_name\";s:19:\"Portuguese (Brazil)\";s:11:\"native_name\";s:20:\"Português do Brasil\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/pt_BR.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"pt\";i:2;s:3:\"por\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"pt_PT\";a:8:{s:8:\"language\";s:5:\"pt_PT\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-25 13:02:32\";s:12:\"english_name\";s:21:\"Portuguese (Portugal)\";s:11:\"native_name\";s:10:\"Português\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/pt_PT.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"pt\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"ro_RO\";a:8:{s:8:\"language\";s:5:\"ro_RO\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-24 11:09:36\";s:12:\"english_name\";s:8:\"Romanian\";s:11:\"native_name\";s:8:\"Română\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/ro_RO.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ro\";i:2;s:3:\"ron\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuă\";}}s:5:\"ru_RU\";a:8:{s:8:\"language\";s:5:\"ru_RU\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-01-02 00:04:31\";s:12:\"english_name\";s:7:\"Russian\";s:11:\"native_name\";s:14:\"Русский\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/ru_RU.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ru\";i:2;s:3:\"rus\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:20:\"Продолжить\";}}s:5:\"sk_SK\";a:8:{s:8:\"language\";s:5:\"sk_SK\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-26 11:29:13\";s:12:\"english_name\";s:6:\"Slovak\";s:11:\"native_name\";s:11:\"Slovenčina\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/sk_SK.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"sk\";i:2;s:3:\"slk\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:12:\"Pokračovať\";}}s:5:\"sl_SI\";a:8:{s:8:\"language\";s:5:\"sl_SI\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-11-26 00:00:18\";s:12:\"english_name\";s:9:\"Slovenian\";s:11:\"native_name\";s:13:\"Slovenščina\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/sl_SI.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"sl\";i:2;s:3:\"slv\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:10:\"Nadaljujte\";}}s:2:\"sq\";a:8:{s:8:\"language\";s:2:\"sq\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-02-23 10:30:30\";s:12:\"english_name\";s:8:\"Albanian\";s:11:\"native_name\";s:5:\"Shqip\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.4.2/sq.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"sq\";i:2;s:3:\"sqi\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Vazhdo\";}}s:5:\"sr_RS\";a:8:{s:8:\"language\";s:5:\"sr_RS\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-09 09:09:51\";s:12:\"english_name\";s:7:\"Serbian\";s:11:\"native_name\";s:23:\"Српски језик\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/sr_RS.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"sr\";i:2;s:3:\"srp\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:14:\"Настави\";}}s:5:\"sv_SE\";a:8:{s:8:\"language\";s:5:\"sv_SE\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-08 23:28:56\";s:12:\"english_name\";s:7:\"Swedish\";s:11:\"native_name\";s:7:\"Svenska\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/sv_SE.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"sv\";i:2;s:3:\"swe\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Fortsätt\";}}s:2:\"th\";a:8:{s:8:\"language\";s:2:\"th\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-08 03:22:55\";s:12:\"english_name\";s:4:\"Thai\";s:11:\"native_name\";s:9:\"ไทย\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.4.2/th.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"th\";i:2;s:3:\"tha\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:15:\"ต่อไป\";}}s:2:\"tl\";a:8:{s:8:\"language\";s:2:\"tl\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-11-27 15:51:36\";s:12:\"english_name\";s:7:\"Tagalog\";s:11:\"native_name\";s:7:\"Tagalog\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.4.2/tl.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"tl\";i:2;s:3:\"tgl\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:10:\"Magpatuloy\";}}s:5:\"tr_TR\";a:8:{s:8:\"language\";s:5:\"tr_TR\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-17 23:12:27\";s:12:\"english_name\";s:7:\"Turkish\";s:11:\"native_name\";s:8:\"Türkçe\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/tr_TR.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"tr\";i:2;s:3:\"tur\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:5:\"Devam\";}}s:5:\"ug_CN\";a:8:{s:8:\"language\";s:5:\"ug_CN\";s:7:\"version\";s:6:\"4.1.10\";s:7:\"updated\";s:19:\"2015-03-26 16:45:38\";s:12:\"english_name\";s:6:\"Uighur\";s:11:\"native_name\";s:9:\"Uyƣurqə\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.1.10/ug_CN.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ug\";i:2;s:3:\"uig\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:26:\"داۋاملاشتۇرۇش\";}}s:2:\"uk\";a:8:{s:8:\"language\";s:2:\"uk\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2016-01-03 22:04:41\";s:12:\"english_name\";s:9:\"Ukrainian\";s:11:\"native_name\";s:20:\"Українська\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.4.2/uk.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"uk\";i:2;s:3:\"ukr\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:20:\"Продовжити\";}}s:2:\"vi\";a:8:{s:8:\"language\";s:2:\"vi\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-09 01:01:25\";s:12:\"english_name\";s:10:\"Vietnamese\";s:11:\"native_name\";s:14:\"Tiếng Việt\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.4.2/vi.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"vi\";i:2;s:3:\"vie\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:12:\"Tiếp tục\";}}s:5:\"zh_TW\";a:8:{s:8:\"language\";s:5:\"zh_TW\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-11 18:51:41\";s:12:\"english_name\";s:16:\"Chinese (Taiwan)\";s:11:\"native_name\";s:12:\"繁體中文\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/zh_TW.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"zh\";i:2;s:3:\"zho\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"繼續\";}}s:5:\"zh_CN\";a:8:{s:8:\"language\";s:5:\"zh_CN\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-12 22:55:08\";s:12:\"english_name\";s:15:\"Chinese (China)\";s:11:\"native_name\";s:12:\"简体中文\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.4.2/zh_CN.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"zh\";i:2;s:3:\"zho\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"继续\";}}}','yes');
+
+/*!40000 ALTER TABLE `wp_options` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
-#
-# Data contents of table `wp_options`
-#
-INSERT INTO `wp_options` ( `option_id`, `option_name`, `option_value`, `autoload`) VALUES
-(1, 'siteurl', 'http:/local.wordpress.dev/wp', 'yes'),
-(2, 'home', 'http:/local.wordpress.dev/wp', 'yes'),
-(3, 'blogname', 'Miquel Adell', 'yes'),
-(4, 'blogdescription', 'Programador freelance: Creo pàgines amb WordPress, pico PHP, commitejo Gits, administro servidors, faig coses al núvol', 'yes'),
-(5, 'users_can_register', '0', 'yes'),
-(6, 'admin_email', 'miquel@miqueladell.com', 'yes'),
-(7, 'start_of_week', '1', 'yes'),
-(8, 'use_balanceTags', '0', 'yes'),
-(9, 'use_smilies', '1', 'yes'),
-(10, 'require_name_email', '1', 'yes'),
-(11, 'comments_notify', '1', 'yes'),
-(12, 'posts_per_rss', '10', 'yes'),
-(13, 'rss_use_excerpt', '0', 'yes'),
-(14, 'mailserver_url', 'mail.example.com', 'yes'),
-(15, 'mailserver_login', 'login@example.com', 'yes'),
-(16, 'mailserver_pass', 'password', 'yes'),
-(17, 'mailserver_port', '110', 'yes'),
-(18, 'default_category', '1', 'yes'),
-(19, 'default_comment_status', 'open', 'yes'),
-(20, 'default_ping_status', 'open', 'yes'),
-(21, 'default_pingback_flag', '1', 'yes'),
-(22, 'posts_per_page', '10', 'yes'),
-(23, 'date_format', 'F j, Y', 'yes'),
-(24, 'time_format', 'g:i a', 'yes'),
-(25, 'links_updated_date_format', 'F j, Y g:i a', 'yes'),
-(26, 'comment_moderation', '0', 'yes'),
-(27, 'moderation_notify', '1', 'yes'),
-(28, 'permalink_structure', '/%postname%/', 'yes'),
-(29, 'hack_file', '0', 'yes'),
-(30, 'blog_charset', 'UTF-8', 'yes'),
-(31, 'moderation_keys', '', 'no'),
-(32, 'active_plugins', 'a:9:{i:0;s:30:"advanced-custom-fields/acf.php";i:1;s:37:"advanced-excerpt/advanced-excerpt.php";i:2;s:19:"akismet/akismet.php";i:3;s:54:"kau-boys-backend-localization/backend_localization.php";i:4;s:41:"post-type-switcher/post-type-switcher.php";i:5;s:33:"posts-to-posts/posts-to-posts.php";i:6;s:13:"soil/soil.php";i:7;s:31:"wp-migrate-db/wp-migrate-db.php";i:8;s:39:"wp-stage-switcher/wp-stage-switcher.php";}', 'yes'),
-(33, 'category_base', '', 'yes'),
-(34, 'ping_sites', 'http://rpc.pingomatic.com/', 'yes'),
-(35, 'comment_max_links', '2', 'yes'),
-(36, 'gmt_offset', '', 'yes'),
-(37, 'default_email_category', '1', 'yes'),
-(38, 'recently_edited', '', 'no'),
-(39, 'template', 'cordills', 'yes'),
-(40, 'stylesheet', 'cordills', 'yes'),
-(41, 'comment_whitelist', '1', 'yes'),
-(42, 'blacklist_keys', '', 'no'),
-(43, 'comment_registration', '0', 'yes'),
-(44, 'html_type', 'text/html', 'yes'),
-(45, 'use_trackback', '0', 'yes'),
-(46, 'default_role', 'subscriber', 'yes'),
-(47, 'db_version', '35700', 'yes'),
-(48, 'uploads_use_yearmonth_folders', '1', 'yes'),
-(49, 'upload_path', '', 'yes'),
-(50, 'blog_public', '1', 'yes'),
-(51, 'default_link_category', '2', 'yes'),
-(52, 'show_on_front', 'page', 'yes'),
-(53, 'tag_base', '', 'yes'),
-(54, 'show_avatars', '1', 'yes'),
-(55, 'avatar_rating', 'G', 'yes'),
-(56, 'upload_url_path', '', 'yes'),
-(57, 'thumbnail_size_w', '150', 'yes'),
-(58, 'thumbnail_size_h', '150', 'yes'),
-(59, 'thumbnail_crop', '1', 'yes'),
-(60, 'medium_size_w', '300', 'yes'),
-(61, 'medium_size_h', '300', 'yes'),
-(62, 'avatar_default', 'mystery', 'yes'),
-(63, 'large_size_w', '1024', 'yes'),
-(64, 'large_size_h', '1024', 'yes'),
-(65, 'image_default_link_type', 'none', 'yes'),
-(66, 'image_default_size', '', 'yes'),
-(67, 'image_default_align', '', 'yes'),
-(68, 'close_comments_for_old_posts', '0', 'yes'),
-(69, 'close_comments_days_old', '14', 'yes'),
-(70, 'thread_comments', '1', 'yes'),
-(71, 'thread_comments_depth', '5', 'yes'),
-(72, 'page_comments', '0', 'yes'),
-(73, 'comments_per_page', '50', 'yes'),
-(74, 'default_comments_page', 'newest', 'yes'),
-(75, 'comment_order', 'asc', 'yes'),
-(76, 'sticky_posts', 'a:0:{}', 'yes'),
-(77, 'widget_categories', 'a:2:{i:2;a:4:{s:5:"title";s:0:"";s:5:"count";i:0;s:12:"hierarchical";i:0;s:8:"dropdown";i:0;}s:12:"_multiwidget";i:1;}', 'yes'),
-(78, 'widget_text', 'a:2:{i:1;a:0:{}s:12:"_multiwidget";i:1;}', 'yes'),
-(79, 'widget_rss', 'a:2:{i:1;a:0:{}s:12:"_multiwidget";i:1;}', 'yes'),
-(80, 'uninstall_plugins', 'a:1:{s:33:"posts-to-posts/posts-to-posts.php";a:2:{i:0;s:11:"P2P_Storage";i:1;s:9:"uninstall";}}', 'no'),
-(81, 'timezone_string', 'Europe/Madrid', 'yes'),
-(82, 'page_for_posts', '0', 'yes'),
-(83, 'page_on_front', '2', 'yes'),
-(84, 'default_post_format', '0', 'yes'),
-(85, 'link_manager_enabled', '0', 'yes'),
-(86, 'finished_splitting_shared_terms', '1', 'yes'),
-(87, 'site_icon', '0', 'yes'),
-(88, 'medium_large_size_w', '768', 'yes'),
-(89, 'medium_large_size_h', '0', 'yes'),
-(90, 'initial_db_version', '35700', 'yes'),
-(91, 'wp_user_roles', 'a:5:{s:13:"administrator";a:2:{s:4:"name";s:13:"Administrator";s:12:"capabilities";a:61:{s:13:"switch_themes";b:1;s:11:"edit_themes";b:1;s:16:"activate_plugins";b:1;s:12:"edit_plugins";b:1;s:10:"edit_users";b:1;s:10:"edit_files";b:1;s:14:"manage_options";b:1;s:17:"moderate_comments";b:1;s:17:"manage_categories";b:1;s:12:"manage_links";b:1;s:12:"upload_files";b:1;s:6:"import";b:1;s:15:"unfiltered_html";b:1;s:10:"edit_posts";b:1;s:17:"edit_others_posts";b:1;s:20:"edit_published_posts";b:1;s:13:"publish_posts";b:1;s:10:"edit_pages";b:1;s:4:"read";b:1;s:8:"level_10";b:1;s:7:"level_9";b:1;s:7:"level_8";b:1;s:7:"level_7";b:1;s:7:"level_6";b:1;s:7:"level_5";b:1;s:7:"level_4";b:1;s:7:"level_3";b:1;s:7:"level_2";b:1;s:7:"level_1";b:1;s:7:"level_0";b:1;s:17:"edit_others_pages";b:1;s:20:"edit_published_pages";b:1;s:13:"publish_pages";b:1;s:12:"delete_pages";b:1;s:19:"delete_others_pages";b:1;s:22:"delete_published_pages";b:1;s:12:"delete_posts";b:1;s:19:"delete_others_posts";b:1;s:22:"delete_published_posts";b:1;s:20:"delete_private_posts";b:1;s:18:"edit_private_posts";b:1;s:18:"read_private_posts";b:1;s:20:"delete_private_pages";b:1;s:18:"edit_private_pages";b:1;s:18:"read_private_pages";b:1;s:12:"delete_users";b:1;s:12:"create_users";b:1;s:17:"unfiltered_upload";b:1;s:14:"edit_dashboard";b:1;s:14:"update_plugins";b:1;s:14:"delete_plugins";b:1;s:15:"install_plugins";b:1;s:13:"update_themes";b:1;s:14:"install_themes";b:1;s:11:"update_core";b:1;s:10:"list_users";b:1;s:12:"remove_users";b:1;s:13:"promote_users";b:1;s:18:"edit_theme_options";b:1;s:13:"delete_themes";b:1;s:6:"export";b:1;}}s:6:"editor";a:2:{s:4:"name";s:6:"Editor";s:12:"capabilities";a:34:{s:17:"moderate_comments";b:1;s:17:"manage_categories";b:1;s:12:"manage_links";b:1;s:12:"upload_files";b:1;s:15:"unfiltered_html";b:1;s:10:"edit_posts";b:1;s:17:"edit_others_posts";b:1;s:20:"edit_published_posts";b:1;s:13:"publish_posts";b:1;s:10:"edit_pages";b:1;s:4:"read";b:1;s:7:"level_7";b:1;s:7:"level_6";b:1;s:7:"level_5";b:1;s:7:"level_4";b:1;s:7:"level_3";b:1;s:7:"level_2";b:1;s:7:"level_1";b:1;s:7:"level_0";b:1;s:17:"edit_others_pages";b:1;s:20:"edit_published_pages";b:1;s:13:"publish_pages";b:1;s:12:"delete_pages";b:1;s:19:"delete_others_pages";b:1;s:22:"delete_published_pages";b:1;s:12:"delete_posts";b:1;s:19:"delete_others_posts";b:1;s:22:"delete_published_posts";b:1;s:20:"delete_private_posts";b:1;s:18:"edit_private_posts";b:1;s:18:"read_private_posts";b:1;s:20:"delete_private_pages";b:1;s:18:"edit_private_pages";b:1;s:18:"read_private_pages";b:1;}}s:6:"author";a:2:{s:4:"name";s:6:"Author";s:12:"capabilities";a:10:{s:12:"upload_files";b:1;s:10:"edit_posts";b:1;s:20:"edit_published_posts";b:1;s:13:"publish_posts";b:1;s:4:"read";b:1;s:7:"level_2";b:1;s:7:"level_1";b:1;s:7:"level_0";b:1;s:12:"delete_posts";b:1;s:22:"delete_published_posts";b:1;}}s:11:"contributor";a:2:{s:4:"name";s:11:"Contributor";s:12:"capabilities";a:5:{s:10:"edit_posts";b:1;s:4:"read";b:1;s:7:"level_1";b:1;s:7:"level_0";b:1;s:12:"delete_posts";b:1;}}s:10:"subscriber";a:2:{s:4:"name";s:10:"Subscriber";s:12:"capabilities";a:2:{s:4:"read";b:1;s:7:"level_0";b:1;}}}', 'yes'),
-(92, 'widget_search', 'a:2:{i:2;a:1:{s:5:"title";s:0:"";}s:12:"_multiwidget";i:1;}', 'yes'),
-(93, 'widget_recent-posts', 'a:2:{i:2;a:2:{s:5:"title";s:0:"";s:6:"number";i:5;}s:12:"_multiwidget";i:1;}', 'yes'),
-(94, 'widget_recent-comments', 'a:2:{i:2;a:2:{s:5:"title";s:0:"";s:6:"number";i:5;}s:12:"_multiwidget";i:1;}', 'yes'),
-(95, 'widget_archives', 'a:2:{i:2;a:3:{s:5:"title";s:0:"";s:5:"count";i:0;s:8:"dropdown";i:0;}s:12:"_multiwidget";i:1;}', 'yes'),
-(96, 'widget_meta', 'a:2:{i:2;a:1:{s:5:"title";s:0:"";}s:12:"_multiwidget";i:1;}', 'yes'),
-(97, 'sidebars_widgets', 'a:4:{s:19:"wp_inactive_widgets";a:0:{}s:15:"sidebar-primary";a:6:{i:0;s:8:"search-2";i:1;s:14:"recent-posts-2";i:2;s:17:"recent-comments-2";i:3;s:10:"archives-2";i:4;s:12:"categories-2";i:5;s:6:"meta-2";}s:14:"sidebar-footer";N;s:13:"array_version";i:3;}', 'yes'),
-(100, 'bedrock_autoloader', 'a:2:{s:7:"plugins";a:0:{}s:5:"count";i:0;}', 'yes'),
-(101, 'widget_pages', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
-(102, 'widget_calendar', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes') ;
-INSERT INTO `wp_options` ( `option_id`, `option_name`, `option_value`, `autoload`) VALUES
-(103, 'widget_tag_cloud', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
-(104, 'widget_nav_menu', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
-(105, 'cron', 'a:4:{i:1456963740;a:3:{s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1457007841;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1457012128;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}s:7:"version";i:2;}', 'yes'),
-(113, 'auth_key', 'o#) .Nty.Yo^T1j9-cSyst~|$w Et:3GNjh6-b5)DLZ>t]V%{y8Wpb7!xqfD[LVO', 'yes'),
-(114, 'auth_salt', 'gi)&edO&M>eC_!4]%ZF.XoVYwl&2||)vThw!Ca2QD*ZAU0<:=<A?2^99#4Z=b6Gw', 'yes'),
-(115, 'logged_in_key', 'v% vd&zo8RgB_q4ybQ3^DrH`|a*,A}]v6Viy6C=.$O+R]hj0t?@@,=]YXC?=1DOj', 'yes'),
-(116, 'logged_in_salt', 'YVnz#zF?^x~,3zw@IFxi|bQh;z@ DB5o][x27m0J:L7W`TaPvZq{:K51t~D a4=C', 'yes'),
-(117, 'nonce_key', 'P<=:k@n^8K!va;Oy@H^(FbRel}*?`1%UE@Ag6MbCoo?k0qCu>Z_3U6JSLqj8B,Y(', 'yes'),
-(118, 'nonce_salt', '+LOaA#p+eU83RleBy$DRcK+y2uvD7H)tzL&vSHsbQ5Zaz?0o=J(>BYVaV^+8)CjR', 'yes'),
-(121, 'can_compress_scripts', '0', 'yes'),
-(139, 'recently_activated', 'a:1:{s:41:"password-protected/password-protected.php";i:1456495676;}', 'yes'),
-(142, 'theme_mods_sage', 'a:1:{s:16:"sidebars_widgets";a:2:{s:4:"time";i:1454072630;s:4:"data";a:2:{s:19:"wp_inactive_widgets";a:0:{}s:9:"sidebar-1";a:6:{i:0;s:8:"search-2";i:1;s:14:"recent-posts-2";i:2;s:17:"recent-comments-2";i:3;s:10:"archives-2";i:4;s:12:"categories-2";i:5;s:6:"meta-2";}}}}', 'yes'),
-(143, 'current_theme', 'Sage Starter Theme', 'yes'),
-(144, 'theme_mods_cordills', 'a:2:{i:0;b:0;s:18:"nav_menu_locations";a:1:{s:18:"primary_navigation";i:3;}}', 'yes'),
-(145, 'theme_switched', '', 'yes'),
-(155, 'acf_version', '4.4.5', 'yes'),
-(222, 'widget_p2p', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
-(223, 'p2p_storage', '4', 'yes'),
-(226, 'category_children', 'a:0:{}', 'yes'),
-(240, 'WPLANG', '', 'yes'),
-(248, 'widget_akismet_widget', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
-(280, 'rewrite_rules', 'a:144:{s:11:"^wp-json/?$";s:22:"index.php?rest_route=/";s:14:"^wp-json/(.*)?";s:33:"index.php?rest_route=/$matches[1]";s:47:"category/(.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:42:"category/(.+?)/(feed|rdf|rss|rss2|atom)/?$";s:52:"index.php?category_name=$matches[1]&feed=$matches[2]";s:35:"category/(.+?)/page/?([0-9]{1,})/?$";s:53:"index.php?category_name=$matches[1]&paged=$matches[2]";s:17:"category/(.+?)/?$";s:35:"index.php?category_name=$matches[1]";s:44:"tag/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?tag=$matches[1]&feed=$matches[2]";s:39:"tag/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?tag=$matches[1]&feed=$matches[2]";s:32:"tag/([^/]+)/page/?([0-9]{1,})/?$";s:43:"index.php?tag=$matches[1]&paged=$matches[2]";s:14:"tag/([^/]+)/?$";s:25:"index.php?tag=$matches[1]";s:45:"type/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?post_format=$matches[1]&feed=$matches[2]";s:40:"type/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?post_format=$matches[1]&feed=$matches[2]";s:33:"type/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?post_format=$matches[1]&paged=$matches[2]";s:15:"type/([^/]+)/?$";s:33:"index.php?post_format=$matches[1]";s:32:"area/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:42:"area/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:62:"area/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:57:"area/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:57:"area/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:38:"area/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:21:"area/([^/]+)/embed/?$";s:37:"index.php?area=$matches[1]&embed=true";s:25:"area/([^/]+)/trackback/?$";s:31:"index.php?area=$matches[1]&tb=1";s:33:"area/([^/]+)/page/?([0-9]{1,})/?$";s:44:"index.php?area=$matches[1]&paged=$matches[2]";s:40:"area/([^/]+)/comment-page-([0-9]{1,})/?$";s:44:"index.php?area=$matches[1]&cpage=$matches[2]";s:29:"area/([^/]+)(?:/([0-9]+))?/?$";s:43:"index.php?area=$matches[1]&page=$matches[2]";s:21:"area/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:31:"area/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:51:"area/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:46:"area/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:46:"area/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:27:"area/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:35:"project/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:45:"project/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:65:"project/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:60:"project/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:60:"project/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:41:"project/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:24:"project/([^/]+)/embed/?$";s:40:"index.php?project=$matches[1]&embed=true";s:28:"project/([^/]+)/trackback/?$";s:34:"index.php?project=$matches[1]&tb=1";s:36:"project/([^/]+)/page/?([0-9]{1,})/?$";s:47:"index.php?project=$matches[1]&paged=$matches[2]";s:43:"project/([^/]+)/comment-page-([0-9]{1,})/?$";s:47:"index.php?project=$matches[1]&cpage=$matches[2]";s:32:"project/([^/]+)(?:/([0-9]+))?/?$";s:46:"index.php?project=$matches[1]&page=$matches[2]";s:24:"project/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:34:"project/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:54:"project/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:49:"project/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:49:"project/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:30:"project/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:38:"technology/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:48:"technology/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:68:"technology/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"technology/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:63:"technology/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:44:"technology/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:27:"technology/([^/]+)/embed/?$";s:43:"index.php?technology=$matches[1]&embed=true";s:31:"technology/([^/]+)/trackback/?$";s:37:"index.php?technology=$matches[1]&tb=1";s:39:"technology/([^/]+)/page/?([0-9]{1,})/?$";s:50:"index.php?technology=$matches[1]&paged=$matches[2]";s:46:"technology/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?technology=$matches[1]&cpage=$matches[2]";s:35:"technology/([^/]+)(?:/([0-9]+))?/?$";s:49:"index.php?technology=$matches[1]&page=$matches[2]";s:27:"technology/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:37:"technology/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:57:"technology/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:"technology/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:"technology/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:33:"technology/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:39:"testimonial/[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:49:"testimonial/[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:69:"testimonial/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:64:"testimonial/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:64:"testimonial/[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:45:"testimonial/[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:28:"testimonial/([^/]+)/embed/?$";s:44:"index.php?testimonial=$matches[1]&embed=true";s:32:"testimonial/([^/]+)/trackback/?$";s:38:"index.php?testimonial=$matches[1]&tb=1";s:40:"testimonial/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?testimonial=$matches[1]&paged=$matches[2]";s:47:"testimonial/([^/]+)/comment-page-([0-9]{1,})/?$";s:51:"index.php?testimonial=$matches[1]&cpage=$matches[2]";s:36:"testimonial/([^/]+)(?:/([0-9]+))?/?$";s:50:"index.php?testimonial=$matches[1]&page=$matches[2]";s:28:"testimonial/[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:38:"testimonial/[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:58:"testimonial/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:53:"testimonial/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:53:"testimonial/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:34:"testimonial/[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:12:"robots\\.txt$";s:18:"index.php?robots=1";s:48:".*wp-(atom|rdf|rss|rss2|feed|commentsrss2)\\.php$";s:18:"index.php?feed=old";s:20:".*wp-app\\.php(/.*)?$";s:19:"index.php?error=403";s:18:".*wp-register.php$";s:23:"index.php?register=true";s:32:"feed/(feed|rdf|rss|rss2|atom)/?$";s:27:"index.php?&feed=$matches[1]";s:27:"(feed|rdf|rss|rss2|atom)/?$";s:27:"index.php?&feed=$matches[1]";s:20:"page/?([0-9]{1,})/?$";s:28:"index.php?&paged=$matches[1]";s:27:"comment-page-([0-9]{1,})/?$";s:38:"index.php?&page_id=2&cpage=$matches[1]";s:41:"comments/feed/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?&feed=$matches[1]&withcomments=1";s:36:"comments/(feed|rdf|rss|rss2|atom)/?$";s:42:"index.php?&feed=$matches[1]&withcomments=1";s:44:"search/(.+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:40:"index.php?s=$matches[1]&feed=$matches[2]";s:39:"search/(.+)/(feed|rdf|rss|rss2|atom)/?$";s:40:"index.php?s=$matches[1]&feed=$matches[2]";s:32:"search/(.+)/page/?([0-9]{1,})/?$";s:41:"index.php?s=$matches[1]&paged=$matches[2]";s:14:"search/(.+)/?$";s:23:"index.php?s=$matches[1]";s:47:"author/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?author_name=$matches[1]&feed=$matches[2]";s:42:"author/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:50:"index.php?author_name=$matches[1]&feed=$matches[2]";s:35:"author/([^/]+)/page/?([0-9]{1,})/?$";s:51:"index.php?author_name=$matches[1]&paged=$matches[2]";s:17:"author/([^/]+)/?$";s:33:"index.php?author_name=$matches[1]";s:69:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$";s:80:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&feed=$matches[4]";s:64:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$";s:80:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&feed=$matches[4]";s:57:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/page/?([0-9]{1,})/?$";s:81:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]&paged=$matches[4]";s:39:"([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/?$";s:63:"index.php?year=$matches[1]&monthnum=$matches[2]&day=$matches[3]";s:56:"([0-9]{4})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$";s:64:"index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]";s:51:"([0-9]{4})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$";s:64:"index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]";s:44:"([0-9]{4})/([0-9]{1,2})/page/?([0-9]{1,})/?$";s:65:"index.php?year=$matches[1]&monthnum=$matches[2]&paged=$matches[3]";s:26:"([0-9]{4})/([0-9]{1,2})/?$";s:47:"index.php?year=$matches[1]&monthnum=$matches[2]";s:43:"([0-9]{4})/feed/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?year=$matches[1]&feed=$matches[2]";s:38:"([0-9]{4})/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?year=$matches[1]&feed=$matches[2]";s:31:"([0-9]{4})/page/?([0-9]{1,})/?$";s:44:"index.php?year=$matches[1]&paged=$matches[2]";s:13:"([0-9]{4})/?$";s:26:"index.php?year=$matches[1]";s:27:".?.+?/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:37:".?.+?/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:57:".?.+?/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:".?.+?/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:".?.+?/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:33:".?.+?/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:16:"(.?.+?)/embed/?$";s:41:"index.php?pagename=$matches[1]&embed=true";s:20:"(.?.+?)/trackback/?$";s:35:"index.php?pagename=$matches[1]&tb=1";s:40:"(.?.+?)/feed/(feed|rdf|rss|rss2|atom)/?$";s:47:"index.php?pagename=$matches[1]&feed=$matches[2]";s:35:"(.?.+?)/(feed|rdf|rss|rss2|atom)/?$";s:47:"index.php?pagename=$matches[1]&feed=$matches[2]";s:28:"(.?.+?)/page/?([0-9]{1,})/?$";s:48:"index.php?pagename=$matches[1]&paged=$matches[2]";s:35:"(.?.+?)/comment-page-([0-9]{1,})/?$";s:48:"index.php?pagename=$matches[1]&cpage=$matches[2]";s:24:"(.?.+?)(?:/([0-9]+))?/?$";s:47:"index.php?pagename=$matches[1]&page=$matches[2]";s:27:"[^/]+/attachment/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:37:"[^/]+/attachment/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:57:"[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:"[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:52:"[^/]+/attachment/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:33:"[^/]+/attachment/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";s:16:"([^/]+)/embed/?$";s:37:"index.php?name=$matches[1]&embed=true";s:20:"([^/]+)/trackback/?$";s:31:"index.php?name=$matches[1]&tb=1";s:40:"([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?name=$matches[1]&feed=$matches[2]";s:35:"([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:43:"index.php?name=$matches[1]&feed=$matches[2]";s:28:"([^/]+)/page/?([0-9]{1,})/?$";s:44:"index.php?name=$matches[1]&paged=$matches[2]";s:35:"([^/]+)/comment-page-([0-9]{1,})/?$";s:44:"index.php?name=$matches[1]&cpage=$matches[2]";s:24:"([^/]+)(?:/([0-9]+))?/?$";s:43:"index.php?name=$matches[1]&page=$matches[2]";s:16:"[^/]+/([^/]+)/?$";s:32:"index.php?attachment=$matches[1]";s:26:"[^/]+/([^/]+)/trackback/?$";s:37:"index.php?attachment=$matches[1]&tb=1";s:46:"[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:41:"[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$";s:49:"index.php?attachment=$matches[1]&feed=$matches[2]";s:41:"[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$";s:50:"index.php?attachment=$matches[1]&cpage=$matches[2]";s:22:"[^/]+/([^/]+)/embed/?$";s:43:"index.php?attachment=$matches[1]&embed=true";}', 'yes'),
-(299, 'advanced_excerpt', 'a:14:{s:6:"length";i:40;s:11:"length_type";s:5:"words";s:9:"no_custom";i:1;s:12:"no_shortcode";i:1;s:6:"finish";s:5:"exact";s:8:"ellipsis";s:8:"&hellip;";s:9:"read_more";s:13:"Read the rest";s:8:"add_link";i:0;s:12:"allowed_tags";a:0:{}s:11:"the_excerpt";i:1;s:11:"the_content";i:1;s:20:"the_content_no_break";i:0;s:13:"exclude_pages";a:0:{}s:19:"allowed_tags_option";s:15:"dont_remove_any";}', 'yes'),
-(303, 'password_protected_version', '2.0.2', 'yes'),
-(318, 'nav_menu_options', 'a:2:{i:0;b:0;s:8:"auto_add";a:0:{}}', 'yes'),
-(349, 'area_children', 'a:0:{}', 'yes') ;
-
-#
-# End of data contents of table `wp_options`
-# --------------------------------------------------------
-
-
-
-#
-# Delete any existing table `wp_p2p`
-#
+# Dump of table wp_p2p
+# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `wp_p2p`;
-
-
-#
-# Table structure of table `wp_p2p`
-#
 
 CREATE TABLE `wp_p2p` (
   `p2p_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -308,34 +282,26 @@ CREATE TABLE `wp_p2p` (
   KEY `p2p_from` (`p2p_from`),
   KEY `p2p_to` (`p2p_to`),
   KEY `p2p_type` (`p2p_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+LOCK TABLES `wp_p2p` WRITE;
+/*!40000 ALTER TABLE `wp_p2p` DISABLE KEYS */;
+
+INSERT INTO `wp_p2p` (`p2p_id`, `p2p_from`, `p2p_to`, `p2p_type`)
+VALUES
+	(2,57,5,'highlighted_project'),
+	(3,40,38,'testimonied_project'),
+	(4,38,40,'testimonied_project'),
+	(5,57,53,'testimonied_project');
+
+/*!40000 ALTER TABLE `wp_p2p` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
-#
-# Data contents of table `wp_p2p`
-#
-INSERT INTO `wp_p2p` ( `p2p_id`, `p2p_from`, `p2p_to`, `p2p_type`) VALUES
-(2, 57, 5, 'highlighted_project'),
-(3, 40, 38, 'testimonied_project'),
-(4, 38, 40, 'testimonied_project'),
-(5, 57, 53, 'testimonied_project') ;
-
-#
-# End of data contents of table `wp_p2p`
-# --------------------------------------------------------
-
-
-
-#
-# Delete any existing table `wp_p2pmeta`
-#
+# Dump of table wp_p2pmeta
+# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `wp_p2pmeta`;
-
-
-#
-# Table structure of table `wp_p2pmeta`
-#
 
 CREATE TABLE `wp_p2pmeta` (
   `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -348,26 +314,11 @@ CREATE TABLE `wp_p2pmeta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-#
-# Data contents of table `wp_p2pmeta`
-#
 
-#
-# End of data contents of table `wp_p2pmeta`
-# --------------------------------------------------------
-
-
-
-#
-# Delete any existing table `wp_postmeta`
-#
+# Dump of table wp_postmeta
+# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `wp_postmeta`;
-
-
-#
-# Table structure of table `wp_postmeta`
-#
 
 CREATE TABLE `wp_postmeta` (
   `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -377,433 +328,422 @@ CREATE TABLE `wp_postmeta` (
   PRIMARY KEY (`meta_id`),
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB AUTO_INCREMENT=497 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+LOCK TABLES `wp_postmeta` WRITE;
+/*!40000 ALTER TABLE `wp_postmeta` DISABLE KEYS */;
+
+INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`)
+VALUES
+	(1,2,'_wp_page_template','default'),
+	(2,2,'_edit_lock','1456931784:1'),
+	(3,2,'_edit_last','1'),
+	(4,5,'_edit_last','1'),
+	(5,5,'_edit_lock','1456499839:1'),
+	(6,5,'_wp_page_template','default'),
+	(7,7,'_edit_last','1'),
+	(8,7,'_edit_lock','1456412066:1'),
+	(9,7,'_wp_page_template','default'),
+	(10,9,'_edit_last','1'),
+	(11,9,'_edit_lock','1456411654:1'),
+	(12,9,'_wp_page_template','default'),
+	(16,16,'_edit_last','1'),
+	(17,16,'_edit_lock','1456331342:1'),
+	(18,16,'_wp_page_template','default'),
+	(24,24,'_edit_last','1'),
+	(25,24,'_edit_lock','1456479496:1'),
+	(26,24,'_wp_page_template','default'),
+	(27,23,'_edit_last','1'),
+	(30,23,'position','normal'),
+	(31,23,'layout','default'),
+	(32,23,'hide_on_screen',''),
+	(33,23,'_edit_lock','1456482842:1'),
+	(35,23,'field_56bca82d40146','a:14:{s:3:\"key\";s:19:\"field_56bca82d40146\";s:5:\"label\";s:11:\"Company URL\";s:4:\"name\";s:11:\"company_url\";s:4:\"type\";s:4:\"text\";s:12:\"instructions\";s:0:\"\";s:8:\"required\";s:1:\"0\";s:13:\"default_value\";s:0:\"\";s:11:\"placeholder\";s:0:\"\";s:7:\"prepend\";s:0:\"\";s:6:\"append\";s:0:\"\";s:10:\"formatting\";s:4:\"none\";s:9:\"maxlength\";s:0:\"\";s:17:\"conditional_logic\";a:3:{s:6:\"status\";s:1:\"0\";s:5:\"rules\";a:1:{i:0;a:3:{s:5:\"field\";s:4:\"null\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:0:\"\";}}s:8:\"allorany\";s:3:\"all\";}s:8:\"order_no\";i:1;}'),
+	(42,23,'field_56bca91826729','a:14:{s:3:\"key\";s:19:\"field_56bca91826729\";s:5:\"label\";s:12:\"Company Name\";s:4:\"name\";s:12:\"company_name\";s:4:\"type\";s:4:\"text\";s:12:\"instructions\";s:0:\"\";s:8:\"required\";s:1:\"0\";s:13:\"default_value\";s:0:\"\";s:11:\"placeholder\";s:0:\"\";s:7:\"prepend\";s:0:\"\";s:6:\"append\";s:0:\"\";s:10:\"formatting\";s:4:\"none\";s:9:\"maxlength\";s:0:\"\";s:17:\"conditional_logic\";a:3:{s:6:\"status\";s:1:\"0\";s:5:\"rules\";a:1:{i:0;a:3:{s:5:\"field\";s:4:\"null\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:0:\"\";}}s:8:\"allorany\";s:3:\"all\";}s:8:\"order_no\";i:0;}'),
+	(45,27,'_wp_attached_file','2016/02/AAEAAQAAAAAAAAbHAAAAJGU2ODg1OTNhLTI5MWYtNGEzZC04ZDA2LTM5OWE4YzRmM2M0OQ.jpg'),
+	(46,27,'_wp_attachment_metadata','a:5:{s:5:\"width\";i:306;s:6:\"height\";i:306;s:4:\"file\";s:82:\"2016/02/AAEAAQAAAAAAAAbHAAAAJGU2ODg1OTNhLTI5MWYtNGEzZC04ZDA2LTM5OWE4YzRmM2M0OQ.jpg\";s:5:\"sizes\";a:2:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:82:\"AAEAAQAAAAAAAAbHAAAAJGU2ODg1OTNhLTI5MWYtNGEzZC04ZDA2LTM5OWE4YzRmM2M0OQ-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:82:\"AAEAAQAAAAAAAAbHAAAAJGU2ODg1OTNhLTI5MWYtNGEzZC04ZDA2LTM5OWE4YzRmM2M0OQ-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+	(47,24,'_thumbnail_id','27'),
+	(48,28,'company_name','RSB Media'),
+	(49,28,'_company_name','field_56bca91826729'),
+	(50,28,'company_url','http://www.rsbmedia.com/'),
+	(51,28,'_company_url','field_56bca82d40146'),
+	(52,28,'project_name',''),
+	(53,28,'_project_name','field_56bca858058db'),
+	(54,28,'project_url',''),
+	(55,28,'_project_url','field_56bca8d5058dc'),
+	(56,24,'company_name','RSB Media'),
+	(57,24,'_company_name','field_56bca91826729'),
+	(58,24,'company_url','http://www.rsbmedia.com/'),
+	(59,24,'_company_url','field_56bca82d40146'),
+	(60,24,'project_name',''),
+	(61,24,'_project_name','field_56bca858058db'),
+	(62,24,'project_url',''),
+	(63,24,'_project_url','field_56bca8d5058dc'),
+	(64,29,'_edit_last','1'),
+	(65,29,'_edit_lock','1456241295:1'),
+	(66,29,'_wp_page_template','default'),
+	(67,30,'company_name','Vasava'),
+	(68,30,'_company_name','field_56bca91826729'),
+	(69,30,'company_url','http://www.vasava.es/'),
+	(70,30,'_company_url','field_56bca82d40146'),
+	(71,30,'project_name',''),
+	(72,30,'_project_name','field_56bca858058db'),
+	(73,30,'project_url',''),
+	(74,30,'_project_url','field_56bca8d5058dc'),
+	(75,29,'company_name','Vasava'),
+	(76,29,'_company_name','field_56bca91826729'),
+	(77,29,'company_url','http://www.vasava.es/'),
+	(78,29,'_company_url','field_56bca82d40146'),
+	(79,29,'project_name',''),
+	(80,29,'_project_name','field_56bca858058db'),
+	(81,29,'project_url',''),
+	(82,29,'_project_url','field_56bca8d5058dc'),
+	(83,31,'_edit_last','1'),
+	(84,31,'_edit_lock','1456241287:1'),
+	(85,31,'_wp_page_template','default'),
+	(86,32,'company_name','Around Pixels'),
+	(87,32,'_company_name','field_56bca91826729'),
+	(88,32,'company_url',''),
+	(89,32,'_company_url','field_56bca82d40146'),
+	(90,32,'project_name',''),
+	(91,32,'_project_name','field_56bca858058db'),
+	(92,32,'project_url',''),
+	(93,32,'_project_url','field_56bca8d5058dc'),
+	(94,31,'company_name','Around Pixels'),
+	(95,31,'_company_name','field_56bca91826729'),
+	(96,31,'company_url',''),
+	(97,31,'_company_url','field_56bca82d40146'),
+	(98,31,'project_name',''),
+	(99,31,'_project_name','field_56bca858058db'),
+	(100,31,'project_url',''),
+	(101,31,'_project_url','field_56bca8d5058dc'),
+	(102,33,'_wp_attached_file','2016/02/27c787d.jpg'),
+	(103,33,'_wp_attachment_metadata','a:5:{s:5:\"width\";i:337;s:6:\"height\";i:337;s:4:\"file\";s:19:\"2016/02/27c787d.jpg\";s:5:\"sizes\";a:2:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:19:\"27c787d-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:19:\"27c787d-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+	(104,31,'_thumbnail_id','33'),
+	(105,34,'_wp_attached_file','2016/02/2805412.jpg'),
+	(106,34,'_wp_attachment_metadata','a:5:{s:5:\"width\";i:337;s:6:\"height\";i:337;s:4:\"file\";s:19:\"2016/02/2805412.jpg\";s:5:\"sizes\";a:2:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:19:\"2805412-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:19:\"2805412-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+	(107,29,'_thumbnail_id','34'),
+	(115,38,'_edit_last','1'),
+	(116,38,'_edit_lock','1456485586:1'),
+	(119,40,'_edit_last','1'),
+	(120,40,'_edit_lock','1456489751:1'),
+	(121,41,'_wp_attached_file','2016/02/01f0ac4.jpg'),
+	(122,41,'_wp_attachment_metadata','a:5:{s:5:\"width\";i:308;s:6:\"height\";i:308;s:4:\"file\";s:19:\"2016/02/01f0ac4.jpg\";s:5:\"sizes\";a:2:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:19:\"01f0ac4-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:19:\"01f0ac4-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+	(123,40,'_thumbnail_id','41'),
+	(124,40,'_wp_page_template','default'),
+	(125,42,'company_name','JIPI'),
+	(126,42,'_company_name','field_56bca91826729'),
+	(127,42,'company_url','http://www.ub.edu/jipi/index_ang.html'),
+	(128,42,'_company_url','field_56bca82d40146'),
+	(129,42,'project_name','Web JIPI'),
+	(130,42,'_project_name','field_56bca858058db'),
+	(131,42,'project_url','http://local.wordpress.dev/jipi/'),
+	(132,42,'_project_url','field_56bca8d5058dc'),
+	(133,40,'company_name','JIPI'),
+	(134,40,'_company_name','field_56bca91826729'),
+	(135,40,'company_url','http://www.ub.edu/jipi/index_ang.html'),
+	(136,40,'_company_url','field_56bca82d40146'),
+	(137,40,'project_name','Web JIPI'),
+	(138,40,'_project_name','field_56bca858058db'),
+	(139,40,'project_url','http://local.wordpress.dev/jipi/'),
+	(140,40,'_project_url','field_56bca8d5058dc'),
+	(142,53,'_edit_last','1'),
+	(143,53,'_edit_lock','1456490821:1'),
+	(144,53,'company_name','Uombo'),
+	(145,53,'_company_name','field_56bca91826729'),
+	(146,53,'company_url','http://uombo.com/'),
+	(147,53,'_company_url','field_56bca82d40146'),
+	(148,53,'project_name',''),
+	(149,53,'_project_name','field_56bca858058db'),
+	(150,53,'project_url',''),
+	(151,53,'_project_url','field_56bca8d5058dc'),
+	(152,54,'_edit_last','1'),
+	(153,54,'field_56c1bd2a10bbc','a:11:{s:3:\"key\";s:19:\"field_56c1bd2a10bbc\";s:5:\"label\";s:11:\"Full mockup\";s:4:\"name\";s:11:\"full_mockup\";s:4:\"type\";s:5:\"image\";s:12:\"instructions\";s:27:\"Mockup with all the devices\";s:8:\"required\";s:1:\"0\";s:11:\"save_format\";s:6:\"object\";s:12:\"preview_size\";s:9:\"thumbnail\";s:7:\"library\";s:3:\"all\";s:17:\"conditional_logic\";a:3:{s:6:\"status\";s:1:\"0\";s:5:\"rules\";a:1:{i:0;a:3:{s:5:\"field\";s:4:\"null\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:0:\"\";}}s:8:\"allorany\";s:3:\"all\";}s:8:\"order_no\";i:0;}'),
+	(155,54,'position','acf_after_title'),
+	(156,54,'layout','no_box'),
+	(157,54,'hide_on_screen',''),
+	(158,54,'_edit_lock','1456240148:1'),
+	(163,54,'field_56c1bff8dc1a0','a:14:{s:3:\"key\";s:19:\"field_56c1bff8dc1a0\";s:5:\"label\";s:3:\"URL\";s:4:\"name\";s:3:\"url\";s:4:\"type\";s:4:\"text\";s:12:\"instructions\";s:0:\"\";s:8:\"required\";s:1:\"0\";s:13:\"default_value\";s:0:\"\";s:11:\"placeholder\";s:0:\"\";s:7:\"prepend\";s:0:\"\";s:6:\"append\";s:0:\"\";s:10:\"formatting\";s:4:\"html\";s:9:\"maxlength\";s:0:\"\";s:17:\"conditional_logic\";a:3:{s:6:\"status\";s:1:\"0\";s:5:\"rules\";a:1:{i:0;a:2:{s:5:\"field\";s:4:\"null\";s:8:\"operator\";s:2:\"==\";}}s:8:\"allorany\";s:3:\"all\";}s:8:\"order_no\";i:1;}'),
+	(165,57,'_edit_last','1'),
+	(166,57,'full_mockup','73'),
+	(167,57,'_full_mockup','field_56c1bd2a10bbc'),
+	(168,57,'url','http://giralesquerra.cat/'),
+	(169,57,'_url','field_56c1bff8dc1a0'),
+	(170,57,'_edit_lock','1456332563:1'),
+	(171,57,'_wp_old_slug','57'),
+	(172,54,'rule','a:5:{s:5:\"param\";s:9:\"post_type\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:7:\"project\";s:8:\"order_no\";i:0;s:8:\"group_no\";i:0;}'),
+	(182,61,'_edit_last','1'),
+	(183,61,'_edit_lock','1455805506:1'),
+	(184,62,'_edit_last','1'),
+	(185,62,'_edit_lock','1455805520:1'),
+	(186,63,'_edit_last','1'),
+	(187,63,'_edit_lock','1456325985:1'),
+	(188,64,'_edit_last','1'),
+	(189,64,'_edit_lock','1456325910:1'),
+	(190,65,'_edit_last','1'),
+	(191,65,'_edit_lock','1456325905:1'),
+	(192,67,'_wp_attached_file','2016/02/020f5d7.jpg'),
+	(193,67,'_wp_attachment_metadata','a:5:{s:5:\"width\";i:200;s:6:\"height\";i:200;s:4:\"file\";s:19:\"2016/02/020f5d7.jpg\";s:5:\"sizes\";a:1:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:19:\"020f5d7-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+	(194,53,'_wp_old_slug','test-title'),
+	(195,69,'_edit_last','1'),
+	(196,69,'field_56c5d8aad4dcf','a:11:{s:3:\"key\";s:19:\"field_56c5d8aad4dcf\";s:5:\"label\";s:4:\"Text\";s:4:\"name\";s:19:\"call_to_action_text\";s:4:\"type\";s:7:\"wysiwyg\";s:12:\"instructions\";s:38:\"Content to show after the main content\";s:8:\"required\";s:1:\"0\";s:13:\"default_value\";s:0:\"\";s:7:\"toolbar\";s:4:\"full\";s:12:\"media_upload\";s:2:\"no\";s:17:\"conditional_logic\";a:3:{s:6:\"status\";s:1:\"0\";s:5:\"rules\";a:1:{i:0;a:2:{s:5:\"field\";s:4:\"null\";s:8:\"operator\";s:2:\"==\";}}s:8:\"allorany\";s:3:\"all\";}s:8:\"order_no\";i:1;}'),
+	(199,69,'position','normal'),
+	(200,69,'layout','no_box'),
+	(201,69,'hide_on_screen','a:12:{i:0;s:7:\"excerpt\";i:1;s:13:\"custom_fields\";i:2;s:10:\"discussion\";i:3;s:8:\"comments\";i:4;s:9:\"revisions\";i:5;s:4:\"slug\";i:6;s:6:\"author\";i:7;s:6:\"format\";i:8;s:14:\"featured_image\";i:9;s:10:\"categories\";i:10;s:4:\"tags\";i:11;s:15:\"send-trackbacks\";}'),
+	(202,69,'_edit_lock','1456483404:1'),
+	(210,71,'call_to_action','&lt;div class=\"lead\"&gt;Conversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra.&lt;/div&gt;\r\n\r\n&lt;button type=\"button\" class=\"btn btn-primary\"&gt;Contacta\'m&lt;/button&gt;'),
+	(211,71,'_call_to_action','field_56c5d8aad4dcf'),
+	(212,5,'call_to_action','<div class=\"lead\">Si necessites una pàgina web no dubtis en contactar-me</div>\r\n<button class=\"btn btn-primary\" type=\"button\">Contacta\'m</button>'),
+	(213,5,'_call_to_action','field_56c5d8aad4dcf'),
+	(214,72,'call_to_action','&lt;div class=\"lead\"&gt;Conversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra.&lt;/div&gt;\r\n\r\n&lt;button type=\"button\" class=\"btn btn-primary\"&gt;Contacta\'m&lt;/button&gt;'),
+	(215,72,'_call_to_action','field_56c5d8aad4dcf'),
+	(220,73,'_wp_attached_file','2016/02/gir-a-lesquerra-mockup-transparent-e1455809872576.png'),
+	(221,73,'_wp_attachment_metadata','a:5:{s:5:\"width\";i:1200;s:6:\"height\";i:789;s:4:\"file\";s:61:\"2016/02/gir-a-lesquerra-mockup-transparent-e1455809872576.png\";s:5:\"sizes\";a:4:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:46:\"gir-a-lesquerra-mockup-transparent-150x150.png\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:9:\"image/png\";}s:6:\"medium\";a:4:{s:4:\"file\";s:46:\"gir-a-lesquerra-mockup-transparent-300x197.png\";s:5:\"width\";i:300;s:6:\"height\";i:197;s:9:\"mime-type\";s:9:\"image/png\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:46:\"gir-a-lesquerra-mockup-transparent-768x505.png\";s:5:\"width\";i:768;s:6:\"height\";i:505;s:9:\"mime-type\";s:9:\"image/png\";}s:5:\"large\";a:4:{s:4:\"file\";s:47:\"gir-a-lesquerra-mockup-transparent-1024x673.png\";s:5:\"width\";i:1024;s:6:\"height\";i:673;s:9:\"mime-type\";s:9:\"image/png\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+	(222,73,'_wp_attachment_image_alt','Gira a l\'esquerra en diferents dispositius'),
+	(223,73,'_edit_lock','1455809860:1'),
+	(224,73,'_wp_attachment_backup_sizes','a:1:{s:9:\"full-orig\";a:3:{s:5:\"width\";i:3500;s:6:\"height\";i:2300;s:4:\"file\";s:38:\"gir-a-lesquerra-mockup-transparent.png\";}}'),
+	(225,73,'_edit_last','1'),
+	(226,57,'_wp_old_slug','gira-lesquerra'),
+	(227,74,'_menu_item_type','post_type'),
+	(228,74,'_menu_item_menu_item_parent','0'),
+	(229,74,'_menu_item_object_id','2'),
+	(230,74,'_menu_item_object','page'),
+	(231,74,'_menu_item_target',''),
+	(232,74,'_menu_item_classes','a:1:{i:0;s:0:\"\";}'),
+	(233,74,'_menu_item_xfn',''),
+	(234,74,'_menu_item_url',''),
+	(235,74,'_menu_item_orphaned','1456146036'),
+	(236,75,'_menu_item_type','post_type'),
+	(237,75,'_menu_item_menu_item_parent','0'),
+	(238,75,'_menu_item_object_id','7'),
+	(239,75,'_menu_item_object','page'),
+	(240,75,'_menu_item_target',''),
+	(241,75,'_menu_item_classes','a:1:{i:0;s:0:\"\";}'),
+	(242,75,'_menu_item_xfn',''),
+	(243,75,'_menu_item_url',''),
+	(245,76,'_menu_item_type','post_type'),
+	(246,76,'_menu_item_menu_item_parent','0'),
+	(247,76,'_menu_item_object_id','9'),
+	(248,76,'_menu_item_object','page'),
+	(249,76,'_menu_item_target',''),
+	(250,76,'_menu_item_classes','a:1:{i:0;s:0:\"\";}'),
+	(251,76,'_menu_item_xfn',''),
+	(252,76,'_menu_item_url',''),
+	(254,77,'_menu_item_type','post_type'),
+	(255,77,'_menu_item_menu_item_parent','0'),
+	(256,77,'_menu_item_object_id','16'),
+	(257,77,'_menu_item_object','page'),
+	(258,77,'_menu_item_target',''),
+	(259,77,'_menu_item_classes','a:1:{i:0;s:0:\"\";}'),
+	(260,77,'_menu_item_xfn',''),
+	(261,77,'_menu_item_url',''),
+	(263,78,'_menu_item_type','post_type'),
+	(264,78,'_menu_item_menu_item_parent','0'),
+	(265,78,'_menu_item_object_id','2'),
+	(266,78,'_menu_item_object','page'),
+	(267,78,'_menu_item_target',''),
+	(268,78,'_menu_item_classes','a:1:{i:0;s:0:\"\";}'),
+	(269,78,'_menu_item_xfn',''),
+	(270,78,'_menu_item_url',''),
+	(271,78,'_menu_item_orphaned','1456146036'),
+	(272,79,'_menu_item_type','post_type'),
+	(273,79,'_menu_item_menu_item_parent','0'),
+	(274,79,'_menu_item_object_id','5'),
+	(275,79,'_menu_item_object','page'),
+	(276,79,'_menu_item_target',''),
+	(277,79,'_menu_item_classes','a:1:{i:0;s:0:\"\";}'),
+	(278,79,'_menu_item_xfn',''),
+	(279,79,'_menu_item_url',''),
+	(286,23,'field_56cc7aaf89f82','a:11:{s:3:\"key\";s:19:\"field_56cc7aaf89f82\";s:5:\"label\";s:5:\"Image\";s:4:\"name\";s:5:\"image\";s:4:\"type\";s:5:\"image\";s:12:\"instructions\";s:0:\"\";s:8:\"required\";s:1:\"0\";s:11:\"save_format\";s:6:\"object\";s:12:\"preview_size\";s:9:\"thumbnail\";s:7:\"library\";s:3:\"all\";s:17:\"conditional_logic\";a:3:{s:6:\"status\";s:1:\"0\";s:5:\"rules\";a:1:{i:0;a:3:{s:5:\"field\";s:4:\"null\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:0:\"\";}}s:8:\"allorany\";s:3:\"all\";}s:8:\"order_no\";i:2;}'),
+	(288,67,'_edit_lock','1456241250:1'),
+	(289,53,'image','67'),
+	(290,53,'_image','field_56cc7aaf89f82'),
+	(291,40,'image','41'),
+	(292,40,'_image','field_56cc7aaf89f82'),
+	(293,31,'image','33'),
+	(294,31,'_image','field_56cc7aaf89f82'),
+	(295,29,'image','34'),
+	(296,29,'_image','field_56cc7aaf89f82'),
+	(297,24,'image','27'),
+	(298,24,'_image','field_56cc7aaf89f82'),
+	(299,82,'call_to_action','<div class=\"lead\">Si necessites una pàgina web</div>\r\n<button class=\"btn btn-primary\" type=\"button\">Contacta\'m</button>'),
+	(300,82,'_call_to_action','field_56c5d8aad4dcf'),
+	(301,83,'call_to_action','<div class=\"lead\">Si necessites una pàgina web no dubtis en contactar-me</div>\r\n<button class=\"btn btn-primary\" type=\"button\">Contacta\'m</button>'),
+	(302,83,'_call_to_action','field_56c5d8aad4dcf'),
+	(305,88,'_edit_last','1'),
+	(307,88,'position','normal'),
+	(308,88,'layout','no_box'),
+	(309,88,'hide_on_screen','a:14:{i:0;s:9:\"permalink\";i:1;s:11:\"the_content\";i:2;s:7:\"excerpt\";i:3;s:13:\"custom_fields\";i:4;s:10:\"discussion\";i:5;s:8:\"comments\";i:6;s:9:\"revisions\";i:7;s:4:\"slug\";i:8;s:6:\"author\";i:9;s:6:\"format\";i:10;s:14:\"featured_image\";i:11;s:10:\"categories\";i:12;s:4:\"tags\";i:13;s:15:\"send-trackbacks\";}'),
+	(310,88,'_edit_lock','1456411765:1'),
+	(312,88,'rule','a:5:{s:5:\"param\";s:4:\"page\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:1:\"2\";s:8:\"order_no\";i:0;s:8:\"group_no\";i:0;}'),
+	(313,90,'_edit_last','1'),
+	(314,90,'_edit_lock','1456318203:1'),
+	(315,90,'_wp_old_slug','design'),
+	(316,92,'_edit_last','1'),
+	(317,92,'_edit_lock','1456318244:1'),
+	(318,92,'_wp_old_slug','design'),
+	(319,95,'_edit_last','1'),
+	(320,95,'_edit_lock','1456324397:1'),
+	(321,96,'_edit_last','1'),
+	(322,96,'_edit_lock','1456318226:1'),
+	(323,97,'_edit_last','1'),
+	(324,97,'_edit_lock','1456327219:1'),
+	(325,98,'_edit_last','1'),
+	(326,98,'_edit_lock','1456325883:1'),
+	(327,99,'_edit_last','1'),
+	(328,99,'_edit_lock','1456325870:1'),
+	(329,100,'_edit_last','1'),
+	(330,100,'_edit_lock','1456327244:1'),
+	(331,101,'_edit_last','1'),
+	(332,101,'_edit_lock','1456325954:1'),
+	(333,102,'_edit_last','1'),
+	(334,102,'_edit_lock','1456307214:1'),
+	(335,102,'_wp_trash_meta_status','publish'),
+	(336,102,'_wp_trash_meta_time','1456307361'),
+	(337,104,'_edit_last','1'),
+	(338,104,'field_56cd98f8013f6','a:14:{s:3:\"key\";s:19:\"field_56cd98f8013f6\";s:5:\"label\";s:4:\"Icon\";s:4:\"name\";s:4:\"icon\";s:4:\"type\";s:4:\"text\";s:12:\"instructions\";s:103:\"full class to apply the icon.\r\nF.ex. fa fa-lighbulb or glyphicon glyphicon-lightbulb NOT just lightbulb\";s:8:\"required\";s:1:\"0\";s:13:\"default_value\";s:0:\"\";s:11:\"placeholder\";s:0:\"\";s:7:\"prepend\";s:0:\"\";s:6:\"append\";s:0:\"\";s:10:\"formatting\";s:4:\"html\";s:9:\"maxlength\";s:0:\"\";s:17:\"conditional_logic\";a:3:{s:6:\"status\";s:1:\"0\";s:5:\"rules\";a:1:{i:0;a:3:{s:5:\"field\";s:4:\"null\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:0:\"\";}}s:8:\"allorany\";s:3:\"all\";}s:8:\"order_no\";i:0;}'),
+	(341,104,'position','normal'),
+	(342,104,'layout','no_box'),
+	(343,104,'hide_on_screen','a:8:{i:0;s:10:\"discussion\";i:1;s:8:\"comments\";i:2;s:9:\"revisions\";i:3;s:4:\"slug\";i:4;s:6:\"author\";i:5;s:6:\"format\";i:6;s:14:\"featured_image\";i:7;s:15:\"send-trackbacks\";}'),
+	(344,104,'_edit_lock','1456317788:1'),
+	(346,90,'icon','fa fa-lightbulb-o'),
+	(347,90,'_icon','field_56cd98f8013f6'),
+	(348,90,'_','field_56cd9930013f7'),
+	(349,92,'icon','fa fa-paint-brush'),
+	(350,92,'_icon','field_56cd98f8013f6'),
+	(351,92,'_','field_56cd9930013f7'),
+	(354,95,'icon','fa fa-wrench'),
+	(355,95,'_icon','field_56cd98f8013f6'),
+	(356,95,'_','field_56cd9930013f7'),
+	(357,96,'icon','fa fa-refresh'),
+	(358,96,'_icon','field_56cd98f8013f6'),
+	(359,96,'_','field_56cd9930013f7'),
+	(362,105,'_edit_last','1'),
+	(363,105,'field_56cda7974fc80','a:14:{s:3:\"key\";s:19:\"field_56cda7974fc80\";s:5:\"label\";s:4:\"Icon\";s:4:\"name\";s:4:\"icon\";s:4:\"type\";s:4:\"text\";s:12:\"instructions\";s:103:\"full class to apply the icon.\r\nF.ex. fa fa-lighbulb or glyphicon glyphicon-lightbulb NOT just lightbulb\";s:8:\"required\";s:1:\"0\";s:13:\"default_value\";s:0:\"\";s:11:\"placeholder\";s:0:\"\";s:7:\"prepend\";s:0:\"\";s:6:\"append\";s:0:\"\";s:10:\"formatting\";s:4:\"html\";s:9:\"maxlength\";s:0:\"\";s:17:\"conditional_logic\";a:3:{s:6:\"status\";s:1:\"0\";s:5:\"rules\";a:1:{i:0;a:3:{s:5:\"field\";s:4:\"null\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:0:\"\";}}s:8:\"allorany\";s:3:\"all\";}s:8:\"order_no\";i:0;}'),
+	(365,105,'position','normal'),
+	(366,105,'layout','no_box'),
+	(367,105,'hide_on_screen','a:8:{i:0;s:10:\"discussion\";i:1;s:8:\"comments\";i:2;s:9:\"revisions\";i:3;s:4:\"slug\";i:4;s:6:\"author\";i:5;s:6:\"format\";i:6;s:14:\"featured_image\";i:7;s:15:\"send-trackbacks\";}'),
+	(368,105,'_edit_lock','1456323267:1'),
+	(370,104,'rule','a:5:{s:5:\"param\";s:9:\"post_type\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:5:\"stage\";s:8:\"order_no\";i:0;s:8:\"group_no\";i:0;}'),
+	(371,105,'rule','a:5:{s:5:\"param\";s:9:\"post_type\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:10:\"technology\";s:8:\"order_no\";i:0;s:8:\"group_no\";i:0;}'),
+	(372,99,'icon','icon-javascript'),
+	(373,99,'_icon','field_56cda7974fc80'),
+	(374,100,'icon','fa fa-linux'),
+	(375,100,'_icon','field_56cda7974fc80'),
+	(376,98,'icon','icon-css'),
+	(377,98,'_icon','field_56cda7974fc80'),
+	(378,97,'icon','icon-css'),
+	(379,97,'_icon','field_56cda7974fc80'),
+	(380,65,'icon','fa fa-wordpress'),
+	(381,65,'_icon','field_56cda7974fc80'),
+	(382,64,'icon','icon-mysql'),
+	(383,64,'_icon','field_56cda7974fc80'),
+	(384,63,'icon','icon-php'),
+	(385,63,'_icon','field_56cda7974fc80'),
+	(386,101,'icon','fa fa-twitter'),
+	(387,101,'_icon','field_56cda7974fc80'),
+	(388,100,'_wp_old_slug','laravel'),
+	(389,107,'_edit_last','1'),
+	(390,107,'_edit_lock','1456325953:1'),
+	(391,101,'_wp_old_slug','social-networking-integration'),
+	(392,108,'_edit_last','1'),
+	(393,108,'_edit_lock','1456325900:1'),
+	(394,108,'icon','icon-css'),
+	(395,108,'_icon','field_56cda7974fc80'),
+	(396,109,'_edit_last','1'),
+	(397,109,'_edit_lock','1456325975:1'),
+	(398,107,'icon','fa fa-facebook'),
+	(399,107,'_icon','field_56cda7974fc80'),
+	(400,109,'icon','icon-mariadb'),
+	(401,109,'_icon','field_56cda7974fc80'),
+	(402,100,'_wp_old_slug','gestio-de-servidors'),
+	(403,110,'_edit_last','1'),
+	(404,110,'_edit_lock','1456327757:1'),
+	(405,110,'icon','icon-javascript'),
+	(406,110,'_icon','field_56cda7974fc80'),
+	(411,69,'field_56cdde46aae0e','a:14:{s:3:\"key\";s:19:\"field_56cdde46aae0e\";s:5:\"label\";s:11:\"Button text\";s:4:\"name\";s:26:\"call_to_action_button_text\";s:4:\"type\";s:4:\"text\";s:12:\"instructions\";s:0:\"\";s:8:\"required\";s:1:\"0\";s:13:\"default_value\";s:0:\"\";s:11:\"placeholder\";s:0:\"\";s:7:\"prepend\";s:0:\"\";s:6:\"append\";s:0:\"\";s:10:\"formatting\";s:4:\"html\";s:9:\"maxlength\";s:0:\"\";s:17:\"conditional_logic\";a:3:{s:6:\"status\";s:1:\"0\";s:5:\"rules\";a:1:{i:0;a:2:{s:5:\"field\";s:4:\"null\";s:8:\"operator\";s:2:\"==\";}}s:8:\"allorany\";s:3:\"all\";}s:8:\"order_no\";i:2;}'),
+	(412,69,'field_56cdde97aae0f','a:11:{s:3:\"key\";s:19:\"field_56cdde97aae0f\";s:5:\"label\";s:6:\"Target\";s:4:\"name\";s:21:\"call_to_action_target\";s:4:\"type\";s:9:\"page_link\";s:12:\"instructions\";s:0:\"\";s:8:\"required\";s:1:\"0\";s:9:\"post_type\";a:1:{i:0;s:3:\"all\";}s:10:\"allow_null\";s:1:\"0\";s:8:\"multiple\";s:1:\"0\";s:17:\"conditional_logic\";a:3:{s:6:\"status\";s:1:\"0\";s:5:\"rules\";a:1:{i:0;a:2:{s:5:\"field\";s:4:\"null\";s:8:\"operator\";s:2:\"==\";}}s:8:\"allorany\";s:3:\"all\";}s:8:\"order_no\";i:3;}'),
+	(417,114,'_edit_last','1'),
+	(418,114,'_edit_lock','1456734440:1'),
+	(419,115,'_wp_attached_file','2016/02/DSC_3586-2.jpg'),
+	(420,115,'_wp_attachment_metadata','a:5:{s:5:\"width\";i:1412;s:6:\"height\";i:942;s:4:\"file\";s:22:\"2016/02/DSC_3586-2.jpg\";s:5:\"sizes\";a:4:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:22:\"DSC_3586-2-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:22:\"DSC_3586-2-300x200.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:200;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:22:\"DSC_3586-2-768x512.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:512;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:5:\"large\";a:4:{s:4:\"file\";s:23:\"DSC_3586-2-1024x683.jpg\";s:5:\"width\";i:1024;s:6:\"height\";i:683;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+	(421,114,'_thumbnail_id','115'),
+	(422,114,'_wp_page_template','template-custom.php'),
+	(423,69,'field_56cddf2036f97','a:8:{s:3:\"key\";s:19:\"field_56cddf2036f97\";s:5:\"label\";s:14:\"Call to action\";s:4:\"name\";s:0:\"\";s:4:\"type\";s:3:\"tab\";s:12:\"instructions\";s:0:\"\";s:8:\"required\";s:1:\"0\";s:17:\"conditional_logic\";a:3:{s:6:\"status\";s:1:\"0\";s:5:\"rules\";a:1:{i:0;a:3:{s:5:\"field\";s:4:\"null\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:0:\"\";}}s:8:\"allorany\";s:3:\"all\";}s:8:\"order_no\";i:0;}'),
+	(428,118,'text','Si necessites una pàgina web no dubtis en contactar-me'),
+	(429,118,'_text','field_56c5d8aad4dcf'),
+	(430,118,'button_text','contacta\'m'),
+	(431,118,'_button_text','field_56cdde46aae0e'),
+	(432,118,'target','114'),
+	(433,118,'_target','field_56cdde97aae0f'),
+	(434,5,'text','Si necessites una pàgina web no dubtis en contactar-me'),
+	(435,5,'_text','field_56c5d8aad4dcf'),
+	(436,5,'button_text','contacta\'m'),
+	(437,5,'_button_text','field_56cdde46aae0e'),
+	(438,5,'target','114'),
+	(439,5,'_target','field_56cdde97aae0f'),
+	(444,119,'call_to_action_text','Si necessites una pàgina web no dubtis en contactar-me'),
+	(445,119,'_call_to_action_text','field_56c5d8aad4dcf'),
+	(446,119,'button_text','contacta\'m'),
+	(447,119,'_button_text','field_56cdde46aae0e'),
+	(448,119,'target','114'),
+	(449,119,'_target','field_56cdde97aae0f'),
+	(450,5,'call_to_action_text','Si necessites una pàgina web no dubtis en contactar-me'),
+	(451,5,'_call_to_action_text','field_56c5d8aad4dcf'),
+	(452,69,'rule','a:5:{s:5:\"param\";s:4:\"page\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:1:\"5\";s:8:\"order_no\";i:0;s:8:\"group_no\";i:0;}'),
+	(453,69,'rule','a:5:{s:5:\"param\";s:4:\"page\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:1:\"7\";s:8:\"order_no\";i:0;s:8:\"group_no\";i:1;}'),
+	(454,69,'rule','a:5:{s:5:\"param\";s:4:\"page\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:1:\"9\";s:8:\"order_no\";i:0;s:8:\"group_no\";i:2;}'),
+	(455,69,'rule','a:5:{s:5:\"param\";s:4:\"page\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:2:\"16\";s:8:\"order_no\";i:0;s:8:\"group_no\";i:3;}'),
+	(456,120,'call_to_action_text','Si necessites una pàgina web no dubtis en contactar-me'),
+	(457,120,'_call_to_action_text','field_56c5d8aad4dcf'),
+	(458,120,'call_to_action_button_text','Contacta\'m'),
+	(459,120,'_call_to_action_button_text','field_56cdde46aae0e'),
+	(460,120,'call_to_action_target','114'),
+	(461,120,'_call_to_action_target','field_56cdde97aae0f'),
+	(462,5,'call_to_action_button_text','Contacta\'m'),
+	(463,5,'_call_to_action_button_text','field_56cdde46aae0e'),
+	(464,5,'call_to_action_target','114'),
+	(465,5,'_call_to_action_target','field_56cdde97aae0f'),
+	(466,121,'call_to_action_text','Si necessites una pàgina web no dubtis en contactar-me'),
+	(467,121,'_call_to_action_text','field_56c5d8aad4dcf'),
+	(468,121,'call_to_action_button_text','Contacta\'m'),
+	(469,121,'_call_to_action_button_text','field_56cdde46aae0e'),
+	(470,121,'call_to_action_target','114'),
+	(471,121,'_call_to_action_target','field_56cdde97aae0f'),
+	(472,7,'call_to_action_text','Si necessites una pàgina web no dubtis en contactar-me'),
+	(473,7,'_call_to_action_text','field_56c5d8aad4dcf'),
+	(474,7,'call_to_action_button_text','Contacta\'m'),
+	(475,7,'_call_to_action_button_text','field_56cdde46aae0e'),
+	(476,7,'call_to_action_target','114'),
+	(477,7,'_call_to_action_target','field_56cdde97aae0f'),
+	(478,122,'call_to_action_text','Si necessites una pàgina web no dubtis en contactar-me'),
+	(479,122,'_call_to_action_text','field_56c5d8aad4dcf'),
+	(480,122,'call_to_action_button_text','Contacta\'m'),
+	(481,122,'_call_to_action_button_text','field_56cdde46aae0e'),
+	(482,122,'call_to_action_target','114'),
+	(483,122,'_call_to_action_target','field_56cdde97aae0f'),
+	(484,9,'call_to_action_text','Si necessites una pàgina web no dubtis en contactar-me'),
+	(485,9,'_call_to_action_text','field_56c5d8aad4dcf'),
+	(486,9,'call_to_action_button_text','Contacta\'m'),
+	(487,9,'_call_to_action_button_text','field_56cdde46aae0e'),
+	(488,9,'call_to_action_target','114'),
+	(489,9,'_call_to_action_target','field_56cdde97aae0f'),
+	(490,23,'rule','a:5:{s:5:\"param\";s:9:\"post_type\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:11:\"testimonial\";s:8:\"order_no\";i:0;s:8:\"group_no\";i:0;}'),
+	(491,125,'call_to_action_text','Si necessites una pàgina web no dubtis en contactar-me'),
+	(492,125,'_call_to_action_text','field_56c5d8aad4dcf'),
+	(493,125,'call_to_action_button_text','Contacta\'m'),
+	(494,125,'_call_to_action_button_text','field_56cdde46aae0e'),
+	(495,125,'call_to_action_target','114'),
+	(496,125,'_call_to_action_target','field_56cdde97aae0f');
+
+/*!40000 ALTER TABLE `wp_postmeta` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
-#
-# Data contents of table `wp_postmeta`
-#
-INSERT INTO `wp_postmeta` ( `meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
-(1, 2, '_wp_page_template', 'default'),
-(2, 2, '_edit_lock', '1456923242:1'),
-(3, 2, '_edit_last', '1'),
-(4, 5, '_edit_last', '1'),
-(5, 5, '_edit_lock', '1456499839:1'),
-(6, 5, '_wp_page_template', 'default'),
-(7, 7, '_edit_last', '1'),
-(8, 7, '_edit_lock', '1456412066:1'),
-(9, 7, '_wp_page_template', 'default'),
-(10, 9, '_edit_last', '1'),
-(11, 9, '_edit_lock', '1456411654:1'),
-(12, 9, '_wp_page_template', 'default'),
-(16, 16, '_edit_last', '1'),
-(17, 16, '_edit_lock', '1456331342:1'),
-(18, 16, '_wp_page_template', 'default'),
-(24, 24, '_edit_last', '1'),
-(25, 24, '_edit_lock', '1456479496:1'),
-(26, 24, '_wp_page_template', 'default'),
-(27, 23, '_edit_last', '1'),
-(30, 23, 'position', 'normal'),
-(31, 23, 'layout', 'default'),
-(32, 23, 'hide_on_screen', ''),
-(33, 23, '_edit_lock', '1456482842:1'),
-(35, 23, 'field_56bca82d40146', 'a:14:{s:3:"key";s:19:"field_56bca82d40146";s:5:"label";s:11:"Company URL";s:4:"name";s:11:"company_url";s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"none";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}'),
-(42, 23, 'field_56bca91826729', 'a:14:{s:3:"key";s:19:"field_56bca91826729";s:5:"label";s:12:"Company Name";s:4:"name";s:12:"company_name";s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"none";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}'),
-(45, 27, '_wp_attached_file', '2016/02/AAEAAQAAAAAAAAbHAAAAJGU2ODg1OTNhLTI5MWYtNGEzZC04ZDA2LTM5OWE4YzRmM2M0OQ.jpg'),
-(46, 27, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:306;s:6:"height";i:306;s:4:"file";s:82:"2016/02/AAEAAQAAAAAAAAbHAAAAJGU2ODg1OTNhLTI5MWYtNGEzZC04ZDA2LTM5OWE4YzRmM2M0OQ.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:4:{s:4:"file";s:82:"AAEAAQAAAAAAAAbHAAAAJGU2ODg1OTNhLTI5MWYtNGEzZC04ZDA2LTM5OWE4YzRmM2M0OQ-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:82:"AAEAAQAAAAAAAAbHAAAAJGU2ODg1OTNhLTI5MWYtNGEzZC04ZDA2LTM5OWE4YzRmM2M0OQ-300x300.jpg";s:5:"width";i:300;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"0";s:8:"keywords";a:0:{}}}'),
-(47, 24, '_thumbnail_id', '27'),
-(48, 28, 'company_name', 'RSB Media'),
-(49, 28, '_company_name', 'field_56bca91826729'),
-(50, 28, 'company_url', 'http://www.rsbmedia.com/'),
-(51, 28, '_company_url', 'field_56bca82d40146'),
-(52, 28, 'project_name', ''),
-(53, 28, '_project_name', 'field_56bca858058db'),
-(54, 28, 'project_url', ''),
-(55, 28, '_project_url', 'field_56bca8d5058dc'),
-(56, 24, 'company_name', 'RSB Media'),
-(57, 24, '_company_name', 'field_56bca91826729'),
-(58, 24, 'company_url', 'http://www.rsbmedia.com/'),
-(59, 24, '_company_url', 'field_56bca82d40146'),
-(60, 24, 'project_name', ''),
-(61, 24, '_project_name', 'field_56bca858058db'),
-(62, 24, 'project_url', ''),
-(63, 24, '_project_url', 'field_56bca8d5058dc'),
-(64, 29, '_edit_last', '1'),
-(65, 29, '_edit_lock', '1456241295:1'),
-(66, 29, '_wp_page_template', 'default'),
-(67, 30, 'company_name', 'Vasava'),
-(68, 30, '_company_name', 'field_56bca91826729'),
-(69, 30, 'company_url', 'http://www.vasava.es/'),
-(70, 30, '_company_url', 'field_56bca82d40146'),
-(71, 30, 'project_name', ''),
-(72, 30, '_project_name', 'field_56bca858058db'),
-(73, 30, 'project_url', ''),
-(74, 30, '_project_url', 'field_56bca8d5058dc'),
-(75, 29, 'company_name', 'Vasava'),
-(76, 29, '_company_name', 'field_56bca91826729'),
-(77, 29, 'company_url', 'http://www.vasava.es/'),
-(78, 29, '_company_url', 'field_56bca82d40146'),
-(79, 29, 'project_name', ''),
-(80, 29, '_project_name', 'field_56bca858058db'),
-(81, 29, 'project_url', ''),
-(82, 29, '_project_url', 'field_56bca8d5058dc'),
-(83, 31, '_edit_last', '1'),
-(84, 31, '_edit_lock', '1456241287:1'),
-(85, 31, '_wp_page_template', 'default'),
-(86, 32, 'company_name', 'Around Pixels'),
-(87, 32, '_company_name', 'field_56bca91826729'),
-(88, 32, 'company_url', ''),
-(89, 32, '_company_url', 'field_56bca82d40146'),
-(90, 32, 'project_name', ''),
-(91, 32, '_project_name', 'field_56bca858058db'),
-(92, 32, 'project_url', ''),
-(93, 32, '_project_url', 'field_56bca8d5058dc'),
-(94, 31, 'company_name', 'Around Pixels'),
-(95, 31, '_company_name', 'field_56bca91826729'),
-(96, 31, 'company_url', ''),
-(97, 31, '_company_url', 'field_56bca82d40146'),
-(98, 31, 'project_name', ''),
-(99, 31, '_project_name', 'field_56bca858058db'),
-(100, 31, 'project_url', ''),
-(101, 31, '_project_url', 'field_56bca8d5058dc'),
-(102, 33, '_wp_attached_file', '2016/02/27c787d.jpg'),
-(103, 33, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:337;s:6:"height";i:337;s:4:"file";s:19:"2016/02/27c787d.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:4:{s:4:"file";s:19:"27c787d-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:19:"27c787d-300x300.jpg";s:5:"width";i:300;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"0";s:8:"keywords";a:0:{}}}'),
-(104, 31, '_thumbnail_id', '33'),
-(105, 34, '_wp_attached_file', '2016/02/2805412.jpg'),
-(106, 34, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:337;s:6:"height";i:337;s:4:"file";s:19:"2016/02/2805412.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:4:{s:4:"file";s:19:"2805412-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:19:"2805412-300x300.jpg";s:5:"width";i:300;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"0";s:8:"keywords";a:0:{}}}'),
-(107, 29, '_thumbnail_id', '34'),
-(115, 38, '_edit_last', '1'),
-(116, 38, '_edit_lock', '1456485586:1'),
-(119, 40, '_edit_last', '1'),
-(120, 40, '_edit_lock', '1456489751:1'),
-(121, 41, '_wp_attached_file', '2016/02/01f0ac4.jpg'),
-(122, 41, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:308;s:6:"height";i:308;s:4:"file";s:19:"2016/02/01f0ac4.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:4:{s:4:"file";s:19:"01f0ac4-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:19:"01f0ac4-300x300.jpg";s:5:"width";i:300;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"0";s:8:"keywords";a:0:{}}}'),
-(123, 40, '_thumbnail_id', '41'),
-(124, 40, '_wp_page_template', 'default'),
-(125, 42, 'company_name', 'JIPI'),
-(126, 42, '_company_name', 'field_56bca91826729'),
-(127, 42, 'company_url', 'http://www.ub.edu/jipi/index_ang.html'),
-(128, 42, '_company_url', 'field_56bca82d40146') ;
-INSERT INTO `wp_postmeta` ( `meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
-(129, 42, 'project_name', 'Web JIPI'),
-(130, 42, '_project_name', 'field_56bca858058db'),
-(131, 42, 'project_url', 'http:/local.wordpress.dev/jipi/'),
-(132, 42, '_project_url', 'field_56bca8d5058dc'),
-(133, 40, 'company_name', 'JIPI'),
-(134, 40, '_company_name', 'field_56bca91826729'),
-(135, 40, 'company_url', 'http://www.ub.edu/jipi/index_ang.html'),
-(136, 40, '_company_url', 'field_56bca82d40146'),
-(137, 40, 'project_name', 'Web JIPI'),
-(138, 40, '_project_name', 'field_56bca858058db'),
-(139, 40, 'project_url', 'http:/local.wordpress.dev/jipi/'),
-(140, 40, '_project_url', 'field_56bca8d5058dc'),
-(142, 53, '_edit_last', '1'),
-(143, 53, '_edit_lock', '1456490821:1'),
-(144, 53, 'company_name', 'Uombo'),
-(145, 53, '_company_name', 'field_56bca91826729'),
-(146, 53, 'company_url', 'http://uombo.com/'),
-(147, 53, '_company_url', 'field_56bca82d40146'),
-(148, 53, 'project_name', ''),
-(149, 53, '_project_name', 'field_56bca858058db'),
-(150, 53, 'project_url', ''),
-(151, 53, '_project_url', 'field_56bca8d5058dc'),
-(152, 54, '_edit_last', '1'),
-(153, 54, 'field_56c1bd2a10bbc', 'a:11:{s:3:"key";s:19:"field_56c1bd2a10bbc";s:5:"label";s:11:"Full mockup";s:4:"name";s:11:"full_mockup";s:4:"type";s:5:"image";s:12:"instructions";s:27:"Mockup with all the devices";s:8:"required";s:1:"0";s:11:"save_format";s:6:"object";s:12:"preview_size";s:9:"thumbnail";s:7:"library";s:3:"all";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}'),
-(155, 54, 'position', 'acf_after_title'),
-(156, 54, 'layout', 'no_box'),
-(157, 54, 'hide_on_screen', ''),
-(158, 54, '_edit_lock', '1456240148:1'),
-(163, 54, 'field_56c1bff8dc1a0', 'a:14:{s:3:"key";s:19:"field_56c1bff8dc1a0";s:5:"label";s:3:"URL";s:4:"name";s:3:"url";s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"html";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:2:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}'),
-(165, 57, '_edit_last', '1'),
-(166, 57, 'full_mockup', '73'),
-(167, 57, '_full_mockup', 'field_56c1bd2a10bbc'),
-(168, 57, 'url', 'http://giralesquerra.cat/'),
-(169, 57, '_url', 'field_56c1bff8dc1a0'),
-(170, 57, '_edit_lock', '1456332563:1'),
-(171, 57, '_wp_old_slug', '57'),
-(172, 54, 'rule', 'a:5:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:7:"project";s:8:"order_no";i:0;s:8:"group_no";i:0;}'),
-(182, 61, '_edit_last', '1'),
-(183, 61, '_edit_lock', '1455805506:1'),
-(184, 62, '_edit_last', '1'),
-(185, 62, '_edit_lock', '1455805520:1'),
-(186, 63, '_edit_last', '1'),
-(187, 63, '_edit_lock', '1456325985:1'),
-(188, 64, '_edit_last', '1'),
-(189, 64, '_edit_lock', '1456325910:1'),
-(190, 65, '_edit_last', '1'),
-(191, 65, '_edit_lock', '1456325905:1'),
-(192, 67, '_wp_attached_file', '2016/02/020f5d7.jpg'),
-(193, 67, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:200;s:6:"height";i:200;s:4:"file";s:19:"2016/02/020f5d7.jpg";s:5:"sizes";a:1:{s:9:"thumbnail";a:4:{s:4:"file";s:19:"020f5d7-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"0";s:8:"keywords";a:0:{}}}'),
-(194, 53, '_wp_old_slug', 'test-title'),
-(195, 69, '_edit_last', '1'),
-(196, 69, 'field_56c5d8aad4dcf', 'a:11:{s:3:"key";s:19:"field_56c5d8aad4dcf";s:5:"label";s:4:"Text";s:4:"name";s:19:"call_to_action_text";s:4:"type";s:7:"wysiwyg";s:12:"instructions";s:38:"Content to show after the main content";s:8:"required";s:1:"0";s:13:"default_value";s:0:"";s:7:"toolbar";s:4:"full";s:12:"media_upload";s:2:"no";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:2:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}'),
-(199, 69, 'position', 'normal'),
-(200, 69, 'layout', 'no_box'),
-(201, 69, 'hide_on_screen', 'a:12:{i:0;s:7:"excerpt";i:1;s:13:"custom_fields";i:2;s:10:"discussion";i:3;s:8:"comments";i:4;s:9:"revisions";i:5;s:4:"slug";i:6;s:6:"author";i:7;s:6:"format";i:8;s:14:"featured_image";i:9;s:10:"categories";i:10;s:4:"tags";i:11;s:15:"send-trackbacks";}'),
-(202, 69, '_edit_lock', '1456483404:1'),
-(210, 71, 'call_to_action', '&lt;div class="lead"&gt;Conversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra.&lt;/div&gt;\r\n\r\n&lt;button type="button" class="btn btn-primary"&gt;Contacta\'m&lt;/button&gt;'),
-(211, 71, '_call_to_action', 'field_56c5d8aad4dcf'),
-(212, 5, 'call_to_action', '<div class="lead">Si necessites una pàgina web no dubtis en contactar-me</div>\r\n<button class="btn btn-primary" type="button">Contacta\'m</button>'),
-(213, 5, '_call_to_action', 'field_56c5d8aad4dcf'),
-(214, 72, 'call_to_action', '&lt;div class="lead"&gt;Conversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra.&lt;/div&gt;\r\n\r\n&lt;button type="button" class="btn btn-primary"&gt;Contacta\'m&lt;/button&gt;'),
-(215, 72, '_call_to_action', 'field_56c5d8aad4dcf'),
-(220, 73, '_wp_attached_file', '2016/02/gir-a-lesquerra-mockup-transparent-e1455809872576.png'),
-(221, 73, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:1200;s:6:"height";i:789;s:4:"file";s:61:"2016/02/gir-a-lesquerra-mockup-transparent-e1455809872576.png";s:5:"sizes";a:4:{s:9:"thumbnail";a:4:{s:4:"file";s:46:"gir-a-lesquerra-mockup-transparent-150x150.png";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:9:"image/png";}s:6:"medium";a:4:{s:4:"file";s:46:"gir-a-lesquerra-mockup-transparent-300x197.png";s:5:"width";i:300;s:6:"height";i:197;s:9:"mime-type";s:9:"image/png";}s:12:"medium_large";a:4:{s:4:"file";s:46:"gir-a-lesquerra-mockup-transparent-768x505.png";s:5:"width";i:768;s:6:"height";i:505;s:9:"mime-type";s:9:"image/png";}s:5:"large";a:4:{s:4:"file";s:47:"gir-a-lesquerra-mockup-transparent-1024x673.png";s:5:"width";i:1024;s:6:"height";i:673;s:9:"mime-type";s:9:"image/png";}}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"0";s:8:"keywords";a:0:{}}}'),
-(222, 73, '_wp_attachment_image_alt', 'Gira a l\'esquerra en diferents dispositius'),
-(223, 73, '_edit_lock', '1455809860:1'),
-(224, 73, '_wp_attachment_backup_sizes', 'a:1:{s:9:"full-orig";a:3:{s:5:"width";i:3500;s:6:"height";i:2300;s:4:"file";s:38:"gir-a-lesquerra-mockup-transparent.png";}}'),
-(225, 73, '_edit_last', '1'),
-(226, 57, '_wp_old_slug', 'gira-lesquerra'),
-(227, 74, '_menu_item_type', 'post_type'),
-(228, 74, '_menu_item_menu_item_parent', '0'),
-(229, 74, '_menu_item_object_id', '2'),
-(230, 74, '_menu_item_object', 'page'),
-(231, 74, '_menu_item_target', ''),
-(232, 74, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
-(233, 74, '_menu_item_xfn', ''),
-(234, 74, '_menu_item_url', ''),
-(235, 74, '_menu_item_orphaned', '1456146036'),
-(236, 75, '_menu_item_type', 'post_type'),
-(237, 75, '_menu_item_menu_item_parent', '0'),
-(238, 75, '_menu_item_object_id', '7'),
-(239, 75, '_menu_item_object', 'page'),
-(240, 75, '_menu_item_target', ''),
-(241, 75, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
-(242, 75, '_menu_item_xfn', ''),
-(243, 75, '_menu_item_url', ''),
-(245, 76, '_menu_item_type', 'post_type'),
-(246, 76, '_menu_item_menu_item_parent', '0'),
-(247, 76, '_menu_item_object_id', '9'),
-(248, 76, '_menu_item_object', 'page'),
-(249, 76, '_menu_item_target', ''),
-(250, 76, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
-(251, 76, '_menu_item_xfn', ''),
-(252, 76, '_menu_item_url', ''),
-(254, 77, '_menu_item_type', 'post_type'),
-(255, 77, '_menu_item_menu_item_parent', '0'),
-(256, 77, '_menu_item_object_id', '16'),
-(257, 77, '_menu_item_object', 'page'),
-(258, 77, '_menu_item_target', ''),
-(259, 77, '_menu_item_classes', 'a:1:{i:0;s:0:"";}') ;
-INSERT INTO `wp_postmeta` ( `meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
-(260, 77, '_menu_item_xfn', ''),
-(261, 77, '_menu_item_url', ''),
-(263, 78, '_menu_item_type', 'post_type'),
-(264, 78, '_menu_item_menu_item_parent', '0'),
-(265, 78, '_menu_item_object_id', '2'),
-(266, 78, '_menu_item_object', 'page'),
-(267, 78, '_menu_item_target', ''),
-(268, 78, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
-(269, 78, '_menu_item_xfn', ''),
-(270, 78, '_menu_item_url', ''),
-(271, 78, '_menu_item_orphaned', '1456146036'),
-(272, 79, '_menu_item_type', 'post_type'),
-(273, 79, '_menu_item_menu_item_parent', '0'),
-(274, 79, '_menu_item_object_id', '5'),
-(275, 79, '_menu_item_object', 'page'),
-(276, 79, '_menu_item_target', ''),
-(277, 79, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
-(278, 79, '_menu_item_xfn', ''),
-(279, 79, '_menu_item_url', ''),
-(286, 23, 'field_56cc7aaf89f82', 'a:11:{s:3:"key";s:19:"field_56cc7aaf89f82";s:5:"label";s:5:"Image";s:4:"name";s:5:"image";s:4:"type";s:5:"image";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:11:"save_format";s:6:"object";s:12:"preview_size";s:9:"thumbnail";s:7:"library";s:3:"all";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:2;}'),
-(288, 67, '_edit_lock', '1456241250:1'),
-(289, 53, 'image', '67'),
-(290, 53, '_image', 'field_56cc7aaf89f82'),
-(291, 40, 'image', '41'),
-(292, 40, '_image', 'field_56cc7aaf89f82'),
-(293, 31, 'image', '33'),
-(294, 31, '_image', 'field_56cc7aaf89f82'),
-(295, 29, 'image', '34'),
-(296, 29, '_image', 'field_56cc7aaf89f82'),
-(297, 24, 'image', '27'),
-(298, 24, '_image', 'field_56cc7aaf89f82'),
-(299, 82, 'call_to_action', '<div class="lead">Si necessites una pàgina web</div>\r\n<button class="btn btn-primary" type="button">Contacta\'m</button>'),
-(300, 82, '_call_to_action', 'field_56c5d8aad4dcf'),
-(301, 83, 'call_to_action', '<div class="lead">Si necessites una pàgina web no dubtis en contactar-me</div>\r\n<button class="btn btn-primary" type="button">Contacta\'m</button>'),
-(302, 83, '_call_to_action', 'field_56c5d8aad4dcf'),
-(305, 88, '_edit_last', '1'),
-(307, 88, 'position', 'normal'),
-(308, 88, 'layout', 'no_box'),
-(309, 88, 'hide_on_screen', 'a:14:{i:0;s:9:"permalink";i:1;s:11:"the_content";i:2;s:7:"excerpt";i:3;s:13:"custom_fields";i:4;s:10:"discussion";i:5;s:8:"comments";i:6;s:9:"revisions";i:7;s:4:"slug";i:8;s:6:"author";i:9;s:6:"format";i:10;s:14:"featured_image";i:11;s:10:"categories";i:12;s:4:"tags";i:13;s:15:"send-trackbacks";}'),
-(310, 88, '_edit_lock', '1456411765:1'),
-(312, 88, 'rule', 'a:5:{s:5:"param";s:4:"page";s:8:"operator";s:2:"==";s:5:"value";s:1:"2";s:8:"order_no";i:0;s:8:"group_no";i:0;}'),
-(313, 90, '_edit_last', '1'),
-(314, 90, '_edit_lock', '1456318203:1'),
-(315, 90, '_wp_old_slug', 'design'),
-(316, 92, '_edit_last', '1'),
-(317, 92, '_edit_lock', '1456318244:1'),
-(318, 92, '_wp_old_slug', 'design'),
-(319, 95, '_edit_last', '1'),
-(320, 95, '_edit_lock', '1456324397:1'),
-(321, 96, '_edit_last', '1'),
-(322, 96, '_edit_lock', '1456318226:1'),
-(323, 97, '_edit_last', '1'),
-(324, 97, '_edit_lock', '1456327219:1'),
-(325, 98, '_edit_last', '1'),
-(326, 98, '_edit_lock', '1456325883:1'),
-(327, 99, '_edit_last', '1'),
-(328, 99, '_edit_lock', '1456325870:1'),
-(329, 100, '_edit_last', '1'),
-(330, 100, '_edit_lock', '1456327244:1'),
-(331, 101, '_edit_last', '1'),
-(332, 101, '_edit_lock', '1456325954:1'),
-(333, 102, '_edit_last', '1'),
-(334, 102, '_edit_lock', '1456307214:1'),
-(335, 102, '_wp_trash_meta_status', 'publish'),
-(336, 102, '_wp_trash_meta_time', '1456307361'),
-(337, 104, '_edit_last', '1'),
-(338, 104, 'field_56cd98f8013f6', 'a:14:{s:3:"key";s:19:"field_56cd98f8013f6";s:5:"label";s:4:"Icon";s:4:"name";s:4:"icon";s:4:"type";s:4:"text";s:12:"instructions";s:103:"full class to apply the icon.\r\nF.ex. fa fa-lighbulb or glyphicon glyphicon-lightbulb NOT just lightbulb";s:8:"required";s:1:"0";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"html";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}'),
-(341, 104, 'position', 'normal'),
-(342, 104, 'layout', 'no_box'),
-(343, 104, 'hide_on_screen', 'a:8:{i:0;s:10:"discussion";i:1;s:8:"comments";i:2;s:9:"revisions";i:3;s:4:"slug";i:4;s:6:"author";i:5;s:6:"format";i:6;s:14:"featured_image";i:7;s:15:"send-trackbacks";}'),
-(344, 104, '_edit_lock', '1456317788:1'),
-(346, 90, 'icon', 'fa fa-lightbulb-o'),
-(347, 90, '_icon', 'field_56cd98f8013f6'),
-(348, 90, '_', 'field_56cd9930013f7'),
-(349, 92, 'icon', 'fa fa-paint-brush'),
-(350, 92, '_icon', 'field_56cd98f8013f6'),
-(351, 92, '_', 'field_56cd9930013f7'),
-(354, 95, 'icon', 'fa fa-wrench'),
-(355, 95, '_icon', 'field_56cd98f8013f6'),
-(356, 95, '_', 'field_56cd9930013f7'),
-(357, 96, 'icon', 'fa fa-refresh'),
-(358, 96, '_icon', 'field_56cd98f8013f6'),
-(359, 96, '_', 'field_56cd9930013f7'),
-(362, 105, '_edit_last', '1'),
-(363, 105, 'field_56cda7974fc80', 'a:14:{s:3:"key";s:19:"field_56cda7974fc80";s:5:"label";s:4:"Icon";s:4:"name";s:4:"icon";s:4:"type";s:4:"text";s:12:"instructions";s:103:"full class to apply the icon.\r\nF.ex. fa fa-lighbulb or glyphicon glyphicon-lightbulb NOT just lightbulb";s:8:"required";s:1:"0";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"html";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}'),
-(365, 105, 'position', 'normal'),
-(366, 105, 'layout', 'no_box'),
-(367, 105, 'hide_on_screen', 'a:8:{i:0;s:10:"discussion";i:1;s:8:"comments";i:2;s:9:"revisions";i:3;s:4:"slug";i:4;s:6:"author";i:5;s:6:"format";i:6;s:14:"featured_image";i:7;s:15:"send-trackbacks";}'),
-(368, 105, '_edit_lock', '1456323267:1'),
-(370, 104, 'rule', 'a:5:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:5:"stage";s:8:"order_no";i:0;s:8:"group_no";i:0;}'),
-(371, 105, 'rule', 'a:5:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:10:"technology";s:8:"order_no";i:0;s:8:"group_no";i:0;}'),
-(372, 99, 'icon', 'icon-javascript'),
-(373, 99, '_icon', 'field_56cda7974fc80'),
-(374, 100, 'icon', 'fa fa-linux'),
-(375, 100, '_icon', 'field_56cda7974fc80'),
-(376, 98, 'icon', 'icon-css'),
-(377, 98, '_icon', 'field_56cda7974fc80'),
-(378, 97, 'icon', 'icon-css'),
-(379, 97, '_icon', 'field_56cda7974fc80'),
-(380, 65, 'icon', 'fa fa-wordpress') ;
-INSERT INTO `wp_postmeta` ( `meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
-(381, 65, '_icon', 'field_56cda7974fc80'),
-(382, 64, 'icon', 'icon-mysql'),
-(383, 64, '_icon', 'field_56cda7974fc80'),
-(384, 63, 'icon', 'icon-php'),
-(385, 63, '_icon', 'field_56cda7974fc80'),
-(386, 101, 'icon', 'fa fa-twitter'),
-(387, 101, '_icon', 'field_56cda7974fc80'),
-(388, 100, '_wp_old_slug', 'laravel'),
-(389, 107, '_edit_last', '1'),
-(390, 107, '_edit_lock', '1456325953:1'),
-(391, 101, '_wp_old_slug', 'social-networking-integration'),
-(392, 108, '_edit_last', '1'),
-(393, 108, '_edit_lock', '1456325900:1'),
-(394, 108, 'icon', 'icon-css'),
-(395, 108, '_icon', 'field_56cda7974fc80'),
-(396, 109, '_edit_last', '1'),
-(397, 109, '_edit_lock', '1456325975:1'),
-(398, 107, 'icon', 'fa fa-facebook'),
-(399, 107, '_icon', 'field_56cda7974fc80'),
-(400, 109, 'icon', 'icon-mariadb'),
-(401, 109, '_icon', 'field_56cda7974fc80'),
-(402, 100, '_wp_old_slug', 'gestio-de-servidors'),
-(403, 110, '_edit_last', '1'),
-(404, 110, '_edit_lock', '1456327757:1'),
-(405, 110, 'icon', 'icon-javascript'),
-(406, 110, '_icon', 'field_56cda7974fc80'),
-(411, 69, 'field_56cdde46aae0e', 'a:14:{s:3:"key";s:19:"field_56cdde46aae0e";s:5:"label";s:11:"Button text";s:4:"name";s:26:"call_to_action_button_text";s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"html";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:2:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:2;}'),
-(412, 69, 'field_56cdde97aae0f', 'a:11:{s:3:"key";s:19:"field_56cdde97aae0f";s:5:"label";s:6:"Target";s:4:"name";s:21:"call_to_action_target";s:4:"type";s:9:"page_link";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:9:"post_type";a:1:{i:0;s:3:"all";}s:10:"allow_null";s:1:"0";s:8:"multiple";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:2:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:3;}'),
-(417, 114, '_edit_last', '1'),
-(418, 114, '_edit_lock', '1456734440:1'),
-(419, 115, '_wp_attached_file', '2016/02/DSC_3586-2.jpg'),
-(420, 115, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:1412;s:6:"height";i:942;s:4:"file";s:22:"2016/02/DSC_3586-2.jpg";s:5:"sizes";a:4:{s:9:"thumbnail";a:4:{s:4:"file";s:22:"DSC_3586-2-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:22:"DSC_3586-2-300x200.jpg";s:5:"width";i:300;s:6:"height";i:200;s:9:"mime-type";s:10:"image/jpeg";}s:12:"medium_large";a:4:{s:4:"file";s:22:"DSC_3586-2-768x512.jpg";s:5:"width";i:768;s:6:"height";i:512;s:9:"mime-type";s:10:"image/jpeg";}s:5:"large";a:4:{s:4:"file";s:23:"DSC_3586-2-1024x683.jpg";s:5:"width";i:1024;s:6:"height";i:683;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"0";s:8:"keywords";a:0:{}}}'),
-(421, 114, '_thumbnail_id', '115'),
-(422, 114, '_wp_page_template', 'template-custom.php'),
-(423, 69, 'field_56cddf2036f97', 'a:8:{s:3:"key";s:19:"field_56cddf2036f97";s:5:"label";s:14:"Call to action";s:4:"name";s:0:"";s:4:"type";s:3:"tab";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}'),
-(428, 118, 'text', 'Si necessites una pàgina web no dubtis en contactar-me'),
-(429, 118, '_text', 'field_56c5d8aad4dcf'),
-(430, 118, 'button_text', 'contacta\'m'),
-(431, 118, '_button_text', 'field_56cdde46aae0e'),
-(432, 118, 'target', '114'),
-(433, 118, '_target', 'field_56cdde97aae0f'),
-(434, 5, 'text', 'Si necessites una pàgina web no dubtis en contactar-me'),
-(435, 5, '_text', 'field_56c5d8aad4dcf'),
-(436, 5, 'button_text', 'contacta\'m'),
-(437, 5, '_button_text', 'field_56cdde46aae0e'),
-(438, 5, 'target', '114'),
-(439, 5, '_target', 'field_56cdde97aae0f'),
-(444, 119, 'call_to_action_text', 'Si necessites una pàgina web no dubtis en contactar-me'),
-(445, 119, '_call_to_action_text', 'field_56c5d8aad4dcf'),
-(446, 119, 'button_text', 'contacta\'m'),
-(447, 119, '_button_text', 'field_56cdde46aae0e'),
-(448, 119, 'target', '114'),
-(449, 119, '_target', 'field_56cdde97aae0f'),
-(450, 5, 'call_to_action_text', 'Si necessites una pàgina web no dubtis en contactar-me'),
-(451, 5, '_call_to_action_text', 'field_56c5d8aad4dcf'),
-(452, 69, 'rule', 'a:5:{s:5:"param";s:4:"page";s:8:"operator";s:2:"==";s:5:"value";s:1:"5";s:8:"order_no";i:0;s:8:"group_no";i:0;}'),
-(453, 69, 'rule', 'a:5:{s:5:"param";s:4:"page";s:8:"operator";s:2:"==";s:5:"value";s:1:"7";s:8:"order_no";i:0;s:8:"group_no";i:1;}'),
-(454, 69, 'rule', 'a:5:{s:5:"param";s:4:"page";s:8:"operator";s:2:"==";s:5:"value";s:1:"9";s:8:"order_no";i:0;s:8:"group_no";i:2;}'),
-(455, 69, 'rule', 'a:5:{s:5:"param";s:4:"page";s:8:"operator";s:2:"==";s:5:"value";s:2:"16";s:8:"order_no";i:0;s:8:"group_no";i:3;}'),
-(456, 120, 'call_to_action_text', 'Si necessites una pàgina web no dubtis en contactar-me'),
-(457, 120, '_call_to_action_text', 'field_56c5d8aad4dcf'),
-(458, 120, 'call_to_action_button_text', 'Contacta\'m'),
-(459, 120, '_call_to_action_button_text', 'field_56cdde46aae0e'),
-(460, 120, 'call_to_action_target', '114'),
-(461, 120, '_call_to_action_target', 'field_56cdde97aae0f'),
-(462, 5, 'call_to_action_button_text', 'Contacta\'m'),
-(463, 5, '_call_to_action_button_text', 'field_56cdde46aae0e'),
-(464, 5, 'call_to_action_target', '114'),
-(465, 5, '_call_to_action_target', 'field_56cdde97aae0f'),
-(466, 121, 'call_to_action_text', 'Si necessites una pàgina web no dubtis en contactar-me'),
-(467, 121, '_call_to_action_text', 'field_56c5d8aad4dcf'),
-(468, 121, 'call_to_action_button_text', 'Contacta\'m'),
-(469, 121, '_call_to_action_button_text', 'field_56cdde46aae0e'),
-(470, 121, 'call_to_action_target', '114'),
-(471, 121, '_call_to_action_target', 'field_56cdde97aae0f'),
-(472, 7, 'call_to_action_text', 'Si necessites una pàgina web no dubtis en contactar-me'),
-(473, 7, '_call_to_action_text', 'field_56c5d8aad4dcf'),
-(474, 7, 'call_to_action_button_text', 'Contacta\'m'),
-(475, 7, '_call_to_action_button_text', 'field_56cdde46aae0e'),
-(476, 7, 'call_to_action_target', '114'),
-(477, 7, '_call_to_action_target', 'field_56cdde97aae0f'),
-(478, 122, 'call_to_action_text', 'Si necessites una pàgina web no dubtis en contactar-me'),
-(479, 122, '_call_to_action_text', 'field_56c5d8aad4dcf'),
-(480, 122, 'call_to_action_button_text', 'Contacta\'m'),
-(481, 122, '_call_to_action_button_text', 'field_56cdde46aae0e'),
-(482, 122, 'call_to_action_target', '114'),
-(483, 122, '_call_to_action_target', 'field_56cdde97aae0f'),
-(484, 9, 'call_to_action_text', 'Si necessites una pàgina web no dubtis en contactar-me'),
-(485, 9, '_call_to_action_text', 'field_56c5d8aad4dcf'),
-(486, 9, 'call_to_action_button_text', 'Contacta\'m'),
-(487, 9, '_call_to_action_button_text', 'field_56cdde46aae0e'),
-(488, 9, 'call_to_action_target', '114'),
-(489, 9, '_call_to_action_target', 'field_56cdde97aae0f'),
-(490, 23, 'rule', 'a:5:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:11:"testimonial";s:8:"order_no";i:0;s:8:"group_no";i:0;}'),
-(491, 125, 'call_to_action_text', 'Si necessites una pàgina web no dubtis en contactar-me'),
-(492, 125, '_call_to_action_text', 'field_56c5d8aad4dcf'),
-(493, 125, 'call_to_action_button_text', 'Contacta\'m'),
-(494, 125, '_call_to_action_button_text', 'field_56cdde46aae0e'),
-(495, 125, 'call_to_action_target', '114'),
-(496, 125, '_call_to_action_target', 'field_56cdde97aae0f') ;
-
-#
-# End of data contents of table `wp_postmeta`
-# --------------------------------------------------------
-
-
-
-#
-# Delete any existing table `wp_posts`
-#
+# Dump of table wp_posts
+# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `wp_posts`;
-
-
-#
-# Table structure of table `wp_posts`
-#
 
 CREATE TABLE `wp_posts` (
   `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -834,142 +774,132 @@ CREATE TABLE `wp_posts` (
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
   KEY `post_parent` (`post_parent`),
   KEY `post_author` (`post_author`)
-) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+LOCK TABLES `wp_posts` WRITE;
+/*!40000 ALTER TABLE `wp_posts` DISABLE KEYS */;
+
+INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`)
+VALUES
+	(2,1,'2016-01-29 12:08:58','2016-01-29 12:08:58','','Home','','publish','closed','open','','sample-page','','','2016-02-24 10:21:46','2016-02-24 09:21:46','',0,'http://local.wordpress.dev/?page_id=2',0,'page','',0),
+	(4,1,'2016-01-29 13:35:05','2016-01-29 13:35:05','','Miquel Adell','','inherit','closed','closed','','2-revision-v1','','','2016-01-29 13:35:05','2016-01-29 13:35:05','',2,'http://local.wordpress.dev/2-revision-v1/',0,'revision','',0),
+	(5,1,'2016-01-29 13:35:53','2016-01-29 13:35:53','<span class=\'lead\'>Acompanyo clients en el procés de creació d’una pàgina web per trobar la solució ideal als seus problemes online</span>','Miquel Adell','','publish','closed','closed','','presentacio','','','2016-02-26 16:16:49','2016-02-26 15:16:49','',0,'http://local.wordpress.dev/?page_id=5',0,'page','',0),
+	(6,1,'2016-01-29 13:35:53','2016-01-29 13:35:53','Mixtam montibus mundi cornua ensis fratrum duas. Divino habentia posset: amphitrite porrexerat matutinis congestaque alto perpetuum. Figuras campoque hunc aere summaque postquam. Conversa capacius. Erat bene tegi silvas adspirate. Mortales margine alto fuerat. Pinus cuncta pulsant reparabat quem poena lacusque levitate habitabilis terra.\r\n\r\nTuti freta instabilis ignea. Aetas humanas auroram figuras calidis regat obstabatque! Mundi otia semine? Illic melioris congeriem securae aberant lapidosos. Convexi triones pinus. Umentia diu volucres origo? Praebebat in motura ut usu! Abscidit siccis est manebat effervescere. Quinta sata habitandae viseret et solidumque.\r\n\r\nConversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra. Homini aequalis fulgura rudis cesserunt frigore. Fontes vesper secrevit umentia. Flamma obsistitur supplex membra densior fulgura convexi umentia terris. Conversa turba coeptis semina os tanta congestaque nisi.','Presentació','','inherit','closed','closed','','5-revision-v1','','','2016-01-29 13:35:53','2016-01-29 13:35:53','',5,'http://local.wordpress.dev/5-revision-v1/',0,'revision','',0),
+	(7,1,'2016-01-29 13:36:07','2016-01-29 13:36:07','El procés de creació d\'una pàgina web està format per moltes parts. De la mateixa manera que ho està fer una cervesa. No cal que les coneixis totes per a tenir una pàgina web. Faig servir els meus anys d\'experiència desenvolupant webs per construir webs tenint en compte totes les parts del procés.','Procés','','publish','closed','closed','','proces','','','2016-02-24 18:01:24','2016-02-24 17:01:24','',0,'http://local.wordpress.dev/?page_id=7',0,'page','',0),
+	(8,1,'2016-01-29 13:36:07','2016-01-29 13:36:07','Ad nubes erat acervo ensis lumina onerosior. Fuit vultus postquam matutinis iners terrae nubes. Possedit mixtam limitibus. Vis aethera. Derecti sine. Proxima quoque onerosior habitandae siccis densior pendebat orbe finxit. Nullaque pulsant nubibus ita. Principio siccis habitabilis nabataeaque tanta onus dedit rectumque glomeravit.\r\n\r\nNuper ipsa orbe auroram iussit caesa spisso vos. Videre circumfuso erant? Erant pendebat hunc. Ad erant phoebe vix onus densior acervo. Sinistra crescendo matutinis eodem! Evolvit quisque legebantur. Locavit effervescere faecis stagna est. Modo levius animus igni orba illas invasit tollere aliis qui.\r\n\r\nAstra diu praecipites omni certis habitabilis elementaque premuntur cinxit. Quin extendi ripis triones os super melior perpetuum pondus? Praeter est. Nabataeaque nubes liberioris levius. Fuerat totidemque levitate tum possedit sunt moles feras! Di elementaque. Dextra sorbentur sunt reparabat militis illis ventis caecoque aquae!','Desenvolupament','','inherit','closed','closed','','7-revision-v1','','','2016-01-29 13:36:07','2016-01-29 13:36:07','',7,'http://local.wordpress.dev/7-revision-v1/',0,'revision','',0),
+	(9,1,'2016-01-29 13:36:24','2016-01-29 13:36:24','<span style=\"font-weight: 400;\">Aquestes són algunes de les tecnologies que faig servir per crear pàgines web.</span>','Tecnologies','','publish','closed','closed','','tecnologies','','','2016-02-25 15:49:55','2016-02-25 14:49:55','',0,'http://local.wordpress.dev/?page_id=9',0,'page','',0),
+	(10,1,'2016-01-29 13:36:24','2016-01-29 13:36:24','Locis zephyro naturae animus ne levitate subsidere. Iudicis instabilis sorbentur fontes caeca. Onerosior animalibus homo aetas ubi lege litem montibus animal! Tellus opifex. Septemque pendebat summaque. Eodem terras. Aberant quanto nitidis sorbentur! Madescit nebulas. Diverso opifex subdita solum boreas habitandae diu vos pontus?\r\n\r\nDiu fuerant habitabilis recessit. Congestaque carmen rerum terram fidem tempora. Caelo natura cura. Frigore locoque. Nix quoque sic aliis arce inminet adsiduis mortales. Sinistra pugnabant. Addidit ensis rudis longo. Boreas orbis orbe. Tellure tepescunt frigore passim utque boreas. Subdita matutinis numero spectent pugnabant.\r\n\r\nNabataeaque tegit carmen cepit. Congestaque seductaque undas pro usu mutastis mollia postquam mentes. Legebantur natus dominari natura. Igni quae quem melioris mentisque natus stagna vis duris. Quisquis motura altae? Illi animal. Extendi homini figuras iudicis mortales habitandae tenent habitabilis circumfluus. Secuit locum crescendo.','Eines','','inherit','closed','closed','','9-revision-v1','','','2016-01-29 13:36:24','2016-01-29 13:36:24','',9,'http://local.wordpress.dev/9-revision-v1/',0,'revision','',0),
+	(16,1,'2016-02-03 09:40:16','2016-02-03 09:40:16','La base de tot és l\'experiència i això és el que algunes persones tenen a dir de la nostra experiència conjunta','Fonaments','','publish','closed','closed','','fonaments','','','2016-02-24 17:31:17','2016-02-24 16:31:17','',0,'http://local.wordpress.dev/?page_id=16',0,'page','',0),
+	(17,1,'2016-02-03 09:40:16','2016-02-03 09:40:16','wheat wheat wheat','Fonaments','','inherit','closed','closed','','16-revision-v1','','','2016-02-03 09:40:16','2016-02-03 09:40:16','',16,'http://local.wordpress.dev/16-revision-v1/',0,'revision','',0),
+	(18,1,'2016-02-03 12:52:05','2016-02-03 12:52:05','barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley ','Fonaments','','inherit','closed','closed','','16-revision-v1','','','2016-02-03 12:52:05','2016-02-03 12:52:05','',16,'http://local.wordpress.dev/16-revision-v1/',0,'revision','',0),
+	(19,1,'2016-02-03 12:52:18','2016-02-03 12:52:18','barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley ','Fonaments','','inherit','closed','closed','','16-revision-v1','','','2016-02-03 12:52:18','2016-02-03 12:52:18','',16,'http://local.wordpress.dev/16-revision-v1/',0,'revision','',0),
+	(23,1,'2016-02-11 15:25:26','2016-02-11 15:25:26','','Testimonial','','publish','closed','closed','','acf_testimonial','','','2016-02-26 11:36:22','2016-02-26 10:36:22','',0,'http://local.wordpress.dev/?post_type=acf&#038;p=23',1,'acf','',0),
+	(24,1,'2016-02-11 15:23:01','2016-02-11 15:23:01','&nbsp;\r\n\r\nThis testimonial is very short and has not excerpt. It ends here.','Jordi Jiménez','','publish','closed','closed','','jordi-jimenez','','','2016-02-26 09:49:07','2016-02-26 08:49:07','',12,'http://local.wordpress.dev/?page_id=24',0,'testimonial','',0),
+	(25,1,'2016-02-11 15:23:01','2016-02-11 15:23:01','','Jordi Jiménez','','inherit','closed','closed','','24-revision-v1','','','2016-02-11 15:23:01','2016-02-11 15:23:01','',24,'http://local.wordpress.dev/24-revision-v1/',0,'revision','',0),
+	(26,1,'2016-02-11 15:33:35','2016-02-11 15:33:35','Aequalis litem auroram deorum locum ad erat:. Fecit usu cesserunt flamina quicquam innabilis.\n\nTonitrua cinxit extendi. Derecti nuper timebat ensis magni nam in aere. Poena totidem aer duas his. Vos mentisque aliis flexi! Tegi liquidas addidit principio orba pendebat zephyro sidera homini aethera.\n\nPhoebe possedit fulminibus effigiem dicere terrae fuerat diverso diversa. Ardentior caeca ripis ipsa pontus campos quae terrarum descenderat. Inposuit aliud phoebe dissaepserat coercuit est descenderat? Pressa qui frigida cognati tanta meis rudis unus. Vultus otia humanas limitibus pressa obliquis aer alto triones terrarum.','Jordi Jiménez','','inherit','closed','closed','','24-autosave-v1','','','2016-02-11 15:33:35','2016-02-11 15:33:35','',24,'http://local.wordpress.dev/24-autosave-v1/',0,'revision','',0),
+	(27,1,'2016-02-11 15:34:14','2016-02-11 15:34:14','','AAEAAQAAAAAAAAbHAAAAJGU2ODg1OTNhLTI5MWYtNGEzZC04ZDA2LTM5OWE4YzRmM2M0OQ','','inherit','open','closed','','aaeaaqaaaaaaaabhaaaajgu2odg1otnhlti5mwytngezzc04zda2ltm5owe4yzrmm2m0oq','','','2016-02-11 15:34:14','2016-02-11 15:34:14','',24,'http://local.wordpress.dev/app/uploads/2016/02/AAEAAQAAAAAAAAbHAAAAJGU2ODg1OTNhLTI5MWYtNGEzZC04ZDA2LTM5OWE4YzRmM2M0OQ.jpg',0,'attachment','image/jpeg',0),
+	(28,1,'2016-02-11 15:34:25','2016-02-11 15:34:25','Aequalis litem auroram deorum locum ad erat:. Fecit usu cesserunt flamina quicquam innabilis.<!--more-->\r\n\r\nTonitrua cinxit extendi. Derecti nuper timebat ensis magni nam in aere. Poena totidem aer duas his. Vos mentisque aliis flexi! Tegi liquidas addidit principio orba pendebat zephyro sidera homini aethera.\r\n\r\nPhoebe possedit fulminibus effigiem dicere terrae fuerat diverso diversa. Ardentior caeca ripis ipsa pontus campos quae terrarum descenderat. Inposuit aliud phoebe dissaepserat coercuit est descenderat? Pressa qui frigida cognati tanta meis rudis unus. Vultus otia humanas limitibus pressa obliquis aer alto triones terrarum.','Jordi Jiménez','','inherit','closed','closed','','24-revision-v1','','','2016-02-11 15:34:25','2016-02-11 15:34:25','',24,'http://local.wordpress.dev/24-revision-v1/',0,'revision','',0),
+	(29,1,'2016-02-11 15:36:06','2016-02-11 15:36:06','Matutinis quia fulminibus viseret origine fecit meis. Fert vindice fidem dissociata fluminaque exemit.\r\n\r\n<!--more-->\r\n\r\nLocavit spectent totidem locoque. Sunt campoque terris aera mollia. Orbe ignotas unus sine quia. Nullo cognati fidem omnia foret obliquis. Sublime sidera quem nam sidera usu quod convexi obliquis astra.','Enric Godes Maté','','publish','closed','closed','','enric-godes-mate','','','2016-02-23 16:30:38','2016-02-23 15:30:38','',12,'http://local.wordpress.dev/?page_id=29',0,'testimonial','',0),
+	(30,1,'2016-02-11 15:36:06','2016-02-11 15:36:06','Matutinis quia fulminibus viseret origine fecit meis. Fert vindice fidem dissociata fluminaque exemit.\r\n\r\n<!--more-->\r\n\r\nLocavit spectent totidem locoque. Sunt campoque terris aera mollia. Orbe ignotas unus sine quia. Nullo cognati fidem omnia foret obliquis. Sublime sidera quem nam sidera usu quod convexi obliquis astra.','Enric Godes Maté','','inherit','closed','closed','','29-revision-v1','','','2016-02-11 15:36:06','2016-02-11 15:36:06','',29,'http://local.wordpress.dev/29-revision-v1/',0,'revision','',0),
+	(31,1,'2016-02-11 15:37:41','2016-02-11 15:37:41','Stagna locum opifex fidem proximus ultima flexi iussit illic. Natus spectent litora zonae sublime auroram sidera bracchia ignotas. Sanctius habitabilis reparabat. Elementaque caligine nix sata inmensa erat.','Rubén López Bello','','publish','closed','closed','','ruben-lopez-bello','','','2016-02-23 16:30:30','2016-02-23 15:30:30','',12,'http://local.wordpress.dev/?page_id=31',0,'testimonial','',0),
+	(32,1,'2016-02-11 15:37:41','2016-02-11 15:37:41','Stagna locum opifex fidem proximus ultima flexi iussit illic. Natus spectent litora zonae sublime auroram sidera bracchia ignotas. Sanctius habitabilis reparabat. Elementaque caligine nix sata inmensa erat.','Rubén López Bello','','inherit','closed','closed','','31-revision-v1','','','2016-02-11 15:37:41','2016-02-11 15:37:41','',31,'http://local.wordpress.dev/31-revision-v1/',0,'revision','',0),
+	(33,1,'2016-02-11 15:40:13','2016-02-11 15:40:13','','27c787d','','inherit','open','closed','','27c787d','','','2016-02-11 15:40:13','2016-02-11 15:40:13','',31,'http://local.wordpress.dev/app/uploads/2016/02/27c787d.jpg',0,'attachment','image/jpeg',0),
+	(34,1,'2016-02-11 15:40:29','2016-02-11 15:40:29','','2805412','','inherit','open','closed','','2805412','','','2016-02-11 15:40:29','2016-02-11 15:40:29','',29,'http://local.wordpress.dev/app/uploads/2016/02/2805412.jpg',0,'attachment','image/jpeg',0),
+	(38,1,'2016-02-11 15:42:09','2016-02-11 15:42:09','','JIPI','','publish','open','open','','jipi','','','2016-02-18 15:26:21','2016-02-18 14:26:21','',0,'http://local.wordpress.dev/?p=38',0,'project','',0),
+	(39,1,'2016-02-11 15:42:09','2016-02-11 15:42:09','','JIPI','','inherit','closed','closed','','38-revision-v1','','','2016-02-11 15:42:09','2016-02-11 15:42:09','',38,'http://local.wordpress.dev/38-revision-v1/',0,'revision','',0),
+	(40,1,'2016-02-11 15:44:04','2016-02-11 15:44:04','Crescendo sibi agitabilis caeli aliis deorum sive. <strong>Lumina sponte</strong> animalibus terrarum obsistitur calidis mentisque adsiduis. Corpore dissaepserat fixo amphitrite terras haec unda descenderat. Origine manebat ventos opifex? Frigore tollere.<!--more-->\r\n\r\nHanc pendebat tonitrua quisque. Tonitrua septemque ab supplex aeris mea ligavit: nabataeaque possedit tanto. Corpora totidem solum onus fuerat. Quinta terrae. Totidem rectumque eodem. Duas fidem exemit.<strong> Non fluminaque nova sidera</strong>. Deerat sine exemit mutatas ventos horrifer ensis duris ad! Subdita diremit sponte obliquis corpore spectent. Militis reparabat zonae. Litora mentisque effervescere vis umor igni facientes deerat.','Alba Hierro','','publish','closed','closed','','alba-hierro','','','2016-02-26 12:31:28','2016-02-26 11:31:28','',12,'http://local.wordpress.dev/?page_id=40',0,'testimonial','',0),
+	(41,1,'2016-02-11 15:43:32','2016-02-11 15:43:32','','01f0ac4','','inherit','open','closed','','01f0ac4','','','2016-02-11 15:43:32','2016-02-11 15:43:32','',40,'http://local.wordpress.dev/app/uploads/2016/02/01f0ac4.jpg',0,'attachment','image/jpeg',0),
+	(42,1,'2016-02-11 15:44:04','2016-02-11 15:44:04','Crescendo sibi agitabilis caeli aliis deorum sive. Lumina sponte animalibus terrarum obsistitur calidis mentisque adsiduis. Corpore dissaepserat fixo amphitrite terras haec unda descenderat. Origine manebat ventos opifex? Frigore tollere. Hanc pendebat tonitrua quisque. Tonitrua septemque ab supplex aeris mea ligavit: nabataeaque possedit tanto.<!--more-->\r\n\r\nCorpora totidem solum onus fuerat. Quinta terrae. Totidem rectumque eodem. Duas fidem exemit.<strong> Non fluminaque nova sidera</strong>. Deerat sine exemit mutatas ventos horrifer ensis duris ad! Subdita diremit sponte obliquis corpore spectent. Militis reparabat zonae. Litora mentisque effervescere vis umor igni facientes deerat.','Alba Hierro','','inherit','closed','closed','','40-revision-v1','','','2016-02-11 15:44:04','2016-02-11 15:44:04','',40,'http://local.wordpress.dev/40-revision-v1/',0,'revision','',0),
+	(43,1,'2016-02-12 09:02:08','2016-02-12 09:02:08','Mixtam montibus mundi cornua ensis fratrum duas. Divino habentia posset: amphitrite porrexerat matutinis congestaque alto perpetuum. Figuras campoque hunc aere summaque postquam. Conversa capacius. Erat bene tegi silvas adspirate. Mortales margine alto fuerat. Pinus cuncta pulsant reparabat quem poena lacusque levitate habitabilis terra.\r\n\r\nTuti freta instabilis ignea. Aetas humanas auroram figuras calidis regat obstabatque! Mundi otia semine? Illic melioris congeriem securae aberant lapidosos. Convexi triones pinus. Umentia diu volucres origo? Praebebat in motura ut usu! Abscidit siccis est manebat effervescere. Quinta sata habitandae viseret et solidumque.\r\n\r\n<div class=\"well>Conversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra.</div>','Presentació','','inherit','closed','closed','','5-revision-v1','','','2016-02-12 09:02:08','2016-02-12 09:02:08','',5,'http://local.wordpress.dev/5-revision-v1/',0,'revision','',0),
+	(44,1,'2016-02-24 09:37:02','2016-02-24 08:37:02','','Miquel Adell','','inherit','closed','closed','','5-autosave-v1','','','2016-02-24 09:37:02','2016-02-24 08:37:02','',5,'http://local.wordpress.dev/5-autosave-v1/',0,'revision','',0),
+	(45,1,'2016-02-12 09:02:39','2016-02-12 09:02:39','Mixtam montibus mundi cornua ensis fratrum duas. Divino habentia posset: amphitrite porrexerat matutinis congestaque alto perpetuum. Figuras campoque hunc aere summaque postquam. Conversa capacius. Erat bene tegi silvas adspirate. Mortales margine alto fuerat. Pinus cuncta pulsant reparabat quem poena lacusque levitate habitabilis terra.\r\n\r\nTuti freta instabilis ignea. Aetas humanas auroram figuras calidis regat obstabatque! Mundi otia semine? Illic melioris congeriem securae aberant lapidosos. Convexi triones pinus. Umentia diu volucres origo? Praebebat in motura ut usu! Abscidit siccis est manebat effervescere. Quinta sata habitandae viseret et solidumque.\r\n\r\n<div class=\"well\">Conversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra.</div>','Presentació','','inherit','closed','closed','','5-revision-v1','','','2016-02-12 09:02:39','2016-02-12 09:02:39','',5,'http://local.wordpress.dev/5-revision-v1/',0,'revision','',0),
+	(46,1,'2016-02-12 09:03:59','2016-02-12 09:03:59','Mixtam montibus mundi cornua ensis fratrum duas. Divino habentia posset: amphitrite porrexerat matutinis congestaque alto perpetuum. Figuras campoque hunc aere summaque postquam. Conversa capacius. Erat bene tegi silvas adspirate. Mortales margine alto fuerat. Pinus cuncta pulsant reparabat quem poena lacusque levitate habitabilis terra.\r\n\r\nTuti freta instabilis ignea. Aetas humanas auroram figuras calidis regat obstabatque! Mundi otia semine? Illic melioris congeriem securae aberant lapidosos. Convexi triones pinus. Umentia diu volucres origo? Praebebat in motura ut usu! Abscidit siccis est manebat effervescere. Quinta sata habitandae viseret et solidumque.\r\n\r\n<div class=\"well well-lg\">Conversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra.</div>\r\n\r\n<input type=\"button\" class=\"btn	btn-default\">Contacta\'m</input>','Presentació','','inherit','closed','closed','','5-revision-v1','','','2016-02-12 09:03:59','2016-02-12 09:03:59','',5,'http://local.wordpress.dev/5-revision-v1/',0,'revision','',0),
+	(47,1,'2016-02-12 09:04:27','2016-02-12 09:04:27','Mixtam montibus mundi cornua ensis fratrum duas. Divino habentia posset: amphitrite porrexerat matutinis congestaque alto perpetuum. Figuras campoque hunc aere summaque postquam. Conversa capacius. Erat bene tegi silvas adspirate. Mortales margine alto fuerat. Pinus cuncta pulsant reparabat quem poena lacusque levitate habitabilis terra.\r\n\r\nTuti freta instabilis ignea. Aetas humanas auroram figuras calidis regat obstabatque! Mundi otia semine? Illic melioris congeriem securae aberant lapidosos. Convexi triones pinus. Umentia diu volucres origo? Praebebat in motura ut usu! Abscidit siccis est manebat effervescere. Quinta sata habitandae viseret et solidumque.\r\n\r\n<div class=\"well well-lg\">Conversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra.</div>\r\n\r\n<button type=\"button\" class=\"btn btn-primary\">Contacta\'m</button>\r\n','Presentació','','inherit','closed','closed','','5-revision-v1','','','2016-02-12 09:04:27','2016-02-12 09:04:27','',5,'http://local.wordpress.dev/5-revision-v1/',0,'revision','',0),
+	(48,1,'2016-02-12 15:01:15','2016-02-12 15:01:15','Mixtam montibus mundi cornua ensis fratrum duas. Divino habentia posset: amphitrite porrexerat matutinis congestaque alto perpetuum. Figuras campoque hunc aere summaque postquam. Conversa capacius. Erat bene tegi silvas adspirate. Mortales margine alto fuerat. Pinus cuncta pulsant reparabat quem poena lacusque levitate habitabilis terra.\r\n\r\nTuti freta instabilis ignea. Aetas humanas auroram figuras calidis regat obstabatque! Mundi otia semine? Illic melioris congeriem securae aberant lapidosos. Convexi triones pinus. Umentia diu volucres origo? Praebebat in motura ut usu! Abscidit siccis est manebat effervescere. Quinta sata habitandae viseret et solidumque.\r\n\r\n<div class=\"lead\">Conversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra.</div>\r\n\r\n<button type=\"button\" class=\"btn btn-primary\">Contacta\'m</button>\r\n','Presentació','','inherit','closed','closed','','5-revision-v1','','','2016-02-12 15:01:15','2016-02-12 15:01:15','',5,'http://local.wordpress.dev/5-revision-v1/',0,'revision','',0),
+	(53,1,'2016-02-15 11:57:26','2016-02-15 10:57:26','this is a very short testimonial with a related project. End.','Oscar Marí','','publish','closed','closed','','oscar-mari','','','2016-02-26 13:32:52','2016-02-26 12:32:52','',0,'http://local.wordpress.dev/?post_type=testimonial&#038;p=53',0,'testimonial','',0),
+	(54,1,'2016-02-15 12:49:31','2016-02-15 11:49:31','','Project','','publish','closed','closed','','acf_project','','','2016-02-15 13:01:39','2016-02-15 12:01:39','',0,'http://local.wordpress.dev/?post_type=acf&#038;p=54',0,'acf','',0),
+	(57,1,'2016-02-15 13:01:15','2016-02-15 12:01:15','Crescendo sibi agitabilis caeli aliis deorum sive. Lumina sponte animalibus terrarum obsistitur calidis mentisque adsiduis. Corpore dissaepserat fixo amphitrite terras haec unda descenderat. Origine manebat ventos opifex? Frigore tollere. Hanc pendebat tonitrua quisque. Tonitrua septemque ab supplex aeris mea ligavit: nabataeaque possedit tanto.<!--more-->\r\n\r\nCorpora totidem solum onus fuerat. Quinta terrae. Totidem rectumque eodem. Duas fidem exemit. Non fluminaque nova sidera. Deerat sine exemit mutatas ventos horrifer ensis duris ad! Subdita diremit sponte obliquis corpore spectent. Militis reparabat zonae. Litora mentisque effervescere vis umor igni facientes deerat.\r\n\r\nRetinebat caligine pondus fronde cetera hominum. Lucis mutatas recessit caesa invasit sanctius iapeto tepescunt. Lacusque cetera aere ignea cum. Viseret consistere obliquis tellus nunc calidis sine? Qui carentem non coeptis flexi neu praecipites. Semine habitabilis quarum hunc temperiemque montibus matutinis ab partim mortales.','Gir a l\'esquerra','','publish','closed','closed','','gir-a-lesquerra','','','2016-02-18 17:14:02','2016-02-18 16:14:02','',0,'http://local.wordpress.dev/?post_type=project&#038;p=57',0,'project','',0),
+	(61,1,'2016-02-18 15:27:28','2016-02-18 14:27:28','','Maquetació','','publish','closed','closed','','maquetacio','','','2016-02-18 15:27:28','2016-02-18 14:27:28','',0,'http://local.wordpress.dev/?post_type=area&#038;p=61',0,'area','',0),
+	(62,1,'2016-02-18 15:27:39','2016-02-18 14:27:39','','Estudi','','publish','closed','closed','','estudi','','','2016-02-18 15:27:39','2016-02-18 14:27:39','',0,'http://local.wordpress.dev/?post_type=area&#038;p=62',0,'area','',0),
+	(63,1,'2016-02-18 15:27:52','2016-02-18 14:27:52','','PHP','','publish','closed','closed','','php','','','2016-02-24 15:57:42','2016-02-24 14:57:42','',0,'http://local.wordpress.dev/?post_type=technology&#038;p=63',0,'technology','',0),
+	(64,1,'2016-02-18 15:28:15','2016-02-18 14:28:15','','MySQL','','publish','closed','closed','','mysql','','','2016-02-24 15:57:42','2016-02-24 14:57:42','',0,'http://local.wordpress.dev/?post_type=technology&#038;p=64',0,'technology','',0),
+	(65,1,'2016-02-18 15:28:22','2016-02-18 14:28:22','','WordPress','','publish','closed','closed','','wordpress','','','2016-02-24 16:00:48','2016-02-24 15:00:48','',0,'http://local.wordpress.dev/?post_type=technology&#038;p=65',0,'technology','',0),
+	(66,1,'2016-02-18 15:29:41','2016-02-18 14:29:41','Crescendo sibi agitabilis caeli aliis deorum sive. Lumina sponte animalibus terrarum obsistitur calidis mentisque adsiduis.\n<!--more-->\nCorpore dissaepserat fixo amphitrite terras haec unda descenderat. Origine manebat ventos opifex? Frigore tollere. Hanc pendebat tonitrua quisque. Tonitrua septemque ab supplex aeris mea ligavit: nabataeaque possedit tanto','Oscar Marí','','inherit','closed','closed','','53-autosave-v1','','','2016-02-18 15:29:41','2016-02-18 14:29:41','',53,'http://local.wordpress.dev/53-autosave-v1/',0,'revision','',0),
+	(67,1,'2016-02-18 15:29:59','2016-02-18 14:29:59','','Oscar Marí','','inherit','open','closed','','020f5d7','','','2016-02-23 16:29:46','2016-02-23 15:29:46','',53,'http://local.wordpress.dev/app/uploads/2016/02/020f5d7.jpg',0,'attachment','image/jpeg',0),
+	(68,1,'2016-02-18 15:38:38','2016-02-18 14:38:38','Mixtam montibus mundi cornua ensis fratrum duas. Divino habentia posset: amphitrite porrexerat matutinis congestaque alto perpetuum. Figuras campoque hunc aere summaque postquam. Conversa capacius. Erat bene tegi silvas adspirate. Mortales margine alto fuerat. Pinus cuncta pulsant reparabat quem poena lacusque levitate habitabilis terra.<!--more-->\r\n\r\nTuti freta instabilis ignea. Aetas humanas auroram figuras calidis regat obstabatque! Mundi otia semine? Illic melioris congeriem securae aberant lapidosos. Convexi triones pinus. Umentia diu volucres origo? Praebebat in motura ut usu! Abscidit siccis est manebat effervescere. Quinta sata habitandae viseret et solidumque.\r\n\r\n<div class=\"lead\">Conversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra.</div>\r\n\r\n<button type=\"button\" class=\"btn btn-primary\">Contacta\'m</button>\r\n','Presentació','','inherit','closed','closed','','5-revision-v1','','','2016-02-18 15:38:38','2016-02-18 14:38:38','',5,'http://local.wordpress.dev/5-revision-v1/',0,'revision','',0),
+	(69,1,'2016-02-18 15:45:08','2016-02-18 14:45:08','','Call to action','','publish','closed','closed','','acf_call-to-action','','','2016-02-24 17:59:34','2016-02-24 16:59:34','',0,'http://local.wordpress.dev/?post_type=acf&#038;p=69',0,'acf','',0),
+	(70,1,'2016-02-18 15:43:39','2016-02-18 14:43:39','Mixtam montibus mundi cornua ensis fratrum duas. Divino habentia posset: amphitrite porrexerat matutinis congestaque alto perpetuum. Figuras campoque hunc aere summaque postquam. Conversa capacius. Erat bene tegi silvas adspirate. Mortales margine alto fuerat. Pinus cuncta pulsant reparabat quem poena lacusque levitate habitabilis terra.\r\n\r\nTuti freta instabilis ignea. Aetas humanas auroram figuras calidis regat obstabatque! Mundi otia semine? Illic melioris congeriem securae aberant lapidosos. Convexi triones pinus. Umentia diu volucres origo? Praebebat in motura ut usu! Abscidit siccis est manebat effervescere. Quinta sata habitandae viseret et solidumque.\r\n\r\n<div class=\"lead\">Conversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra.</div>\r\n\r\n<button type=\"button\" class=\"btn btn-primary\">Contacta\'m</button>\r\n','Presentació','','inherit','closed','closed','','5-revision-v1','','','2016-02-18 15:43:39','2016-02-18 14:43:39','',5,'http://local.wordpress.dev/5-revision-v1/',0,'revision','',0),
+	(71,1,'2016-02-18 15:48:59','2016-02-18 14:48:59','Mixtam montibus mundi cornua ensis fratrum duas. Divino habentia posset: amphitrite porrexerat matutinis congestaque alto perpetuum. Figuras campoque hunc aere summaque postquam. Conversa capacius. Erat bene tegi silvas adspirate. Mortales margine alto fuerat. Pinus cuncta pulsant reparabat quem poena lacusque levitate habitabilis terra.\r\n\r\nTuti freta instabilis ignea. Aetas humanas auroram figuras calidis regat obstabatque! Mundi otia semine? Illic melioris congeriem securae aberant lapidosos. Convexi triones pinus. Umentia diu volucres origo? Praebebat in motura ut usu! Abscidit siccis est manebat effervescere. Quinta sata habitandae viseret et solidumque.','Presentació','','inherit','closed','closed','','5-revision-v1','','','2016-02-18 15:48:59','2016-02-18 14:48:59','',5,'http://local.wordpress.dev/5-revision-v1/',0,'revision','',0),
+	(72,1,'2016-02-18 15:50:46','2016-02-18 14:50:46','Desenvolupo pàgines web.\r\n\r\nOfereixo solucions a mesura per a les teves neessitats.\r\n\r\nPots veure una pàgina web destacada de les que he realitzat a continuació.','Presentació','','inherit','closed','closed','','5-revision-v1','','','2016-02-18 15:50:46','2016-02-18 14:50:46','',5,'http://local.wordpress.dev/5-revision-v1/',0,'revision','',0),
+	(73,1,'2016-02-18 16:37:13','2016-02-18 15:37:13','Gira a l\'esquerra en diferents dispositius','Gira a l\'esquerra en diferents dispositius','','inherit','open','closed','','gir-a-lesquerra-mockup-transparent','','','2016-02-18 16:37:54','2016-02-18 15:37:54','',57,'http://local.wordpress.dev/app/uploads/2016/02/gir-a-lesquerra-mockup-transparent.png',0,'attachment','image/png',0),
+	(74,1,'2016-02-22 14:00:36','0000-00-00 00:00:00',' ','','','draft','closed','closed','','','','','2016-02-22 14:00:36','0000-00-00 00:00:00','',0,'http://local.wordpress.dev/?p=74',1,'nav_menu_item','',0),
+	(75,1,'2016-02-22 14:01:21','2016-02-22 13:01:21',' ','','','publish','closed','closed','','75','','','2016-02-22 14:01:27','2016-02-22 13:01:27','',0,'http://local.wordpress.dev/?p=75',2,'nav_menu_item','',0),
+	(76,1,'2016-02-22 14:01:21','2016-02-22 13:01:21',' ','','','publish','closed','closed','','76','','','2016-02-22 14:01:27','2016-02-22 13:01:27','',0,'http://local.wordpress.dev/?p=76',3,'nav_menu_item','',0),
+	(77,1,'2016-02-22 14:01:21','2016-02-22 13:01:21',' ','','','publish','closed','closed','','77','','','2016-02-22 14:01:27','2016-02-22 13:01:27','',0,'http://local.wordpress.dev/?p=77',4,'nav_menu_item','',0),
+	(78,1,'2016-02-22 14:00:36','0000-00-00 00:00:00',' ','','','draft','closed','closed','','','','','2016-02-22 14:00:36','0000-00-00 00:00:00','',0,'http://local.wordpress.dev/?p=78',1,'nav_menu_item','',0),
+	(79,1,'2016-02-22 14:01:21','2016-02-22 13:01:21',' ','','','publish','closed','closed','','79','','','2016-02-22 14:01:27','2016-02-22 13:01:27','',0,'http://local.wordpress.dev/?p=79',1,'nav_menu_item','',0),
+	(82,1,'2016-02-24 09:57:15','2016-02-24 08:57:15','<span style=\"font-weight: 400;\">Acompanyo clients en el procés de creació d’una pàgina web per trobar la solució ideal als seus problemes online</span>','Miquel Adell','','inherit','closed','closed','','5-revision-v1','','','2016-02-24 09:57:15','2016-02-24 08:57:15','',5,'http://local.wordpress.dev/5-revision-v1/',0,'revision','',0),
+	(83,1,'2016-02-24 09:57:27','2016-02-24 08:57:27','<span style=\"font-weight: 400;\">Acompanyo clients en el procés de creació d’una pàgina web per trobar la solució ideal als seus problemes online</span>','Miquel Adell','','inherit','closed','closed','','5-revision-v1','','','2016-02-24 09:57:27','2016-02-24 08:57:27','',5,'http://local.wordpress.dev/5-revision-v1/',0,'revision','',0),
+	(84,1,'2016-02-24 10:06:18','2016-02-24 09:06:18','&nbsp;\n\n<span style=\"font-weight: 400;\">El procés de creació d\'una pàgina web està format per moltes parts. De la mateixa manera que ho està fer una cervesa. No cal que les coneixis totes per a tenir una pàgina web. Faig servir els meus anys d\'experiència desenvolupant webs per construir webs tenint en compte totes les parts del procés.</span>','Procés','','inherit','closed','closed','','7-autosave-v1','','','2016-02-24 10:06:18','2016-02-24 09:06:18','',7,'http://local.wordpress.dev/7-autosave-v1/',0,'revision','',0),
+	(85,1,'2016-02-24 10:03:16','2016-02-24 09:03:16','&nbsp;\r\n\r\n<span style=\"font-weight: 400;\">El procés de creació d\'una pàgina web està format per moltes parts. De la mateixa manera que ho està fer una cervesa. No cal que les coneixis totes per a tenir una pàgina web. Jo et puc assessorar en qualsevol d\'elles</span>','Procés','','inherit','closed','closed','','7-revision-v1','','','2016-02-24 10:03:16','2016-02-24 09:03:16','',7,'http://local.wordpress.dev/7-revision-v1/',0,'revision','',0),
+	(86,1,'2016-02-24 10:19:47','2016-02-24 09:19:47','El procés de creació d\'una pàgina web està format per moltes parts. De la mateixa manera que ho està fer una cervesa. No cal que les coneixis totes per a tenir una pàgina web. Faig servir els meus anys d\'experiència desenvolupant webs per construir webs tenint en compte totes les parts del procés.','Procés','','inherit','closed','closed','','7-revision-v1','','','2016-02-24 10:19:47','2016-02-24 09:19:47','',7,'http://local.wordpress.dev/7-revision-v1/',0,'revision','',0),
+	(87,1,'2016-02-24 10:20:51','2016-02-24 09:20:51','','home','','inherit','closed','closed','','2-revision-v1','','','2016-02-24 10:20:51','2016-02-24 09:20:51','',2,'http://local.wordpress.dev/2-revision-v1/',0,'revision','',0),
+	(88,1,'2016-02-24 10:21:29','2016-02-24 09:21:29','','Home','','publish','closed','closed','','acf_home','','','2016-02-24 10:22:05','2016-02-24 09:22:05','',0,'http://local.wordpress.dev/?post_type=acf&#038;p=88',0,'acf','',0),
+	(89,1,'2016-02-24 10:21:46','2016-02-24 09:21:46','','Home','','inherit','closed','closed','','2-revision-v1','','','2016-02-24 10:21:46','2016-02-24 09:21:46','',2,'http://local.wordpress.dev/2-revision-v1/',0,'revision','',0),
+	(90,1,'2016-02-24 10:27:21','2016-02-24 09:27:21','Per què necessites una pàgina web? Quins problemes es pot resoldre amb un pàgina web? Què ha de tenir la meva pàgina web? Com hauria de ser?\r\n\r\nPlantejar-se aquestes preguntes és el primer pas per al desenvolupament d\'una pàgina web i puc ajudar-te a respondre-les.','Idea','','publish','closed','closed','','idea','','','2016-02-24 13:52:22','2016-02-24 12:52:22','',0,'http://local.wordpress.dev/?post_type=stage&#038;p=90',0,'stage','',0),
+	(91,1,'2016-02-24 10:32:54','2016-02-24 09:32:54','Per què necessites una pàgina web? Quins problemes es pot resoldre amb un pàgina web? Què ha de tenir la meva pàgina web? Com hauria de ser?\n\nPlantejar-s','Idea','','inherit','closed','closed','','90-autosave-v1','','','2016-02-24 10:32:54','2016-02-24 09:32:54','',90,'http://local.wordpress.dev/90-autosave-v1/',0,'revision','',0),
+	(92,1,'2016-02-24 10:31:47','2016-02-24 09:31:47','Jo puc ajudar a trobar a un dissenyador o avaluar la viabilitat d\'un disseny que ja té per complir amb una idea per a un lloc web','Disseny','','publish','closed','closed','','disseny','','','2016-02-24 13:52:38','2016-02-24 12:52:38','',0,'http://local.wordpress.dev/?post_type=stage&#038;p=92',0,'stage','',0),
+	(93,1,'2016-02-24 10:34:28','2016-02-24 09:34:28','Jo puc ajudar a trobar a un dissenyador o avaluar la viabilitat d\'un disseny que ja té per complir amb una idea per a un lloc web','Disseny','','inherit','closed','closed','','92-autosave-v1','','','2016-02-24 10:34:28','2016-02-24 09:34:28','',92,'http://local.wordpress.dev/92-autosave-v1/',0,'revision','',0),
+	(95,1,'2016-02-24 10:41:04','2016-02-24 09:41:04','Puc encarregar-me de tota la part de la programació d\'una pàgina web des de la maquetació fins a la gestió del servidor passant per la gestió de la base de dades o la programació interna de la web','Desenvolupament','','publish','closed','closed','','desenvolupament','','','2016-02-24 15:35:18','2016-02-24 14:35:18','',0,'http://local.wordpress.dev/?post_type=stage&#038;p=95',0,'stage','',0),
+	(96,1,'2016-02-24 10:42:04','2016-02-24 09:42:04','Puc mirar-me una pàgina web ja existent per buscar possibles millores','Evaluació','','publish','closed','closed','','evaluacio','','','2016-02-24 13:52:48','2016-02-24 12:52:48','',0,'http://local.wordpress.dev/?post_type=stage&#038;p=96',0,'stage','',0),
+	(97,1,'2016-02-24 10:42:30','2016-02-24 09:42:30','','Bootstrap','','publish','closed','closed','','bootstrapp','','','2016-02-24 15:57:42','2016-02-24 14:57:42','',0,'http://local.wordpress.dev/?post_type=technology&#038;p=97',0,'technology','',0),
+	(98,1,'2016-02-24 10:42:37','2016-02-24 09:42:37','','Sass','','publish','closed','closed','','sass','','','2016-02-24 16:00:24','2016-02-24 15:00:24','',0,'http://local.wordpress.dev/?post_type=technology&#038;p=98',0,'technology','',0),
+	(99,1,'2016-02-24 10:45:17','2016-02-24 09:45:17','','JavaScript','','publish','closed','closed','','javascript','','','2016-02-24 16:00:13','2016-02-24 15:00:13','',0,'http://local.wordpress.dev/?post_type=technology&#038;p=99',0,'technology','',0),
+	(100,1,'2016-02-24 10:47:17','2016-02-24 09:47:17','','Linux','','publish','closed','closed','','linux','','','2016-02-24 16:23:07','2016-02-24 15:23:07','',0,'http://local.wordpress.dev/?post_type=technology&#038;p=100',0,'technology','',0),
+	(101,1,'2016-02-24 10:48:21','2016-02-24 09:48:21','','Twitter','','publish','closed','closed','','twitter','','','2016-02-24 16:00:00','2016-02-24 15:00:00','',0,'http://local.wordpress.dev/?post_type=technology&#038;p=101',0,'technology','',0),
+	(102,1,'2016-02-24 10:49:03','2016-02-24 09:49:03','','GIT','','trash','closed','closed','','git','','','2016-02-24 10:49:21','2016-02-24 09:49:21','',0,'http://local.wordpress.dev/?post_type=technology&#038;p=102',0,'technology','',0),
+	(104,1,'2016-02-24 12:42:40','2016-02-24 11:42:40','','Stage','','publish','closed','closed','','acf_stage','','','2016-02-24 13:45:18','2016-02-24 12:45:18','',0,'http://local.wordpress.dev/?post_type=acf&#038;p=104',0,'acf','',0),
+	(105,1,'2016-02-24 13:44:48','2016-02-24 12:44:48','','Technology','','publish','closed','closed','','acf_technology','','','2016-02-24 13:45:44','2016-02-24 12:45:44','',0,'http://local.wordpress.dev/?post_type=acf&#038;p=105',0,'acf','',0),
+	(106,1,'2016-02-24 13:55:38','2016-02-24 12:55:38','','Bootstrap','','inherit','closed','closed','','97-autosave-v1','','','2016-02-24 13:55:38','2016-02-24 12:55:38','',97,'http://local.wordpress.dev/97-autosave-v1/',0,'revision','',0),
+	(107,1,'2016-02-24 16:01:22','2016-02-24 15:01:22','','Facebook','','publish','closed','closed','','facebook','','','2016-02-24 16:01:34','2016-02-24 15:01:34','',0,'http://local.wordpress.dev/?post_type=technology&#038;p=107',0,'technology','',0),
+	(108,1,'2016-02-24 16:00:42','2016-02-24 15:00:42','','CSS','','publish','closed','closed','','css','','','2016-02-24 16:00:42','2016-02-24 15:00:42','',0,'http://local.wordpress.dev/?post_type=technology&#038;p=108',0,'technology','',0),
+	(109,1,'2016-02-24 16:01:57','2016-02-24 15:01:57','','MariaDB','','publish','closed','closed','','mariadb','','','2016-02-24 16:01:57','2016-02-24 15:01:57','',0,'http://local.wordpress.dev/?post_type=technology&#038;p=109',0,'technology','',0),
+	(110,1,'2016-02-24 16:24:49','2016-02-24 15:24:49','','jQuery','','publish','closed','closed','','jquery','','','2016-02-24 16:26:23','2016-02-24 15:26:23','',0,'http://local.wordpress.dev/?post_type=technology&#038;p=110',0,'technology','',0),
+	(111,1,'2016-02-24 17:31:17','2016-02-24 16:31:17','La base de tot és l\'experiència i això és el que algunes persones tenen a dir de la nostra experiència conjunta','Fonaments','','inherit','closed','closed','','16-revision-v1','','','2016-02-24 17:31:17','2016-02-24 16:31:17','',16,'http://local.wordpress.dev/16-revision-v1/',0,'revision','',0),
+	(112,1,'2016-02-24 17:32:37','2016-02-24 16:32:37','Locis zephyro naturae animus ne levitate subsidere. Iudicis instabilis sorbentur fontes caeca. Onerosior animalibus homo aetas ubi lege litem montibus animal! Tellus opifex. Septemque pendebat summaque. Eodem terras. Aberant quanto nitidis sorbentur! Madescit nebulas. Diverso opifex subdita solum boreas habitandae diu vos pontus?\n\nDiu fuerant habitabilis recessit. Congestaque carmen rerum terram fidem tempora. Caelo natura cura. Frigore locoque. Nix quoque sic aliis arce inminet adsiduis mortales. Sinistra pugnabant. Addidit ensis rudis longo. Boreas orbis orbe. Tellure tepescunt frigore passim utque boreas. Subdita matutinis numero spectent pugnabant.\n\nNabataeaque tegit carmen cepit. Congestaque seductaque undas pro usu mutastis mollia postquam mentes. Legebantur natus dominari natura. Igni quae quem melioris mentisque natus stagna vis duris. Quisquis motura altae? Illi animal. Extendi homini figuras iudicis mortales habitandae tenent habitabilis circumfluus. Secuit locum crescendo.','Tecnologies','','inherit','closed','closed','','9-autosave-v1','','','2016-02-24 17:32:37','2016-02-24 16:32:37','',9,'http://local.wordpress.dev/9-autosave-v1/',0,'revision','',0),
+	(113,1,'2016-02-24 17:43:43','2016-02-24 16:43:43','<span style=\"font-weight: 400;\">Aquestes són algunes de les tecnologies que faig servir per crear pàgines web.</span>','Tecnologies','','inherit','closed','closed','','9-revision-v1','','','2016-02-24 17:43:43','2016-02-24 16:43:43','',9,'http://local.wordpress.dev/9-revision-v1/',0,'revision','',0),
+	(114,1,'2016-02-24 17:48:40','2016-02-24 16:48:40','<div class=\"row\">\r\n<div class=\"col-xs-12 col-sm-4\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\">Correu</div>\r\n<div class=\"panel-body\"><span class=\"lead\">Pots enviar-me un correu a <a href=\"mailto:miquel@miqueladell.com\">miquel@miqueladell.com</a></span></div>\r\n</div>\r\n</div>\r\n<div class=\"col-xs-12 col-sm-4\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\">Altres formes de contacte</div>\r\n<div class=\"panel-body\">\r\n<ul class=\"list-unstyled\">\r\n	<li><i class=\"fa fa-fw fa-skype\"></i> miquel.adell</li>\r\n	<li><i class=\"fa fa-fw fa-phone\"></i> +34 620 015 860</li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n<div class=\"col-xs-12 col-sm-4\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\">Xarxes socials</div>\r\n<div class=\"panel-body\">\r\n<ul class=\"list-unstyled\">\r\n	<li><i class=\"fa fa-fw fa-linkedin\"></i> <a title=\"LinkedIn\" href=\"http://es.linkedin.com/in/MiquelAdellBorras\" target=\"_blank\" rel=\"me nofollow\">LinkedIn</a></li>\r\n	<li><i class=\"fa fa-fw fa-github\"></i> <a title=\"GitHub\" href=\"https://github.com/MiquelAdell\" target=\"_blank\" rel=\"me nofollow\">GitHub</a></li>\r\n	<li><i class=\"fa fa-fw fa-stack-overflow\"></i> <a title=\"Stack Overflow\" href=\"http://stackoverflow.com/users/704097/miqueladell\" target=\"_blank\" rel=\"me nofollow\">Stack Overflow</a></li>\r\n	<li><i class=\"fa fa-fw fa-twitter\"></i> <a title=\"Twitter\" href=\"http://twitter.com/miqueladell\" target=\"_blank\" rel=\"me nofollow\">Twitter</a></li>\r\n	<li><i class=\"fa fa-fw fa-facebook\"></i> <a title=\"Facebook\" href=\"http://www.facebook.com/miquel.adell.borras\" target=\"_blank\" rel=\"me nofollow\">Facebook</a></li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n</div>','Contacte','','publish','closed','closed','','contacte','','','2016-02-26 16:46:19','2016-02-26 15:46:19','',0,'http://local.wordpress.dev/?page_id=114',0,'page','',0),
+	(115,1,'2016-02-24 17:48:29','2016-02-24 16:48:29','','DSC_3586-2','','inherit','open','closed','','dsc_3586-2','','','2016-02-24 17:48:29','2016-02-24 16:48:29','',114,'http://local.wordpress.dev/app/uploads/2016/02/DSC_3586-2.jpg',0,'attachment','image/jpeg',0),
+	(116,1,'2016-02-24 17:48:40','2016-02-24 16:48:40','','Contacta\'m','','inherit','closed','closed','','114-revision-v1','','','2016-02-24 17:48:40','2016-02-24 16:48:40','',114,'http://local.wordpress.dev/114-revision-v1/',0,'revision','',0),
+	(117,1,'2016-02-24 17:49:00','2016-02-24 16:49:00','','Contacte','','inherit','closed','closed','','114-revision-v1','','','2016-02-24 17:49:00','2016-02-24 16:49:00','',114,'http://local.wordpress.dev/114-revision-v1/',0,'revision','',0),
+	(118,1,'2016-02-24 17:50:57','2016-02-24 16:50:57','<span style=\"font-weight: 400;\">Acompanyo clients en el procés de creació d’una pàgina web per trobar la solució ideal als seus problemes online</span>','Miquel Adell','','inherit','closed','closed','','5-revision-v1','','','2016-02-24 17:50:57','2016-02-24 16:50:57','',5,'http://local.wordpress.dev/5-revision-v1/',0,'revision','',0),
+	(119,1,'2016-02-24 17:54:50','2016-02-24 16:54:50','<span style=\"font-weight: 400;\">Acompanyo clients en el procés de creació d’una pàgina web per trobar la solució ideal als seus problemes online</span>','Miquel Adell','','inherit','closed','closed','','5-revision-v1','','','2016-02-24 17:54:50','2016-02-24 16:54:50','',5,'http://local.wordpress.dev/5-revision-v1/',0,'revision','',0),
+	(120,1,'2016-02-24 17:59:48','2016-02-24 16:59:48','<span style=\"font-weight: 400;\">Acompanyo clients en el procés de creació d’una pàgina web per trobar la solució ideal als seus problemes online</span>','Miquel Adell','','inherit','closed','closed','','5-revision-v1','','','2016-02-24 17:59:48','2016-02-24 16:59:48','',5,'http://local.wordpress.dev/5-revision-v1/',0,'revision','',0),
+	(121,1,'2016-02-24 18:01:24','2016-02-24 17:01:24','El procés de creació d\'una pàgina web està format per moltes parts. De la mateixa manera que ho està fer una cervesa. No cal que les coneixis totes per a tenir una pàgina web. Faig servir els meus anys d\'experiència desenvolupant webs per construir webs tenint en compte totes les parts del procés.','Procés','','inherit','closed','closed','','7-revision-v1','','','2016-02-24 18:01:24','2016-02-24 17:01:24','',7,'http://local.wordpress.dev/7-revision-v1/',0,'revision','',0),
+	(122,1,'2016-02-25 15:49:55','2016-02-25 14:49:55','<span style=\"font-weight: 400;\">Aquestes són algunes de les tecnologies que faig servir per crear pàgines web.</span>','Tecnologies','','inherit','closed','closed','','9-revision-v1','','','2016-02-25 15:49:55','2016-02-25 14:49:55','',9,'http://local.wordpress.dev/9-revision-v1/',0,'revision','',0),
+	(124,1,'2016-02-26 15:07:45','0000-00-00 00:00:00','','Auto Draft','','auto-draft','open','open','','','','','2016-02-26 15:07:45','0000-00-00 00:00:00','',0,'http://local.wordpress.dev/?p=124',0,'post','',0),
+	(125,1,'2016-02-26 16:16:49','2016-02-26 15:16:49','<span class=\'lead\'>Acompanyo clients en el procés de creació d’una pàgina web per trobar la solució ideal als seus problemes online</span>','Miquel Adell','','inherit','closed','closed','','5-revision-v1','','','2016-02-26 16:16:49','2016-02-26 15:16:49','',5,'http://local.wordpress.dev/5-revision-v1/',0,'revision','',0),
+	(126,1,'2016-02-26 16:45:18','2016-02-26 15:45:18','<div class=\"row\">\n<div class=\"col-xs-12 col-sm-3\">\n<div class=\"panel panel-default\">\n<div class=\"panel-heading\">Correu</div>\n<div class=\"panel-body\"><span class=\"lead\">Pots enviar-me un correu a <a href=\"mailto:miquel@miqueladell.com\">miquel@miqueladell.com</a></span></div>\n</div>\n</div>\n<div class=\"col-xs-12 col-sm-3\">\n<div class=\"panel panel-default\">\n<div class=\"panel-heading\">Altres formes de contacte</div>\n<div class=\"panel-body\">\n<ul class=\"list-unstyled\">\n	<li><i class=\"fa fa-fw fa-skype\"></i> miquel.adell</li>\n	<li><i class=\"fa fa-fw fa-phone\"></i> +34 620 015 860</li>\n</ul>\n</div>\n</div>\n</div>\n<div class=\"col-xs-12 col-sm-3\">\n<div class=\"panel panel-default\">\n<div class=\"panel-heading\">Xarxes socials</div>\n<div class=\"panel-body\">També em pots trobar-me a múltiples pàgines web i en algunes s\'hi pot veure part de la meva feina:\n<ul class=\"list-unstyled\">\n	<li><i class=\"fa fa-fw fa-linkedin\"></i> <a title=\"LinkedIn\" href=\"http://es.linkedin.com/in/MiquelAdellBorras\" target=\"_blank\" rel=\"me nofollow\">LinkedIn</a></li>\n	<li><i class=\"fa fa-fw fa-github\"></i> <a title=\"GitHub\" href=\"https://github.com/MiquelAdell\" target=\"_blank\" rel=\"me nofollow\">GitHub</a></li>\n	<li><i class=\"fa fa-fw fa-stack-overflow\"></i> <a title=\"Stack Overflow\" href=\"http://stackoverflow.com/users/704097/miqueladell\" target=\"_blank\" rel=\"me nofollow\">Stack Overflow</a></li>\n	<li><i class=\"fa fa-fw fa-twitter\"></i> <a title=\"Twitter\" href=\"http://twitter.com/miqueladell\" target=\"_blank\" rel=\"me nofollow\">Twitter</a></li>\n	<li><i class=\"fa fa-fw fa-facebook\"></i> <a title=\"Facebook\" href=\"http://www.facebook.com/miquel.adell.borras\" target=\"_blank\" rel=\"me nofollow\">Facebook</a></li>\n</ul>\n</div>\n</div>\n</div>\n</div>','Contacte','','inherit','closed','closed','','114-autosave-v1','','','2016-02-26 16:45:18','2016-02-26 15:45:18','',114,'http://local.wordpress.dev/114-autosave-v1/',0,'revision','',0),
+	(127,1,'2016-02-26 16:27:05','2016-02-26 15:27:05','<span class=\'lead\'>Pots enviar-me un correu a <a href=\"mailto:miquel@miqueladell.com\">miquel@miqueladell.com</a></span>\r\nNo dubtis en enviar-me un correu, per qualsevol dubte. \r\n\r\nTambé em pots trobar-me a múltiples pàgines web i en algunes s\'hi pot veure part de la meva feina:\r\n<ul>\r\n	<li><a title=\"LinkedIn\" href=\"http://es.linkedin.com/in/MiquelAdellBorras\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-linkedin\"></i>\r\n LinkedIn</a></li>\r\n	<li><a title=\"GitHub\" href=\"https://github.com/MiquelAdell\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-github\"></i>\r\n GitHub</a></li>\r\n	<li><a title=\"Stack Overflow\" href=\"http://stackoverflow.com/users/704097/miqueladell\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-stack-overflow\"></i>\r\n Stack Overflow</a></li>\r\n	<li><a title=\"Twitter\" href=\"http://twitter.com/miqueladell\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-twitter\"></i>\r\n Twitter</a></li>\r\n	<li><a title=\"Facebook\" href=\"http://www.facebook.com/miquel.adell.borras\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-facebook\"></i>\r\n Facebook</a></li>\r\n</ul>','Contacte','','inherit','closed','closed','','114-revision-v1','','','2016-02-26 16:27:05','2016-02-26 15:27:05','',114,'http://local.wordpress.dev/114-revision-v1/',0,'revision','',0),
+	(128,1,'2016-02-26 16:27:27','2016-02-26 15:27:27','<span class=\"lead\">Pots enviar-me un correu a <a href=\"mailto:miquel@miqueladell.com\">miquel@miqueladell.com</a></span>\r\nNo dubtis en enviar-me un correu, per qualsevol dubte.\r\n\r\nTambé em pots trobar-me a múltiples pàgines web i en algunes s\'hi pot veure part de la meva feina:\r\n<ul class=\'no-style\'>\r\n	<li><a title=\"LinkedIn\" href=\"http://es.linkedin.com/in/MiquelAdellBorras\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-linkedin\"></i>\r\nLinkedIn</a></li>\r\n	<li><a title=\"GitHub\" href=\"https://github.com/MiquelAdell\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-github\"></i>\r\nGitHub</a></li>\r\n	<li><a title=\"Stack Overflow\" href=\"http://stackoverflow.com/users/704097/miqueladell\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-stack-overflow\"></i>\r\nStack Overflow</a></li>\r\n	<li><a title=\"Twitter\" href=\"http://twitter.com/miqueladell\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-twitter\"></i>\r\nTwitter</a></li>\r\n	<li><a title=\"Facebook\" href=\"http://www.facebook.com/miquel.adell.borras\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-facebook\"></i>\r\nFacebook</a></li>\r\n</ul>','Contacte','','inherit','closed','closed','','114-revision-v1','','','2016-02-26 16:27:27','2016-02-26 15:27:27','',114,'http://local.wordpress.dev/114-revision-v1/',0,'revision','',0),
+	(129,1,'2016-02-26 16:28:20','2016-02-26 15:28:20','<span class=\"lead\">Pots enviar-me un correu a <a href=\"mailto:miquel@miqueladell.com\">miquel@miqueladell.com</a></span>\r\nNo dubtis en enviar-me un correu, per qualsevol dubte.\r\n\r\nTambé em pots trobar-me a múltiples pàgines web i en algunes s\'hi pot veure part de la meva feina:\r\n<ul class=\"list-unstyled\">\r\n	<li><a title=\"LinkedIn\" href=\"http://es.linkedin.com/in/MiquelAdellBorras\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-linkedin\"></i>\r\nLinkedIn</a></li>\r\n	<li><a title=\"GitHub\" href=\"https://github.com/MiquelAdell\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-github\"></i>\r\nGitHub</a></li>\r\n	<li><a title=\"Stack Overflow\" href=\"http://stackoverflow.com/users/704097/miqueladell\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-stack-overflow\"></i>\r\nStack Overflow</a></li>\r\n	<li><a title=\"Twitter\" href=\"http://twitter.com/miqueladell\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-twitter\"></i>\r\nTwitter</a></li>\r\n	<li><a title=\"Facebook\" href=\"http://www.facebook.com/miquel.adell.borras\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-facebook\"></i>\r\nFacebook</a></li>\r\n</ul>','Contacte','','inherit','closed','closed','','114-revision-v1','','','2016-02-26 16:28:20','2016-02-26 15:28:20','',114,'http://local.wordpress.dev/114-revision-v1/',0,'revision','',0),
+	(130,1,'2016-02-26 16:30:16','2016-02-26 15:30:16','<span class=\"lead\">Pots enviar-me un correu a <a href=\"mailto:miquel@miqueladell.com\">miquel@miqueladell.com</a></span>\r\nNo dubtis en enviar-me un correu, per qualsevol dubte.\r\n\r\nTambé em pots trobar-me a múltiples pàgines web i en algunes s\'hi pot veure part de la meva feina:\r\n<ul class=\"list-unstyled\">\r\n	<li><a title=\"LinkedIn\" href=\"http://es.linkedin.com/in/MiquelAdellBorras\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-linkedin\"></i> LinkedIn</a></li>\r\n	<li><a title=\"GitHub\" href=\"https://github.com/MiquelAdell\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-github\"></i> GitHub</a></li>\r\n	<li><a title=\"Stack Overflow\" href=\"http://stackoverflow.com/users/704097/miqueladell\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-stack-overflow\"></i> Stack Overflow</a></li>\r\n	<li><a title=\"Twitter\" href=\"http://twitter.com/miqueladell\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-twitter\"></i> Twitter</a></li>\r\n	<li><a title=\"Facebook\" href=\"http://www.facebook.com/miquel.adell.borras\" target=\"_blank\" rel=\"me nofollow\"><i class=\"fa fa-facebook\"></i> Facebook</a></li>\r\n</ul>','Contacte','','inherit','closed','closed','','114-revision-v1','','','2016-02-26 16:30:16','2016-02-26 15:30:16','',114,'http://local.wordpress.dev/114-revision-v1/',0,'revision','',0),
+	(131,1,'2016-02-26 16:32:40','2016-02-26 15:32:40','<span class=\"lead\">Pots enviar-me un correu a <a href=\"mailto:miquel@miqueladell.com\">miquel@miqueladell.com</a></span>\r\n\r\nTambé em pots trobar-me a múltiples pàgines web i en algunes s\'hi pot veure part de la meva feina:\r\n<ul class=\"list-unstyled\">\r\n	<li><i class=\"fa fa-linkedin\"></i> <a title=\"LinkedIn\" href=\"http://es.linkedin.com/in/MiquelAdellBorras\" target=\"_blank\" rel=\"me nofollow\">LinkedIn</a></li>\r\n	<li><i class=\"fa fa-github\"></i> <a title=\"GitHub\" href=\"https://github.com/MiquelAdell\" target=\"_blank\" rel=\"me nofollow\">GitHub</a></li>\r\n	<li><i class=\"fa fa-stack-overflow\"></i> <a title=\"Stack Overflow\" href=\"http://stackoverflow.com/users/704097/miqueladell\" target=\"_blank\" rel=\"me nofollow\">Stack Overflow</a></li>\r\n	<li><i class=\"fa fa-twitter\"></i> <a title=\"Twitter\" href=\"http://twitter.com/miqueladell\" target=\"_blank\" rel=\"me nofollow\">Twitter</a></li>\r\n	<li><i class=\"fa fa-facebook\"></i> <a title=\"Facebook\" href=\"http://www.facebook.com/miquel.adell.borras\" target=\"_blank\" rel=\"me nofollow\">Facebook</a></li>\r\n</ul>','Contacte','','inherit','closed','closed','','114-revision-v1','','','2016-02-26 16:32:40','2016-02-26 15:32:40','',114,'http://local.wordpress.dev/114-revision-v1/',0,'revision','',0),
+	(132,1,'2016-02-26 16:33:32','2016-02-26 15:33:32','<span class=\"lead\">Pots enviar-me un correu a <a href=\"mailto:miquel@miqueladell.com\">miquel@miqueladell.com</a></span>\r\nNo dubtis en enviar-me un correu, per qualsevol dubte.\r\n\r\nTambé em pots trobar-me a múltiples pàgines web i en algunes s\'hi pot veure part de la meva feina:\r\n<ul class=\"list-unstyled\">\r\n	<li><i class=\"fa fa-fw fa-linkedin\"></i> <a title=\"LinkedIn\" href=\"http://es.linkedin.com/in/MiquelAdellBorras\" target=\"_blank\" rel=\"me nofollow\">LinkedIn</a></li>\r\n	<li><i class=\"fa fa-fw fa-github\"></i> <a title=\"GitHub\" href=\"https://github.com/MiquelAdell\" target=\"_blank\" rel=\"me nofollow\">GitHub</a></li>\r\n	<li><i class=\"fa fa-fw fa-stack-overflow\"></i> <a title=\"Stack Overflow\" href=\"http://stackoverflow.com/users/704097/miqueladell\" target=\"_blank\" rel=\"me nofollow\">Stack Overflow</a></li>\r\n	<li><i class=\"fa fa-fw fa-twitter\"></i> <a title=\"Twitter\" href=\"http://twitter.com/miqueladell\" target=\"_blank\" rel=\"me nofollow\">Twitter</a></li>\r\n	<li><i class=\"fa fa-fw fa-facebook\"></i> <a title=\"Facebook\" href=\"http://www.facebook.com/miquel.adell.borras\" target=\"_blank\" rel=\"me nofollow\">Facebook</a></li>\r\n</ul>','Contacte','','inherit','closed','closed','','114-revision-v1','','','2016-02-26 16:33:32','2016-02-26 15:33:32','',114,'http://local.wordpress.dev/114-revision-v1/',0,'revision','',0),
+	(133,1,'2016-02-26 16:35:55','2016-02-26 15:35:55','<div class=\'row\'>\r\n    <p><span class=\"lead\">Pots enviar-me un correu a <a href=\"mailto:miquel@miqueladell.com\">miquel@miqueladell.com</a></span></p>\r\n\r\n\r\n    <div class=\'col-xs-6\'>\r\n        <p>També em pots trobar-me a múltiples pàgines web i en algunes s\'hi pot veure part de la meva feina:<p>\r\n    </div>\r\n    <div class=\'col-xs-6\'>\r\n        <ul class=\"list-unstyled\">\r\n        	<li><i class=\"fa fa-fw fa-linkedin\"></i> <a title=\"LinkedIn\" href=\"http://es.linkedin.com/in/MiquelAdellBorras\" target=\"_blank\" rel=\"me nofollow\">LinkedIn</a></li>\r\n        	<li><i class=\"fa fa-fw fa-github\"></i> <a title=\"GitHub\" href=\"https://github.com/MiquelAdell\" target=\"_blank\" rel=\"me nofollow\">GitHub</a></li>\r\n        	<li><i class=\"fa fa-fw fa-stack-overflow\"></i> <a title=\"Stack Overflow\" href=\"http://stackoverflow.com/users/704097/miqueladell\" target=\"_blank\" rel=\"me nofollow\">Stack Overflow</a></li>\r\n        	<li><i class=\"fa fa-fw fa-twitter\"></i> <a title=\"Twitter\" href=\"http://twitter.com/miqueladell\" target=\"_blank\" rel=\"me nofollow\">Twitter</a></li>\r\n        	<li><i class=\"fa fa-fw fa-facebook\"></i> <a title=\"Facebook\" href=\"http://www.facebook.com/miquel.adell.borras\" target=\"_blank\" rel=\"me nofollow\">Facebook</a></li>\r\n        </ul>\r\n    </div>\r\n</div>','Contacte','','inherit','closed','closed','','114-revision-v1','','','2016-02-26 16:35:55','2016-02-26 15:35:55','',114,'http://local.wordpress.dev/114-revision-v1/',0,'revision','',0),
+	(134,1,'2016-02-26 16:38:12','2016-02-26 15:38:12','<div class=\"row\">\r\n<div class=\"col-xs-12 col-sm-5 .col-sm-offset-1\">\r\n\r\n<span class=\"lead\">Pots enviar-me un correu a <a href=\"mailto:miquel@miqueladell.com\">miquel@miqueladell.com</a></span>\r\n\r\n</div>\r\n<div class=\"col-xs-12 col-sm-2\">\r\n\r\nTambé em pots trobar-me a múltiples pàgines web i en algunes s\'hi pot veure part de la meva feina:\r\n<ul class=\"list-unstyled\">\r\n	<li><i class=\"fa fa-fw fa-linkedin\"></i> <a title=\"LinkedIn\" href=\"http://es.linkedin.com/in/MiquelAdellBorras\" target=\"_blank\" rel=\"me nofollow\">LinkedIn</a></li>\r\n	<li><i class=\"fa fa-fw fa-github\"></i> <a title=\"GitHub\" href=\"https://github.com/MiquelAdell\" target=\"_blank\" rel=\"me nofollow\">GitHub</a></li>\r\n	<li><i class=\"fa fa-fw fa-stack-overflow\"></i> <a title=\"Stack Overflow\" href=\"http://stackoverflow.com/users/704097/miqueladell\" target=\"_blank\" rel=\"me nofollow\">Stack Overflow</a></li>\r\n	<li><i class=\"fa fa-fw fa-twitter\"></i> <a title=\"Twitter\" href=\"http://twitter.com/miqueladell\" target=\"_blank\" rel=\"me nofollow\">Twitter</a></li>\r\n	<li><i class=\"fa fa-fw fa-facebook\"></i> <a title=\"Facebook\" href=\"http://www.facebook.com/miquel.adell.borras\" target=\"_blank\" rel=\"me nofollow\">Facebook</a></li>\r\n</ul>\r\n</div>\r\n</div>','Contacte','','inherit','closed','closed','','114-revision-v1','','','2016-02-26 16:38:12','2016-02-26 15:38:12','',114,'http://local.wordpress.dev/114-revision-v1/',0,'revision','',0),
+	(135,1,'2016-02-26 16:45:48','2016-02-26 15:45:48','<div class=\"row\">\r\n<div class=\"col-xs-12 col-sm-3\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\">Correu</div>\r\n<div class=\"panel-body\"><span class=\"lead\">Pots enviar-me un correu a <a href=\"mailto:miquel@miqueladell.com\">miquel@miqueladell.com</a></span></div>\r\n</div>\r\n</div>\r\n<div class=\"col-xs-12 col-sm-3\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\">Altres formes de contacte</div>\r\n<div class=\"panel-body\">\r\n<ul class=\"list-unstyled\">\r\n	<li><i class=\"fa fa-fw fa-skype\"></i> miquel.adell</li>\r\n	<li><i class=\"fa fa-fw fa-phone\"></i> +34 620 015 860</li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n<div class=\"col-xs-12 col-sm-3\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\">Xarxes socials</div>\r\n<div class=\"panel-body\">\r\n<ul class=\"list-unstyled\">\r\n	<li><i class=\"fa fa-fw fa-linkedin\"></i> <a title=\"LinkedIn\" href=\"http://es.linkedin.com/in/MiquelAdellBorras\" target=\"_blank\" rel=\"me nofollow\">LinkedIn</a></li>\r\n	<li><i class=\"fa fa-fw fa-github\"></i> <a title=\"GitHub\" href=\"https://github.com/MiquelAdell\" target=\"_blank\" rel=\"me nofollow\">GitHub</a></li>\r\n	<li><i class=\"fa fa-fw fa-stack-overflow\"></i> <a title=\"Stack Overflow\" href=\"http://stackoverflow.com/users/704097/miqueladell\" target=\"_blank\" rel=\"me nofollow\">Stack Overflow</a></li>\r\n	<li><i class=\"fa fa-fw fa-twitter\"></i> <a title=\"Twitter\" href=\"http://twitter.com/miqueladell\" target=\"_blank\" rel=\"me nofollow\">Twitter</a></li>\r\n	<li><i class=\"fa fa-fw fa-facebook\"></i> <a title=\"Facebook\" href=\"http://www.facebook.com/miquel.adell.borras\" target=\"_blank\" rel=\"me nofollow\">Facebook</a></li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n</div>','Contacte','','inherit','closed','closed','','114-revision-v1','','','2016-02-26 16:45:48','2016-02-26 15:45:48','',114,'http://local.wordpress.dev/114-revision-v1/',0,'revision','',0),
+	(136,1,'2016-02-26 16:46:03','2016-02-26 15:46:03','<div class=\"row\">\r\n<div class=\"col-xs-12 col-sm-4\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\">Correu</div>\r\n<div class=\"panel-body\"><span class=\"lead\">Pots enviar-me un correu a <a href=\"mailto:miquel@miqueladell.com\">miquel@miqueladell.com</a></span></div>\r\n</div>\r\n</div>\r\n<div class=\"col-xs-12 col-sm-3\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\">Altres formes de contacte</div>\r\n<div class=\"panel-body\">\r\n<ul class=\"list-unstyled\">\r\n	<li><i class=\"fa fa-fw fa-skype\"></i> miquel.adell</li>\r\n	<li><i class=\"fa fa-fw fa-phone\"></i> +34 620 015 860</li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n<div class=\"col-xs-12 col-sm-2\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\">Xarxes socials</div>\r\n<div class=\"panel-body\">\r\n<ul class=\"list-unstyled\">\r\n	<li><i class=\"fa fa-fw fa-linkedin\"></i> <a title=\"LinkedIn\" href=\"http://es.linkedin.com/in/MiquelAdellBorras\" target=\"_blank\" rel=\"me nofollow\">LinkedIn</a></li>\r\n	<li><i class=\"fa fa-fw fa-github\"></i> <a title=\"GitHub\" href=\"https://github.com/MiquelAdell\" target=\"_blank\" rel=\"me nofollow\">GitHub</a></li>\r\n	<li><i class=\"fa fa-fw fa-stack-overflow\"></i> <a title=\"Stack Overflow\" href=\"http://stackoverflow.com/users/704097/miqueladell\" target=\"_blank\" rel=\"me nofollow\">Stack Overflow</a></li>\r\n	<li><i class=\"fa fa-fw fa-twitter\"></i> <a title=\"Twitter\" href=\"http://twitter.com/miqueladell\" target=\"_blank\" rel=\"me nofollow\">Twitter</a></li>\r\n	<li><i class=\"fa fa-fw fa-facebook\"></i> <a title=\"Facebook\" href=\"http://www.facebook.com/miquel.adell.borras\" target=\"_blank\" rel=\"me nofollow\">Facebook</a></li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n</div>','Contacte','','inherit','closed','closed','','114-revision-v1','','','2016-02-26 16:46:03','2016-02-26 15:46:03','',114,'http://local.wordpress.dev/114-revision-v1/',0,'revision','',0),
+	(137,1,'2016-02-26 16:46:19','2016-02-26 15:46:19','<div class=\"row\">\r\n<div class=\"col-xs-12 col-sm-4\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\">Correu</div>\r\n<div class=\"panel-body\"><span class=\"lead\">Pots enviar-me un correu a <a href=\"mailto:miquel@miqueladell.com\">miquel@miqueladell.com</a></span></div>\r\n</div>\r\n</div>\r\n<div class=\"col-xs-12 col-sm-4\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\">Altres formes de contacte</div>\r\n<div class=\"panel-body\">\r\n<ul class=\"list-unstyled\">\r\n	<li><i class=\"fa fa-fw fa-skype\"></i> miquel.adell</li>\r\n	<li><i class=\"fa fa-fw fa-phone\"></i> +34 620 015 860</li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n<div class=\"col-xs-12 col-sm-4\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\">Xarxes socials</div>\r\n<div class=\"panel-body\">\r\n<ul class=\"list-unstyled\">\r\n	<li><i class=\"fa fa-fw fa-linkedin\"></i> <a title=\"LinkedIn\" href=\"http://es.linkedin.com/in/MiquelAdellBorras\" target=\"_blank\" rel=\"me nofollow\">LinkedIn</a></li>\r\n	<li><i class=\"fa fa-fw fa-github\"></i> <a title=\"GitHub\" href=\"https://github.com/MiquelAdell\" target=\"_blank\" rel=\"me nofollow\">GitHub</a></li>\r\n	<li><i class=\"fa fa-fw fa-stack-overflow\"></i> <a title=\"Stack Overflow\" href=\"http://stackoverflow.com/users/704097/miqueladell\" target=\"_blank\" rel=\"me nofollow\">Stack Overflow</a></li>\r\n	<li><i class=\"fa fa-fw fa-twitter\"></i> <a title=\"Twitter\" href=\"http://twitter.com/miqueladell\" target=\"_blank\" rel=\"me nofollow\">Twitter</a></li>\r\n	<li><i class=\"fa fa-fw fa-facebook\"></i> <a title=\"Facebook\" href=\"http://www.facebook.com/miquel.adell.borras\" target=\"_blank\" rel=\"me nofollow\">Facebook</a></li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n</div>','Contacte','','inherit','closed','closed','','114-revision-v1','','','2016-02-26 16:46:19','2016-02-26 15:46:19','',114,'http://local.wordpress.dev/114-revision-v1/',0,'revision','',0);
+
+/*!40000 ALTER TABLE `wp_posts` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
-#
-# Data contents of table `wp_posts`
-#
-INSERT INTO `wp_posts` ( `ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
-(2, 1, '2016-01-29 12:08:58', '2016-01-29 12:08:58', '', 'Home', '', 'publish', 'closed', 'open', '', 'sample-page', '', '', '2016-02-24 10:21:46', '2016-02-24 09:21:46', '', 0, 'http:/local.wordpress.dev/?page_id=2', 0, 'page', '', 0),
-(4, 1, '2016-01-29 13:35:05', '2016-01-29 13:35:05', '', 'Miquel Adell', '', 'inherit', 'closed', 'closed', '', '2-revision-v1', '', '', '2016-01-29 13:35:05', '2016-01-29 13:35:05', '', 2, 'http:/local.wordpress.dev/2-revision-v1/', 0, 'revision', '', 0),
-(5, 1, '2016-01-29 13:35:53', '2016-01-29 13:35:53', '<span class=\'lead\'>Acompanyo clients en el procés de creació d’una pàgina web per trobar la solució ideal als seus problemes online</span>', 'Miquel Adell', '', 'publish', 'closed', 'closed', '', 'presentacio', '', '', '2016-02-26 16:16:49', '2016-02-26 15:16:49', '', 0, 'http:/local.wordpress.dev/?page_id=5', 0, 'page', '', 0),
-(6, 1, '2016-01-29 13:35:53', '2016-01-29 13:35:53', 'Mixtam montibus mundi cornua ensis fratrum duas. Divino habentia posset: amphitrite porrexerat matutinis congestaque alto perpetuum. Figuras campoque hunc aere summaque postquam. Conversa capacius. Erat bene tegi silvas adspirate. Mortales margine alto fuerat. Pinus cuncta pulsant reparabat quem poena lacusque levitate habitabilis terra.\r\n\r\nTuti freta instabilis ignea. Aetas humanas auroram figuras calidis regat obstabatque! Mundi otia semine? Illic melioris congeriem securae aberant lapidosos. Convexi triones pinus. Umentia diu volucres origo? Praebebat in motura ut usu! Abscidit siccis est manebat effervescere. Quinta sata habitandae viseret et solidumque.\r\n\r\nConversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra. Homini aequalis fulgura rudis cesserunt frigore. Fontes vesper secrevit umentia. Flamma obsistitur supplex membra densior fulgura convexi umentia terris. Conversa turba coeptis semina os tanta congestaque nisi.', 'Presentació', '', 'inherit', 'closed', 'closed', '', '5-revision-v1', '', '', '2016-01-29 13:35:53', '2016-01-29 13:35:53', '', 5, 'http:/local.wordpress.dev/5-revision-v1/', 0, 'revision', '', 0),
-(7, 1, '2016-01-29 13:36:07', '2016-01-29 13:36:07', 'El procés de creació d\'una pàgina web està format per moltes parts. De la mateixa manera que ho està fer una cervesa. No cal que les coneixis totes per a tenir una pàgina web. Faig servir els meus anys d\'experiència desenvolupant webs per construir webs tenint en compte totes les parts del procés.', 'Procés', '', 'publish', 'closed', 'closed', '', 'proces', '', '', '2016-02-24 18:01:24', '2016-02-24 17:01:24', '', 0, 'http:/local.wordpress.dev/?page_id=7', 0, 'page', '', 0),
-(8, 1, '2016-01-29 13:36:07', '2016-01-29 13:36:07', 'Ad nubes erat acervo ensis lumina onerosior. Fuit vultus postquam matutinis iners terrae nubes. Possedit mixtam limitibus. Vis aethera. Derecti sine. Proxima quoque onerosior habitandae siccis densior pendebat orbe finxit. Nullaque pulsant nubibus ita. Principio siccis habitabilis nabataeaque tanta onus dedit rectumque glomeravit.\r\n\r\nNuper ipsa orbe auroram iussit caesa spisso vos. Videre circumfuso erant? Erant pendebat hunc. Ad erant phoebe vix onus densior acervo. Sinistra crescendo matutinis eodem! Evolvit quisque legebantur. Locavit effervescere faecis stagna est. Modo levius animus igni orba illas invasit tollere aliis qui.\r\n\r\nAstra diu praecipites omni certis habitabilis elementaque premuntur cinxit. Quin extendi ripis triones os super melior perpetuum pondus? Praeter est. Nabataeaque nubes liberioris levius. Fuerat totidemque levitate tum possedit sunt moles feras! Di elementaque. Dextra sorbentur sunt reparabat militis illis ventis caecoque aquae!', 'Desenvolupament', '', 'inherit', 'closed', 'closed', '', '7-revision-v1', '', '', '2016-01-29 13:36:07', '2016-01-29 13:36:07', '', 7, 'http:/local.wordpress.dev/7-revision-v1/', 0, 'revision', '', 0),
-(9, 1, '2016-01-29 13:36:24', '2016-01-29 13:36:24', '<span style="font-weight: 400;">Aquestes són algunes de les tecnologies que faig servir per crear pàgines web.</span>', 'Tecnologies', '', 'publish', 'closed', 'closed', '', 'tecnologies', '', '', '2016-02-25 15:49:55', '2016-02-25 14:49:55', '', 0, 'http:/local.wordpress.dev/?page_id=9', 0, 'page', '', 0),
-(10, 1, '2016-01-29 13:36:24', '2016-01-29 13:36:24', 'Locis zephyro naturae animus ne levitate subsidere. Iudicis instabilis sorbentur fontes caeca. Onerosior animalibus homo aetas ubi lege litem montibus animal! Tellus opifex. Septemque pendebat summaque. Eodem terras. Aberant quanto nitidis sorbentur! Madescit nebulas. Diverso opifex subdita solum boreas habitandae diu vos pontus?\r\n\r\nDiu fuerant habitabilis recessit. Congestaque carmen rerum terram fidem tempora. Caelo natura cura. Frigore locoque. Nix quoque sic aliis arce inminet adsiduis mortales. Sinistra pugnabant. Addidit ensis rudis longo. Boreas orbis orbe. Tellure tepescunt frigore passim utque boreas. Subdita matutinis numero spectent pugnabant.\r\n\r\nNabataeaque tegit carmen cepit. Congestaque seductaque undas pro usu mutastis mollia postquam mentes. Legebantur natus dominari natura. Igni quae quem melioris mentisque natus stagna vis duris. Quisquis motura altae? Illi animal. Extendi homini figuras iudicis mortales habitandae tenent habitabilis circumfluus. Secuit locum crescendo.', 'Eines', '', 'inherit', 'closed', 'closed', '', '9-revision-v1', '', '', '2016-01-29 13:36:24', '2016-01-29 13:36:24', '', 9, 'http:/local.wordpress.dev/9-revision-v1/', 0, 'revision', '', 0),
-(16, 1, '2016-02-03 09:40:16', '2016-02-03 09:40:16', 'La base de tot és l\'experiència i això és el que algunes persones tenen a dir de la nostra experiència conjunta', 'Fonaments', '', 'publish', 'closed', 'closed', '', 'fonaments', '', '', '2016-02-24 17:31:17', '2016-02-24 16:31:17', '', 0, 'http:/local.wordpress.dev/?page_id=16', 0, 'page', '', 0),
-(17, 1, '2016-02-03 09:40:16', '2016-02-03 09:40:16', 'wheat wheat wheat', 'Fonaments', '', 'inherit', 'closed', 'closed', '', '16-revision-v1', '', '', '2016-02-03 09:40:16', '2016-02-03 09:40:16', '', 16, 'http:/local.wordpress.dev/16-revision-v1/', 0, 'revision', '', 0),
-(18, 1, '2016-02-03 12:52:05', '2016-02-03 12:52:05', 'barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley ', 'Fonaments', '', 'inherit', 'closed', 'closed', '', '16-revision-v1', '', '', '2016-02-03 12:52:05', '2016-02-03 12:52:05', '', 16, 'http:/local.wordpress.dev/16-revision-v1/', 0, 'revision', '', 0),
-(19, 1, '2016-02-03 12:52:18', '2016-02-03 12:52:18', 'barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley barley ', 'Fonaments', '', 'inherit', 'closed', 'closed', '', '16-revision-v1', '', '', '2016-02-03 12:52:18', '2016-02-03 12:52:18', '', 16, 'http:/local.wordpress.dev/16-revision-v1/', 0, 'revision', '', 0),
-(23, 1, '2016-02-11 15:25:26', '2016-02-11 15:25:26', '', 'Testimonial', '', 'publish', 'closed', 'closed', '', 'acf_testimonial', '', '', '2016-02-26 11:36:22', '2016-02-26 10:36:22', '', 0, 'http:/local.wordpress.dev/?post_type=acf&#038;p=23', 1, 'acf', '', 0),
-(24, 1, '2016-02-11 15:23:01', '2016-02-11 15:23:01', '&nbsp;\r\n\r\nThis testimonial is very short and has not excerpt. It ends here.', 'Jordi Jiménez', '', 'publish', 'closed', 'closed', '', 'jordi-jimenez', '', '', '2016-02-26 09:49:07', '2016-02-26 08:49:07', '', 12, 'http:/local.wordpress.dev/?page_id=24', 0, 'testimonial', '', 0),
-(25, 1, '2016-02-11 15:23:01', '2016-02-11 15:23:01', '', 'Jordi Jiménez', '', 'inherit', 'closed', 'closed', '', '24-revision-v1', '', '', '2016-02-11 15:23:01', '2016-02-11 15:23:01', '', 24, 'http:/local.wordpress.dev/24-revision-v1/', 0, 'revision', '', 0),
-(26, 1, '2016-02-11 15:33:35', '2016-02-11 15:33:35', 'Aequalis litem auroram deorum locum ad erat:. Fecit usu cesserunt flamina quicquam innabilis.\n\nTonitrua cinxit extendi. Derecti nuper timebat ensis magni nam in aere. Poena totidem aer duas his. Vos mentisque aliis flexi! Tegi liquidas addidit principio orba pendebat zephyro sidera homini aethera.\n\nPhoebe possedit fulminibus effigiem dicere terrae fuerat diverso diversa. Ardentior caeca ripis ipsa pontus campos quae terrarum descenderat. Inposuit aliud phoebe dissaepserat coercuit est descenderat? Pressa qui frigida cognati tanta meis rudis unus. Vultus otia humanas limitibus pressa obliquis aer alto triones terrarum.', 'Jordi Jiménez', '', 'inherit', 'closed', 'closed', '', '24-autosave-v1', '', '', '2016-02-11 15:33:35', '2016-02-11 15:33:35', '', 24, 'http:/local.wordpress.dev/24-autosave-v1/', 0, 'revision', '', 0),
-(27, 1, '2016-02-11 15:34:14', '2016-02-11 15:34:14', '', 'AAEAAQAAAAAAAAbHAAAAJGU2ODg1OTNhLTI5MWYtNGEzZC04ZDA2LTM5OWE4YzRmM2M0OQ', '', 'inherit', 'open', 'closed', '', 'aaeaaqaaaaaaaabhaaaajgu2odg1otnhlti5mwytngezzc04zda2ltm5owe4yzrmm2m0oq', '', '', '2016-02-11 15:34:14', '2016-02-11 15:34:14', '', 24, 'http:/local.wordpress.dev/app/uploads/2016/02/AAEAAQAAAAAAAAbHAAAAJGU2ODg1OTNhLTI5MWYtNGEzZC04ZDA2LTM5OWE4YzRmM2M0OQ.jpg', 0, 'attachment', 'image/jpeg', 0),
-(28, 1, '2016-02-11 15:34:25', '2016-02-11 15:34:25', 'Aequalis litem auroram deorum locum ad erat:. Fecit usu cesserunt flamina quicquam innabilis.<!--more-->\r\n\r\nTonitrua cinxit extendi. Derecti nuper timebat ensis magni nam in aere. Poena totidem aer duas his. Vos mentisque aliis flexi! Tegi liquidas addidit principio orba pendebat zephyro sidera homini aethera.\r\n\r\nPhoebe possedit fulminibus effigiem dicere terrae fuerat diverso diversa. Ardentior caeca ripis ipsa pontus campos quae terrarum descenderat. Inposuit aliud phoebe dissaepserat coercuit est descenderat? Pressa qui frigida cognati tanta meis rudis unus. Vultus otia humanas limitibus pressa obliquis aer alto triones terrarum.', 'Jordi Jiménez', '', 'inherit', 'closed', 'closed', '', '24-revision-v1', '', '', '2016-02-11 15:34:25', '2016-02-11 15:34:25', '', 24, 'http:/local.wordpress.dev/24-revision-v1/', 0, 'revision', '', 0),
-(29, 1, '2016-02-11 15:36:06', '2016-02-11 15:36:06', 'Matutinis quia fulminibus viseret origine fecit meis. Fert vindice fidem dissociata fluminaque exemit.\r\n\r\n<!--more-->\r\n\r\nLocavit spectent totidem locoque. Sunt campoque terris aera mollia. Orbe ignotas unus sine quia. Nullo cognati fidem omnia foret obliquis. Sublime sidera quem nam sidera usu quod convexi obliquis astra.', 'Enric Godes Maté', '', 'publish', 'closed', 'closed', '', 'enric-godes-mate', '', '', '2016-02-23 16:30:38', '2016-02-23 15:30:38', '', 12, 'http:/local.wordpress.dev/?page_id=29', 0, 'testimonial', '', 0),
-(30, 1, '2016-02-11 15:36:06', '2016-02-11 15:36:06', 'Matutinis quia fulminibus viseret origine fecit meis. Fert vindice fidem dissociata fluminaque exemit.\r\n\r\n<!--more-->\r\n\r\nLocavit spectent totidem locoque. Sunt campoque terris aera mollia. Orbe ignotas unus sine quia. Nullo cognati fidem omnia foret obliquis. Sublime sidera quem nam sidera usu quod convexi obliquis astra.', 'Enric Godes Maté', '', 'inherit', 'closed', 'closed', '', '29-revision-v1', '', '', '2016-02-11 15:36:06', '2016-02-11 15:36:06', '', 29, 'http:/local.wordpress.dev/29-revision-v1/', 0, 'revision', '', 0),
-(31, 1, '2016-02-11 15:37:41', '2016-02-11 15:37:41', 'Stagna locum opifex fidem proximus ultima flexi iussit illic. Natus spectent litora zonae sublime auroram sidera bracchia ignotas. Sanctius habitabilis reparabat. Elementaque caligine nix sata inmensa erat.', 'Rubén López Bello', '', 'publish', 'closed', 'closed', '', 'ruben-lopez-bello', '', '', '2016-02-23 16:30:30', '2016-02-23 15:30:30', '', 12, 'http:/local.wordpress.dev/?page_id=31', 0, 'testimonial', '', 0),
-(32, 1, '2016-02-11 15:37:41', '2016-02-11 15:37:41', 'Stagna locum opifex fidem proximus ultima flexi iussit illic. Natus spectent litora zonae sublime auroram sidera bracchia ignotas. Sanctius habitabilis reparabat. Elementaque caligine nix sata inmensa erat.', 'Rubén López Bello', '', 'inherit', 'closed', 'closed', '', '31-revision-v1', '', '', '2016-02-11 15:37:41', '2016-02-11 15:37:41', '', 31, 'http:/local.wordpress.dev/31-revision-v1/', 0, 'revision', '', 0),
-(33, 1, '2016-02-11 15:40:13', '2016-02-11 15:40:13', '', '27c787d', '', 'inherit', 'open', 'closed', '', '27c787d', '', '', '2016-02-11 15:40:13', '2016-02-11 15:40:13', '', 31, 'http:/local.wordpress.dev/app/uploads/2016/02/27c787d.jpg', 0, 'attachment', 'image/jpeg', 0),
-(34, 1, '2016-02-11 15:40:29', '2016-02-11 15:40:29', '', '2805412', '', 'inherit', 'open', 'closed', '', '2805412', '', '', '2016-02-11 15:40:29', '2016-02-11 15:40:29', '', 29, 'http:/local.wordpress.dev/app/uploads/2016/02/2805412.jpg', 0, 'attachment', 'image/jpeg', 0),
-(38, 1, '2016-02-11 15:42:09', '2016-02-11 15:42:09', '', 'JIPI', '', 'publish', 'open', 'open', '', 'jipi', '', '', '2016-02-18 15:26:21', '2016-02-18 14:26:21', '', 0, 'http:/local.wordpress.dev/?p=38', 0, 'project', '', 0),
-(39, 1, '2016-02-11 15:42:09', '2016-02-11 15:42:09', '', 'JIPI', '', 'inherit', 'closed', 'closed', '', '38-revision-v1', '', '', '2016-02-11 15:42:09', '2016-02-11 15:42:09', '', 38, 'http:/local.wordpress.dev/38-revision-v1/', 0, 'revision', '', 0),
-(40, 1, '2016-02-11 15:44:04', '2016-02-11 15:44:04', 'Crescendo sibi agitabilis caeli aliis deorum sive. <strong>Lumina sponte</strong> animalibus terrarum obsistitur calidis mentisque adsiduis. Corpore dissaepserat fixo amphitrite terras haec unda descenderat. Origine manebat ventos opifex? Frigore tollere.<!--more-->\r\n\r\nHanc pendebat tonitrua quisque. Tonitrua septemque ab supplex aeris mea ligavit: nabataeaque possedit tanto. Corpora totidem solum onus fuerat. Quinta terrae. Totidem rectumque eodem. Duas fidem exemit.<strong> Non fluminaque nova sidera</strong>. Deerat sine exemit mutatas ventos horrifer ensis duris ad! Subdita diremit sponte obliquis corpore spectent. Militis reparabat zonae. Litora mentisque effervescere vis umor igni facientes deerat.', 'Alba Hierro', '', 'publish', 'closed', 'closed', '', 'alba-hierro', '', '', '2016-02-26 12:31:28', '2016-02-26 11:31:28', '', 12, 'http:/local.wordpress.dev/?page_id=40', 0, 'testimonial', '', 0),
-(41, 1, '2016-02-11 15:43:32', '2016-02-11 15:43:32', '', '01f0ac4', '', 'inherit', 'open', 'closed', '', '01f0ac4', '', '', '2016-02-11 15:43:32', '2016-02-11 15:43:32', '', 40, 'http:/local.wordpress.dev/app/uploads/2016/02/01f0ac4.jpg', 0, 'attachment', 'image/jpeg', 0),
-(42, 1, '2016-02-11 15:44:04', '2016-02-11 15:44:04', 'Crescendo sibi agitabilis caeli aliis deorum sive. Lumina sponte animalibus terrarum obsistitur calidis mentisque adsiduis. Corpore dissaepserat fixo amphitrite terras haec unda descenderat. Origine manebat ventos opifex? Frigore tollere. Hanc pendebat tonitrua quisque. Tonitrua septemque ab supplex aeris mea ligavit: nabataeaque possedit tanto.<!--more-->\r\n\r\nCorpora totidem solum onus fuerat. Quinta terrae. Totidem rectumque eodem. Duas fidem exemit.<strong> Non fluminaque nova sidera</strong>. Deerat sine exemit mutatas ventos horrifer ensis duris ad! Subdita diremit sponte obliquis corpore spectent. Militis reparabat zonae. Litora mentisque effervescere vis umor igni facientes deerat.', 'Alba Hierro', '', 'inherit', 'closed', 'closed', '', '40-revision-v1', '', '', '2016-02-11 15:44:04', '2016-02-11 15:44:04', '', 40, 'http:/local.wordpress.dev/40-revision-v1/', 0, 'revision', '', 0),
-(43, 1, '2016-02-12 09:02:08', '2016-02-12 09:02:08', 'Mixtam montibus mundi cornua ensis fratrum duas. Divino habentia posset: amphitrite porrexerat matutinis congestaque alto perpetuum. Figuras campoque hunc aere summaque postquam. Conversa capacius. Erat bene tegi silvas adspirate. Mortales margine alto fuerat. Pinus cuncta pulsant reparabat quem poena lacusque levitate habitabilis terra.\r\n\r\nTuti freta instabilis ignea. Aetas humanas auroram figuras calidis regat obstabatque! Mundi otia semine? Illic melioris congeriem securae aberant lapidosos. Convexi triones pinus. Umentia diu volucres origo? Praebebat in motura ut usu! Abscidit siccis est manebat effervescere. Quinta sata habitandae viseret et solidumque.\r\n\r\n<div class="well>Conversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra.</div>', 'Presentació', '', 'inherit', 'closed', 'closed', '', '5-revision-v1', '', '', '2016-02-12 09:02:08', '2016-02-12 09:02:08', '', 5, 'http:/local.wordpress.dev/5-revision-v1/', 0, 'revision', '', 0),
-(44, 1, '2016-02-24 09:37:02', '2016-02-24 08:37:02', '', 'Miquel Adell', '', 'inherit', 'closed', 'closed', '', '5-autosave-v1', '', '', '2016-02-24 09:37:02', '2016-02-24 08:37:02', '', 5, 'http:/local.wordpress.dev/5-autosave-v1/', 0, 'revision', '', 0),
-(45, 1, '2016-02-12 09:02:39', '2016-02-12 09:02:39', 'Mixtam montibus mundi cornua ensis fratrum duas. Divino habentia posset: amphitrite porrexerat matutinis congestaque alto perpetuum. Figuras campoque hunc aere summaque postquam. Conversa capacius. Erat bene tegi silvas adspirate. Mortales margine alto fuerat. Pinus cuncta pulsant reparabat quem poena lacusque levitate habitabilis terra.\r\n\r\nTuti freta instabilis ignea. Aetas humanas auroram figuras calidis regat obstabatque! Mundi otia semine? Illic melioris congeriem securae aberant lapidosos. Convexi triones pinus. Umentia diu volucres origo? Praebebat in motura ut usu! Abscidit siccis est manebat effervescere. Quinta sata habitandae viseret et solidumque.\r\n\r\n<div class="well">Conversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra.</div>', 'Presentació', '', 'inherit', 'closed', 'closed', '', '5-revision-v1', '', '', '2016-02-12 09:02:39', '2016-02-12 09:02:39', '', 5, 'http:/local.wordpress.dev/5-revision-v1/', 0, 'revision', '', 0),
-(46, 1, '2016-02-12 09:03:59', '2016-02-12 09:03:59', 'Mixtam montibus mundi cornua ensis fratrum duas. Divino habentia posset: amphitrite porrexerat matutinis congestaque alto perpetuum. Figuras campoque hunc aere summaque postquam. Conversa capacius. Erat bene tegi silvas adspirate. Mortales margine alto fuerat. Pinus cuncta pulsant reparabat quem poena lacusque levitate habitabilis terra.\r\n\r\nTuti freta instabilis ignea. Aetas humanas auroram figuras calidis regat obstabatque! Mundi otia semine? Illic melioris congeriem securae aberant lapidosos. Convexi triones pinus. Umentia diu volucres origo? Praebebat in motura ut usu! Abscidit siccis est manebat effervescere. Quinta sata habitandae viseret et solidumque.\r\n\r\n<div class="well well-lg">Conversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra.</div>\r\n\r\n<input type="button" class="btn	btn-default">Contacta\'m</input>', 'Presentació', '', 'inherit', 'closed', 'closed', '', '5-revision-v1', '', '', '2016-02-12 09:03:59', '2016-02-12 09:03:59', '', 5, 'http:/local.wordpress.dev/5-revision-v1/', 0, 'revision', '', 0),
-(47, 1, '2016-02-12 09:04:27', '2016-02-12 09:04:27', 'Mixtam montibus mundi cornua ensis fratrum duas. Divino habentia posset: amphitrite porrexerat matutinis congestaque alto perpetuum. Figuras campoque hunc aere summaque postquam. Conversa capacius. Erat bene tegi silvas adspirate. Mortales margine alto fuerat. Pinus cuncta pulsant reparabat quem poena lacusque levitate habitabilis terra.\r\n\r\nTuti freta instabilis ignea. Aetas humanas auroram figuras calidis regat obstabatque! Mundi otia semine? Illic melioris congeriem securae aberant lapidosos. Convexi triones pinus. Umentia diu volucres origo? Praebebat in motura ut usu! Abscidit siccis est manebat effervescere. Quinta sata habitandae viseret et solidumque.\r\n\r\n<div class="well well-lg">Conversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra.</div>\r\n\r\n<button type="button" class="btn btn-primary">Contacta\'m</button>\r\n', 'Presentació', '', 'inherit', 'closed', 'closed', '', '5-revision-v1', '', '', '2016-02-12 09:04:27', '2016-02-12 09:04:27', '', 5, 'http:/local.wordpress.dev/5-revision-v1/', 0, 'revision', '', 0),
-(48, 1, '2016-02-12 15:01:15', '2016-02-12 15:01:15', 'Mixtam montibus mundi cornua ensis fratrum duas. Divino habentia posset: amphitrite porrexerat matutinis congestaque alto perpetuum. Figuras campoque hunc aere summaque postquam. Conversa capacius. Erat bene tegi silvas adspirate. Mortales margine alto fuerat. Pinus cuncta pulsant reparabat quem poena lacusque levitate habitabilis terra.\r\n\r\nTuti freta instabilis ignea. Aetas humanas auroram figuras calidis regat obstabatque! Mundi otia semine? Illic melioris congeriem securae aberant lapidosos. Convexi triones pinus. Umentia diu volucres origo? Praebebat in motura ut usu! Abscidit siccis est manebat effervescere. Quinta sata habitandae viseret et solidumque.\r\n\r\n<div class="lead">Conversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra.</div>\r\n\r\n<button type="button" class="btn btn-primary">Contacta\'m</button>\r\n', 'Presentació', '', 'inherit', 'closed', 'closed', '', '5-revision-v1', '', '', '2016-02-12 15:01:15', '2016-02-12 15:01:15', '', 5, 'http:/local.wordpress.dev/5-revision-v1/', 0, 'revision', '', 0),
-(53, 1, '2016-02-15 11:57:26', '2016-02-15 10:57:26', 'this is a very short testimonial with a related project. End.', 'Oscar Marí', '', 'publish', 'closed', 'closed', '', 'oscar-mari', '', '', '2016-02-26 13:32:52', '2016-02-26 12:32:52', '', 0, 'http:/local.wordpress.dev/?post_type=testimonial&#038;p=53', 0, 'testimonial', '', 0),
-(54, 1, '2016-02-15 12:49:31', '2016-02-15 11:49:31', '', 'Project', '', 'publish', 'closed', 'closed', '', 'acf_project', '', '', '2016-02-15 13:01:39', '2016-02-15 12:01:39', '', 0, 'http:/local.wordpress.dev/?post_type=acf&#038;p=54', 0, 'acf', '', 0),
-(57, 1, '2016-02-15 13:01:15', '2016-02-15 12:01:15', 'Crescendo sibi agitabilis caeli aliis deorum sive. Lumina sponte animalibus terrarum obsistitur calidis mentisque adsiduis. Corpore dissaepserat fixo amphitrite terras haec unda descenderat. Origine manebat ventos opifex? Frigore tollere. Hanc pendebat tonitrua quisque. Tonitrua septemque ab supplex aeris mea ligavit: nabataeaque possedit tanto.<!--more-->\r\n\r\nCorpora totidem solum onus fuerat. Quinta terrae. Totidem rectumque eodem. Duas fidem exemit. Non fluminaque nova sidera. Deerat sine exemit mutatas ventos horrifer ensis duris ad! Subdita diremit sponte obliquis corpore spectent. Militis reparabat zonae. Litora mentisque effervescere vis umor igni facientes deerat.\r\n\r\nRetinebat caligine pondus fronde cetera hominum. Lucis mutatas recessit caesa invasit sanctius iapeto tepescunt. Lacusque cetera aere ignea cum. Viseret consistere obliquis tellus nunc calidis sine? Qui carentem non coeptis flexi neu praecipites. Semine habitabilis quarum hunc temperiemque montibus matutinis ab partim mortales.', 'Gir a l\'esquerra', '', 'publish', 'closed', 'closed', '', 'gir-a-lesquerra', '', '', '2016-02-18 17:14:02', '2016-02-18 16:14:02', '', 0, 'http:/local.wordpress.dev/?post_type=project&#038;p=57', 0, 'project', '', 0),
-(61, 1, '2016-02-18 15:27:28', '2016-02-18 14:27:28', '', 'Maquetació', '', 'publish', 'closed', 'closed', '', 'maquetacio', '', '', '2016-02-18 15:27:28', '2016-02-18 14:27:28', '', 0, 'http:/local.wordpress.dev/?post_type=area&#038;p=61', 0, 'area', '', 0),
-(62, 1, '2016-02-18 15:27:39', '2016-02-18 14:27:39', '', 'Estudi', '', 'publish', 'closed', 'closed', '', 'estudi', '', '', '2016-02-18 15:27:39', '2016-02-18 14:27:39', '', 0, 'http:/local.wordpress.dev/?post_type=area&#038;p=62', 0, 'area', '', 0),
-(63, 1, '2016-02-18 15:27:52', '2016-02-18 14:27:52', '', 'PHP', '', 'publish', 'closed', 'closed', '', 'php', '', '', '2016-02-24 15:57:42', '2016-02-24 14:57:42', '', 0, 'http:/local.wordpress.dev/?post_type=technology&#038;p=63', 0, 'technology', '', 0),
-(64, 1, '2016-02-18 15:28:15', '2016-02-18 14:28:15', '', 'MySQL', '', 'publish', 'closed', 'closed', '', 'mysql', '', '', '2016-02-24 15:57:42', '2016-02-24 14:57:42', '', 0, 'http:/local.wordpress.dev/?post_type=technology&#038;p=64', 0, 'technology', '', 0),
-(65, 1, '2016-02-18 15:28:22', '2016-02-18 14:28:22', '', 'WordPress', '', 'publish', 'closed', 'closed', '', 'wordpress', '', '', '2016-02-24 16:00:48', '2016-02-24 15:00:48', '', 0, 'http:/local.wordpress.dev/?post_type=technology&#038;p=65', 0, 'technology', '', 0),
-(66, 1, '2016-02-18 15:29:41', '2016-02-18 14:29:41', 'Crescendo sibi agitabilis caeli aliis deorum sive. Lumina sponte animalibus terrarum obsistitur calidis mentisque adsiduis.\n<!--more-->\nCorpore dissaepserat fixo amphitrite terras haec unda descenderat. Origine manebat ventos opifex? Frigore tollere. Hanc pendebat tonitrua quisque. Tonitrua septemque ab supplex aeris mea ligavit: nabataeaque possedit tanto', 'Oscar Marí', '', 'inherit', 'closed', 'closed', '', '53-autosave-v1', '', '', '2016-02-18 15:29:41', '2016-02-18 14:29:41', '', 53, 'http:/local.wordpress.dev/53-autosave-v1/', 0, 'revision', '', 0),
-(67, 1, '2016-02-18 15:29:59', '2016-02-18 14:29:59', '', 'Oscar Marí', '', 'inherit', 'open', 'closed', '', '020f5d7', '', '', '2016-02-23 16:29:46', '2016-02-23 15:29:46', '', 53, 'http:/local.wordpress.dev/app/uploads/2016/02/020f5d7.jpg', 0, 'attachment', 'image/jpeg', 0),
-(68, 1, '2016-02-18 15:38:38', '2016-02-18 14:38:38', 'Mixtam montibus mundi cornua ensis fratrum duas. Divino habentia posset: amphitrite porrexerat matutinis congestaque alto perpetuum. Figuras campoque hunc aere summaque postquam. Conversa capacius. Erat bene tegi silvas adspirate. Mortales margine alto fuerat. Pinus cuncta pulsant reparabat quem poena lacusque levitate habitabilis terra.<!--more-->\r\n\r\nTuti freta instabilis ignea. Aetas humanas auroram figuras calidis regat obstabatque! Mundi otia semine? Illic melioris congeriem securae aberant lapidosos. Convexi triones pinus. Umentia diu volucres origo? Praebebat in motura ut usu! Abscidit siccis est manebat effervescere. Quinta sata habitandae viseret et solidumque.\r\n\r\n<div class="lead">Conversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra.</div>\r\n\r\n<button type="button" class="btn btn-primary">Contacta\'m</button>\r\n', 'Presentació', '', 'inherit', 'closed', 'closed', '', '5-revision-v1', '', '', '2016-02-18 15:38:38', '2016-02-18 14:38:38', '', 5, 'http:/local.wordpress.dev/5-revision-v1/', 0, 'revision', '', 0),
-(69, 1, '2016-02-18 15:45:08', '2016-02-18 14:45:08', '', 'Call to action', '', 'publish', 'closed', 'closed', '', 'acf_call-to-action', '', '', '2016-02-24 17:59:34', '2016-02-24 16:59:34', '', 0, 'http:/local.wordpress.dev/?post_type=acf&#038;p=69', 0, 'acf', '', 0),
-(70, 1, '2016-02-18 15:43:39', '2016-02-18 14:43:39', 'Mixtam montibus mundi cornua ensis fratrum duas. Divino habentia posset: amphitrite porrexerat matutinis congestaque alto perpetuum. Figuras campoque hunc aere summaque postquam. Conversa capacius. Erat bene tegi silvas adspirate. Mortales margine alto fuerat. Pinus cuncta pulsant reparabat quem poena lacusque levitate habitabilis terra.\r\n\r\nTuti freta instabilis ignea. Aetas humanas auroram figuras calidis regat obstabatque! Mundi otia semine? Illic melioris congeriem securae aberant lapidosos. Convexi triones pinus. Umentia diu volucres origo? Praebebat in motura ut usu! Abscidit siccis est manebat effervescere. Quinta sata habitandae viseret et solidumque.\r\n\r\n<div class="lead">Conversa instabilis proximus nova illic oppida habentia. Lege carentem diu mentes neu illic horrifer praebebat dextra.</div>\r\n\r\n<button type="button" class="btn btn-primary">Contacta\'m</button>\r\n', 'Presentació', '', 'inherit', 'closed', 'closed', '', '5-revision-v1', '', '', '2016-02-18 15:43:39', '2016-02-18 14:43:39', '', 5, 'http:/local.wordpress.dev/5-revision-v1/', 0, 'revision', '', 0),
-(71, 1, '2016-02-18 15:48:59', '2016-02-18 14:48:59', 'Mixtam montibus mundi cornua ensis fratrum duas. Divino habentia posset: amphitrite porrexerat matutinis congestaque alto perpetuum. Figuras campoque hunc aere summaque postquam. Conversa capacius. Erat bene tegi silvas adspirate. Mortales margine alto fuerat. Pinus cuncta pulsant reparabat quem poena lacusque levitate habitabilis terra.\r\n\r\nTuti freta instabilis ignea. Aetas humanas auroram figuras calidis regat obstabatque! Mundi otia semine? Illic melioris congeriem securae aberant lapidosos. Convexi triones pinus. Umentia diu volucres origo? Praebebat in motura ut usu! Abscidit siccis est manebat effervescere. Quinta sata habitandae viseret et solidumque.', 'Presentació', '', 'inherit', 'closed', 'closed', '', '5-revision-v1', '', '', '2016-02-18 15:48:59', '2016-02-18 14:48:59', '', 5, 'http:/local.wordpress.dev/5-revision-v1/', 0, 'revision', '', 0),
-(72, 1, '2016-02-18 15:50:46', '2016-02-18 14:50:46', 'Desenvolupo pàgines web.\r\n\r\nOfereixo solucions a mesura per a les teves neessitats.\r\n\r\nPots veure una pàgina web destacada de les que he realitzat a continuació.', 'Presentació', '', 'inherit', 'closed', 'closed', '', '5-revision-v1', '', '', '2016-02-18 15:50:46', '2016-02-18 14:50:46', '', 5, 'http:/local.wordpress.dev/5-revision-v1/', 0, 'revision', '', 0),
-(73, 1, '2016-02-18 16:37:13', '2016-02-18 15:37:13', 'Gira a l\'esquerra en diferents dispositius', 'Gira a l\'esquerra en diferents dispositius', '', 'inherit', 'open', 'closed', '', 'gir-a-lesquerra-mockup-transparent', '', '', '2016-02-18 16:37:54', '2016-02-18 15:37:54', '', 57, 'http:/local.wordpress.dev/app/uploads/2016/02/gir-a-lesquerra-mockup-transparent.png', 0, 'attachment', 'image/png', 0),
-(74, 1, '2016-02-22 14:00:36', '0000-00-00 00:00:00', ' ', '', '', 'draft', 'closed', 'closed', '', '', '', '', '2016-02-22 14:00:36', '0000-00-00 00:00:00', '', 0, 'http:/local.wordpress.dev/?p=74', 1, 'nav_menu_item', '', 0),
-(75, 1, '2016-02-22 14:01:21', '2016-02-22 13:01:21', ' ', '', '', 'publish', 'closed', 'closed', '', '75', '', '', '2016-02-22 14:01:27', '2016-02-22 13:01:27', '', 0, 'http:/local.wordpress.dev/?p=75', 2, 'nav_menu_item', '', 0),
-(76, 1, '2016-02-22 14:01:21', '2016-02-22 13:01:21', ' ', '', '', 'publish', 'closed', 'closed', '', '76', '', '', '2016-02-22 14:01:27', '2016-02-22 13:01:27', '', 0, 'http:/local.wordpress.dev/?p=76', 3, 'nav_menu_item', '', 0),
-(77, 1, '2016-02-22 14:01:21', '2016-02-22 13:01:21', ' ', '', '', 'publish', 'closed', 'closed', '', '77', '', '', '2016-02-22 14:01:27', '2016-02-22 13:01:27', '', 0, 'http:/local.wordpress.dev/?p=77', 4, 'nav_menu_item', '', 0),
-(78, 1, '2016-02-22 14:00:36', '0000-00-00 00:00:00', ' ', '', '', 'draft', 'closed', 'closed', '', '', '', '', '2016-02-22 14:00:36', '0000-00-00 00:00:00', '', 0, 'http:/local.wordpress.dev/?p=78', 1, 'nav_menu_item', '', 0),
-(79, 1, '2016-02-22 14:01:21', '2016-02-22 13:01:21', ' ', '', '', 'publish', 'closed', 'closed', '', '79', '', '', '2016-02-22 14:01:27', '2016-02-22 13:01:27', '', 0, 'http:/local.wordpress.dev/?p=79', 1, 'nav_menu_item', '', 0),
-(82, 1, '2016-02-24 09:57:15', '2016-02-24 08:57:15', '<span style="font-weight: 400;">Acompanyo clients en el procés de creació d’una pàgina web per trobar la solució ideal als seus problemes online</span>', 'Miquel Adell', '', 'inherit', 'closed', 'closed', '', '5-revision-v1', '', '', '2016-02-24 09:57:15', '2016-02-24 08:57:15', '', 5, 'http:/local.wordpress.dev/5-revision-v1/', 0, 'revision', '', 0),
-(83, 1, '2016-02-24 09:57:27', '2016-02-24 08:57:27', '<span style="font-weight: 400;">Acompanyo clients en el procés de creació d’una pàgina web per trobar la solució ideal als seus problemes online</span>', 'Miquel Adell', '', 'inherit', 'closed', 'closed', '', '5-revision-v1', '', '', '2016-02-24 09:57:27', '2016-02-24 08:57:27', '', 5, 'http:/local.wordpress.dev/5-revision-v1/', 0, 'revision', '', 0),
-(84, 1, '2016-02-24 10:06:18', '2016-02-24 09:06:18', '&nbsp;\n\n<span style="font-weight: 400;">El procés de creació d\'una pàgina web està format per moltes parts. De la mateixa manera que ho està fer una cervesa. No cal que les coneixis totes per a tenir una pàgina web. Faig servir els meus anys d\'experiència desenvolupant webs per construir webs tenint en compte totes les parts del procés.</span>', 'Procés', '', 'inherit', 'closed', 'closed', '', '7-autosave-v1', '', '', '2016-02-24 10:06:18', '2016-02-24 09:06:18', '', 7, 'http:/local.wordpress.dev/7-autosave-v1/', 0, 'revision', '', 0),
-(85, 1, '2016-02-24 10:03:16', '2016-02-24 09:03:16', '&nbsp;\r\n\r\n<span style="font-weight: 400;">El procés de creació d\'una pàgina web està format per moltes parts. De la mateixa manera que ho està fer una cervesa. No cal que les coneixis totes per a tenir una pàgina web. Jo et puc assessorar en qualsevol d\'elles</span>', 'Procés', '', 'inherit', 'closed', 'closed', '', '7-revision-v1', '', '', '2016-02-24 10:03:16', '2016-02-24 09:03:16', '', 7, 'http:/local.wordpress.dev/7-revision-v1/', 0, 'revision', '', 0),
-(86, 1, '2016-02-24 10:19:47', '2016-02-24 09:19:47', 'El procés de creació d\'una pàgina web està format per moltes parts. De la mateixa manera que ho està fer una cervesa. No cal que les coneixis totes per a tenir una pàgina web. Faig servir els meus anys d\'experiència desenvolupant webs per construir webs tenint en compte totes les parts del procés.', 'Procés', '', 'inherit', 'closed', 'closed', '', '7-revision-v1', '', '', '2016-02-24 10:19:47', '2016-02-24 09:19:47', '', 7, 'http:/local.wordpress.dev/7-revision-v1/', 0, 'revision', '', 0),
-(87, 1, '2016-02-24 10:20:51', '2016-02-24 09:20:51', '', 'home', '', 'inherit', 'closed', 'closed', '', '2-revision-v1', '', '', '2016-02-24 10:20:51', '2016-02-24 09:20:51', '', 2, 'http:/local.wordpress.dev/2-revision-v1/', 0, 'revision', '', 0),
-(88, 1, '2016-02-24 10:21:29', '2016-02-24 09:21:29', '', 'Home', '', 'publish', 'closed', 'closed', '', 'acf_home', '', '', '2016-02-24 10:22:05', '2016-02-24 09:22:05', '', 0, 'http:/local.wordpress.dev/?post_type=acf&#038;p=88', 0, 'acf', '', 0),
-(89, 1, '2016-02-24 10:21:46', '2016-02-24 09:21:46', '', 'Home', '', 'inherit', 'closed', 'closed', '', '2-revision-v1', '', '', '2016-02-24 10:21:46', '2016-02-24 09:21:46', '', 2, 'http:/local.wordpress.dev/2-revision-v1/', 0, 'revision', '', 0),
-(90, 1, '2016-02-24 10:27:21', '2016-02-24 09:27:21', 'Per què necessites una pàgina web? Quins problemes es pot resoldre amb un pàgina web? Què ha de tenir la meva pàgina web? Com hauria de ser?\r\n\r\nPlantejar-se aquestes preguntes és el primer pas per al desenvolupament d\'una pàgina web i puc ajudar-te a respondre-les.', 'Idea', '', 'publish', 'closed', 'closed', '', 'idea', '', '', '2016-02-24 13:52:22', '2016-02-24 12:52:22', '', 0, 'http:/local.wordpress.dev/?post_type=stage&#038;p=90', 0, 'stage', '', 0),
-(91, 1, '2016-02-24 10:32:54', '2016-02-24 09:32:54', 'Per què necessites una pàgina web? Quins problemes es pot resoldre amb un pàgina web? Què ha de tenir la meva pàgina web? Com hauria de ser?\n\nPlantejar-s', 'Idea', '', 'inherit', 'closed', 'closed', '', '90-autosave-v1', '', '', '2016-02-24 10:32:54', '2016-02-24 09:32:54', '', 90, 'http:/local.wordpress.dev/90-autosave-v1/', 0, 'revision', '', 0),
-(92, 1, '2016-02-24 10:31:47', '2016-02-24 09:31:47', 'Jo puc ajudar a trobar a un dissenyador o avaluar la viabilitat d\'un disseny que ja té per complir amb una idea per a un lloc web', 'Disseny', '', 'publish', 'closed', 'closed', '', 'disseny', '', '', '2016-02-24 13:52:38', '2016-02-24 12:52:38', '', 0, 'http:/local.wordpress.dev/?post_type=stage&#038;p=92', 0, 'stage', '', 0),
-(93, 1, '2016-02-24 10:34:28', '2016-02-24 09:34:28', 'Jo puc ajudar a trobar a un dissenyador o avaluar la viabilitat d\'un disseny que ja té per complir amb una idea per a un lloc web', 'Disseny', '', 'inherit', 'closed', 'closed', '', '92-autosave-v1', '', '', '2016-02-24 10:34:28', '2016-02-24 09:34:28', '', 92, 'http:/local.wordpress.dev/92-autosave-v1/', 0, 'revision', '', 0),
-(95, 1, '2016-02-24 10:41:04', '2016-02-24 09:41:04', 'Puc encarregar-me de tota la part de la programació d\'una pàgina web des de la maquetació fins a la gestió del servidor passant per la gestió de la base de dades o la programació interna de la web', 'Desenvolupament', '', 'publish', 'closed', 'closed', '', 'desenvolupament', '', '', '2016-02-24 15:35:18', '2016-02-24 14:35:18', '', 0, 'http:/local.wordpress.dev/?post_type=stage&#038;p=95', 0, 'stage', '', 0),
-(96, 1, '2016-02-24 10:42:04', '2016-02-24 09:42:04', 'Puc mirar-me una pàgina web ja existent per buscar possibles millores', 'Evaluació', '', 'publish', 'closed', 'closed', '', 'evaluacio', '', '', '2016-02-24 13:52:48', '2016-02-24 12:52:48', '', 0, 'http:/local.wordpress.dev/?post_type=stage&#038;p=96', 0, 'stage', '', 0),
-(97, 1, '2016-02-24 10:42:30', '2016-02-24 09:42:30', '', 'Bootstrap', '', 'publish', 'closed', 'closed', '', 'bootstrapp', '', '', '2016-02-24 15:57:42', '2016-02-24 14:57:42', '', 0, 'http:/local.wordpress.dev/?post_type=technology&#038;p=97', 0, 'technology', '', 0),
-(98, 1, '2016-02-24 10:42:37', '2016-02-24 09:42:37', '', 'Sass', '', 'publish', 'closed', 'closed', '', 'sass', '', '', '2016-02-24 16:00:24', '2016-02-24 15:00:24', '', 0, 'http:/local.wordpress.dev/?post_type=technology&#038;p=98', 0, 'technology', '', 0),
-(99, 1, '2016-02-24 10:45:17', '2016-02-24 09:45:17', '', 'JavaScript', '', 'publish', 'closed', 'closed', '', 'javascript', '', '', '2016-02-24 16:00:13', '2016-02-24 15:00:13', '', 0, 'http:/local.wordpress.dev/?post_type=technology&#038;p=99', 0, 'technology', '', 0),
-(100, 1, '2016-02-24 10:47:17', '2016-02-24 09:47:17', '', 'Linux', '', 'publish', 'closed', 'closed', '', 'linux', '', '', '2016-02-24 16:23:07', '2016-02-24 15:23:07', '', 0, 'http:/local.wordpress.dev/?post_type=technology&#038;p=100', 0, 'technology', '', 0),
-(101, 1, '2016-02-24 10:48:21', '2016-02-24 09:48:21', '', 'Twitter', '', 'publish', 'closed', 'closed', '', 'twitter', '', '', '2016-02-24 16:00:00', '2016-02-24 15:00:00', '', 0, 'http:/local.wordpress.dev/?post_type=technology&#038;p=101', 0, 'technology', '', 0),
-(102, 1, '2016-02-24 10:49:03', '2016-02-24 09:49:03', '', 'GIT', '', 'trash', 'closed', 'closed', '', 'git', '', '', '2016-02-24 10:49:21', '2016-02-24 09:49:21', '', 0, 'http:/local.wordpress.dev/?post_type=technology&#038;p=102', 0, 'technology', '', 0),
-(104, 1, '2016-02-24 12:42:40', '2016-02-24 11:42:40', '', 'Stage', '', 'publish', 'closed', 'closed', '', 'acf_stage', '', '', '2016-02-24 13:45:18', '2016-02-24 12:45:18', '', 0, 'http:/local.wordpress.dev/?post_type=acf&#038;p=104', 0, 'acf', '', 0),
-(105, 1, '2016-02-24 13:44:48', '2016-02-24 12:44:48', '', 'Technology', '', 'publish', 'closed', 'closed', '', 'acf_technology', '', '', '2016-02-24 13:45:44', '2016-02-24 12:45:44', '', 0, 'http:/local.wordpress.dev/?post_type=acf&#038;p=105', 0, 'acf', '', 0),
-(106, 1, '2016-02-24 13:55:38', '2016-02-24 12:55:38', '', 'Bootstrap', '', 'inherit', 'closed', 'closed', '', '97-autosave-v1', '', '', '2016-02-24 13:55:38', '2016-02-24 12:55:38', '', 97, 'http:/local.wordpress.dev/97-autosave-v1/', 0, 'revision', '', 0),
-(107, 1, '2016-02-24 16:01:22', '2016-02-24 15:01:22', '', 'Facebook', '', 'publish', 'closed', 'closed', '', 'facebook', '', '', '2016-02-24 16:01:34', '2016-02-24 15:01:34', '', 0, 'http:/local.wordpress.dev/?post_type=technology&#038;p=107', 0, 'technology', '', 0),
-(108, 1, '2016-02-24 16:00:42', '2016-02-24 15:00:42', '', 'CSS', '', 'publish', 'closed', 'closed', '', 'css', '', '', '2016-02-24 16:00:42', '2016-02-24 15:00:42', '', 0, 'http:/local.wordpress.dev/?post_type=technology&#038;p=108', 0, 'technology', '', 0),
-(109, 1, '2016-02-24 16:01:57', '2016-02-24 15:01:57', '', 'MariaDB', '', 'publish', 'closed', 'closed', '', 'mariadb', '', '', '2016-02-24 16:01:57', '2016-02-24 15:01:57', '', 0, 'http:/local.wordpress.dev/?post_type=technology&#038;p=109', 0, 'technology', '', 0),
-(110, 1, '2016-02-24 16:24:49', '2016-02-24 15:24:49', '', 'jQuery', '', 'publish', 'closed', 'closed', '', 'jquery', '', '', '2016-02-24 16:26:23', '2016-02-24 15:26:23', '', 0, 'http:/local.wordpress.dev/?post_type=technology&#038;p=110', 0, 'technology', '', 0),
-(111, 1, '2016-02-24 17:31:17', '2016-02-24 16:31:17', 'La base de tot és l\'experiència i això és el que algunes persones tenen a dir de la nostra experiència conjunta', 'Fonaments', '', 'inherit', 'closed', 'closed', '', '16-revision-v1', '', '', '2016-02-24 17:31:17', '2016-02-24 16:31:17', '', 16, 'http:/local.wordpress.dev/16-revision-v1/', 0, 'revision', '', 0),
-(112, 1, '2016-02-24 17:32:37', '2016-02-24 16:32:37', 'Locis zephyro naturae animus ne levitate subsidere. Iudicis instabilis sorbentur fontes caeca. Onerosior animalibus homo aetas ubi lege litem montibus animal! Tellus opifex. Septemque pendebat summaque. Eodem terras. Aberant quanto nitidis sorbentur! Madescit nebulas. Diverso opifex subdita solum boreas habitandae diu vos pontus?\n\nDiu fuerant habitabilis recessit. Congestaque carmen rerum terram fidem tempora. Caelo natura cura. Frigore locoque. Nix quoque sic aliis arce inminet adsiduis mortales. Sinistra pugnabant. Addidit ensis rudis longo. Boreas orbis orbe. Tellure tepescunt frigore passim utque boreas. Subdita matutinis numero spectent pugnabant.\n\nNabataeaque tegit carmen cepit. Congestaque seductaque undas pro usu mutastis mollia postquam mentes. Legebantur natus dominari natura. Igni quae quem melioris mentisque natus stagna vis duris. Quisquis motura altae? Illi animal. Extendi homini figuras iudicis mortales habitandae tenent habitabilis circumfluus. Secuit locum crescendo.', 'Tecnologies', '', 'inherit', 'closed', 'closed', '', '9-autosave-v1', '', '', '2016-02-24 17:32:37', '2016-02-24 16:32:37', '', 9, 'http:/local.wordpress.dev/9-autosave-v1/', 0, 'revision', '', 0),
-(113, 1, '2016-02-24 17:43:43', '2016-02-24 16:43:43', '<span style="font-weight: 400;">Aquestes són algunes de les tecnologies que faig servir per crear pàgines web.</span>', 'Tecnologies', '', 'inherit', 'closed', 'closed', '', '9-revision-v1', '', '', '2016-02-24 17:43:43', '2016-02-24 16:43:43', '', 9, 'http:/local.wordpress.dev/9-revision-v1/', 0, 'revision', '', 0),
-(114, 1, '2016-02-24 17:48:40', '2016-02-24 16:48:40', '<div class="row">\r\n<div class="col-xs-12 col-sm-4">\r\n<div class="panel panel-default">\r\n<div class="panel-heading">Correu</div>\r\n<div class="panel-body"><span class="lead">Pots enviar-me un correu a <a href="mailto:miquel@miqueladell.com">miquel@miqueladell.com</a></span></div>\r\n</div>\r\n</div>\r\n<div class="col-xs-12 col-sm-4">\r\n<div class="panel panel-default">\r\n<div class="panel-heading">Altres formes de contacte</div>\r\n<div class="panel-body">\r\n<ul class="list-unstyled">\r\n	<li><i class="fa fa-fw fa-skype"></i> miquel.adell</li>\r\n	<li><i class="fa fa-fw fa-phone"></i> +34 620 015 860</li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n<div class="col-xs-12 col-sm-4">\r\n<div class="panel panel-default">\r\n<div class="panel-heading">Xarxes socials</div>\r\n<div class="panel-body">\r\n<ul class="list-unstyled">\r\n	<li><i class="fa fa-fw fa-linkedin"></i> <a title="LinkedIn" href="http://es.linkedin.com/in/MiquelAdellBorras" target="_blank" rel="me nofollow">LinkedIn</a></li>\r\n	<li><i class="fa fa-fw fa-github"></i> <a title="GitHub" href="https://github.com/MiquelAdell" target="_blank" rel="me nofollow">GitHub</a></li>\r\n	<li><i class="fa fa-fw fa-stack-overflow"></i> <a title="Stack Overflow" href="http://stackoverflow.com/users/704097/miqueladell" target="_blank" rel="me nofollow">Stack Overflow</a></li>\r\n	<li><i class="fa fa-fw fa-twitter"></i> <a title="Twitter" href="http://twitter.com/miqueladell" target="_blank" rel="me nofollow">Twitter</a></li>\r\n	<li><i class="fa fa-fw fa-facebook"></i> <a title="Facebook" href="http://www.facebook.com/miquel.adell.borras" target="_blank" rel="me nofollow">Facebook</a></li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n</div>', 'Contacte', '', 'publish', 'closed', 'closed', '', 'contacte', '', '', '2016-02-26 16:46:19', '2016-02-26 15:46:19', '', 0, 'http:/local.wordpress.dev/?page_id=114', 0, 'page', '', 0),
-(115, 1, '2016-02-24 17:48:29', '2016-02-24 16:48:29', '', 'DSC_3586-2', '', 'inherit', 'open', 'closed', '', 'dsc_3586-2', '', '', '2016-02-24 17:48:29', '2016-02-24 16:48:29', '', 114, 'http:/local.wordpress.dev/app/uploads/2016/02/DSC_3586-2.jpg', 0, 'attachment', 'image/jpeg', 0),
-(116, 1, '2016-02-24 17:48:40', '2016-02-24 16:48:40', '', 'Contacta\'m', '', 'inherit', 'closed', 'closed', '', '114-revision-v1', '', '', '2016-02-24 17:48:40', '2016-02-24 16:48:40', '', 114, 'http:/local.wordpress.dev/114-revision-v1/', 0, 'revision', '', 0),
-(117, 1, '2016-02-24 17:49:00', '2016-02-24 16:49:00', '', 'Contacte', '', 'inherit', 'closed', 'closed', '', '114-revision-v1', '', '', '2016-02-24 17:49:00', '2016-02-24 16:49:00', '', 114, 'http:/local.wordpress.dev/114-revision-v1/', 0, 'revision', '', 0),
-(118, 1, '2016-02-24 17:50:57', '2016-02-24 16:50:57', '<span style="font-weight: 400;">Acompanyo clients en el procés de creació d’una pàgina web per trobar la solució ideal als seus problemes online</span>', 'Miquel Adell', '', 'inherit', 'closed', 'closed', '', '5-revision-v1', '', '', '2016-02-24 17:50:57', '2016-02-24 16:50:57', '', 5, 'http:/local.wordpress.dev/5-revision-v1/', 0, 'revision', '', 0),
-(119, 1, '2016-02-24 17:54:50', '2016-02-24 16:54:50', '<span style="font-weight: 400;">Acompanyo clients en el procés de creació d’una pàgina web per trobar la solució ideal als seus problemes online</span>', 'Miquel Adell', '', 'inherit', 'closed', 'closed', '', '5-revision-v1', '', '', '2016-02-24 17:54:50', '2016-02-24 16:54:50', '', 5, 'http:/local.wordpress.dev/5-revision-v1/', 0, 'revision', '', 0),
-(120, 1, '2016-02-24 17:59:48', '2016-02-24 16:59:48', '<span style="font-weight: 400;">Acompanyo clients en el procés de creació d’una pàgina web per trobar la solució ideal als seus problemes online</span>', 'Miquel Adell', '', 'inherit', 'closed', 'closed', '', '5-revision-v1', '', '', '2016-02-24 17:59:48', '2016-02-24 16:59:48', '', 5, 'http:/local.wordpress.dev/5-revision-v1/', 0, 'revision', '', 0),
-(121, 1, '2016-02-24 18:01:24', '2016-02-24 17:01:24', 'El procés de creació d\'una pàgina web està format per moltes parts. De la mateixa manera que ho està fer una cervesa. No cal que les coneixis totes per a tenir una pàgina web. Faig servir els meus anys d\'experiència desenvolupant webs per construir webs tenint en compte totes les parts del procés.', 'Procés', '', 'inherit', 'closed', 'closed', '', '7-revision-v1', '', '', '2016-02-24 18:01:24', '2016-02-24 17:01:24', '', 7, 'http:/local.wordpress.dev/7-revision-v1/', 0, 'revision', '', 0),
-(122, 1, '2016-02-25 15:49:55', '2016-02-25 14:49:55', '<span style="font-weight: 400;">Aquestes són algunes de les tecnologies que faig servir per crear pàgines web.</span>', 'Tecnologies', '', 'inherit', 'closed', 'closed', '', '9-revision-v1', '', '', '2016-02-25 15:49:55', '2016-02-25 14:49:55', '', 9, 'http:/local.wordpress.dev/9-revision-v1/', 0, 'revision', '', 0),
-(124, 1, '2016-02-26 15:07:45', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2016-02-26 15:07:45', '0000-00-00 00:00:00', '', 0, 'http:/local.wordpress.dev/?p=124', 0, 'post', '', 0),
-(125, 1, '2016-02-26 16:16:49', '2016-02-26 15:16:49', '<span class=\'lead\'>Acompanyo clients en el procés de creació d’una pàgina web per trobar la solució ideal als seus problemes online</span>', 'Miquel Adell', '', 'inherit', 'closed', 'closed', '', '5-revision-v1', '', '', '2016-02-26 16:16:49', '2016-02-26 15:16:49', '', 5, 'http:/local.wordpress.dev/5-revision-v1/', 0, 'revision', '', 0) ;
-INSERT INTO `wp_posts` ( `ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
-(126, 1, '2016-02-26 16:45:18', '2016-02-26 15:45:18', '<div class="row">\n<div class="col-xs-12 col-sm-3">\n<div class="panel panel-default">\n<div class="panel-heading">Correu</div>\n<div class="panel-body"><span class="lead">Pots enviar-me un correu a <a href="mailto:miquel@miqueladell.com">miquel@miqueladell.com</a></span></div>\n</div>\n</div>\n<div class="col-xs-12 col-sm-3">\n<div class="panel panel-default">\n<div class="panel-heading">Altres formes de contacte</div>\n<div class="panel-body">\n<ul class="list-unstyled">\n	<li><i class="fa fa-fw fa-skype"></i> miquel.adell</li>\n	<li><i class="fa fa-fw fa-phone"></i> +34 620 015 860</li>\n</ul>\n</div>\n</div>\n</div>\n<div class="col-xs-12 col-sm-3">\n<div class="panel panel-default">\n<div class="panel-heading">Xarxes socials</div>\n<div class="panel-body">També em pots trobar-me a múltiples pàgines web i en algunes s\'hi pot veure part de la meva feina:\n<ul class="list-unstyled">\n	<li><i class="fa fa-fw fa-linkedin"></i> <a title="LinkedIn" href="http://es.linkedin.com/in/MiquelAdellBorras" target="_blank" rel="me nofollow">LinkedIn</a></li>\n	<li><i class="fa fa-fw fa-github"></i> <a title="GitHub" href="https://github.com/MiquelAdell" target="_blank" rel="me nofollow">GitHub</a></li>\n	<li><i class="fa fa-fw fa-stack-overflow"></i> <a title="Stack Overflow" href="http://stackoverflow.com/users/704097/miqueladell" target="_blank" rel="me nofollow">Stack Overflow</a></li>\n	<li><i class="fa fa-fw fa-twitter"></i> <a title="Twitter" href="http://twitter.com/miqueladell" target="_blank" rel="me nofollow">Twitter</a></li>\n	<li><i class="fa fa-fw fa-facebook"></i> <a title="Facebook" href="http://www.facebook.com/miquel.adell.borras" target="_blank" rel="me nofollow">Facebook</a></li>\n</ul>\n</div>\n</div>\n</div>\n</div>', 'Contacte', '', 'inherit', 'closed', 'closed', '', '114-autosave-v1', '', '', '2016-02-26 16:45:18', '2016-02-26 15:45:18', '', 114, 'http:/local.wordpress.dev/114-autosave-v1/', 0, 'revision', '', 0),
-(127, 1, '2016-02-26 16:27:05', '2016-02-26 15:27:05', '<span class=\'lead\'>Pots enviar-me un correu a <a href="mailto:miquel@miqueladell.com">miquel@miqueladell.com</a></span>\r\nNo dubtis en enviar-me un correu, per qualsevol dubte. \r\n\r\nTambé em pots trobar-me a múltiples pàgines web i en algunes s\'hi pot veure part de la meva feina:\r\n<ul>\r\n	<li><a title="LinkedIn" href="http://es.linkedin.com/in/MiquelAdellBorras" target="_blank" rel="me nofollow"><i class="fa fa-linkedin"></i>\r\n LinkedIn</a></li>\r\n	<li><a title="GitHub" href="https://github.com/MiquelAdell" target="_blank" rel="me nofollow"><i class="fa fa-github"></i>\r\n GitHub</a></li>\r\n	<li><a title="Stack Overflow" href="http://stackoverflow.com/users/704097/miqueladell" target="_blank" rel="me nofollow"><i class="fa fa-stack-overflow"></i>\r\n Stack Overflow</a></li>\r\n	<li><a title="Twitter" href="http://twitter.com/miqueladell" target="_blank" rel="me nofollow"><i class="fa fa-twitter"></i>\r\n Twitter</a></li>\r\n	<li><a title="Facebook" href="http://www.facebook.com/miquel.adell.borras" target="_blank" rel="me nofollow"><i class="fa fa-facebook"></i>\r\n Facebook</a></li>\r\n</ul>', 'Contacte', '', 'inherit', 'closed', 'closed', '', '114-revision-v1', '', '', '2016-02-26 16:27:05', '2016-02-26 15:27:05', '', 114, 'http:/local.wordpress.dev/114-revision-v1/', 0, 'revision', '', 0) ;
-INSERT INTO `wp_posts` ( `ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
-(128, 1, '2016-02-26 16:27:27', '2016-02-26 15:27:27', '<span class="lead">Pots enviar-me un correu a <a href="mailto:miquel@miqueladell.com">miquel@miqueladell.com</a></span>\r\nNo dubtis en enviar-me un correu, per qualsevol dubte.\r\n\r\nTambé em pots trobar-me a múltiples pàgines web i en algunes s\'hi pot veure part de la meva feina:\r\n<ul class=\'no-style\'>\r\n	<li><a title="LinkedIn" href="http://es.linkedin.com/in/MiquelAdellBorras" target="_blank" rel="me nofollow"><i class="fa fa-linkedin"></i>\r\nLinkedIn</a></li>\r\n	<li><a title="GitHub" href="https://github.com/MiquelAdell" target="_blank" rel="me nofollow"><i class="fa fa-github"></i>\r\nGitHub</a></li>\r\n	<li><a title="Stack Overflow" href="http://stackoverflow.com/users/704097/miqueladell" target="_blank" rel="me nofollow"><i class="fa fa-stack-overflow"></i>\r\nStack Overflow</a></li>\r\n	<li><a title="Twitter" href="http://twitter.com/miqueladell" target="_blank" rel="me nofollow"><i class="fa fa-twitter"></i>\r\nTwitter</a></li>\r\n	<li><a title="Facebook" href="http://www.facebook.com/miquel.adell.borras" target="_blank" rel="me nofollow"><i class="fa fa-facebook"></i>\r\nFacebook</a></li>\r\n</ul>', 'Contacte', '', 'inherit', 'closed', 'closed', '', '114-revision-v1', '', '', '2016-02-26 16:27:27', '2016-02-26 15:27:27', '', 114, 'http:/local.wordpress.dev/114-revision-v1/', 0, 'revision', '', 0),
-(129, 1, '2016-02-26 16:28:20', '2016-02-26 15:28:20', '<span class="lead">Pots enviar-me un correu a <a href="mailto:miquel@miqueladell.com">miquel@miqueladell.com</a></span>\r\nNo dubtis en enviar-me un correu, per qualsevol dubte.\r\n\r\nTambé em pots trobar-me a múltiples pàgines web i en algunes s\'hi pot veure part de la meva feina:\r\n<ul class="list-unstyled">\r\n	<li><a title="LinkedIn" href="http://es.linkedin.com/in/MiquelAdellBorras" target="_blank" rel="me nofollow"><i class="fa fa-linkedin"></i>\r\nLinkedIn</a></li>\r\n	<li><a title="GitHub" href="https://github.com/MiquelAdell" target="_blank" rel="me nofollow"><i class="fa fa-github"></i>\r\nGitHub</a></li>\r\n	<li><a title="Stack Overflow" href="http://stackoverflow.com/users/704097/miqueladell" target="_blank" rel="me nofollow"><i class="fa fa-stack-overflow"></i>\r\nStack Overflow</a></li>\r\n	<li><a title="Twitter" href="http://twitter.com/miqueladell" target="_blank" rel="me nofollow"><i class="fa fa-twitter"></i>\r\nTwitter</a></li>\r\n	<li><a title="Facebook" href="http://www.facebook.com/miquel.adell.borras" target="_blank" rel="me nofollow"><i class="fa fa-facebook"></i>\r\nFacebook</a></li>\r\n</ul>', 'Contacte', '', 'inherit', 'closed', 'closed', '', '114-revision-v1', '', '', '2016-02-26 16:28:20', '2016-02-26 15:28:20', '', 114, 'http:/local.wordpress.dev/114-revision-v1/', 0, 'revision', '', 0),
-(130, 1, '2016-02-26 16:30:16', '2016-02-26 15:30:16', '<span class="lead">Pots enviar-me un correu a <a href="mailto:miquel@miqueladell.com">miquel@miqueladell.com</a></span>\r\nNo dubtis en enviar-me un correu, per qualsevol dubte.\r\n\r\nTambé em pots trobar-me a múltiples pàgines web i en algunes s\'hi pot veure part de la meva feina:\r\n<ul class="list-unstyled">\r\n	<li><a title="LinkedIn" href="http://es.linkedin.com/in/MiquelAdellBorras" target="_blank" rel="me nofollow"><i class="fa fa-linkedin"></i> LinkedIn</a></li>\r\n	<li><a title="GitHub" href="https://github.com/MiquelAdell" target="_blank" rel="me nofollow"><i class="fa fa-github"></i> GitHub</a></li>\r\n	<li><a title="Stack Overflow" href="http://stackoverflow.com/users/704097/miqueladell" target="_blank" rel="me nofollow"><i class="fa fa-stack-overflow"></i> Stack Overflow</a></li>\r\n	<li><a title="Twitter" href="http://twitter.com/miqueladell" target="_blank" rel="me nofollow"><i class="fa fa-twitter"></i> Twitter</a></li>\r\n	<li><a title="Facebook" href="http://www.facebook.com/miquel.adell.borras" target="_blank" rel="me nofollow"><i class="fa fa-facebook"></i> Facebook</a></li>\r\n</ul>', 'Contacte', '', 'inherit', 'closed', 'closed', '', '114-revision-v1', '', '', '2016-02-26 16:30:16', '2016-02-26 15:30:16', '', 114, 'http:/local.wordpress.dev/114-revision-v1/', 0, 'revision', '', 0),
-(131, 1, '2016-02-26 16:32:40', '2016-02-26 15:32:40', '<span class="lead">Pots enviar-me un correu a <a href="mailto:miquel@miqueladell.com">miquel@miqueladell.com</a></span>\r\n\r\nTambé em pots trobar-me a múltiples pàgines web i en algunes s\'hi pot veure part de la meva feina:\r\n<ul class="list-unstyled">\r\n	<li><i class="fa fa-linkedin"></i> <a title="LinkedIn" href="http://es.linkedin.com/in/MiquelAdellBorras" target="_blank" rel="me nofollow">LinkedIn</a></li>\r\n	<li><i class="fa fa-github"></i> <a title="GitHub" href="https://github.com/MiquelAdell" target="_blank" rel="me nofollow">GitHub</a></li>\r\n	<li><i class="fa fa-stack-overflow"></i> <a title="Stack Overflow" href="http://stackoverflow.com/users/704097/miqueladell" target="_blank" rel="me nofollow">Stack Overflow</a></li>\r\n	<li><i class="fa fa-twitter"></i> <a title="Twitter" href="http://twitter.com/miqueladell" target="_blank" rel="me nofollow">Twitter</a></li>\r\n	<li><i class="fa fa-facebook"></i> <a title="Facebook" href="http://www.facebook.com/miquel.adell.borras" target="_blank" rel="me nofollow">Facebook</a></li>\r\n</ul>', 'Contacte', '', 'inherit', 'closed', 'closed', '', '114-revision-v1', '', '', '2016-02-26 16:32:40', '2016-02-26 15:32:40', '', 114, 'http:/local.wordpress.dev/114-revision-v1/', 0, 'revision', '', 0),
-(132, 1, '2016-02-26 16:33:32', '2016-02-26 15:33:32', '<span class="lead">Pots enviar-me un correu a <a href="mailto:miquel@miqueladell.com">miquel@miqueladell.com</a></span>\r\nNo dubtis en enviar-me un correu, per qualsevol dubte.\r\n\r\nTambé em pots trobar-me a múltiples pàgines web i en algunes s\'hi pot veure part de la meva feina:\r\n<ul class="list-unstyled">\r\n	<li><i class="fa fa-fw fa-linkedin"></i> <a title="LinkedIn" href="http://es.linkedin.com/in/MiquelAdellBorras" target="_blank" rel="me nofollow">LinkedIn</a></li>\r\n	<li><i class="fa fa-fw fa-github"></i> <a title="GitHub" href="https://github.com/MiquelAdell" target="_blank" rel="me nofollow">GitHub</a></li>\r\n	<li><i class="fa fa-fw fa-stack-overflow"></i> <a title="Stack Overflow" href="http://stackoverflow.com/users/704097/miqueladell" target="_blank" rel="me nofollow">Stack Overflow</a></li>\r\n	<li><i class="fa fa-fw fa-twitter"></i> <a title="Twitter" href="http://twitter.com/miqueladell" target="_blank" rel="me nofollow">Twitter</a></li>\r\n	<li><i class="fa fa-fw fa-facebook"></i> <a title="Facebook" href="http://www.facebook.com/miquel.adell.borras" target="_blank" rel="me nofollow">Facebook</a></li>\r\n</ul>', 'Contacte', '', 'inherit', 'closed', 'closed', '', '114-revision-v1', '', '', '2016-02-26 16:33:32', '2016-02-26 15:33:32', '', 114, 'http:/local.wordpress.dev/114-revision-v1/', 0, 'revision', '', 0),
-(133, 1, '2016-02-26 16:35:55', '2016-02-26 15:35:55', '<div class=\'row\'>\r\n    <p><span class="lead">Pots enviar-me un correu a <a href="mailto:miquel@miqueladell.com">miquel@miqueladell.com</a></span></p>\r\n\r\n\r\n    <div class=\'col-xs-6\'>\r\n        <p>També em pots trobar-me a múltiples pàgines web i en algunes s\'hi pot veure part de la meva feina:<p>\r\n    </div>\r\n    <div class=\'col-xs-6\'>\r\n        <ul class="list-unstyled">\r\n        	<li><i class="fa fa-fw fa-linkedin"></i> <a title="LinkedIn" href="http://es.linkedin.com/in/MiquelAdellBorras" target="_blank" rel="me nofollow">LinkedIn</a></li>\r\n        	<li><i class="fa fa-fw fa-github"></i> <a title="GitHub" href="https://github.com/MiquelAdell" target="_blank" rel="me nofollow">GitHub</a></li>\r\n        	<li><i class="fa fa-fw fa-stack-overflow"></i> <a title="Stack Overflow" href="http://stackoverflow.com/users/704097/miqueladell" target="_blank" rel="me nofollow">Stack Overflow</a></li>\r\n        	<li><i class="fa fa-fw fa-twitter"></i> <a title="Twitter" href="http://twitter.com/miqueladell" target="_blank" rel="me nofollow">Twitter</a></li>\r\n        	<li><i class="fa fa-fw fa-facebook"></i> <a title="Facebook" href="http://www.facebook.com/miquel.adell.borras" target="_blank" rel="me nofollow">Facebook</a></li>\r\n        </ul>\r\n    </div>\r\n</div>', 'Contacte', '', 'inherit', 'closed', 'closed', '', '114-revision-v1', '', '', '2016-02-26 16:35:55', '2016-02-26 15:35:55', '', 114, 'http:/local.wordpress.dev/114-revision-v1/', 0, 'revision', '', 0),
-(134, 1, '2016-02-26 16:38:12', '2016-02-26 15:38:12', '<div class="row">\r\n<div class="col-xs-12 col-sm-5 .col-sm-offset-1">\r\n\r\n<span class="lead">Pots enviar-me un correu a <a href="mailto:miquel@miqueladell.com">miquel@miqueladell.com</a></span>\r\n\r\n</div>\r\n<div class="col-xs-12 col-sm-2">\r\n\r\nTambé em pots trobar-me a múltiples pàgines web i en algunes s\'hi pot veure part de la meva feina:\r\n<ul class="list-unstyled">\r\n	<li><i class="fa fa-fw fa-linkedin"></i> <a title="LinkedIn" href="http://es.linkedin.com/in/MiquelAdellBorras" target="_blank" rel="me nofollow">LinkedIn</a></li>\r\n	<li><i class="fa fa-fw fa-github"></i> <a title="GitHub" href="https://github.com/MiquelAdell" target="_blank" rel="me nofollow">GitHub</a></li>\r\n	<li><i class="fa fa-fw fa-stack-overflow"></i> <a title="Stack Overflow" href="http://stackoverflow.com/users/704097/miqueladell" target="_blank" rel="me nofollow">Stack Overflow</a></li>\r\n	<li><i class="fa fa-fw fa-twitter"></i> <a title="Twitter" href="http://twitter.com/miqueladell" target="_blank" rel="me nofollow">Twitter</a></li>\r\n	<li><i class="fa fa-fw fa-facebook"></i> <a title="Facebook" href="http://www.facebook.com/miquel.adell.borras" target="_blank" rel="me nofollow">Facebook</a></li>\r\n</ul>\r\n</div>\r\n</div>', 'Contacte', '', 'inherit', 'closed', 'closed', '', '114-revision-v1', '', '', '2016-02-26 16:38:12', '2016-02-26 15:38:12', '', 114, 'http:/local.wordpress.dev/114-revision-v1/', 0, 'revision', '', 0),
-(135, 1, '2016-02-26 16:45:48', '2016-02-26 15:45:48', '<div class="row">\r\n<div class="col-xs-12 col-sm-3">\r\n<div class="panel panel-default">\r\n<div class="panel-heading">Correu</div>\r\n<div class="panel-body"><span class="lead">Pots enviar-me un correu a <a href="mailto:miquel@miqueladell.com">miquel@miqueladell.com</a></span></div>\r\n</div>\r\n</div>\r\n<div class="col-xs-12 col-sm-3">\r\n<div class="panel panel-default">\r\n<div class="panel-heading">Altres formes de contacte</div>\r\n<div class="panel-body">\r\n<ul class="list-unstyled">\r\n	<li><i class="fa fa-fw fa-skype"></i> miquel.adell</li>\r\n	<li><i class="fa fa-fw fa-phone"></i> +34 620 015 860</li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n<div class="col-xs-12 col-sm-3">\r\n<div class="panel panel-default">\r\n<div class="panel-heading">Xarxes socials</div>\r\n<div class="panel-body">\r\n<ul class="list-unstyled">\r\n	<li><i class="fa fa-fw fa-linkedin"></i> <a title="LinkedIn" href="http://es.linkedin.com/in/MiquelAdellBorras" target="_blank" rel="me nofollow">LinkedIn</a></li>\r\n	<li><i class="fa fa-fw fa-github"></i> <a title="GitHub" href="https://github.com/MiquelAdell" target="_blank" rel="me nofollow">GitHub</a></li>\r\n	<li><i class="fa fa-fw fa-stack-overflow"></i> <a title="Stack Overflow" href="http://stackoverflow.com/users/704097/miqueladell" target="_blank" rel="me nofollow">Stack Overflow</a></li>\r\n	<li><i class="fa fa-fw fa-twitter"></i> <a title="Twitter" href="http://twitter.com/miqueladell" target="_blank" rel="me nofollow">Twitter</a></li>\r\n	<li><i class="fa fa-fw fa-facebook"></i> <a title="Facebook" href="http://www.facebook.com/miquel.adell.borras" target="_blank" rel="me nofollow">Facebook</a></li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n</div>', 'Contacte', '', 'inherit', 'closed', 'closed', '', '114-revision-v1', '', '', '2016-02-26 16:45:48', '2016-02-26 15:45:48', '', 114, 'http:/local.wordpress.dev/114-revision-v1/', 0, 'revision', '', 0),
-(136, 1, '2016-02-26 16:46:03', '2016-02-26 15:46:03', '<div class="row">\r\n<div class="col-xs-12 col-sm-4">\r\n<div class="panel panel-default">\r\n<div class="panel-heading">Correu</div>\r\n<div class="panel-body"><span class="lead">Pots enviar-me un correu a <a href="mailto:miquel@miqueladell.com">miquel@miqueladell.com</a></span></div>\r\n</div>\r\n</div>\r\n<div class="col-xs-12 col-sm-3">\r\n<div class="panel panel-default">\r\n<div class="panel-heading">Altres formes de contacte</div>\r\n<div class="panel-body">\r\n<ul class="list-unstyled">\r\n	<li><i class="fa fa-fw fa-skype"></i> miquel.adell</li>\r\n	<li><i class="fa fa-fw fa-phone"></i> +34 620 015 860</li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n<div class="col-xs-12 col-sm-2">\r\n<div class="panel panel-default">\r\n<div class="panel-heading">Xarxes socials</div>\r\n<div class="panel-body">\r\n<ul class="list-unstyled">\r\n	<li><i class="fa fa-fw fa-linkedin"></i> <a title="LinkedIn" href="http://es.linkedin.com/in/MiquelAdellBorras" target="_blank" rel="me nofollow">LinkedIn</a></li>\r\n	<li><i class="fa fa-fw fa-github"></i> <a title="GitHub" href="https://github.com/MiquelAdell" target="_blank" rel="me nofollow">GitHub</a></li>\r\n	<li><i class="fa fa-fw fa-stack-overflow"></i> <a title="Stack Overflow" href="http://stackoverflow.com/users/704097/miqueladell" target="_blank" rel="me nofollow">Stack Overflow</a></li>\r\n	<li><i class="fa fa-fw fa-twitter"></i> <a title="Twitter" href="http://twitter.com/miqueladell" target="_blank" rel="me nofollow">Twitter</a></li>\r\n	<li><i class="fa fa-fw fa-facebook"></i> <a title="Facebook" href="http://www.facebook.com/miquel.adell.borras" target="_blank" rel="me nofollow">Facebook</a></li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n</div>', 'Contacte', '', 'inherit', 'closed', 'closed', '', '114-revision-v1', '', '', '2016-02-26 16:46:03', '2016-02-26 15:46:03', '', 114, 'http:/local.wordpress.dev/114-revision-v1/', 0, 'revision', '', 0),
-(137, 1, '2016-02-26 16:46:19', '2016-02-26 15:46:19', '<div class="row">\r\n<div class="col-xs-12 col-sm-4">\r\n<div class="panel panel-default">\r\n<div class="panel-heading">Correu</div>\r\n<div class="panel-body"><span class="lead">Pots enviar-me un correu a <a href="mailto:miquel@miqueladell.com">miquel@miqueladell.com</a></span></div>\r\n</div>\r\n</div>\r\n<div class="col-xs-12 col-sm-4">\r\n<div class="panel panel-default">\r\n<div class="panel-heading">Altres formes de contacte</div>\r\n<div class="panel-body">\r\n<ul class="list-unstyled">\r\n	<li><i class="fa fa-fw fa-skype"></i> miquel.adell</li>\r\n	<li><i class="fa fa-fw fa-phone"></i> +34 620 015 860</li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n<div class="col-xs-12 col-sm-4">\r\n<div class="panel panel-default">\r\n<div class="panel-heading">Xarxes socials</div>\r\n<div class="panel-body">\r\n<ul class="list-unstyled">\r\n	<li><i class="fa fa-fw fa-linkedin"></i> <a title="LinkedIn" href="http://es.linkedin.com/in/MiquelAdellBorras" target="_blank" rel="me nofollow">LinkedIn</a></li>\r\n	<li><i class="fa fa-fw fa-github"></i> <a title="GitHub" href="https://github.com/MiquelAdell" target="_blank" rel="me nofollow">GitHub</a></li>\r\n	<li><i class="fa fa-fw fa-stack-overflow"></i> <a title="Stack Overflow" href="http://stackoverflow.com/users/704097/miqueladell" target="_blank" rel="me nofollow">Stack Overflow</a></li>\r\n	<li><i class="fa fa-fw fa-twitter"></i> <a title="Twitter" href="http://twitter.com/miqueladell" target="_blank" rel="me nofollow">Twitter</a></li>\r\n	<li><i class="fa fa-fw fa-facebook"></i> <a title="Facebook" href="http://www.facebook.com/miquel.adell.borras" target="_blank" rel="me nofollow">Facebook</a></li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n</div>', 'Contacte', '', 'inherit', 'closed', 'closed', '', '114-revision-v1', '', '', '2016-02-26 16:46:19', '2016-02-26 15:46:19', '', 114, 'http:/local.wordpress.dev/114-revision-v1/', 0, 'revision', '', 0) ;
-
-#
-# End of data contents of table `wp_posts`
-# --------------------------------------------------------
-
-
-
-#
-# Delete any existing table `wp_term_relationships`
-#
+# Dump of table wp_term_relationships
+# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `wp_term_relationships`;
-
-
-#
-# Table structure of table `wp_term_relationships`
-#
 
 CREATE TABLE `wp_term_relationships` (
   `object_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -979,45 +909,37 @@ CREATE TABLE `wp_term_relationships` (
   KEY `term_taxonomy_id` (`term_taxonomy_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+LOCK TABLES `wp_term_relationships` WRITE;
+/*!40000 ALTER TABLE `wp_term_relationships` DISABLE KEYS */;
 
-#
-# Data contents of table `wp_term_relationships`
-#
-INSERT INTO `wp_term_relationships` ( `object_id`, `term_taxonomy_id`, `term_order`) VALUES
-(38, 2, 0),
-(63, 6, 0),
-(64, 6, 0),
-(65, 8, 0),
-(75, 3, 0),
-(76, 3, 0),
-(77, 3, 0),
-(79, 3, 0),
-(97, 5, 0),
-(98, 5, 0),
-(99, 5, 0),
-(100, 6, 0),
-(101, 10, 0),
-(107, 10, 0),
-(108, 5, 0),
-(109, 6, 0),
-(110, 5, 0) ;
+INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_order`)
+VALUES
+	(38,2,0),
+	(63,6,0),
+	(64,6,0),
+	(65,8,0),
+	(75,3,0),
+	(76,3,0),
+	(77,3,0),
+	(79,3,0),
+	(97,5,0),
+	(98,5,0),
+	(99,5,0),
+	(100,6,0),
+	(101,10,0),
+	(107,10,0),
+	(108,5,0),
+	(109,6,0),
+	(110,5,0);
 
-#
-# End of data contents of table `wp_term_relationships`
-# --------------------------------------------------------
-
+/*!40000 ALTER TABLE `wp_term_relationships` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
-#
-# Delete any existing table `wp_term_taxonomy`
-#
+# Dump of table wp_term_taxonomy
+# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `wp_term_taxonomy`;
-
-
-#
-# Table structure of table `wp_term_taxonomy`
-#
 
 CREATE TABLE `wp_term_taxonomy` (
   `term_taxonomy_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -1029,37 +951,29 @@ CREATE TABLE `wp_term_taxonomy` (
   PRIMARY KEY (`term_taxonomy_id`),
   UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`),
   KEY `taxonomy` (`taxonomy`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+LOCK TABLES `wp_term_taxonomy` WRITE;
+/*!40000 ALTER TABLE `wp_term_taxonomy` DISABLE KEYS */;
+
+INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`)
+VALUES
+	(1,1,'category','',0,0),
+	(2,2,'category','',0,1),
+	(3,3,'nav_menu','',0,4),
+	(5,5,'area','',0,5),
+	(6,6,'area','',0,4),
+	(8,8,'area','',0,1),
+	(10,10,'area','',0,2);
+
+/*!40000 ALTER TABLE `wp_term_taxonomy` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
-#
-# Data contents of table `wp_term_taxonomy`
-#
-INSERT INTO `wp_term_taxonomy` ( `term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
-(1, 1, 'category', '', 0, 0),
-(2, 2, 'category', '', 0, 1),
-(3, 3, 'nav_menu', '', 0, 4),
-(5, 5, 'area', '', 0, 5),
-(6, 6, 'area', '', 0, 4),
-(8, 8, 'area', '', 0, 1),
-(10, 10, 'area', '', 0, 2) ;
-
-#
-# End of data contents of table `wp_term_taxonomy`
-# --------------------------------------------------------
-
-
-
-#
-# Delete any existing table `wp_termmeta`
-#
+# Dump of table wp_termmeta
+# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `wp_termmeta`;
-
-
-#
-# Table structure of table `wp_termmeta`
-#
 
 CREATE TABLE `wp_termmeta` (
   `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -1072,26 +986,11 @@ CREATE TABLE `wp_termmeta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-#
-# Data contents of table `wp_termmeta`
-#
 
-#
-# End of data contents of table `wp_termmeta`
-# --------------------------------------------------------
-
-
-
-#
-# Delete any existing table `wp_terms`
-#
+# Dump of table wp_terms
+# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `wp_terms`;
-
-
-#
-# Table structure of table `wp_terms`
-#
 
 CREATE TABLE `wp_terms` (
   `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -1101,37 +1000,29 @@ CREATE TABLE `wp_terms` (
   PRIMARY KEY (`term_id`),
   KEY `slug` (`slug`(191)),
   KEY `name` (`name`(191))
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+LOCK TABLES `wp_terms` WRITE;
+/*!40000 ALTER TABLE `wp_terms` DISABLE KEYS */;
+
+INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`)
+VALUES
+	(1,'Uncategorized','uncategorized',0),
+	(2,'projects','projects',0),
+	(3,'Main menu','main-menu',0),
+	(5,'Front end','front-end',0),
+	(6,'Back end','back-end',0),
+	(8,'CMS','content-management-system',0),
+	(10,'APIs','apis',0);
+
+/*!40000 ALTER TABLE `wp_terms` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
-#
-# Data contents of table `wp_terms`
-#
-INSERT INTO `wp_terms` ( `term_id`, `name`, `slug`, `term_group`) VALUES
-(1, 'Uncategorized', 'uncategorized', 0),
-(2, 'projects', 'projects', 0),
-(3, 'Main menu', 'main-menu', 0),
-(5, 'Front end', 'front-end', 0),
-(6, 'Back end', 'back-end', 0),
-(8, 'CMS', 'content-management-system', 0),
-(10, 'APIs', 'apis', 0) ;
-
-#
-# End of data contents of table `wp_terms`
-# --------------------------------------------------------
-
-
-
-#
-# Delete any existing table `wp_usermeta`
-#
+# Dump of table wp_usermeta
+# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `wp_usermeta`;
-
-
-#
-# Table structure of table `wp_usermeta`
-#
 
 CREATE TABLE `wp_usermeta` (
   `umeta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -1141,59 +1032,51 @@ CREATE TABLE `wp_usermeta` (
   PRIMARY KEY (`umeta_id`),
   KEY `user_id` (`user_id`),
   KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+LOCK TABLES `wp_usermeta` WRITE;
+/*!40000 ALTER TABLE `wp_usermeta` DISABLE KEYS */;
+
+INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`)
+VALUES
+	(1,1,'nickname','admin'),
+	(2,1,'first_name',''),
+	(3,1,'last_name',''),
+	(4,1,'description',''),
+	(5,1,'rich_editing','true'),
+	(6,1,'comment_shortcuts','false'),
+	(7,1,'admin_color','fresh'),
+	(8,1,'use_ssl','0'),
+	(9,1,'show_admin_bar_front','false'),
+	(10,1,'wp_capabilities','a:1:{s:13:\"administrator\";b:1;}'),
+	(11,1,'wp_user_level','10'),
+	(12,1,'dismissed_wp_pointers',''),
+	(13,1,'show_welcome_panel','0'),
+	(15,1,'wp_user-settings','mfold=o&libraryContent=browse&hidetb=1&editor=html&urlbutton=none&imgsize=large&editor_expand=on'),
+	(16,1,'wp_user-settings-time','1456501544'),
+	(17,1,'wp_dashboard_quick_press_last_post_id','124'),
+	(18,1,'meta-box-order_page','a:4:{s:15:\"acf_after_title\";s:6:\"acf_23\";s:4:\"side\";s:58:\"submitdiv,pageparentdiv,p2p-to-posts_to_pages,postimagediv\";s:6:\"normal\";s:57:\"postcustom,commentstatusdiv,commentsdiv,slugdiv,authordiv\";s:8:\"advanced\";s:0:\"\";}'),
+	(19,1,'screen_layout_page','2'),
+	(20,1,'closedpostboxes_page','a:1:{i:0;s:10:\"postcustom\";}'),
+	(21,1,'metaboxhidden_page','a:4:{i:0;s:6:\"acf_54\";i:1;s:6:\"acf_23\";i:2;s:16:\"commentstatusdiv\";i:3;s:9:\"authordiv\";}'),
+	(22,1,'closedpostboxes_post','a:1:{i:0;s:23:\"p2p-from-posts_to_pages\";}'),
+	(23,1,'metaboxhidden_post','a:7:{i:0;s:6:\"acf_23\";i:1;s:11:\"postexcerpt\";i:2;s:13:\"trackbacksdiv\";i:3;s:10:\"postcustom\";i:4;s:16:\"commentstatusdiv\";i:5;s:7:\"slugdiv\";i:6;s:9:\"authordiv\";}'),
+	(24,1,'session_tokens','a:4:{s:64:\"d97968fb48e04749f34f46f7c27947a0a23a0971866e6e37f6dfe6c160a8e34a\";a:4:{s:10:\"expiration\";i:1457103876;s:2:\"ip\";s:12:\"192.168.50.1\";s:2:\"ua\";s:121:\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.109 Safari/537.36\";s:5:\"login\";i:1455894276;}s:64:\"805198af9bc71b6f2a9a870969ce84672b600ba607a2d321ec0d4b850da530d9\";a:4:{s:10:\"expiration\";i:1457355403;s:2:\"ip\";s:12:\"192.168.50.1\";s:2:\"ua\";s:121:\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.109 Safari/537.36\";s:5:\"login\";i:1456145803;}s:64:\"41a9c6cf33fb0e99a9ecf0c4ca51750c81a1ee954783e4237dd53331cd0ee0a4\";a:4:{s:10:\"expiration\";i:1457440978;s:2:\"ip\";s:12:\"192.168.50.1\";s:2:\"ua\";s:121:\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36\";s:5:\"login\";i:1456231378;}s:64:\"42f3c5e6aec639b8c4abfd0935aaafaf7adec7c55c37a17bf68db933bc07dd81\";a:4:{s:10:\"expiration\";i:1457104414;s:2:\"ip\";s:12:\"192.168.50.1\";s:2:\"ua\";s:121:\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36\";s:5:\"login\";i:1456931614;}}'),
+	(25,1,'managenav-menuscolumnshidden','a:5:{i:0;s:11:\"link-target\";i:1;s:11:\"css-classes\";i:2;s:3:\"xfn\";i:3;s:11:\"description\";i:4;s:15:\"title-attribute\";}'),
+	(26,1,'metaboxhidden_nav-menus','a:6:{i:0;s:18:\"add-post-type-area\";i:1;s:21:\"add-post-type-project\";i:2;s:24:\"add-post-type-technology\";i:3;s:25:\"add-post-type-testimonial\";i:4;s:12:\"add-post_tag\";i:5;s:15:\"add-post_format\";}'),
+	(27,1,'closedpostboxes_testimonial','a:0:{}'),
+	(28,1,'metaboxhidden_testimonial','a:3:{i:0;s:6:\"acf_54\";i:1;s:6:\"acf_69\";i:2;s:7:\"slugdiv\";}'),
+	(29,1,'meta-box-order_testimonial','a:4:{s:15:\"acf_after_title\";s:13:\"acf_54,acf_23\";s:4:\"side\";s:9:\"submitdiv\";s:6:\"normal\";s:14:\"acf_69,slugdiv\";s:8:\"advanced\";s:0:\"\";}'),
+	(30,1,'screen_layout_testimonial','2');
+
+/*!40000 ALTER TABLE `wp_usermeta` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
-#
-# Data contents of table `wp_usermeta`
-#
-INSERT INTO `wp_usermeta` ( `umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
-(1, 1, 'nickname', 'admin'),
-(2, 1, 'first_name', ''),
-(3, 1, 'last_name', ''),
-(4, 1, 'description', ''),
-(5, 1, 'rich_editing', 'true'),
-(6, 1, 'comment_shortcuts', 'false'),
-(7, 1, 'admin_color', 'fresh'),
-(8, 1, 'use_ssl', '0'),
-(9, 1, 'show_admin_bar_front', 'true'),
-(10, 1, 'wp_capabilities', 'a:1:{s:13:"administrator";b:1;}'),
-(11, 1, 'wp_user_level', '10'),
-(12, 1, 'dismissed_wp_pointers', ''),
-(13, 1, 'show_welcome_panel', '0'),
-(15, 1, 'wp_user-settings', 'mfold=o&libraryContent=browse&hidetb=1&editor=html&urlbutton=none&imgsize=large&editor_expand=on'),
-(16, 1, 'wp_user-settings-time', '1456501544'),
-(17, 1, 'wp_dashboard_quick_press_last_post_id', '124'),
-(18, 1, 'meta-box-order_page', 'a:4:{s:15:"acf_after_title";s:6:"acf_23";s:4:"side";s:58:"submitdiv,pageparentdiv,p2p-to-posts_to_pages,postimagediv";s:6:"normal";s:57:"postcustom,commentstatusdiv,commentsdiv,slugdiv,authordiv";s:8:"advanced";s:0:"";}'),
-(19, 1, 'screen_layout_page', '2'),
-(20, 1, 'closedpostboxes_page', 'a:1:{i:0;s:10:"postcustom";}'),
-(21, 1, 'metaboxhidden_page', 'a:4:{i:0;s:6:"acf_54";i:1;s:6:"acf_23";i:2;s:16:"commentstatusdiv";i:3;s:9:"authordiv";}'),
-(22, 1, 'closedpostboxes_post', 'a:1:{i:0;s:23:"p2p-from-posts_to_pages";}'),
-(23, 1, 'metaboxhidden_post', 'a:7:{i:0;s:6:"acf_23";i:1;s:11:"postexcerpt";i:2;s:13:"trackbacksdiv";i:3;s:10:"postcustom";i:4;s:16:"commentstatusdiv";i:5;s:7:"slugdiv";i:6;s:9:"authordiv";}'),
-(24, 1, 'session_tokens', 'a:3:{s:64:"d97968fb48e04749f34f46f7c27947a0a23a0971866e6e37f6dfe6c160a8e34a";a:4:{s:10:"expiration";i:1457103876;s:2:"ip";s:12:"192.168.50.1";s:2:"ua";s:121:"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.109 Safari/537.36";s:5:"login";i:1455894276;}s:64:"805198af9bc71b6f2a9a870969ce84672b600ba607a2d321ec0d4b850da530d9";a:4:{s:10:"expiration";i:1457355403;s:2:"ip";s:12:"192.168.50.1";s:2:"ua";s:121:"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.109 Safari/537.36";s:5:"login";i:1456145803;}s:64:"41a9c6cf33fb0e99a9ecf0c4ca51750c81a1ee954783e4237dd53331cd0ee0a4";a:4:{s:10:"expiration";i:1457440978;s:2:"ip";s:12:"192.168.50.1";s:2:"ua";s:121:"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36";s:5:"login";i:1456231378;}}'),
-(25, 1, 'managenav-menuscolumnshidden', 'a:5:{i:0;s:11:"link-target";i:1;s:11:"css-classes";i:2;s:3:"xfn";i:3;s:11:"description";i:4;s:15:"title-attribute";}'),
-(26, 1, 'metaboxhidden_nav-menus', 'a:6:{i:0;s:18:"add-post-type-area";i:1;s:21:"add-post-type-project";i:2;s:24:"add-post-type-technology";i:3;s:25:"add-post-type-testimonial";i:4;s:12:"add-post_tag";i:5;s:15:"add-post_format";}'),
-(27, 1, 'closedpostboxes_testimonial', 'a:0:{}'),
-(28, 1, 'metaboxhidden_testimonial', 'a:3:{i:0;s:6:"acf_54";i:1;s:6:"acf_69";i:2;s:7:"slugdiv";}'),
-(29, 1, 'meta-box-order_testimonial', 'a:4:{s:15:"acf_after_title";s:13:"acf_54,acf_23";s:4:"side";s:9:"submitdiv";s:6:"normal";s:14:"acf_69,slugdiv";s:8:"advanced";s:0:"";}'),
-(30, 1, 'screen_layout_testimonial', '2') ;
-
-#
-# End of data contents of table `wp_usermeta`
-# --------------------------------------------------------
-
-
-
-#
-# Delete any existing table `wp_users`
-#
+# Dump of table wp_users
+# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `wp_users`;
-
-
-#
-# Table structure of table `wp_users`
-#
 
 CREATE TABLE `wp_users` (
   `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -1209,20 +1092,23 @@ CREATE TABLE `wp_users` (
   PRIMARY KEY (`ID`),
   KEY `user_login_key` (`user_login`),
   KEY `user_nicename` (`user_nicename`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+LOCK TABLES `wp_users` WRITE;
+/*!40000 ALTER TABLE `wp_users` DISABLE KEYS */;
+
+INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`)
+VALUES
+	(1,'admin','$P$BjUeWxqCFNrEpBXuiLHnhhelh5QwIB/','admin','miquel@miqueladell.com','','2016-01-29 12:08:58','',0,'admin');
+
+/*!40000 ALTER TABLE `wp_users` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
-#
-# Data contents of table `wp_users`
-#
-INSERT INTO `wp_users` ( `ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
-(1, 'admin', '$P$BjUeWxqCFNrEpBXuiLHnhhelh5QwIB/', 'admin', 'miquel@miqueladell.com', '', '2016-01-29 12:08:58', '', 0, 'admin') ;
 
-#
-# End of data contents of table `wp_users`
-# --------------------------------------------------------
-
-#
-# Add constraints back in and apply any alter data queries.
-#
-
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
