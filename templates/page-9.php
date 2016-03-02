@@ -8,7 +8,7 @@
   foreach($areas as $area){
     ?>
     <div class='col-sm-4 col-sm-offset-1 text-center well'>
-      <?
+      <?php
       $args = array(
         'post_type' => 'technology',
         'posts_per_page' => -1,

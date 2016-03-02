@@ -2,7 +2,7 @@
 <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
 
 
-<?
+<?php
 $args = array( 'post_type' => 'testimonial', 'posts_per_page' => 5 );
 $testimonialLoop = new WP_Query( $args );
 ?>
@@ -11,7 +11,7 @@ $testimonialLoop = new WP_Query( $args );
 <div class="col-md-12" data-wow-delay="0.2s" class='quote-carousel-holder'>
     <div class="carousel slide" data-interval="false" data-ride="carousel" id="quote-carousel">
         <ol class="carousel-indicators">
-            <?
+            <?php
             $i = 0;
             while ( $testimonialLoop->have_posts() ) :
                 $testimonialLoop->the_post();
@@ -22,7 +22,7 @@ $testimonialLoop = new WP_Query( $args );
                     <li data-target="#quote-carousel" data-slide-to="<?=$i?>" class="
                         <?php if ($i === 0): ?>active<?php endif ?>
                     "><img class="img-responsive " src="<?=$image['url']?>" alt="<?=$image['alt']?>"></li>
-                    <?
+                    <?php
                 }
                 $i++;
             endwhile;
@@ -33,7 +33,7 @@ $testimonialLoop = new WP_Query( $args );
         <!-- Carousel Slides / Quotes -->
         <div class="carousel-inner text-center ">
 
-            <?
+            <?php
             $i = 0;
             while ( $testimonialLoop->have_posts() ) :
                 $testimonialLoop->the_post();
@@ -73,7 +73,7 @@ $testimonialLoop = new WP_Query( $args );
                         <div>
                             <div class='excerpt'><?=$text?></div>
                             <small>
-                                <?
+                                <?php
                                 the_title();
                                 if (!empty(get_field('company_name'))) {
                                     echo ", ".__('from')." ".text_with_link(get_field('company_name'),get_field('company_url'));
@@ -84,7 +84,7 @@ $testimonialLoop = new WP_Query( $args );
                         </div>
                     </blockquote>
                 </div>
-                <?
+                <?php
                 $i++;
             endwhile;
             wp_reset_postdata();
