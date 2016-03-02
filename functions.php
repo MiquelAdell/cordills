@@ -1,4 +1,6 @@
 <?php
+require_once('vendor/jjgrainger/wp-custom-post-type-class/src/CPT.php');
+
 /**
  * Sage includes
  *
