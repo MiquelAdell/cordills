@@ -18,11 +18,11 @@ jQuery.fn.extend({
   }
 });
 
-$.fn.cssNum = function(){
+jQuery.fn.cssNum = function(){
   return parseFloat($.fn.css.apply(this,arguments));
 };
 
-$(function () { $("[data-toggle='tooltip']").tooltip(); });
+jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
 
 /* ========================================================================
@@ -49,7 +49,7 @@ $(function () { $("[data-toggle='tooltip']").tooltip(); });
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
-        
+
       }
     },
     // Home page
