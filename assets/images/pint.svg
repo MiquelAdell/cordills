@@ -26,7 +26,7 @@
 			c53.3,6,105.7,6,105.7,6s52.3,0,105.7-6C605.7,783.3,634.3,778,601.7,769.3z"/>
 		<path class="st3" d="M576.7,251H423.3c-6.9,37.6-22.6,127.4-22.6,156.3c0,40.9,1.8,73.7,21.5,115.5
 			c56.9,121.2,104.5,123.2,155.7,0c21.9-52.8,21.5-74.6,21.5-115.5C599.3,378.4,583.6,288.6,576.7,251z"/>
-		
+
 			<linearGradient id="glass_shadow_1_" gradientUnits="userSpaceOnUse" x1="382.6995" y1="500" x2="617.3005" y2="500" gradientTransform="matrix(1 0 0 -1 0 1000)">
 			<stop  offset="0.5" style="stop-color:#FFFFFF"/>
 			<stop  offset="0.5" style="stop-color:#000000"/>
@@ -53,37 +53,5 @@
 			c2.9,1.2,6.3,1.4,9.5,0.4C529,182.8,533.2,174.3,530.9,166.3z"/>
 	</g>
 </g>
-<g id="_x35__-_Grain_1_">
-	<g id="grain_group_1_">
-		<g id="grain_group">
-		</g>
-		<g id="grain_group_shadow" class="st6">
-		</g>
-	</g>
-</g>
-<g id="_x34__-_Tap">
-</g>
-<g id="_x33__-_Bottle">
-	<g id="bg">
-	</g>
-	<g id="bottle">
-		<g id="Layer_5">
-		</g>
-		<g id="label">
-		</g>
-	</g>
-</g>
-<g id="_x32__-_Grinder">
-</g>
-<g id="_x31__-_Boiler">
-	<g id="jar_group">
-	</g>
-	<g id="puff_group">
-	</g>
-</g>
-<g id="Not_an_artboard">
-	
-		<image style="display:none;overflow:visible;enable-background:new    ;" width="450" height="470" xlink:href="46A25748A0C8DFD4.jpeg"  transform="matrix(1.5603 0 0 1.5603 318.5273 133.3408)">
-	</image>
-</g>
+
 </svg>

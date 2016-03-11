@@ -36,7 +36,7 @@
 				c3.6,5,9.5,13,16.7,16.7l-0.2,41.3h-57.8c-5.6,0-11.5,4.7-11.5,12.6v11.9c0,7.9,5.9,14.5,11.5,14.5H689c5.6,0,9-6.6,9-14.5v-11.9
 				c0-7.9-3.4-12.6-9-12.6h-55.9l0.2-41.4c7.2-3.6,13.1-11.6,16.7-16.6h54c6,11,18.6,20.2,33.1,20.2c20.4,0,36.9-16.9,36.9-37.3
 				C774,199.6,757.5,182.7,737.2,182.7z"/>
-			
+
 				<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="454.9431" y1="741.8465" x2="774.033" y2="741.8465" gradientTransform="matrix(1 0 0 -1 0 1000)">
 				<stop  offset="0.5" style="stop-color:#FFFFFF"/>
 				<stop  offset="0.5" style="stop-color:#FEFEFE"/>
@@ -58,7 +58,7 @@
 		<g id="drip">
 			<path class="st5" d="M332.4,732.8L293,654l-45.3,78.4c-2.5,3.3-4.5,8.2-6.2,12l-1.3,3.6h0.4c-2.2,6-3.4,10.7-3.4,17.2
 				c0,29.1,23.6,52,52.6,52c29.1,0,52.6-23.9,52.6-52.9C342.5,752.6,338.8,741.5,332.4,732.8z"/>
-			
+
 				<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="237.299" y1="264.413" x2="342.534" y2="264.413" gradientTransform="matrix(1 0 0 -1 0 1000)">
 				<stop  offset="0.5" style="stop-color:#FFFFFF"/>
 				<stop  offset="0.5" style="stop-color:#FEFEFE"/>
@@ -75,25 +75,5 @@
 				c0,29.1,23.6,52,52.6,52c29.1,0,52.6-23.9,52.6-52.9C342.5,752.6,338.8,741.5,332.4,732.8z"/>
 		</g>
 	</g>
-</g>
-<g id="_x33__-_Bottle">
-	<g id="bg">
-	</g>
-	<g id="bottle">
-		<g id="Layer_5">
-		</g>
-		<g id="label">
-		</g>
-	</g>
-</g>
-<g id="_x32__-_Grinder">
-</g>
-<g id="_x31__-_Boiler">
-	<g id="jar_group">
-	</g>
-	<g id="puff_group">
-	</g>
-</g>
-<g id="Not_an_artboard">
 </g>
 </svg>

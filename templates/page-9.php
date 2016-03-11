@@ -7,7 +7,7 @@
   $areas = get_terms( 'area');
   foreach($areas as $area){
     ?>
-    <div class='col-sm-4 col-sm-offset-1 text-center well'>
+    <div class='col-sm-4 col-sm-offset-1 text-center darken'>
       <?php
       $args = array(
         'post_type' => 'technology',

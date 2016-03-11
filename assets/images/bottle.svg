@@ -10,27 +10,9 @@
 	.st5{opacity:0.2;enable-background:new    ;}
 	.st6{opacity:0.1;fill:url(#shadow_1_);stroke:#000000;stroke-miterlimit:10;enable-background:new    ;}
 </style>
-<g id="_x36__-_Glass">
-	<g id="Glass">
-	</g>
-</g>
-<g id="_x35__-_Grain_1_">
-	<g id="grain_group_1_">
-		<g id="grain_group">
-		</g>
-		<g id="grain_group_shadow" class="st0">
-		</g>
-	</g>
-</g>
-<g id="_x34__-_Tap">
-</g>
+
 <g id="_x33__-_Bottle">
-	<g id="bg" class="st1">
-		<rect class="st2" width="1000" height="1000"/>
-	</g>
 	<g id="bottle">
-		<g id="Layer_5">
-		</g>
 		<path class="st3" d="M635.6,520c-2.7-34-18.1-64.7-41.5-87.1c-10.6-14.8-25.2-46.4-22.6-105.7c0,0-1.6-90.6-20.7-116
 			c0,0-9.3-31-5.3-49.3c4.3-1.1,7.6-5.1,7.6-9.8c0-5.5-4.5-10.1-10-10.1h-88c-5.5,0-10,4.6-10,10.1c0,5.3,4.2,9.8,9.5,10
 			c3.8,18.3-5.5,49.1-5.5,49.1c-19.1,25.4-20.7,116-20.7,116c2.6,60-12.4,91.5-22.9,106.1c-23,22.3-38.2,52.6-40.9,86.6H364v40.2
@@ -62,14 +44,5 @@
 			c-23,22.3-38.2,52.8-40.9,86.8h-1.4v39.8v253v4c0,22.1,18.9,40.2,41,40.2h192c22.1,0,39-18.2,39-40.2v-4v-253v-39.7H636z"/>
 	</g>
 </g>
-<g id="_x32__-_Grinder">
-</g>
-<g id="_x31__-_Boiler">
-	<g id="jar_group">
-	</g>
-	<g id="puff_group">
-	</g>
-</g>
-<g id="Not_an_artboard">
-</g>
+
 </svg>

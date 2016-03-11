@@ -2,24 +2,24 @@
 // TODO: move this as an external library
 jQuery.fn.extend({
   scrollBottom: function () {
-    return $(this).scrollTop() + $(this).height();
+    return jQuery(this).scrollTop() + jQuery(this).height();
   },
   top: function () {
-    return $(this).position().top;
+    return jQuery(this).position().top;
   },
   left: function () {
-    return $(this).position().left;
+    return jQuery(this).position().left;
   },
   bottom: function () {
-    return $(this).position().top+$(this).height();
+    return jQuery(this).position().top+jQuery(this).height();
   },
   right: function () {
-    return $(this).position().left+$(this).width();
+    return jQuery(this).position().left+jQuery(this).width();
   }
 });
 
 jQuery.fn.cssNum = function(){
-  return parseFloat($.fn.css.apply(this,arguments));
+  return parseFloat(jQuery.fn.css.apply(this,arguments));
 };
 
 jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });

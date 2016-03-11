@@ -21,109 +21,86 @@
 	.st15{fill:#EB6361;}
 	.st16{opacity:0.1;fill:url(#tub_shadow_1_);enable-background:new    ;}
 </style>
-<g id="_x36__-_Glass">
-	<g id="Glass">
-	</g>
-</g>
-<g id="_x35__-_Grain_1_">
-	<g id="grain_group_1_">
-		<g id="grain_group">
-		</g>
-		<g id="grain_group_shadow" class="st0">
-		</g>
-	</g>
-</g>
-<g id="_x34__-_Tap">
-</g>
-<g id="_x33__-_Bottle">
-	<g id="bg">
-	</g>
-	<g id="bottle">
-		<g id="Layer_5">
-		</g>
-		<g id="label">
-		</g>
-	</g>
-</g>
+
 <g id="_x32__-_Grinder">
 	<rect id="bg_3_" class="st1" width="1000" height="1000"/>
 	<g id="falling_grain">
 		<g>
 			<g>
 				<g>
-					<polygon id="flake_93_" class="st2" points="548.3,761.2 528.1,767.2 512.8,752.7 517.7,732.2 537.9,726.2 553.2,740.7 					
+					<polygon id="flake_93_" class="st2" points="548.3,761.2 528.1,767.2 512.8,752.7 517.7,732.2 537.9,726.2 553.2,740.7
 						"/>
-					
+
 						<linearGradient id="flake_shadow_1_" gradientUnits="userSpaceOnUse" x1="512.795" y1="253.3135" x2="553.205" y2="253.3135" gradientTransform="matrix(1 0 0 -1 0 1000)">
 						<stop  offset="0.5" style="stop-color:#FFFFFF"/>
 						<stop  offset="0.5" style="stop-color:#000000"/>
 					</linearGradient>
-					<polygon id="flake_shadow_93_" class="st3" points="548.3,761.2 528.1,767.2 512.8,752.7 517.7,732.2 537.9,726.2 553.2,740.7 
+					<polygon id="flake_shadow_93_" class="st3" points="548.3,761.2 528.1,767.2 512.8,752.7 517.7,732.2 537.9,726.2 553.2,740.7
 											"/>
 				</g>
 			</g>
 			<g>
 				<g>
-					<polygon id="flake_90_" class="st2" points="548.3,701.2 528.1,707.2 512.8,692.7 517.7,672.2 537.9,666.2 553.2,680.7 					
+					<polygon id="flake_90_" class="st2" points="548.3,701.2 528.1,707.2 512.8,692.7 517.7,672.2 537.9,666.2 553.2,680.7
 						"/>
-					
+
 						<linearGradient id="flake_shadow_2_" gradientUnits="userSpaceOnUse" x1="512.795" y1="313.3135" x2="553.205" y2="313.3135" gradientTransform="matrix(1 0 0 -1 0 1000)">
 						<stop  offset="0.5" style="stop-color:#FFFFFF"/>
 						<stop  offset="0.5" style="stop-color:#000000"/>
 					</linearGradient>
-					<polygon id="flake_shadow_90_" class="st4" points="548.3,701.2 528.1,707.2 512.8,692.7 517.7,672.2 537.9,666.2 553.2,680.7 
+					<polygon id="flake_shadow_90_" class="st4" points="548.3,701.2 528.1,707.2 512.8,692.7 517.7,672.2 537.9,666.2 553.2,680.7
 											"/>
 				</g>
 			</g>
 			<g>
 				<g>
-					<polygon id="flake_87_" class="st2" points="548.3,641.2 528.1,647.2 512.8,632.7 517.7,612.2 537.9,606.2 553.2,620.7 					
+					<polygon id="flake_87_" class="st2" points="548.3,641.2 528.1,647.2 512.8,632.7 517.7,612.2 537.9,606.2 553.2,620.7
 						"/>
-					
+
 						<linearGradient id="flake_shadow_3_" gradientUnits="userSpaceOnUse" x1="512.795" y1="373.3135" x2="553.205" y2="373.3135" gradientTransform="matrix(1 0 0 -1 0 1000)">
 						<stop  offset="0.5" style="stop-color:#FFFFFF"/>
 						<stop  offset="0.5" style="stop-color:#000000"/>
 					</linearGradient>
-					<polygon id="flake_shadow_87_" class="st5" points="548.3,641.2 528.1,647.2 512.8,632.7 517.7,612.2 537.9,606.2 553.2,620.7 
+					<polygon id="flake_shadow_87_" class="st5" points="548.3,641.2 528.1,647.2 512.8,632.7 517.7,612.2 537.9,606.2 553.2,620.7
 											"/>
 				</g>
 			</g>
 			<g>
 				<g>
-					<polygon id="flake_84_" class="st2" points="548.3,581.2 528.1,587.2 512.8,572.7 517.7,552.2 537.9,546.2 553.2,560.7 					
+					<polygon id="flake_84_" class="st2" points="548.3,581.2 528.1,587.2 512.8,572.7 517.7,552.2 537.9,546.2 553.2,560.7
 						"/>
-					
+
 						<linearGradient id="flake_shadow_4_" gradientUnits="userSpaceOnUse" x1="512.795" y1="433.3135" x2="553.205" y2="433.3135" gradientTransform="matrix(1 0 0 -1 0 1000)">
 						<stop  offset="0.5" style="stop-color:#FFFFFF"/>
 						<stop  offset="0.5" style="stop-color:#000000"/>
 					</linearGradient>
-					<polygon id="flake_shadow_84_" class="st6" points="548.3,581.2 528.1,587.2 512.8,572.7 517.7,552.2 537.9,546.2 553.2,560.7 
+					<polygon id="flake_shadow_84_" class="st6" points="548.3,581.2 528.1,587.2 512.8,572.7 517.7,552.2 537.9,546.2 553.2,560.7
 											"/>
 				</g>
 			</g>
 			<g>
 				<g>
-					<polygon id="flake_81_" class="st2" points="548.3,521.2 528.1,527.2 512.8,512.7 517.7,492.2 537.9,486.2 553.2,500.7 					
+					<polygon id="flake_81_" class="st2" points="548.3,521.2 528.1,527.2 512.8,512.7 517.7,492.2 537.9,486.2 553.2,500.7
 						"/>
-					
+
 						<linearGradient id="flake_shadow_5_" gradientUnits="userSpaceOnUse" x1="512.795" y1="493.3135" x2="553.205" y2="493.3135" gradientTransform="matrix(1 0 0 -1 0 1000)">
 						<stop  offset="0.5" style="stop-color:#FFFFFF"/>
 						<stop  offset="0.5" style="stop-color:#000000"/>
 					</linearGradient>
-					<polygon id="flake_shadow_81_" class="st7" points="548.3,521.2 528.1,527.2 512.8,512.7 517.7,492.2 537.9,486.2 553.2,500.7 
+					<polygon id="flake_shadow_81_" class="st7" points="548.3,521.2 528.1,527.2 512.8,512.7 517.7,492.2 537.9,486.2 553.2,500.7
 											"/>
 				</g>
 			</g>
 			<g>
 				<g>
-					<polygon id="flake_78_" class="st2" points="548.3,461.2 528.1,467.2 512.8,452.7 517.7,432.2 537.9,426.2 553.2,440.7 					
+					<polygon id="flake_78_" class="st2" points="548.3,461.2 528.1,467.2 512.8,452.7 517.7,432.2 537.9,426.2 553.2,440.7
 						"/>
-					
+
 						<linearGradient id="flake_shadow_6_" gradientUnits="userSpaceOnUse" x1="512.795" y1="553.3135" x2="553.205" y2="553.3135" gradientTransform="matrix(1 0 0 -1 0 1000)">
 						<stop  offset="0.5" style="stop-color:#FFFFFF"/>
 						<stop  offset="0.5" style="stop-color:#000000"/>
 					</linearGradient>
-					<polygon id="flake_shadow_78_" class="st8" points="548.3,461.2 528.1,467.2 512.8,452.7 517.7,432.2 537.9,426.2 553.2,440.7 
+					<polygon id="flake_shadow_78_" class="st8" points="548.3,461.2 528.1,467.2 512.8,452.7 517.7,432.2 537.9,426.2 553.2,440.7
 											"/>
 				</g>
 			</g>
@@ -131,79 +108,79 @@
 		<g>
 			<g>
 				<g>
-					<polygon id="flake_75_" class="st2" points="482.3,726.2 462.1,732.2 446.8,717.7 451.7,697.2 471.9,691.2 487.2,705.7 					
+					<polygon id="flake_75_" class="st2" points="482.3,726.2 462.1,732.2 446.8,717.7 451.7,697.2 471.9,691.2 487.2,705.7
 						"/>
-					
+
 						<linearGradient id="flake_shadow_7_" gradientUnits="userSpaceOnUse" x1="446.794" y1="288.3135" x2="487.206" y2="288.3135" gradientTransform="matrix(1 0 0 -1 0 1000)">
 						<stop  offset="0.5" style="stop-color:#FFFFFF"/>
 						<stop  offset="0.5" style="stop-color:#000000"/>
 					</linearGradient>
-					<polygon id="flake_shadow_75_" class="st9" points="482.3,726.2 462.1,732.2 446.8,717.7 451.7,697.2 471.9,691.2 487.2,705.7 
+					<polygon id="flake_shadow_75_" class="st9" points="482.3,726.2 462.1,732.2 446.8,717.7 451.7,697.2 471.9,691.2 487.2,705.7
 											"/>
 				</g>
 			</g>
 			<g>
 				<g>
-					<polygon id="flake_72_" class="st2" points="482.3,666.2 462.1,672.2 446.8,657.7 451.7,637.2 471.9,631.2 487.2,645.7 					
+					<polygon id="flake_72_" class="st2" points="482.3,666.2 462.1,672.2 446.8,657.7 451.7,637.2 471.9,631.2 487.2,645.7
 						"/>
-					
+
 						<linearGradient id="flake_shadow_8_" gradientUnits="userSpaceOnUse" x1="446.794" y1="348.3135" x2="487.206" y2="348.3135" gradientTransform="matrix(1 0 0 -1 0 1000)">
 						<stop  offset="0.5" style="stop-color:#FFFFFF"/>
 						<stop  offset="0.5" style="stop-color:#000000"/>
 					</linearGradient>
-					<polygon id="flake_shadow_72_" class="st10" points="482.3,666.2 462.1,672.2 446.8,657.7 451.7,637.2 471.9,631.2 
+					<polygon id="flake_shadow_72_" class="st10" points="482.3,666.2 462.1,672.2 446.8,657.7 451.7,637.2 471.9,631.2
 						487.2,645.7 					"/>
 				</g>
 			</g>
 			<g>
 				<g>
-					<polygon id="flake_69_" class="st2" points="482.3,606.2 462.1,612.2 446.8,597.7 451.7,577.2 471.9,571.2 487.2,585.7 					
+					<polygon id="flake_69_" class="st2" points="482.3,606.2 462.1,612.2 446.8,597.7 451.7,577.2 471.9,571.2 487.2,585.7
 						"/>
-					
+
 						<linearGradient id="flake_shadow_9_" gradientUnits="userSpaceOnUse" x1="446.794" y1="408.3135" x2="487.206" y2="408.3135" gradientTransform="matrix(1 0 0 -1 0 1000)">
 						<stop  offset="0.5" style="stop-color:#FFFFFF"/>
 						<stop  offset="0.5" style="stop-color:#000000"/>
 					</linearGradient>
-					<polygon id="flake_shadow_69_" class="st11" points="482.3,606.2 462.1,612.2 446.8,597.7 451.7,577.2 471.9,571.2 
+					<polygon id="flake_shadow_69_" class="st11" points="482.3,606.2 462.1,612.2 446.8,597.7 451.7,577.2 471.9,571.2
 						487.2,585.7 					"/>
 				</g>
 			</g>
 			<g>
 				<g>
-					<polygon id="flake_66_" class="st2" points="482.3,546.2 462.1,552.2 446.8,537.7 451.7,517.2 471.9,511.2 487.2,525.7 					
+					<polygon id="flake_66_" class="st2" points="482.3,546.2 462.1,552.2 446.8,537.7 451.7,517.2 471.9,511.2 487.2,525.7
 						"/>
-					
+
 						<linearGradient id="flake_shadow_10_" gradientUnits="userSpaceOnUse" x1="446.794" y1="468.3135" x2="487.206" y2="468.3135" gradientTransform="matrix(1 0 0 -1 0 1000)">
 						<stop  offset="0.5" style="stop-color:#FFFFFF"/>
 						<stop  offset="0.5" style="stop-color:#000000"/>
 					</linearGradient>
-					<polygon id="flake_shadow_66_" class="st12" points="482.3,546.2 462.1,552.2 446.8,537.7 451.7,517.2 471.9,511.2 
+					<polygon id="flake_shadow_66_" class="st12" points="482.3,546.2 462.1,552.2 446.8,537.7 451.7,517.2 471.9,511.2
 						487.2,525.7 					"/>
 				</g>
 			</g>
 			<g>
 				<g>
-					<polygon id="flake_63_" class="st2" points="482.3,486.2 462.1,492.2 446.8,477.7 451.7,457.2 471.9,451.2 487.2,465.7 					
+					<polygon id="flake_63_" class="st2" points="482.3,486.2 462.1,492.2 446.8,477.7 451.7,457.2 471.9,451.2 487.2,465.7
 						"/>
-					
+
 						<linearGradient id="flake_shadow_11_" gradientUnits="userSpaceOnUse" x1="446.794" y1="528.3135" x2="487.206" y2="528.3135" gradientTransform="matrix(1 0 0 -1 0 1000)">
 						<stop  offset="0.5" style="stop-color:#FFFFFF"/>
 						<stop  offset="0.5" style="stop-color:#000000"/>
 					</linearGradient>
-					<polygon id="flake_shadow_63_" class="st13" points="482.3,486.2 462.1,492.2 446.8,477.7 451.7,457.2 471.9,451.2 
+					<polygon id="flake_shadow_63_" class="st13" points="482.3,486.2 462.1,492.2 446.8,477.7 451.7,457.2 471.9,451.2
 						487.2,465.7 					"/>
 				</g>
 			</g>
 			<g>
 				<g>
-					<polygon id="flake_60_" class="st2" points="482.3,426.2 462.1,432.2 446.8,417.7 451.7,397.2 471.9,391.2 487.2,405.7 					
+					<polygon id="flake_60_" class="st2" points="482.3,426.2 462.1,432.2 446.8,417.7 451.7,397.2 471.9,391.2 487.2,405.7
 						"/>
-					
+
 						<linearGradient id="flake_shadow_12_" gradientUnits="userSpaceOnUse" x1="446.794" y1="588.3135" x2="487.206" y2="588.3135" gradientTransform="matrix(1 0 0 -1 0 1000)">
 						<stop  offset="0.5" style="stop-color:#FFFFFF"/>
 						<stop  offset="0.5" style="stop-color:#000000"/>
 					</linearGradient>
-					<polygon id="flake_shadow_60_" class="st14" points="482.3,426.2 462.1,432.2 446.8,417.7 451.7,397.2 471.9,391.2 
+					<polygon id="flake_shadow_60_" class="st14" points="482.3,426.2 462.1,432.2 446.8,417.7 451.7,397.2 471.9,391.2
 						487.2,405.7 					"/>
 				</g>
 			</g>
@@ -224,19 +201,11 @@
 			c2.2-3.9,2.7-8.1,3.6-12.7L608,237.2z M556.6,263.6c-17.7,0-32-14.3-32-32s14.3-32,32-32c17.7,0,32,14.3,32,32
 			S574.3,263.6,556.6,263.6z"/>
 	</g>
-	
+
 		<linearGradient id="tub_shadow_1_" gradientUnits="userSpaceOnUse" x1="345.25" y1="745" x2="654.75" y2="745" gradientTransform="matrix(1 0 0 -1 0 1000)">
 		<stop  offset="0.5" style="stop-color:#FFFFFF"/>
 		<stop  offset="0.5" style="stop-color:#000000"/>
 	</linearGradient>
 	<polygon id="tub_shadow" class="st16" points="407.1,410 345.2,100 654.8,100 592.8,410 	"/>
-</g>
-<g id="_x31__-_Boiler">
-	<g id="jar_group">
-	</g>
-	<g id="puff_group">
-	</g>
-</g>
-<g id="Not_an_artboard">
 </g>
 </svg>
