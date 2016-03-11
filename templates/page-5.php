@@ -12,11 +12,11 @@ $connected = new WP_Query( array(
 // Display connected pages
 if ( $connected->have_posts() ) {
     ?>
-    <div class="project-on-homepage well ribbon-holder">
+    <div class="project-on-homepage">
         <?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
-            <a href="<?=get_permalink()?>" class="corner-ribbon top-left shadow">
+            <h2><a href="<?=get_permalink()?>" class="">
                 <?=the_title()?>
-            </a>
+            </a></h2>
             <?php
             $image = get_field('full_mockup');
             ?>

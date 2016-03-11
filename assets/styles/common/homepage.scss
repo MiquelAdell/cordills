@@ -38,7 +38,6 @@ header {
 	top: 0; bottom: 0; left: 0; right: 0;
 }
 
-
 // PROJECT SECTION
 
 .project-image {
@@ -54,31 +53,46 @@ header {
 }
 
 // COLORS
-.front-page-section:nth-child(1) .section-icon {
-	background-color: $scene-1-color;
-}
-
-.front-page-section:nth-child(2) .section-icon {
-	background-color: $scene-2-color;
-}
-
-.front-page-section:nth-child(3) .section-icon {
-	background-color: $scene-3-color;
-}
-
-.front-page-section:nth-child(4) .section-icon {
-	background-color: $scene-4-color;
-}
-
-
-.front-page-section:nth-child(odd) {
-	background-color: $gray-lighter;
-}
-
-.front-page-section:nth-child(even) {
-}
+$darken-icon-ammount: 10%;
 
 .front-page-section:nth-child(1) {
-	background-color: $darkest-background-color;
+	background-color: $scene-1-color;
 	color: white;
+
+	.section-icon {
+		background-image: none, url('../images/pint.svg'), url('../images/bottle.svg');
+		background-position: 50% 0, 50% 50%;
+		background-size: 50% 50%, 75% 75%;
+		background-color: darken($scene-1-color,$darken-icon-ammount);
+	}
+}
+
+.front-page-section:nth-child(2) {
+	background-color: $scene-2-color;
+	.section-icon {
+		background-image: url('../images/bottle.svg'), url('../images/bottle.svg'), url('../images/bottle.svg'), url('../images/tap.svg');
+		background-position: 33% 75%, 50% 75% , 66% 75%, 50% 50%;
+		background-size: 25% 25%, 25% 25%, 25% 25%, 75% 75%;
+		background-color: darken($scene-2-color,$darken-icon-ammount);
+	}
+}
+
+.front-page-section:nth-child(3) {
+	background-color: $scene-3-color;
+	.section-icon {
+		background-image: url('../images/boiler.svg');
+		background-position: 50% 50%;
+		background-size: 75% 75%;
+		background-color: darken($scene-3-color,$darken-icon-ammount);
+	}
+}
+
+.front-page-section:nth-child(4) {
+	background-color: $scene-4-color;
+	.section-icon {
+		background-image: url('../images/grain.svg'), url('../images/grain.svg'), url('../images/grain.svg'), url('../images/grinder.svg');
+		background-position: 33% 0, 50% 0, 66% 0, 50% 75%;
+		background-size: 20% 20%, 20% 20%, 20% 20%, 75% 75%;
+		background-color: darken($scene-4-color,$darken-icon-ammount);
+	}
 }

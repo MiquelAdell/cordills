@@ -20,7 +20,7 @@ if( get_field( "call_to_action_text" ) ) {
 
                     <div class="col-xs-12 col-xs-offset-0 col-md-3 col-md-offset-0">
                         <div class="section-icon-holder">
-                            <div class="section-icon section-icon-<?=$post->ID?>" style="background-image: url('<?= get_template_directory_uri(); ?>/dist/images/icon<?=$post->ID?>.png');">
+                            <div class="section-icon section-icon-<?=$post->ID?>">
                             </div>
                         </div>
                     </div>

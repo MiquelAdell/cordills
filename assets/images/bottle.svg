@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve">
+<style type="text/css">
+	.st0{opacity:0.1;}
+	.st1{display:none;}
+	.st3{fill:#87766C;}
+	.st4{fill:#EB6361;}
+	.st5{opacity:0.2;enable-background:new    ;}
+	.st6{opacity:0.1;fill:url(#shadow_1_);stroke:#000000;stroke-miterlimit:10;enable-background:new    ;}
+</style>
+<g id="_x36__-_Glass">
+	<g id="Glass">
+	</g>
+</g>
+<g id="_x35__-_Grain_1_">
+	<g id="grain_group_1_">
+		<g id="grain_group">
+		</g>
+		<g id="grain_group_shadow" class="st0">
+		</g>
+	</g>
+</g>
+<g id="_x34__-_Tap">
+</g>
+<g id="_x33__-_Bottle">
+	<g id="bg" class="st1">
+		<rect class="st2" width="1000" height="1000"/>
+	</g>
+	<g id="bottle">
+		<g id="Layer_5">
+		</g>
+		<path class="st3" d="M635.6,520c-2.7-34-18.1-64.7-41.5-87.1c-10.6-14.8-25.2-46.4-22.6-105.7c0,0-1.6-90.6-20.7-116
+			c0,0-9.3-31-5.3-49.3c4.3-1.1,7.6-5.1,7.6-9.8c0-5.5-4.5-10.1-10-10.1h-88c-5.5,0-10,4.6-10,10.1c0,5.3,4.2,9.8,9.5,10
+			c3.8,18.3-5.5,49.1-5.5,49.1c-19.1,25.4-20.7,116-20.7,116c2.6,60-12.4,91.5-22.9,106.1c-23,22.3-38.2,52.6-40.9,86.6H364v40.2
+			v253v4c0,22.1,17.9,39.8,40,39.8h192c22.1,0,40-17.7,40-39.8v-4v-253V520H635.6z"/>
+		<g id="label">
+			<path class="st4" d="M501.4,756.7c-28.6,0-55.8-12.7-74.5-33.7h-24.4c-21.3,0-28.5-14.4-28.5-22.5v-87.9
+				c0-11,10.7-21.6,28.5-21.6h24.8c18.7-21,45.8-33.2,74.1-33.2s55.4,12.2,74.1,33.2h23.8c17.8,0,26.7,10.6,26.7,21.6v87.9
+				c0,8.1-5.3,22.5-26.7,22.5h-23.4C557.2,744,530,756.7,501.4,756.7z"/>
+			<path class="st5" d="M600.7,612h-33c-14.6-19-38.2-33.2-65-33.2s-50.4,14.2-65,33.2h-33.9c-4.3,0-9.9-0.9-9.9,0.6v87.9
+				c0,1.5,5.5,5.5,9.9,5.5h33.6c14.5,20,38.4,33.7,65.3,33.7c26.9,0,50.8-13.7,65.3-33.7h32.7c4.3,0,5.3-4,5.3-5.5v-87.9
+				C606,611.1,605,612,600.7,612z"/>
+		</g>
+
+			<linearGradient id="shadow_1_" gradientUnits="userSpaceOnUse" x1="363.6" y1="267.9" x2="636" y2="267.9" gradientTransform="matrix(1 0 0 1 0 232)">
+			<stop  offset="0.5" style="stop-color:#FFFFFF"/>
+			<stop  offset="0.5" style="stop-color:#FEFEFE"/>
+			<stop  offset="0.5" style="stop-color:#C3C3C3"/>
+			<stop  offset="0.5" style="stop-color:#8F8F8F"/>
+			<stop  offset="0.5" style="stop-color:#636363"/>
+			<stop  offset="0.5" style="stop-color:#3F3F3F"/>
+			<stop  offset="0.5" style="stop-color:#242424"/>
+			<stop  offset="0.5" style="stop-color:#101010"/>
+			<stop  offset="0.5" style="stop-color:#040404"/>
+			<stop  offset="0.5" style="stop-color:#000000"/>
+		</linearGradient>
+		<path id="shadow" class="st6" d="M636,520.5c-2.7-35-18.1-64.9-41.5-87.3c-10.6-14.8-25.2-46.5-22.6-105.8
+			c0,0-1.6-90.6-20.7-116.1c0,0-9.3-31.1-5.3-49.4c4.3-1.1,7.6-4.9,7.6-9.6c0-5.5-4.5-9.9-10-9.9h-88c-5.5,0-10,4.4-10,9.9
+			c0,5.3,4.2,9.6,9.5,9.9c3.8,18.3-5.5,49-5.5,49c-19.1,25.4-20.7,116-20.7,116c2.6,60-12.4,91.8-22.9,106.4
+			c-23,22.3-38.2,52.8-40.9,86.8h-1.4v39.8v253v4c0,22.1,18.9,40.2,41,40.2h192c22.1,0,39-18.2,39-40.2v-4v-253v-39.7H636z"/>
+	</g>
+</g>
+<g id="_x32__-_Grinder">
+</g>
+<g id="_x31__-_Boiler">
+	<g id="jar_group">
+	</g>
+	<g id="puff_group">
+	</g>
+</g>
+<g id="Not_an_artboard">
+</g>
+</svg>
