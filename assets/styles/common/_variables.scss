@@ -1,26 +1,15 @@
-// MY colors
-$title-color:      #EBBD63;
-$link-color:       #EBBD63;
+$text-color: rgba(256, 256, 256, 0.9);
+$gray-base:              rgba(0, 0, 0, 0.8);
 
-// other colors:
-
-$darkest-background-color: #3b2d23;
-$white: #FFF;
+$title-color:      rgba(256, 256, 256, 0.5);
 
 
+$scene-1-color:    hsl(39, 51%, 42%);
+$scene-2-color:    hsl(18, 51%, 42%);
+$scene-3-color:    hsl(204, 26%, 42%);
+$scene-4-color:    hsl(173, 10%, 42%);
 
 
-
-
-// $scene-1-color:    #e86062;
-// $scene-2-color:    #EBBD63;
-// $scene-3-color:    #6b8884;
-// $scene-4-color:    #3b2d23;
-
-$scene-1-color:    #6d8784;
-$scene-2-color:    #b8613b;
-$scene-3-color:    #39759e;
-$scene-4-color:    #ba851e;
 
 // Glyphicons font path
 $icon-font-path:        "../fonts/";
@@ -29,26 +18,29 @@ $icon-font-path:        "../fonts/";
 $main-sm-columns:       12;
 $sidebar-sm-columns:    4;
 
-// Colors
-// defaults are for reference
+$brand-primary:         $scene-1-color;
+$brand-success:         #5cb85c;
+$brand-info:            #5bc0de;
+$brand-warning:         #f0ad4e;
+$brand-danger:          #e86062;
 
-// $brand-primary:         darken(#428bca, 6.5%) !default; // #337ab7
-// $brand-success:         #5cb85c !default;
-// $brand-info:            #5bc0de !default;
-// $brand-warning:         #f0ad4e !default;
-// $brand-danger:          #d9534f !default;
+$body-bg:                $scene-1-color;
 
-// $body-bg:               #fff !default;
-// $text-color:            $gray-dark !default;
 
 
 $highlight-primary:     $title-color;
-$brand-danger:          #e86062;
+
 
 // Fonts
 $font-family-sans-serif: "ff-tisa-sans-web-pro", Helvetica, Arial, sans-serif;
 $font-family-serif:      "ff-tisa-web-pro", "Times New Roman", Times, serif;
 $headings-font-family:   "ff-tisa-web-pro";
 
-$font-size-base:        15px; //from 14px
-$font-size-h1:          60px; //from 36 with font 14px
+$body-font-size:        16px;
+$font-size-base:        1em;
+$font-size-h1:          $font-size-base * 5 !important;
+$font-size-h2:          $font-size-base * 3 !important;
+$font-size-h3:          $font-size-base * 2 !important;
+$font-size-h4:          $font-size-base * 1.5 !important;
+$font-size-h5:          $font-size-base !important;
+$font-size-h6:          $font-size-base * 0.85 !important;

@@ -1,6 +1,26 @@
-h1 {
+body {
+    font-size: $body-font-size;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
     color: $title-color;
     font-family: $font-family-serif;
+    text-align: center;
+    font-weight: bold;
+
+    a {
+        color: $title-color;
+    }
+
+    &:hover {
+        color: invert($title-color);
+    }
+
+}
+
+
+p {
+    padding: 1em;
+    margin-bottom: 1em;
     text-align: center;
 }
 
@@ -92,4 +112,8 @@ a {
     float: left;
     color: $link-color;
     margin: 0 0.5em;
+}
+
+.page-header {
+    border: 0;
 }

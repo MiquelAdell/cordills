@@ -24,8 +24,7 @@ header {
 }
 
 .section-icon-holder {
-	height: 100%;
-	padding-bottom: 100%;
+	height: 50%;
 	position: relative;
 }
 .section-icon {
@@ -52,21 +51,27 @@ header {
 	text-align: center;
 }
 
+
+
 // COLORS
-$darken-icon-ammount: 10%;
+$darken-icon-ammount: 0%;
 
 .front-page-section:nth-child(1) {
 	background-color: $scene-1-color;
-	color: white;
+
 
 	.section-icon {
 		background-image: none, url('../images/pint.svg'), url('../images/bottle.svg');
 		background-position: 50% 0, 50% 50%;
-		background-size: 50% 50%, 75% 75%;
+		background-size: 50% 50%, 300% 300%;
 		background-color: darken($scene-1-color,$darken-icon-ammount);
 	}
 	.darken {
 		background-color: darken($scene-2-color,$darken-icon-ammount);
+	}
+
+	h1, h2, h2 a {
+		color: darken($scene-1-color,20%);
 	}
 }
 
@@ -78,8 +83,11 @@ $darken-icon-ammount: 10%;
 	.section-icon {
 		background-image: url('../images/bottle.svg'), url('../images/bottle.svg'), url('../images/bottle.svg'), url('../images/tap.svg');
 		background-position: 33% 75%, 50% 75% , 66% 75%, 50% 50%;
-		background-size: 25% 25%, 25% 25%, 25% 25%, 75% 75%;
+		background-size: 25% 25%, 25% 25%, 25% 25%, 300% 300%;
 		background-color: darken($scene-2-color,$darken-icon-ammount);
+	}
+	h1 {
+		color: darken($scene-2-color,20%);
 	}
 }
 
@@ -88,11 +96,14 @@ $darken-icon-ammount: 10%;
 	.section-icon {
 		background-image: url('../images/boiler.svg');
 		background-position: 50% 50%;
-		background-size: 75% 75%;
+		background-size: 300% 300%;
 		background-color: darken($scene-3-color,$darken-icon-ammount);
 	}
 	.darken {
 		background-color: darken($scene-3-color,$darken-icon-ammount);
+	}
+	h1 {
+		color: darken($scene-3-color,20%);
 	}
 }
 
@@ -101,10 +112,13 @@ $darken-icon-ammount: 10%;
 	.section-icon {
 		background-image: url('../images/grain.svg'), url('../images/grain.svg'), url('../images/grain.svg'), url('../images/grinder.svg');
 		background-position: 33% 0, 50% 0, 66% 0, 50% 75%;
-		background-size: 20% 20%, 20% 20%, 20% 20%, 75% 75%;
+		background-size: 20% 20%, 20% 20%, 20% 20%, 300% 300%;
 		background-color: darken($scene-4-color,$darken-icon-ammount);
 	}
 	.darken {
 		background-color: darken($scene-4-color,$darken-icon-ammount);
+	}
+	h1 {
+		color: darken($scene-4-color,20%);
 	}
 }
