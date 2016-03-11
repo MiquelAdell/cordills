@@ -39,7 +39,7 @@ $testimonialLoop = new WP_Query( $args );
                 $testimonialLoop->the_post();
                 $testimonial = get_post();
 
-                $has_read_more = mb_strpos($testimonial->post_content,'<!--more-->') !== false;
+                $has_read_more = strpos($testimonial->post_content,'<!--more-->') !== false;
                 $text = get_the_excerpt();
                 if($has_read_more){
                     $text .= "…";
