@@ -8,6 +8,12 @@ $page_query = new WP_Query( $args );
 ?>
 
 
+<div style="display:none">
+	<?php echo file_get_contents(get_stylesheet_directory()."/dist/images/glass.svg"); ?>
+	<?php echo file_get_contents(get_stylesheet_directory()."/dist/images/tap.svg"); ?>
+	<?php echo file_get_contents(get_stylesheet_directory()."/dist/images/boiler.svg"); ?>
+	<?php echo file_get_contents(get_stylesheet_directory()."/dist/images/grinder.svg"); ?>
+</div>
 
 
 <?php if( $page_query->have_posts() ) : ?>
