@@ -7,7 +7,7 @@
   $areas = get_terms( 'area');
   foreach($areas as $area){
     ?>
-    <div class='col-sm-4 col-sm-offset-1 text-center darken'>
+    <div class='col-sm-6 text-center'>
       <?php
       $args = array(
         'post_type' => 'technology',
@@ -31,13 +31,9 @@
           <h2><?=$area->name?></h2>
           <div class='icons'>
             <?php while ( $technologies->have_posts() ) : $technologies->the_post(); ?>
-              <span class='icon'>
-                <a href="<?=get_permalink()?>">
                   <h3>
-                    <i class="<?=get_field('icon')?>" data-toggle="tooltip" title="<?=the_title()?>"></i>
+                    <a href="<?=get_permalink()?>"><i class="<?=get_field('icon')?>" data-toggle="tooltip" title="<?=the_title()?>"></i></a>
                   </h3>
-                </a>
-              </span>
             <?php endwhile; ?>
           </div>
           <?php

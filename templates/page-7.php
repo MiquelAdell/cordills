@@ -15,28 +15,12 @@ if ( $stages->have_posts() ) {
   ?>
   <div clas='row'>
   <?php while ( $stages->have_posts() ) : $stages->the_post(); ?>
-    <div class='col-sm-4 col-sm-offset-1 text-center darken'>
-      <div class="stage">
-        <a href="<?=get_permalink()?>">
-          <div class="front">
-            <div class='iconHolder'>
-              <div class='icon'>
-                <i class="<?=get_field('icon')?>"></i>
-                <h2><?=the_title()?></h2>
-              </div>
-            </div>
-          </div>
-          <div class="back">
-            <div class='iconHolder'>
-              <div class='icon'>
-                <?=the_content()?>
-              </div>
-            </div>
-          </div>
-        </a>
+      <div class='col-sm-4'>
+          <h4><a href="<?=get_permalink()?>"><i class="<?=get_field('icon')?>"></i></h4>
+          <h4><a href="<?=get_permalink()?>"><?=the_title()?></a></h4>
+          <?=the_content()?>
       </div>
-    </div>
-  <?php endwhile; ?>
+    <?php endwhile; ?>
   </div>
   <?php
   // Prevent weirdness

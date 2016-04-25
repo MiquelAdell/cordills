@@ -28,70 +28,6 @@ p {
 	border-bottom-color: $title-color;
 }
 
-a {
-    color: $link-color;
-}
-    a:hover {
-          background: darken($link-color, 80%);
-    }
-
-
-.stage {
-    display: block;
-    text-align: center;
-    height: 250px;
-}
-
-.stage h2 {
-    color: $link-color;
-    font-size: 2em;
-}
-
-.stage .front {
-}
-
-.stage .back {
-    display: none;
-}
-
-.stage:hover .back {
-    display: block;
-    color: $link-color;
-    font-weight: bold;
-    text-align: justify;
-}
-
-.stage:hover .front {
-    display: none;
-}
-
-.stage a,
-.stage a:hover {
-
-}
-
-.stage .iconHolder {
-
-}
-
-.stage .icon {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1em;
-    margin: 1em;
-}
-
-.stage .fa {
-    font-size: 6em;
-    color: $link-color;
-}
-
-.front-page-technology {
-    width: 100%;
-}
 
 .front-page-technology h2 {
     text-decoration: underline;
@@ -109,9 +45,7 @@ a {
 }
 
 .front-page-technology .icon i {
-    float: left;
-    color: $link-color;
-    margin: 0 0.5em;
+
 }
 
 .page-header {

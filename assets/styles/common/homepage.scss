@@ -13,6 +13,10 @@ header {
 	display: none; // we'll need this eventually
 }
 
+footer {
+	display: none; // we'll need this eventually
+}
+
 .home.page .main {
 	margin: 0;
 	padding: 0;
@@ -21,15 +25,6 @@ header {
 
 .front-page-section {
 	height: 100vh;
-}
-
-.section-icon-holder {
-	height: 500px;
-	width: 250px;
-	svg {
-		height: 500px;
-		width: 250px;
-	}
 }
 
 // PROJECT SECTION
@@ -58,10 +53,22 @@ body {
 	background: linear-gradient(to bottom, $scene-1-color, $scene-2-color, $scene-3-color, $scene-4-color);
 }
 
+.section-icon {
+	width: 100%;
+	height: 33vh;
+	margin-top: 33vh;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center center;
+}
+
+
 
 .front-page-section:nth-child(1) {
-	// background-color: $scene-1-color;
+	.section-icon {
+		background-image: url("../images/glass.svg");
 
+	}
 
 	.darken {
 		background-color: darken($scene-2-color,$darken-icon-ammount);
@@ -73,7 +80,9 @@ body {
 }
 
 .front-page-section:nth-child(2) {
-	// background-color: $scene-2-color;
+	.section-icon {
+		background-image: url("../images/bottle.svg");
+	}
 	.darken {
 		background-color: darken($scene-2-color,$darken-icon-ammount);
 	}
@@ -83,7 +92,9 @@ body {
 }
 
 .front-page-section:nth-child(3) {
-	// background-color: $scene-3-color;
+	.section-icon {
+		background-image: url("../images/boiler.svg");
+	}
 	.darken {
 		background-color: darken($scene-3-color,$darken-icon-ammount);
 	}
@@ -93,9 +104,8 @@ body {
 }
 
 .front-page-section:nth-child(4) {
-	// background-color: $scene-4-color;
 	.section-icon {
-
+		background-image: url("../images/grinder.svg");
 	}
 	.darken {
 		background-color: darken($scene-4-color,$darken-icon-ammount);
