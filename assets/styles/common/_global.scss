@@ -2,21 +2,24 @@ body {
     font-size: $body-font-size;
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
-    color: $title-color;
+    color: rgba(256, 256, 256, 0.5);
     font-family: $font-family-serif;
     text-align: center;
     font-weight: bold;
 
     a {
-        color: $title-color;
+        color: rgba(256, 256, 256, 0.5);
+        &:hover {
+            color: rgba(256, 256, 256, 0.6);
+        }
     }
 
-    &:hover {
-        color: invert($title-color);
-    }
 
 }
 
+blockquote small {
+    color: opacify($text-color, 1);
+}
 
 p {
     padding: 1em;

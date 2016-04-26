@@ -1,15 +1,17 @@
-$text-color: rgba(256, 256, 256, 0.9);
-$gray-base:              rgba(0, 0, 0, 0.8);
+$text-color: 		rgba(256, 256, 256, 0.9);
+$gray-base:			rgba(0, 0, 0, 0.8);
 
-$title-color:      rgba(256, 256, 256, 0.5);
-
-
-$scene-1-color:    hsl(39, 51%, 42%);
-$scene-2-color:    hsl(18, 51%, 42%);
-$scene-3-color:    hsl(204, 26%, 42%);
-$scene-4-color:    hsl(173, 10%, 42%);
+$title-color:		rgba(256, 256, 256, 0.5);
 
 
+$scene-1-color:		hsl(39, 51%, 42%);
+$scene-2-color:		hsl(18, 51%, 42%);
+$scene-3-color:		hsl(204, 26%, 42%);
+$scene-4-color:		hsl(173, 10%, 42%);
+
+$link-color:		rgba(256, 256, 256, 0.8);
+$link-hover-color:	opacify($link-color,1);
+$link-hover-decoration: inherit;
 
 // Glyphicons font path
 $icon-font-path:        "../fonts/";
@@ -25,8 +27,6 @@ $brand-warning:         #f0ad4e;
 $brand-danger:          #e86062;
 
 $body-bg:                $scene-1-color;
-
-
 
 $highlight-primary:     $title-color;
 

@@ -46,7 +46,7 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
-      
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
@@ -112,6 +112,76 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
               })
               // .addIndicators({name: "i: "+i+" offset: "+offset+" duration: "+duration})
               .addTo(controller);
+            }
+
+            //magnetism
+            var stopped = true;
+            var respositioning = false;
+            if(magnetismEnabled){
+              var globalScene = new ScrollMagic.Scene({
+                offset: 0, duration: $('body').height() - $(window).height()/2
+              })
+              .addTo(controller);
+              globalScene.on("progress", function (event) {
+                if(!respositioning){
+                  var d = new Date();
+                  lastMillisecondScrolled = d.getTime();
+                  stopped = false;
+                }
+              });
+
+              var repositionIfNeeded = function(){
+                if(stopped){
+                  return;
+                }
+                var d = new Date();
+                currentMillisecond = d.getTime();
+                var millisecondsWithoutScroll = currentMillisecond - lastMillisecondScrolled;
+                if(millisecondsWithoutScroll > 333){
+                  //a third of a second has passed without scroll
+                  var found = false;
+                  $('section').each(function(){
+                    if(!found){
+                      var offsetTop = $(window).scrollTop() - $(this).top();
+                      var offsetMinimum = $('section').first().height() * 0.33;
+                      //Dettect if we need to reposition because we are at least than 33% of a bonduary
+
+                      if(Math.abs(offsetTop) < offsetMinimum){
+                        found = true;
+                        if(offsetTop === 0){
+                          //stopped
+                          repositioning = false;
+                          stopped = true;
+                        }
+                        else {
+                          //go to this top
+                          respositioning = true;
+                          stopped = true;
+                          closestSectionId = $(this).index();
+                        }
+                      }
+
+                      if(respositioning){
+                        controller.scrollTo(function (newScrollPos) {
+                          repositioning = true;
+                          stopped = true;
+                          $("html, body").animate({scrollTop: newScrollPos},function(){
+                            stopped = true;
+                            respositioning = false;
+                          });
+                        });
+                        controller.scrollTo($('section').eq(closestSectionId).top());
+                      }
+                    }
+
+                  });
+                }
+              };
+
+              //clock
+              var clock = setInterval(function(){
+                repositionIfNeeded();
+              }, 33);
             }
 
             $.each(scenes,function(index,scene){
@@ -211,76 +281,6 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
               });
             });
-          }
-
-          //magnetism
-          var stopped = true;
-          var respositioning = false;
-          if(magnetismEnabled){
-            var globalScene = new ScrollMagic.Scene({
-              offset: 0, duration: $('body').height() - $(window).height()/2
-            })
-            .addTo(controller);
-            globalScene.on("progress", function (event) {
-              if(!respositioning){
-                var d = new Date();
-                lastMillisecondScrolled = d.getTime();
-                stopped = false;
-              }
-            });
-
-            var repositionIfNeeded = function(){
-              if(stopped){
-                return;
-              }
-              var d = new Date();
-              currentMillisecond = d.getTime();
-              var millisecondsWithoutScroll = currentMillisecond - lastMillisecondScrolled;
-              if(millisecondsWithoutScroll > 333){
-                //a third of a second has passed without scroll
-                var found = false;
-                $('section').each(function(){
-                  if(!found){
-                    var offsetTop = $(window).scrollTop() - $(this).top();
-                    var offsetMinimum = $('section').first().height() * 0.33;
-                    //Dettect if we need to reposition because we are at least than 33% of a bonduary
-
-                    if(Math.abs(offsetTop) < offsetMinimum){
-                      found = true;
-                      if(offsetTop === 0){
-                        //stopped
-                        repositioning = false;
-                        stopped = true;
-                      }
-                      else {
-                        //go to this top
-                        respositioning = true;
-                        stopped = true;
-                        closestSectionId = $(this).index();
-                      }
-                    }
-
-                    if(respositioning){
-                      controller.scrollTo(function (newScrollPos) {
-                        repositioning = true;
-                        stopped = true;
-                        $("html, body").animate({scrollTop: newScrollPos},function(){
-                          stopped = true;
-                          respositioning = false;
-                        });
-                      });
-                      controller.scrollTo($('section').eq(closestSectionId).top());
-                    }
-                  }
-
-                });
-              }
-            };
-
-            //clock
-            var clock = setInterval(function(){
-              repositionIfNeeded();
-            }, 33);
           }
         };
 

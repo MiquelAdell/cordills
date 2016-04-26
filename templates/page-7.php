@@ -13,12 +13,11 @@ $stages = new WP_Query( $args );
 // Display connected pages
 if ( $stages->have_posts() ) {
   ?>
-  <div clas='row'>
+  <div clas='row process-panel-holder'>
   <?php while ( $stages->have_posts() ) : $stages->the_post(); ?>
-      <div class='col-sm-4'>
-          <h4><a href="<?=get_permalink()?>"><i class="<?=get_field('icon')?>"></i></h4>
-          <h4><a href="<?=get_permalink()?>"><?=the_title()?></a></h4>
-          <?=the_content()?>
+      <div class='col-sm-6 process-panel'>
+          <h4><i class="<?=get_field('icon')?>"></i> <?=the_title()?></h4>
+          <div class='text'><?=the_content()?></div>
       </div>
     <?php endwhile; ?>
   </div>
