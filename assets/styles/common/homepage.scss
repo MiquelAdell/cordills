@@ -24,7 +24,7 @@ footer {
 
 
 .front-page-section {
-	height: 100vh;
+	min-height: 100vh;
 }
 
 // PROJECT SECTION
@@ -44,14 +44,19 @@ footer {
 
 
 // COLORS
-$darken-icon-ammount: 0%;
 
 body {
 	background: $scene-1-color;
-	background: -webkit-linear-gradient(top, $scene-1-color, $scene-2-color, $scene-3-color, $scene-4-color);
-	background: -o-linear-gradient(top, $scene-1-color, $scene-2-color, $scene-3-color, $scene-4-color);
-	background: linear-gradient(to bottom, $scene-1-color, $scene-2-color, $scene-3-color, $scene-4-color);
+	background: linear-gradient(to bottom,
+		$scene-1-color, $scene-1-color, $scene-1-color,
+		$scene-2-color, $scene-2-color, $scene-2-color,
+		$scene-3-color, $scene-3-color, $scene-3-color,
+		$scene-4-color, $scene-4-color, $scene-4-color
+	);
+
 }
+
+
 
 .section-icon {
 	width: 100%;
@@ -62,13 +67,8 @@ body {
 	background-position: center center;
 }
 
-
 @mixin color_elements($color) {
-	.darken {
-  		background-color: darken($color,$darken-icon-ammount);
-  	}
-
-  	h1, h2, h3, h4, h5, h6 {
+	h1, h2, h3, h4, h5, h6 {
   		color: darken($color,20%);
   		a {
   			color: darken($color,20%);
