@@ -45,7 +45,7 @@ footer {
 
 // COLORS
 
-body {
+body.home {
 	background: $scene-1-color;
 	background: linear-gradient(to bottom,
 		$scene-1-color, $scene-1-color, $scene-1-color,
@@ -53,7 +53,6 @@ body {
 		$scene-3-color, $scene-3-color, $scene-3-color,
 		$scene-4-color, $scene-4-color, $scene-4-color
 	);
-
 }
 
 
@@ -65,6 +64,12 @@ body {
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center center;
+
+	@media screen and (max-width: $break-medium) {
+		height: 25vh;
+		margin-top: 10vh;
+	}
+
 }
 
 @mixin color_elements($color) {
@@ -118,4 +123,9 @@ body {
 	p {
 		text-align: justify;
 	}
+}
+
+.icons {
+	text-align: center;
+	font-size: 3em;
 }

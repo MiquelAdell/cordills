@@ -1,5 +1,8 @@
 body {
     font-size: $body-font-size;
+	background: $scene-1-color;
+	background: linear-gradient(to bottom,$scene-1-color, $scene-2-color);
+    min-height: 100vh;
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
     color: rgba(256, 256, 256, 0.5);
@@ -53,4 +56,8 @@ p {
 
 .page-header {
     border: 0;
+}
+
+.page-holder {
+    width: 100%;
 }

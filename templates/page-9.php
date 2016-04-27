@@ -1,4 +1,4 @@
-<?php the_content(); ?>
+<div class="content"><?php the_content(); ?></div>
 <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
 
 <div clas='row process-panel-holder'>
@@ -24,18 +24,15 @@
       ?>
       <div class='col-sm-6 process-panel'>
         <h4><?=$area->name?></h4>
-        <div class='icons'>
-          <?php while ( $technologies->have_posts() ) : $technologies->the_post(); ?>
-            <i class="<?=get_field('icon')?>" data-toggle="tooltip" title="<?=the_title()?>"></i>
-          <?php endwhile; ?>
+          <div class='icons'>
+            <?php while ( $technologies->have_posts() ) : $technologies->the_post(); ?>
+              <i class="<?=get_field('icon')?>" data-toggle="tooltip" title="<?=the_title()?>"></i>
+            <?php endwhile; ?>
         </div>
-        <?php
-        // Prevent weirdness
-        wp_reset_postdata();
-        ?>
       </div> <!-- process-panel -->
       <?php
     }
   }
+  wp_reset_postdata();
   ?>
 </div> <!-- row process-panel-holder -->
