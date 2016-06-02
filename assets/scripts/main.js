@@ -11,10 +11,10 @@ jQuery.fn.extend({
     return jQuery(this).position().left;
   },
   bottom: function () {
-    return jQuery(this).position().top+jQuery(this).height();
+    return jQuery(this).position().top+jQuery(this).outerHeight();
   },
   right: function () {
-    return jQuery(this).position().left+jQuery(this).width();
+    return jQuery(this).position().left+jQuery(this).outerWidth();
   }
 });
 
@@ -60,7 +60,33 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
       },
       finalize: function() {
 
-        var magnetismEnabled = false;
+
+        var homeNavbar = $('.nav-home-container'),
+            primaryNavbar = $('.nav-primary-container'),
+            distance = homeNavbar.position().top,
+            fadeTime = 200,
+            $window = $(window);
+
+        var mainMenuVisible = false;
+        $window.scroll(function() {
+          if ($window.scrollTop() >= distance ) {
+            if(!mainMenuVisible){
+              mainMenuVisible = true;
+              homeNavbar.removeClass('visible');
+              primaryNavbar.addClass('visible');
+            }
+          } else {
+            if(mainMenuVisible){
+              mainMenuVisible = false;
+              primaryNavbar.removeClass('visible');
+              homeNavbar.addClass('visible');
+            }
+          }
+
+
+        });
+
+
         var scrollRepositionEnabled = false;
 
         var myScrollMagic = function(){
@@ -114,75 +140,6 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
               .addTo(controller);
             }
 
-            //magnetism
-            var stopped = true;
-            var respositioning = false;
-            if(magnetismEnabled){
-              var globalScene = new ScrollMagic.Scene({
-                offset: 0, duration: $('body').height() - $(window).height()/2
-              })
-              .addTo(controller);
-              globalScene.on("progress", function (event) {
-                if(!respositioning){
-                  var d = new Date();
-                  lastMillisecondScrolled = d.getTime();
-                  stopped = false;
-                }
-              });
-
-              var repositionIfNeeded = function(){
-                if(stopped){
-                  return;
-                }
-                var d = new Date();
-                currentMillisecond = d.getTime();
-                var millisecondsWithoutScroll = currentMillisecond - lastMillisecondScrolled;
-                if(millisecondsWithoutScroll > 333){
-                  //a third of a second has passed without scroll
-                  var found = false;
-                  $('section').each(function(){
-                    if(!found){
-                      var offsetTop = $(window).scrollTop() - $(this).top();
-                      var offsetMinimum = $('section').first().height() * 0.33;
-                      //Dettect if we need to reposition because we are at least than 33% of a bonduary
-
-                      if(Math.abs(offsetTop) < offsetMinimum){
-                        found = true;
-                        if(offsetTop === 0){
-                          //stopped
-                          repositioning = false;
-                          stopped = true;
-                        }
-                        else {
-                          //go to this top
-                          respositioning = true;
-                          stopped = true;
-                          closestSectionId = $(this).index();
-                        }
-                      }
-
-                      if(respositioning){
-                        controller.scrollTo(function (newScrollPos) {
-                          repositioning = true;
-                          stopped = true;
-                          $("html, body").animate({scrollTop: newScrollPos},function(){
-                            stopped = true;
-                            respositioning = false;
-                          });
-                        });
-                        controller.scrollTo($('section').eq(closestSectionId).top());
-                      }
-                    }
-
-                  });
-                }
-              };
-
-              //clock
-              var clock = setInterval(function(){
-                repositionIfNeeded();
-              }, 33);
-            }
 
             $.each(scenes,function(index,scene){
 
@@ -281,6 +238,79 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
               });
             });
+
+
+            var magnetismEnabled = false; //not working
+            //magnetism
+            var stopped = true;
+            var respositioning = false;
+            if(magnetismEnabled){
+              var globalScene = new ScrollMagic.Scene({
+                offset: 0, duration: $('body').height() - $(window).height()/2
+              })
+              .addTo(controller);
+              globalScene.on("progress", function (event) {
+                if(!respositioning){
+                  var d = new Date();
+                  lastMillisecondScrolled = d.getTime();
+                  stopped = false;
+                }
+              });
+
+              var repositionIfNeeded = function(){
+                if(stopped){
+                  return;
+                }
+                var d = new Date();
+                currentMillisecond = d.getTime();
+                var millisecondsWithoutScroll = currentMillisecond - lastMillisecondScrolled;
+                if(millisecondsWithoutScroll > 333){
+                  //a third of a second has passed without scroll
+                  var found = false;
+                  $('section').each(function(){
+                    if(!found){
+                      var offsetTop = $(window).scrollTop() - $(this).top();
+                      var offsetMinimum = $('section').first().height() * 0.33;
+                      //Dettect if we need to reposition because we are at least than 33% of a bonduary
+
+                      if(Math.abs(offsetTop) < offsetMinimum){
+                        found = true;
+                        if(offsetTop === 0){
+                          //stopped
+                          repositioning = false;
+                          stopped = true;
+                        }
+                        else {
+                          //go to this top
+                          respositioning = true;
+                          stopped = true;
+                          closestSectionId = $(this).index();
+                        }
+                      }
+
+                      if(respositioning){
+                        controller.scrollTo(function (newScrollPos) {
+                          repositioning = true;
+                          stopped = true;
+                          $("html, body").animate({scrollTop: newScrollPos},function(){
+                            stopped = true;
+                            respositioning = false;
+                          });
+                        });
+                        controller.scrollTo($('section').eq(closestSectionId).top());
+                      }
+                    }
+
+                  });
+                }
+              };
+
+              //clock
+              var clock = setInterval(function(){
+                repositionIfNeeded();
+              }, 33);
+            }
+
           }
         };
 

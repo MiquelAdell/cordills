@@ -7,16 +7,6 @@
   align-items: center;
 }
 
-
-// HOME PAGE LAYOUT
-header {
-	display: none; // we'll need this eventually
-}
-
-footer {
-	display: none; // we'll need this eventually
-}
-
 .home.page .main {
 	margin: 0;
 	padding: 0;
@@ -26,6 +16,15 @@ footer {
 .front-page-section {
 	min-height: 100vh;
 }
+
+.home .nav-primary-container,
+.home .nav-home-container {
+	visibility: hidden;
+	&.visible{
+		visibility: visible;
+	}
+}
+
 
 // PROJECT SECTION
 
@@ -87,7 +86,8 @@ body.home {
 
 .front-page-section:nth-child(1) {
 	.section-icon {
-		background-image: url("../images/glass.svg");
+		background-image: url("../images/glass.svg"),url("../images/glass.svg");
+		background-position: 0 0, 100 100;
 
 	}
 	@include color_elements($scene-1-color);

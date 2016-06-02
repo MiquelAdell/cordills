@@ -6,6 +6,20 @@ $connected = new WP_Query( array(
 ) );
 ?>
 <?php the_content(); ?>
+
+<div class="nav-home-container visible">
+  <nav class="nav-home text-center">
+    <div class="menu-main-menu-container">
+      <ul id="menu-main-menu" class="nav text-center">
+        <li class="ajax menu-item"><a href="/proces/">Procés</a></li>
+        <li class="ajax menu-item"><a href="/tecnologies/">Tecnologies</a></li>
+        <li class="ajax menu-item"><a href="/fonaments/">Fonaments</a></li>
+        <li class="menu-item"><a href="/contacte/">Contacte</a></li>
+      </ul>
+    </div>
+  </div>
+
+
 <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
 
 <?php

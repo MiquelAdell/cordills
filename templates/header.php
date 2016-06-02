@@ -1,12 +1,18 @@
-<header class="banner">
-  <div class="container">
-    <a class="brand" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
-    <nav class="nav-primary">
-      <?php
-      if (has_nav_menu('primary_navigation')) :
-        wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']);
-      endif;
-      ?>
-    </nav>
+<header class="banner nav-primary-container">
+  <div class="container section-container">
+    <div class="row">
+      <a class="brand col-xs-4 text-center" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
+      <nav class="nav-primary col-xs-8 text-center">
+        <div class="menu-main-menu-container">
+          <ul id="menu-main-menu" class="nav">
+            <li class="ajax menu-item"><a href="/presentacio/">Projecte destacat</a></li>
+            <li class="ajax menu-item"><a href="/proces/">Procés</a></li>
+            <li class="ajax menu-item"><a href="/tecnologies/">Tecnologies</a></li>
+            <li class="ajax menu-item"><a href="/fonaments/">Fonaments</a></li>
+            <li class="menu-item"><a href="/contacte/">Contacte</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
