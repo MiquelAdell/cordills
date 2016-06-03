@@ -141,3 +141,71 @@ footer {
     }
   }
 }
+
+
+
+/*
+.88b  d88. d88888b d8b   db db    db
+88'YbdP`88 88'     888o  88 88    88
+88  88  88 88ooooo 88V8o 88 88    88
+88  88  88 88~~~~~ 88 V8o88 88    88
+88  88  88 88.     88  V888 88b  d88
+YP  YP  YP Y88888P VP   V8P ~Y8888P'
+*/
+.navbar-toggle .icon-bar {
+  background-color: darken($scene-1-color,20%);
+  width: 30px;
+  height: 3px;
+}
+
+@media screen and (max-width: $break-large) {
+  #menu-main-menu {
+    display: none;
+  }
+  .navbar-toggle {
+    display: block;
+  }
+}
+
+@media screen and (min-width: $break-large) {
+  #menu-main-menu {
+    display: block;
+  }
+  .navbar-toggle {
+    display: none;
+  }
+}
+
+
+.pt-perspective {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	perspective: 1200px;
+	transform-style: preserve-3d;
+}
+
+.pt-page {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	visibility: hidden;
+	overflow: hidden;
+	backface-visibility: hidden;
+	transform: translate3d(0, 0, 0);
+}
+
+.pt-page-current,
+.no-js .pt-page {
+	visibility: visible;
+}
+
+.no-js body {
+	overflow: auto;
+}
+
+.pt-page-ontop {
+	z-index: 999;
+}

@@ -2,17 +2,25 @@
   <div class="container section-container">
     <div class="row">
       <a class="brand col-xs-4 text-center" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
-      <nav class="nav-primary col-xs-8 text-center">
-        <div class="menu-main-menu-container">
-          <ul id="menu-main-menu" class="nav">
-            <li class="ajax menu-item"><a href="/presentacio/">Projecte destacat</a></li>
-            <li class="ajax menu-item"><a href="/proces/">Procés</a></li>
-            <li class="ajax menu-item"><a href="/tecnologies/">Tecnologies</a></li>
-            <li class="ajax menu-item"><a href="/fonaments/">Fonaments</a></li>
-            <li class="menu-item"><a href="/contacte/">Contacte</a></li>
-          </ul>
-        </div>
-      </div>
+
+
+        <nav class="nav-primary col-xs-8 text-center">
+          <div class="menu-main-menu-container">
+            <ul id="menu-main-menu" class="nav">
+              <li class="ajax menu-item"><a href="/presentacio/">Projecte destacat</a></li>
+              <li class="ajax menu-item"><a href="/proces/">Procés</a></li>
+              <li class="ajax menu-item"><a href="/tecnologies/">Tecnologies</a></li>
+              <li class="ajax menu-item"><a href="/fonaments/">Fonaments</a></li>
+              <li class="menu-item"><a href="/contacte/">Contacte</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
     </div>
-  </div>
 </header>
