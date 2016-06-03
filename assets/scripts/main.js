@@ -46,7 +46,14 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
-
+        //hamburger
+        $('.hamburger').click(function(){
+          if($(this).hasClass('is-active')){
+            $(this).removeClass('is-active');
+          } else {
+            $(this).addClass('is-active');
+          }
+        });
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
@@ -73,7 +80,6 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
         $scrollElement.scroll(function() {
           if ($scrollElement.scrollTop() >= distance ) {
-            $primaryNavbar.css('top',$scrollElement.scrollTop());
             if(!mainMenuVisible){
               mainMenuVisible = true;
               $homeNavbar.removeClass('visible');
@@ -88,10 +94,7 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
               $mainMenu.removeClass('dettached');
             }
           }
-
-
         });
-
 
         var scrollRepositionEnabled = false;
 
