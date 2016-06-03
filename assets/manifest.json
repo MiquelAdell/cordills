@@ -6,6 +6,15 @@
       ],
       "main": true
     },
+
+    "pagetransitions.js": {
+      "files": [
+        "scripts/pagetransitions/modernizr.custom.js",
+        "scripts/pagetransitions/pagetransitions.js"
+      ],
+      "main": true
+    },
+
     "main.css": {
       "files": [
         "styles/main.scss"
