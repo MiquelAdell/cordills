@@ -88,14 +88,9 @@ var PageTransitions = (function() {
 			$page.data( 'originalClassList', $page.attr( 'class' ) );
 		} );
 
-		$pageMenu.addClass( 'pt-page-current' );
+		$pageMain.addClass( 'pt-page-current' );
 
 		$menu.on( 'click', function() {
-			openMenu();
-		} );
-
-		$('body').on( 'click', function() {
-console.log("body");
 			openMenu();
 		} );
 
@@ -104,8 +99,6 @@ console.log("body");
 		} );
 
 	}
-
-
 
 	init();
 

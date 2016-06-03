@@ -62,23 +62,24 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
 
         var homeNavbar = $('.nav-home-container'),
-            primaryNavbar = $('.nav-primary-container'),
+            $primaryNavbar = $('.nav-primary-container'),
             distance = homeNavbar.position().top,
             fadeTime = 200,
             $window = $(window);
+            $mainHolder = $('.pt-page-holder');
 
         var mainMenuVisible = false;
-        $window.scroll(function() {
-          if ($window.scrollTop() >= distance ) {
+        $mainHolder.scroll(function() {
+          if ($mainHolder.scrollTop() >= distance ) {
             if(!mainMenuVisible){
               mainMenuVisible = true;
               homeNavbar.removeClass('visible');
-              primaryNavbar.addClass('visible');
+              $primaryNavbar.addClass('visible');
             }
           } else {
             if(mainMenuVisible){
               mainMenuVisible = false;
-              primaryNavbar.removeClass('visible');
+              $primaryNavbar.removeClass('visible');
               homeNavbar.addClass('visible');
             }
           }

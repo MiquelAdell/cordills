@@ -9,8 +9,8 @@ use Roots\Sage\Wrapper;
 <html <?php language_attributes(); ?>>
   <?php get_template_part('templates/head'); ?>
   <body <?php body_class(); ?>>
-    <div id="pt-main" class="pt-perspective">
-      <div class="pt-page pt-page-1"><h1><span>A collection of</span><strong>Page</strong> Transitions</h1></div>
+    <div class="pt-page pt-page-main">
+      <div class="pt-page-holder">
         <!--[if IE]>
           <div class="alert alert-warning">
             <?php _e('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'sage'); ?>
@@ -23,16 +23,17 @@ use Roots\Sage\Wrapper;
         <div class="wrap" role="document">
             <main class="main">
               <?php include Wrapper\template_path(); ?>
-            </main><!-- /.main -->
-          </div><!-- /.content -->
-        </div><!-- /.wrap -->
+            </main> <!-- /.main -->
+        </div> <!-- /.wrap -->
         <?php
-        do_action('get_footer');
-        get_template_part('templates/footer');
-        wp_footer();
+          do_action('get_footer');
+          get_template_part('templates/footer');
+          wp_footer();
         ?>
-      </div> <!-- pt-page-1 -->
-      <div class="pt-page pt-page-2"><h1><span>A collection of</span><strong>Page</strong> Transitions</h1></div>
-    </div> <!-- pt-main -->
+      </div> <!-- /.pt-page-holder -->
+    </div> <!-- /.pt-page-main -->
+    <div class="pt-page pt-page-menu">
+      MENU <div class="navbar-close">x</div>
+    </div> <!-- /.pt-page-menu -->
   </body>
 </html>
