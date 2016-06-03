@@ -16,7 +16,7 @@
           </div>
         </nav>
 
-        <button class="hamburger hamburger--spin" type="button">
+        <button class="hamburger hamburger--spring-r" type="button">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
           </span>

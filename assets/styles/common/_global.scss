@@ -119,18 +119,29 @@ footer {
 }
 
 .nav-primary-container {
+  $menu-height: 52px;
+  $font-height: $menu-height / 1.5;
+  $margin-top: ($menu-height - $font-height) / 4;
+
+
   width: 100%;
   background: $scene-1-color;
-  border-bottom: 2px solid darken($scene-1-color,10%);
+  border-bottom: 2px solid darken($scene-1-color,20%);
   position: fixed;
   z-index: 10;
+  height: $menu-height;
   .brand {
     float: left;
     font-weight: bold;
     color: darken($scene-1-color,20%);
     font-family: $font-family-serif;
-    font-size: 2em;
-    line-height: 50px;
+    font-size: $font-height;
+    height: $font-height;
+    line-height: $font-height;
+    margin-top: $margin-top;
+    &:hover {
+      color: darken($scene-1-color,30%);
+    }
   }
   ul li {
     display: inline;
@@ -162,7 +173,7 @@ YP  YP  YP Y88888P VP   V8P ~Y8888P'
       display: none;
     }
   }
-  .navbar-toggle {
+  .hamburger {
     display: block;
   }
 }
@@ -171,7 +182,7 @@ YP  YP  YP Y88888P VP   V8P ~Y8888P'
   #menu-main-menu {
     display: block;
   }
-  .navbar-toggle {
-    display: none;
+  .hamburger {
+    display: none !important;
   }
 }

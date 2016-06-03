@@ -7,7 +7,7 @@
  */
 .hamburger {
   float: right;
-  padding: 15px 15px;
+  padding: 10px 10px;
   display: inline-block;
   cursor: pointer;
   transition-property: opacity, -webkit-filter;
@@ -21,9 +21,9 @@
   background-color: transparent;
   border: 0;
   margin: 0;
-  overflow: visible; }
-  .hamburger:hover {
-    opacity: 0.7; }
+  overflow: visible;
+}
+
 
 .hamburger-box {
   width: 40px;
@@ -35,7 +35,10 @@
   display: block;
   top: 50%;
   margin-top: -2px; }
-  .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+
+  .hamburger-inner,
+  .hamburger-inner::before,
+  .hamburger-inner::after {
     width: 40px;
     height: 4px;
     background-color: darken($scene-1-color,20%);
@@ -46,6 +49,13 @@
     transition-property: transform, -webkit-transform;
     transition-duration: 0.15s;
     transition-timing-function: ease; }
+
+    .hamburger:hover .hamburger-inner,
+    .hamburger:hover .hamburger-inner::before,
+    .hamburger:hover .hamburger-inner::after {
+      background-color: darken($scene-1-color,30%);
+    }
+
   .hamburger-inner::before, .hamburger-inner::after {
     content: "";
     display: block; }
