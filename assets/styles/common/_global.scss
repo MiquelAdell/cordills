@@ -1,6 +1,6 @@
 body {
   font-size: $body-font-size;
-	background: $scene-1-color;
+	background: $body-background-color;
   min-height: 100vh;
 }
 .pt-page-holder {
@@ -163,7 +163,9 @@ YP  YP  YP Y88888P VP   V8P ~Y8888P'
 
 @media screen and (max-width: $break-large) {
   #menu-main-menu {
-    display: none;
+    &.dettached {
+      display: none;
+    }
   }
   .navbar-toggle {
     display: block;

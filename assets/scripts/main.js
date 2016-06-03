@@ -61,26 +61,31 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
       finalize: function() {
 
 
-        var homeNavbar = $('.nav-home-container'),
+        var $homeNavbar = $('.nav-home-container'),
             $primaryNavbar = $('.nav-primary-container'),
-            distance = homeNavbar.position().top,
+            $scrollElement = $('.pt-page-main'),
+            $mainMenu = $('#menu-main-menu'),
+            distance = $homeNavbar.position().top,
             fadeTime = 200,
             $window = $(window);
-            $mainHolder = $('.pt-page-holder');
 
         var mainMenuVisible = false;
-        $mainHolder.scroll(function() {
-          if ($mainHolder.scrollTop() >= distance ) {
+
+        $scrollElement.scroll(function() {
+          if ($scrollElement.scrollTop() >= distance ) {
+            $primaryNavbar.css('top',$scrollElement.scrollTop());
             if(!mainMenuVisible){
               mainMenuVisible = true;
-              homeNavbar.removeClass('visible');
+              $homeNavbar.removeClass('visible');
               $primaryNavbar.addClass('visible');
+              $mainMenu.addClass('dettached');
             }
           } else {
             if(mainMenuVisible){
               mainMenuVisible = false;
               $primaryNavbar.removeClass('visible');
-              homeNavbar.addClass('visible');
+              $homeNavbar.addClass('visible');
+              $mainMenu.removeClass('dettached');
             }
           }
 
