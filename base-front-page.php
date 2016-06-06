@@ -35,7 +35,13 @@ use Roots\Sage\Wrapper;
     <div class="pt-page pt-page-menu">
       <div class="wrap" role="document">
           <main class="main">
-            <h1>MENU</h1>
+            <nav class="nav-primary">
+              <div class="menu-main-menu-container">
+                <ul class="full-size-menu nav">
+                  <?=the_main_menu()?>
+                </ul>
+              </div>
+            </nav>
           </main>
       </div>
     </div> <!-- /.pt-page-menu -->

@@ -2,7 +2,6 @@ var PageTransitions = (function() {
 
 	var $main = $( '#pt-main' ),
 	$hamburger = $('.hamburger'),
-	$pages = $('.pt-page'),
 	pageMain = '.pt-page-main',
 	pageMenu = '.pt-page-menu',
 	isAnimating = false,
@@ -17,7 +16,8 @@ var PageTransitions = (function() {
 	// animation end event name
 	animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ],
 	// support css animations
-	support = Modernizr.cssanimations;
+	support = Modernizr.cssanimations,
+	initialized = false;
 
 	function onEndAnimation( outpage, inpage ) {
 		if(!endCurrPage || !endNextPage){
@@ -28,7 +28,7 @@ var PageTransitions = (function() {
 		isAnimating = false;
 	}
 
-	function animate(current,next) {
+	function animate(current,next,action) {
 		if( isAnimating ) {
 			return false;
 		}
@@ -36,8 +36,17 @@ var PageTransitions = (function() {
 
 		var $nextPage = $(next);
 		var $currPage = $(current);
+		var outClass, inClass;
+		if(action === "open"){
+			outClass = 'pt-page-moveToRightFade';
+			inClass = 'pt-page-current pt-page-moveFromLeftFade';
+		}
+		else {
+			outClass = 'pt-page-moveToLeftFade';
+			inClass = 'pt-page-current pt-page-moveFromRightFade';
+		}
 
-		$currPage.addClass( 'pt-page-scaleDown' );
+		$currPage.addClass( outClass );
 
 		$currPage.on( animEndEventName, function() {
 			// $currPage.off( animEndEventName );
@@ -46,7 +55,7 @@ var PageTransitions = (function() {
 		} );
 
 
-		$nextPage.addClass( 'pt-page-current pt-page-moveFromTop pt-page-ontop' ) ;
+		$nextPage.addClass(inClass ) ;
 		$nextPage.on( animEndEventName, function() {
 			// $nextPage.off( animEndEventName );
 			endNextPage = true;
@@ -55,25 +64,28 @@ var PageTransitions = (function() {
 	}
 
 	function init() {
-
-		$pages.each( function() {
-			var $page = $( this );
-			$page.data( 'originalClassList', $page.attr( 'class' ) );
-		} );
-
 		$(pageMain).addClass( 'pt-page-current' );
 
 		$hamburger.click(function(){
+			if(!initialized){
+				initialized = true;
+				$('.pt-page').each( function() {
+					$( this ).data( 'originalClassList', $( this ).attr( 'class' ));
+				} );
+			}
+			var action = "";
 			if($(this).hasClass('is-active')){
 				//close
 				currPage = pageMenu;
 				nextPage = pageMain;
+				action = "close";
 			} else {
 				//open
 				currPage = pageMain;
 				nextPage = pageMenu;
+				action = "open";
 			}
-			animate(currPage,nextPage);
+			animate(currPage,nextPage,action);
 		});
 	}
 

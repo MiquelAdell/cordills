@@ -1,5 +1,8 @@
 <?php
 require_once('vendor/jjgrainger/wp-custom-post-type-class/src/CPT.php');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 
 /**
  * Sage includes
@@ -163,3 +166,18 @@ $testimonials->populate_column('image', function($column, $post) {
 });
 
 $testimonials->menu_icon("dashicons-testimonial");
+
+
+function the_main_menu(){
+  ob_start();
+  ?>
+  <li class="ajax menu-item"><a href="/presentacio/">Projecte destacat</a></li>
+  <li class="ajax menu-item"><a href="/proces/">Procés</a></li>
+  <li class="ajax menu-item"><a href="/tecnologies/">Tecnologies</a></li>
+  <li class="ajax menu-item"><a href="/fonaments/">Fonaments</a></li>
+  <li class="menu-item"><a href="/contacte/">Contacte</a></li>
+  <?php
+  $the_main_menu = ob_get_contents();
+  ob_end_clean();
+  return $the_main_menu;
+}

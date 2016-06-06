@@ -3,7 +3,8 @@ body {
 	background: $body-background-color;
   min-height: 100vh;
 }
-.pt-page-holder {
+.pt-page-holder,
+.pt-page-menu {
   background: linear-gradient(to bottom,$scene-1-color, $scene-2-color);
 }
 
@@ -167,6 +168,10 @@ footer {
 88  88  88 88.     88  V888 88b  d88
 YP  YP  YP Y88888P VP   V8P ~Y8888P'
 */
+.banner {
+  position: relative;
+  z-index: 110;
+}
 @media screen and (max-width: $break-large) {
   #menu-main-menu {
     &.dettached {
@@ -184,5 +189,22 @@ YP  YP  YP Y88888P VP   V8P ~Y8888P'
   }
   .hamburger {
     display: none !important;
+  }
+}
+
+
+.full-size-menu {
+  margin-top: 100px;
+
+  li {
+    text-transform: uppercase;
+    text-align: center;
+    a {
+      line-height: 3em;
+
+      &:focus, &:hover {
+        background: rgba(0,0,0,0.5);
+      }
+    }
   }
 }

@@ -11,10 +11,7 @@ $connected = new WP_Query( array(
   <nav class="nav-home text-center">
     <div class="menu-main-menu-container">
       <ul id="menu-main-menu" class="nav text-center">
-        <li class="ajax menu-item"><a href="/proces/">Procés</a></li>
-        <li class="ajax menu-item"><a href="/tecnologies/">Tecnologies</a></li>
-        <li class="ajax menu-item"><a href="/fonaments/">Fonaments</a></li>
-        <li class="menu-item"><a href="/contacte/">Contacte</a></li>
+        <?=the_main_menu()?>
       </ul>
     </div>
   </div>

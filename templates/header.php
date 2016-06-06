@@ -7,16 +7,12 @@
         <nav class="nav-primary col-xs-8 text-center">
           <div class="menu-main-menu-container">
             <ul id="menu-main-menu" class="nav">
-              <li class="ajax menu-item"><a href="/presentacio/">Projecte destacat</a></li>
-              <li class="ajax menu-item"><a href="/proces/">Procés</a></li>
-              <li class="ajax menu-item"><a href="/tecnologies/">Tecnologies</a></li>
-              <li class="ajax menu-item"><a href="/fonaments/">Fonaments</a></li>
-              <li class="menu-item"><a href="/contacte/">Contacte</a></li>
+              <?=the_main_menu()?>
             </ul>
           </div>
         </nav>
 
-        <button class="hamburger hamburger--spring-r" type="button">
+        <button class="hamburger hamburger--arrowalt" type="button">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
           </span>
