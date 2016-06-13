@@ -16,8 +16,7 @@ if( get_field( "call_to_action_text" ) ) {
     ob_end_clean();
 }
 ?>
-
-<section id="page_id-<?=$post->ID?>" class="front-page-section">
+<section id="<?=$post->post_name?>" class="page_id-<?=$post->ID?> front-page-section">
     <div class="vertical-center">
         <div class="container section-container">
             <div class="row">

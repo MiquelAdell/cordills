@@ -54,10 +54,16 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
             $(this).addClass('is-active');
           }
         });
+
+        smoothScroll.init({
+            speed: 500, // Integer. How fast to complete the scroll in milliseconds
+            easing: 'easeInOutCubic' // Easing pattern to use
+            // callback: function ( anchor, toggle ) {} // Function to run after scrolling
+        });
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
-
       }
     },
     // Home page

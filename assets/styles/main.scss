@@ -5,14 +5,15 @@
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+@import "../../bower_components/font-awesome/scss/font-awesome";
+@import "../../dist/fonts/technologies";
+
+
 @import "common/global";
 @import "common/homepage";
-@import "components/buttons";
-@import "components/comments";
-@import "components/forms";
-@import "components/grid";
-@import "components/wp-classes";
-@import "components/ribbons";
+@import "common/_bootstrap-em.scss";
+@import "common/pagetransitions";
+
 @import "layouts/header";
 @import "layouts/sidebar";
 @import "layouts/footer";
@@ -20,11 +21,12 @@
 @import "layouts/posts";
 @import "layouts/tinymce";
 
-@import "common/_bootstrap-em.scss";
 
-@import "common/pagetransitions";
+@import "components/buttons";
+@import "components/comments";
+@import "components/forms";
+@import "components/grid";
+@import "components/wp-classes";
+@import "components/ribbons";
 @import "components/hamburgers";
-
-@import "../../bower_components/font-awesome/scss/font-awesome";
-@import "../../bower_components/font-mfizz/css/font-mfizz";
-@import "components/_testimonials.scss";
+@import "components/_testimonials";

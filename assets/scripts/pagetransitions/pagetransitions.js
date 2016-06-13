@@ -28,7 +28,8 @@ var PageTransitions = (function() {
 		isAnimating = false;
 	}
 
-	function animate(current,next,action) {
+
+	function animate(current,next,action){
 		if( isAnimating ) {
 			return false;
 		}
@@ -37,7 +38,7 @@ var PageTransitions = (function() {
 		var $nextPage = $(next);
 		var $currPage = $(current);
 		var outClass, inClass;
-		if(action === "open"){
+		if(action === "left"){
 			outClass = 'pt-page-moveToRightFade';
 			inClass = 'pt-page-current pt-page-moveFromLeftFade';
 		}
@@ -78,21 +79,27 @@ var PageTransitions = (function() {
 				//close
 				currPage = pageMenu;
 				nextPage = pageMain;
-				action = "close";
+				action = "right";
 			} else {
 				//open
 				currPage = pageMain;
 				nextPage = pageMenu;
-				action = "open";
+				action = "left";
 			}
 			animate(currPage,nextPage,action);
 		});
 	}
 
+
+
 	init();
 
 	return {
-		init : init
+		init : init,
+		animate : animate
 	};
 
 })();
+
+
+// PageTransitions.animate('.pt-page-menu','.pt-page-main','right');

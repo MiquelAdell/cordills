@@ -171,10 +171,10 @@ $testimonials->menu_icon("dashicons-testimonial");
 function the_main_menu(){
   ob_start();
   ?>
-  <li class="ajax menu-item"><a href="/presentacio/">Projecte destacat</a></li>
-  <li class="ajax menu-item"><a href="/proces/">Procés</a></li>
-  <li class="ajax menu-item"><a href="/tecnologies/">Tecnologies</a></li>
-  <li class="ajax menu-item"><a href="/fonaments/">Fonaments</a></li>
+  <li class="ajax menu-item"><a href="/#presentacio">Projecte destacat</a></li>
+  <li class="ajax menu-item"><a href="/#proces">Procés</a></li>
+  <li class="ajax menu-item"><a href="/#tecnologies">Tecnologies</a></li>
+  <li class="ajax menu-item"><a href="/#fonaments">Fonaments</a></li>
   <li class="menu-item"><a href="/contacte/">Contacte</a></li>
   <?php
   $the_main_menu = ob_get_contents();
