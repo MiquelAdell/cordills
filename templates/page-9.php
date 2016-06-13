@@ -1,29 +1,29 @@
 <?php
 $areas = array(
   "frameworks" => array(
-    "wordpress" => array('title' => 'WordPress', 'description' => ''),
-    "laravel" => array('title' => 'Laravel', 'description' => '')
+    "wordpress" => array('title' => 'WordPress', 'description' => '', 'extra' => 'Framework'),
+    "laravel" => array('title' => 'Laravel', 'description' => '', 'extra' => 'Framework')
   ),
   "frontend" => array(
-    "bootstrap" => array('title' => 'Bootstrap', 'description' => ''),
-    "html-five" => array('title' => 'HTML-5', 'description' => ''),
-    "css3" => array('title' => 'CSS-3', 'description' => ''),
-    "sass" => array('title' => 'Sass', 'description' => ''),
-    "jquery" => array('title' => 'jQuery', 'description' => ''),
-    "javascript" => array('title' => 'JavaScript', 'description' => '')
+    "bootstrap" => array('title' => 'Bootstrap', 'description' => '', 'extra' => 'Programació front end'),
+    "html-five" => array('title' => 'HTML-5', 'description' => '', 'extra' => 'Programació front end'),
+    "css3" => array('title' => 'CSS-3', 'description' => '', 'extra' => 'Programació front end'),
+    "sass" => array('title' => 'Sass', 'description' => '', 'extra' => 'Programació front end'),
+    "jquery" => array('title' => 'jQuery', 'description' => '', 'extra' => 'Programació front end'),
+    "javascript" => array('title' => 'JavaScript', 'description' => '', 'extra' => 'Programació front end')
   ),
   "backend" => array(
-    "php" => array('title' => 'PHP', 'description' => ''),
-    "mariadb" => array('title' => 'MariaDB', 'description' => ''),
-    "mysql" => array('title' => 'MySQL', 'description' => ''),
-    "linux" => array('title' => 'Linux', 'description' => ''),
-    "git" => array('title' => 'Git', 'description' => ''),
-    "docker" => array('title' => 'Docker', 'description' => '')
+    "php" => array('title' => 'PHP', 'description' => '', 'extra' => 'Programació back end'),
+    "mysql" => array('title' => 'MySQL', 'description' => '', 'extra' => 'Gestió de base de dades'),
+    "mariadb" => array('title' => 'MariaDB', 'description' => '', 'extra' => 'Gestió de base de dades'),
+    "linux" => array('title' => 'Linux', 'description' => '', 'extra' => 'Gestió de servidors'),
+    "docker" => array('title' => 'Docker', 'description' => '', 'extra' => 'Gestió de servidors'),
+    "git" => array('title' => 'Git', 'description' => '', 'extra' => 'Gestió de projectes')
   ),
   "integracions" => array(
-    "twitter" => array('title' => 'Twitter', 'description' => ''),
-    "facebook" => array('title' => 'Facebook', 'description' => ''),
-    "youtube" => array('title' => 'YouTube', 'description' => '')
+    "twitter" => array('title' => 'Twitter', 'description' => '', 'extra' => 'Integració amb API'),
+    "facebook" => array('title' => 'Facebook', 'description' => '', 'extra' => 'Integració amb API'),
+    "youtube" => array('title' => 'YouTube', 'description' => '', 'extra' => 'Integració amb API')
   )
 );
 ?>
@@ -123,9 +123,9 @@ $areas = array(
   <symbol id="technology-facebook" viewBox="0 0 32 32">
   <path class="path1" d="M19 6h5v-6h-5c-3.86 0-7 3.14-7 7v3h-4v6h4v16h6v-16h5l1-6h-6v-3c0-0.542 0.458-1 1-1z"></path>
   </symbol>
-  <symbol id="technology-youtube" viewBox="0 0 32 32">
+  <!-- <symbol id="technology-youtube" viewBox="0 0 32 32">
   <path class="path1" d="M31.681 9.6c0 0-0.313-2.206-1.275-3.175-1.219-1.275-2.581-1.281-3.206-1.356-4.475-0.325-11.194-0.325-11.194-0.325h-0.012c0 0-6.719 0-11.194 0.325-0.625 0.075-1.987 0.081-3.206 1.356-0.963 0.969-1.269 3.175-1.269 3.175s-0.319 2.588-0.319 5.181v2.425c0 2.587 0.319 5.181 0.319 5.181s0.313 2.206 1.269 3.175c1.219 1.275 2.819 1.231 3.531 1.369 2.563 0.244 10.881 0.319 10.881 0.319s6.725-0.012 11.2-0.331c0.625-0.075 1.988-0.081 3.206-1.356 0.962-0.969 1.275-3.175 1.275-3.175s0.319-2.587 0.319-5.181v-2.425c-0.006-2.588-0.325-5.181-0.325-5.181zM12.694 20.15v-8.994l8.644 4.513-8.644 4.481z"></path>
-  </symbol>
+  </symbol> -->
   </defs>
   </svg>
 
@@ -138,8 +138,11 @@ $areas = array(
           <?php
           foreach($area as $key => $technology){
             ?>
-            <div class='col-sx-2 col-sm-3' data-toggle="tooltip" title="<?=$technology['title']?>">
-              <svg class="icon technology-<?=$key?>"><use xlink:href="#technology-<?=$key?>"></use></svg>
+            <div class='col-xs-3' >
+              <div class="icon-holder frontpage_square">
+                <svg class="icon technology-<?=$key?>"><use xlink:href="#technology-<?=$key?>"></use></svg>
+                <span class="text"><?=$technology['extra']?>: <?=$technology['title']?></span>
+              </div>
             </div>
             <?php
           }
