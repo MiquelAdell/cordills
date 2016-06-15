@@ -54,16 +54,72 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
             $(this).addClass('is-active');
           }
         });
-
-        smoothScroll.init({
-            speed: 500, // Integer. How fast to complete the scroll in milliseconds
-            easing: 'easeInOutCubic' // Easing pattern to use
-            // callback: function ( anchor, toggle ) {} // Function to run after scrolling
-        });
-
       },
       finalize: function() {
+
+        var scroll = function(anchor){
+            var target = $(anchor.hash);
+            target = target.length ? target : $('[name=' + anchor.hash.slice(1) +']');
+            if (target.length) {
+              $('.pt-page-main').animate({
+                scrollTop: target.top()
+              }, 1000);
+              event.preventDefault();
+            }
+        };
+        // menu nav
+        $('.main-menu nav a[href*="#"]:not([href="#"])').click(function(event) {
+          if($('.hamburger').hasClass('is-active')){
+            event.preventDefault();
+            $('.hamburger').click();
+            setTimeout(function(){
+              scroll(this);
+            },1000);
+          }
+        });
+
+              // scroll and URL
+        var stops = [];
+
+        $('.front-page-section').each(function(){
+          $section = $(this);
+          for(i = $section.top(); i < $section.bottom(); i++){
+            stops[i] = $section.prop('id');
+          }
+        });
+
+        var currentSection = "";
+
+        $(".pt-page-main").bind('scroll', function() {
+          if(currentSection !==  stops[$(this).scrollTop()]){
+            currentSection = stops[$(this).scrollTop()];
+            //trigger enter section
+            var url = "/";
+            if(currentSection !== "presentacio"){
+              url = "/"+currentSection;
+            }
+            var stateObj = { section: currentSection };
+            window.history.pushState(stateObj, currentSection, url);
+          }
+        });
+
+        //all other
         // JavaScript to be fired on all pages, after page specific JS is fired
+        $('a[href*="#"]:not([href="#"])').click(function(event) {
+          var anchor = this;
+          if (location.pathname.replace(/^\//,'') === anchor.pathname.replace(/^\//,'') && location.hostname === anchor.hostname) {
+            scroll(this);
+          }
+        });
+
+
+        $(window).on("popstate", function(e) {
+          var section = e.originalEvent.state.section;
+          $('.pt-page-main').animate({
+            scrollTop: $('#'+section).top()
+          }, 1000);
+        });
+
       }
     },
     // Home page

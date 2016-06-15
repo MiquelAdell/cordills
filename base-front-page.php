@@ -37,7 +37,7 @@ use Roots\Sage\Wrapper;
           <main class="main">
             <nav class="nav-primary">
               <div class="menu-main-menu-container">
-                <ul class="full-size-menu nav">
+                <ul id="menu-main-menu-lateral"  class="main-menu full-size-menu nav">
                   <?=the_main_menu()?>
                 </ul>
               </div>

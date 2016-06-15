@@ -15,6 +15,14 @@
       "main": true
     },
 
+
+    "smooth-scroll": {
+      "files": [
+        "scripts/smooth-scroll/jquery.smooth-scroll.js"
+      ],
+      "main": true
+    },
+
     "main.css": {
       "files": [
         "styles/main.scss"

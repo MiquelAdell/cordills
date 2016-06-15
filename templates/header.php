@@ -6,7 +6,7 @@
 
         <nav class="nav-primary col-xs-8 text-center">
           <div class="menu-main-menu-container">
-            <ul id="menu-main-menu" class="nav">
+            <ul id="menu-main-menu-header" class="main-menu nav">
               <?=the_main_menu()?>
             </ul>
           </div>

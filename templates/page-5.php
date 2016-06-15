@@ -10,7 +10,7 @@ $connected = new WP_Query( array(
 <div class="nav-home-container visible">
   <nav class="nav-home text-center">
     <div class="menu-main-menu-container">
-      <ul id="menu-main-menu" class="nav text-center">
+      <ul id="menu-main-menu-home" class="main-menu nav text-center">
         <?=the_main_menu()?>
       </ul>
     </div>
@@ -25,9 +25,6 @@ if ( $connected->have_posts() ) {
     ?>
     <div class="project-on-homepage">
         <?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
-            <h2><a href="<?=get_permalink()?>" class="">
-                <?=the_title()?>
-            </a></h2>
             <?php
             $image = get_field('full_mockup');
             ?>

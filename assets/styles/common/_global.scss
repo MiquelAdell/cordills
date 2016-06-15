@@ -172,26 +172,21 @@ YP  YP  YP Y88888P VP   V8P ~Y8888P'
   position: relative;
   z-index: 110;
 }
-@media screen and (max-width: $break-large) {
-  #menu-main-menu {
-    &.dettached {
-      display: none;
-    }
-  }
-  .hamburger {
-    display: block;
+
+.hamburger {
+  display: none !important;
+  @media screen and (max-width: $break-large) {
+    display: inline-block !important;
   }
 }
 
-@media screen and (min-width: $break-large) {
-  #menu-main-menu {
+
+#menu-main-menu-header {
+  display: none;
+  @media screen and (min-width: $break-large) {
     display: block;
   }
-  .hamburger {
-    display: none !important;
-  }
 }
-
 
 .full-size-menu {
   margin-top: 100px;

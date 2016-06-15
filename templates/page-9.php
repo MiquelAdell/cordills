@@ -22,8 +22,7 @@ $areas = array(
   ),
   "integracions" => array(
     "twitter" => array('title' => 'Twitter', 'description' => '', 'extra' => 'Integració amb API'),
-    "facebook" => array('title' => 'Facebook', 'description' => '', 'extra' => 'Integració amb API'),
-    "youtube" => array('title' => 'YouTube', 'description' => '', 'extra' => 'Integració amb API')
+    "facebook" => array('title' => 'Facebook', 'description' => '', 'extra' => 'Integració amb API')
   )
 );
 ?>
@@ -138,7 +137,7 @@ $areas = array(
           <?php
           foreach($area as $key => $technology){
             ?>
-            <div class='col-xs-3' >
+            <div class='col-xs-6 col-sm-3' >
               <div class="icon-holder frontpage_square">
                 <svg class="icon technology-<?=$key?>"><use xlink:href="#technology-<?=$key?>"></use></svg>
                 <span class="text"><?=$technology['extra']?>: <?=$technology['title']?></span>
