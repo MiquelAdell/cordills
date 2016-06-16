@@ -17,6 +17,116 @@ jQuery.fn.extend({
 		return jQuery(this).position().left+jQuery(this).outerWidth();
 	}
 });
+(function ($) {
+	$.fn.getTextWidth = function() {
+		var spanText = $("BODY #spanCalculateTextWidth");
+
+		if (spanText.size() <= 0) {
+			spanText = $("<span id='spanCalculateTextWidth' style='filter: alpha(0);'></span>");
+			spanText.appendTo("BODY");
+		}
+
+		var valu = this.val();
+		if (!valu) valu = this.text();
+
+		spanText.text(valu);
+
+		spanText.css({
+			"fontSize": this.css('fontSize'),
+			"fontWeight": this.css('fontWeight'),
+			"fontFamily": this.css('fontFamily'),
+			"position": "absolute",
+			"top": 0,
+			"opacity": 0,
+			"left": -2000
+		});
+
+		return spanText.outerWidth() + parseInt(this.css('paddingLeft')) + 'px';
+	};
+
+	$.fn.getTextHeight = function(width) {
+		var spanText = $("BODY #spanCalculateTextHeight");
+
+		if (spanText.size() <= 0) {
+			spanText = $("<span id='spanCalculateTextHeight'></span>");
+			spanText.appendTo("BODY");
+		}
+
+		var valu = this.val();
+		if (!valu) valu = this.text();
+
+		spanText.text(valu);
+
+		spanText.css({
+			"fontSize": this.css('fontSize'),
+			"fontWeight": this.css('fontWeight'),
+			"fontFamily": this.css('fontFamily'),
+			"top": 0,
+			"left": -1 * parseInt(width) + 'px',
+			"position": 'absolute',
+			"display": "inline-block",
+			"width": width
+		});
+
+		return spanText.innerHeight() + 'px';
+	};
+
+	/**
+	* Adjust the font-size of the text so it fits the container.
+	*
+	* @param minSize     Minimum font size?
+	* @param maxSize     Maximum font size?
+	* @param truncate    Truncate text after sizing to make sure it fits?
+	*/
+	$.fn.autoTextSize = function(minSize, maxSize, truncate) {
+		var _self = this,
+		_width = _self.innerWidth(),
+		_textWidth = parseInt(_self.getTextWidth()),
+		_fontSize = parseInt(_self.css('font-size'));
+
+		while (_width < _textWidth || (maxSize && _fontSize > parseInt(maxSize))) {
+			if (minSize && _fontSize <= parseInt(minSize)) break;
+
+			_fontSize--;
+			_self.css('font-size', _fontSize + 'px');
+
+			_textWidth = parseInt(_self.getTextWidth());
+		}
+
+		if (truncate) _self.autoTruncateText();
+	};
+
+	/**
+	* Function that truncates the text inside a container according to the
+	* width and height of that container. In other words, makes it fit by chopping
+	* off characters and adding '...'.
+	*/
+	$.fn.autoTruncateText = function() {
+		var _self = this,
+		_width = _self.outerWidth(),
+		_textHeight = parseInt(_self.getTextHeight(_width)),
+		_text = _self.text();
+
+		// As long as the height of the text is higher than that
+		// of the container, we'll keep removing a character.
+		while (_textHeight > _self.outerHeight()) {
+			_text = _text.slice(0,-1);
+			_self.text(_text);
+			_textHeight = parseInt(_self.getTextHeight(_width));
+			_truncated = true;
+		}
+
+		// When we actually truncated the text, we'll remove the last
+		// 3 characters and replace it with '...'.
+		if (!_truncated) return;
+		_text = _text.slice(0, -3);
+
+		// Make sure there is no dot or space right in front of '...'.
+		var lastChar = _text[_text.length - 1];
+		if (lastChar == ' ' || lastChar == '.') _text = _text.slice(0, -1);
+		_self.text(_text + '...');
+	};
+})(jQuery);
 
 jQuery.fn.cssNum = function(){
 	return parseFloat(jQuery.fn.css.apply(this,arguments));
@@ -26,16 +136,16 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
 
 /* ========================================================================
- * DOM-based Routing
- * Based on http://goo.gl/EUTi53 by Paul Irish
- *
- * Only fires on body classes that match. If a body class contains a dash,
- * replace the dash with an underscore when adding it to the object below.
- *
- * .noConflict()
- * The routing is enclosed within an anonymous function so that you can
- * always reference jQuery with $, even when in .noConflict() mode.
- * ======================================================================== */
+* DOM-based Routing
+* Based on http://goo.gl/EUTi53 by Paul Irish
+*
+* Only fires on body classes that match. If a body class contains a dash,
+* replace the dash with an underscore when adding it to the object below.
+*
+* .noConflict()
+* The routing is enclosed within an anonymous function so that you can
+* always reference jQuery with $, even when in .noConflict() mode.
+* ======================================================================== */
 
 (function($) {
 
@@ -57,42 +167,29 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 			},
 			finalize: function() {
 
-				var linkElementScroll = function(anchor){
-						var target = $(anchor.hash);
-						target = target.length ? target : $('[name=' + anchor.hash.slice(1) +']');
-						if (target.length) {
-							$('.pt-page-main').animate({
-								scrollTop: target.top()
-							}, 1000);
-							event.preventDefault();
-						}
-				};
-				// menu nav
-				$('.main-menu nav a[href*="#"]:not([href="#"])').click(function(event) {
-					if($('.hamburger').hasClass('is-active')){
-						event.preventDefault();
-						$('.hamburger').click();
-						setTimeout(function(){
-							linkElementScroll(this);
-						},1000);
-					}
-				});
-
 				// scroll and URL
-				var stops = [];
-
-				$('.front-page-section').each(function(){
-					$section = $(this);
-					for(i = $section.top(); i < $section.bottom(); i++){
-						stops[i] = $section.prop('id');
-					}
-				});
-
 				var currentSection = "";
-
 				$(".pt-page-main").bind('scroll', function() {
-					if(currentSection !==	stops[$(this).scrollTop()]){
-						currentSection = stops[$(this).scrollTop()];
+
+
+					var getScrollSection = function(top){
+						var toReturn = null;
+						$('.front-page-section').each(function(){
+							var $section = $(this),
+							sTop = $section.top(),
+							sBottom = $section.bottom();
+							if((top >= sTop) && (top < sBottom)){
+								toReturn = $section.prop('id');
+								return false;
+							}
+						});
+						return toReturn;
+					};
+
+					var scrolledSection = getScrollSection($(this).scrollTop());
+
+					if(scrolledSection && currentSection !== scrolledSection){
+						currentSection = scrolledSection;
 						//trigger enter section
 						var url = "/";
 						if(currentSection !== "presentacio"){
@@ -105,10 +202,27 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
 				//all other
 				// JavaScript to be fired on all pages, after page specific JS is fired
-				$('a[href*="#"]:not([href="#"])').click(function(event) {
-					var anchor = this;
-					if (location.pathname.replace(/^\//,'') === anchor.pathname.replace(/^\//,'') && location.hostname === anchor.hostname) {
-						linkElementScroll(this);
+				$('.spi-link').click(function(event) {
+					event.preventDefault();
+
+					var linkElementScroll = function($anchor){
+						var target = $anchor.data().target;
+
+						$('.pt-page-main').animate({
+							scrollTop: $(target).top()
+						}, 1000);
+					};
+
+					var $anchor = $(this);
+
+					if($('.hamburger').hasClass('is-active')){
+						$('.hamburger').click();
+						setTimeout(function(){
+							linkElementScroll($anchor);
+						},1000);
+					}
+					else {
+						linkElementScroll($anchor);
 					}
 				});
 
@@ -127,17 +241,11 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 						scrollTop: $('#'+id).top()
 					}, 1000);
 				}
-				var resizeElements = function(){
+				$(window).resize(function() {
 					var size = $('.technology-panel .technology').width();
 					$('.technology-panel .technology').height(size);
-
-
 					$('.technology-panel .text').height($('.technology-panel .technology .icon').height());
 					$('.technology-panel .text').width(size);
-				};
-				resizeElements();
-				$(window).resize(function() {
-					resizeElements();
 				});
 
 			}
@@ -151,12 +259,12 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
 
 				var $homeNavbar = $('.nav-home-container'),
-						$primaryNavbar = $('.nav-primary-container'),
-						$scrollElement = $('.pt-page-main'),
-						$mainMenu = $('#menu-main-menu'),
-						distance = $homeNavbar.position().top,
-						fadeTime = 200,
-						$window = $(window);
+				$primaryNavbar = $('.nav-primary-container'),
+				$scrollElement = $('.pt-page-main'),
+				$mainMenu = $('#menu-main-menu'),
+				distance = $homeNavbar.position().top,
+				fadeTime = 200,
+				$window = $(window);
 
 				var mainMenuVisible = false;
 
@@ -211,9 +319,9 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 							id = i+1;
 
 							if(i === 0){
-									offset = 0;
+								offset = 0;
 							} else {
-									offset = sectionHeight*(i-1)+sectionHeight/2 ;
+								offset = sectionHeight*(i-1)+sectionHeight/2 ;
 							}
 
 							if(i === 0){
@@ -247,14 +355,14 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
 									if(index-1 === sceneN){
 
-											// prev scene
-											if(index === 0){
-												// there is no prev scene when we are at the first scene
-											} else if( index > 0 && index < nElements-1) {
-												marginTop = sectionHeight-iconHeight/2+pixelsFromTop;
-											} else if (index === nElements-1){
-												marginTop = sectionHeight-iconHeight/2+pixelsFromTop/2;
-											}
+										// prev scene
+										if(index === 0){
+											// there is no prev scene when we are at the first scene
+										} else if( index > 0 && index < nElements-1) {
+											marginTop = sectionHeight-iconHeight/2+pixelsFromTop;
+										} else if (index === nElements-1){
+											marginTop = sectionHeight-iconHeight/2+pixelsFromTop/2;
+										}
 
 
 									} else if(index === sceneN){
@@ -291,9 +399,9 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 								$('.section-icon').hide();
 
 								if( (
-											index > 0 && pixelsFromTop < iconHeight/2
-										) || (
-											index+1 === nElements && pixelsFromTop < iconHeight
+									index > 0 && pixelsFromTop < iconHeight/2
+								) || (
+									index+1 === nElements && pixelsFromTop < iconHeight
 								) ) {
 									//PREV
 									if(index+1 === nElements){
@@ -406,37 +514,33 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 				};
 
 				(function($, viewport){
-						// Executes only in XS breakpoint
-						if(viewport.is('xs')) {
+					// Executes only in XS breakpoint
+					if(viewport.is('xs')) {
+						// ...
+					}
+
+					// Executes in SM, MD and LG breakpoints
+					if(viewport.is('>=sm')) {
+						myScrollMagic();
+					}
+
+					// Executes in XS and SM breakpoints
+					if(viewport.is('<md')) {
+						// ...
+					}
+
+					// Execute code each time window size changes
+					$(window).resize(
+						viewport.changed(function() {
+							if(viewport.is('xs')) {
 								// ...
-						}
-
-						// Executes in SM, MD and LG breakpoints
-						if(viewport.is('>=sm')) {
-								myScrollMagic();
-						}
-
-						// Executes in XS and SM breakpoints
-						if(viewport.is('<md')) {
-								// ...
-						}
-
-						// Execute code each time window size changes
-						$(window).resize(
-								viewport.changed(function() {
-										if(viewport.is('xs')) {
-												// ...
-										}
-								})
-						);
+							}
+							// 									MAB
+							// getTextWidth
+						})
+					);
 
 				})(jQuery, ResponsiveBootstrapToolkit);
-
-
-
-
-
-
 
 			}
 		},
@@ -480,6 +584,5 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
 	// Load Events
 	$(document).ready(UTIL.loadEvents);
-
-
+	setTimeout(function(){$(window).resize();},333);
 })(jQuery); // Fully reference jQuery after this point.

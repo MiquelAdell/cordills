@@ -1,4 +1,5 @@
-$break-small: 320px;
+$break-x-small: 320px;
+$break-small: 480px;
 $break-medium: 800px;
 $break-large: 1200px;
 
@@ -43,14 +44,9 @@ $headings-font-family:   "ff-tisa-web-pro";
 
 $body-font-size:        16px;
 $font-size-base:        16px;
-$font-size-h1:          $font-size-base * 5 !important;
-$font-size-h2:          $font-size-base * 3 !important;
-$font-size-h3:          $font-size-base * 2 !important;
-$font-size-h4:          $font-size-base * 1.5 !important;
-$font-size-h5:          $font-size-base !important;
-$font-size-h6:          $font-size-base * 0.85 !important;
-
-
-$break-small: 767px;
-$break-medium: 991px;
-$break-large: 1200px;
+$font-size-h1:          $font-size-base * 5;
+$font-size-h2:          $font-size-base * 3;
+$font-size-h3:          $font-size-base * 2;
+$font-size-h4:          $font-size-base * 1.5;
+$font-size-h5:          $font-size-base;
+$font-size-h6:          $font-size-base * 0.85;

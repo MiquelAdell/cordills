@@ -13,7 +13,7 @@ $areas = array(
 		"javascript" => array('title' => 'JavaScript', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end')
 	),
 	"backend" => array(
-		"php" => array('title' => 'PHP', 'description' => '', 'extraShort' => 'Programació back end', 'extraLong' => 'Programació back end'),
+		"php" => array('title' => 'PHP', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació back end'),
 		"mysql" => array('title' => 'MySQL', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de base de dades'),
 		"mariadb" => array('title' => 'MariaDB', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de base de dades'),
 		"linux" => array('title' => 'Linux', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de servidors'),
@@ -128,11 +128,11 @@ $areas = array(
 	</svg>
 
 	<div class='col-sm-12 technology-panel'>
-		<div class="icons">
-			<?php
+		<?php
+			$n = 0;
 			foreach($areas as $key => $area){
 				?>
-				<div class='area <?=$key?>'>
+				<div class='technologies'>
 					<?php
 					foreach($area as $key => $technology){
 						?>
@@ -160,6 +160,5 @@ $areas = array(
 				<?php
 			}
 			?>
-		</div>
 	</div> <!-- technology-panel -->
 </div> <!-- row technology-panel-holder -->

@@ -20,8 +20,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 			color: rgba(256, 256, 256, 0.6);
 		}
 	}
-
-
 }
 
 blockquote small {
@@ -314,6 +312,10 @@ menu
 		position: relative;
 		cursor: pointer;
 
+		@media (pointer:coarse) {
+			margin-bottom: 3em;
+		}
+
 		.icon-holder {
 			width: 100%;
 
@@ -324,10 +326,6 @@ menu
 				fill: transparentize($gray-base,0.1);
 				transition-property: fill;
 				transition-duration: 0.3s;
-
-				@media (pointer:coarse) {
-					fill: transparentize($gray-base,0.5);
-				}
 			}
 
 		}
@@ -344,7 +342,6 @@ menu
 
 				.text {
 					display: table-cell;
-					vertical-align: middle;
 					text-align: center;
 					color: transparentize(invert($gray-base),1);
 					font-weight: bold;
@@ -356,15 +353,15 @@ menu
 					.extraShort {
 						display: none;
 						@media screen and (max-width: $break-large) {
-							display: block;
+							display: inline;
 						}
 						@media (pointer:coarse) {
-							display: block;
+							display: inline;
 						}
 					}
 
 					.extraLong {
-						display: block;
+						display: inline;
 						@media screen and (max-width: $break-large) {
 							display: none;
 						}
@@ -375,6 +372,8 @@ menu
 
 					@media (pointer:coarse) {
 						color: transparentize(invert($gray-base),0);
+						vertical-align: top;
+						padding: 20% 10%;
 					}
 
 					@media screen and (max-width: $break-large) {
@@ -385,7 +384,7 @@ menu
 						font-size: 70%;
 					}
 
-					@media screen and (max-width: $break-small) {
+					@media screen and (max-width: $break-x-small) {
 						font-size: 60%;
 					}
 				}
@@ -409,4 +408,18 @@ menu
 
 .col-sm-12.technology-panel {
 
+}
+
+.h1, h1 {
+	@media screen and (max-width: $break-medium) {
+		font-size: 60px;
+	}
+
+	@media screen and (max-width: $break-small) {
+		font-size: 44px;
+	}
+
+	@media screen and (max-width: $break-x-small) {
+		font-size: 35px;
+	}
 }
