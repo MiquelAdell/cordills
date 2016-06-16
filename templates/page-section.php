@@ -30,7 +30,7 @@ if( get_field( "call_to_action_text" ) ) {
                         <div class="page-holder">
                             <?php
                             get_template_part('templates/page', 'header');
-                            get_template_part('templates/page-'.$post->ID);
+                            get_template_part('templates/page-multiple-'.$post->ID);
                             ?>
                             <div class="row col-xs-12"><?=$call_to_action?></div>
                         </div>
