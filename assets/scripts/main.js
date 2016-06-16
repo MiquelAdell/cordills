@@ -127,6 +127,19 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 						scrollTop: $('#'+id).top()
 					}, 1000);
 				}
+				var resizeElements = function(){
+					var size = $('.technology-panel .technology').width();
+					$('.technology-panel .technology').height(size);
+
+
+					$('.technology-panel .text').height($('.technology-panel .technology .icon').height());
+					$('.technology-panel .text').width(size);
+				};
+				resizeElements();
+				$(window).resize(function() {
+					resizeElements();
+				});
+
 			}
 		},
 		// Home page

@@ -8,30 +8,30 @@ body {
 	background: linear-gradient(to bottom,$scene-1-color, $scene-2-color);
 }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6	{
-		color: rgba(256, 256, 256, 0.5);
-		font-family: $font-family-serif;
-		text-align: center;
-		font-weight: bold;
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	color: rgba(256, 256, 256, 0.5);
+	font-family: $font-family-serif;
+	text-align: center;
+	font-weight: bold;
 
-		a {
-				color: rgba(256, 256, 256, 0.5);
-				&:hover {
-						color: rgba(256, 256, 256, 0.6);
-				}
+	a {
+		color: rgba(256, 256, 256, 0.5);
+		&:hover {
+			color: rgba(256, 256, 256, 0.6);
 		}
+	}
 
 
 }
 
 blockquote small {
-		color: opacify($text-color, 1);
+	color: opacify($text-color, 1);
 }
 
 p {
-		padding: 1em;
-		margin-bottom: 1em;
-		text-align: center;
+	padding: 1em;
+	margin-bottom: 1em;
+	text-align: center;
 }
 
 // HOME PAGE LAYOUT
@@ -39,7 +39,7 @@ header {
 }
 
 footer {
-	 &:before {
+	&:before {
 		content: "";
 		display: table;
 		background-image: url(../images/grain.svg);
@@ -52,8 +52,8 @@ footer {
 	display: table;
 
 	background:
-		linear-gradient(transparentize($scene-4-color,0.4), hsla(0, 0%, 0%, 0.7)),
-		url('http://pre08.deviantart.net/1e40/th/pre/i/2010/128/a/5/seamless_dirt_texture_by_hhh316.jpg')
+	linear-gradient(transparentize($scene-4-color,0.4), hsla(0, 0%, 0%, 0.7)),
+	url('http://pre08.deviantart.net/1e40/th/pre/i/2010/128/a/5/seamless_dirt_texture_by_hhh316.jpg')
 	;
 	background-position: center top;
 	color: white;
@@ -64,41 +64,18 @@ footer {
 	p {
 		padding: 0;
 		margin: 2em 0;
-			text-align: left;
+		text-align: left;
 	}
 }
 
 
 .page-header {
 	border-bottom-color: $title-color;
-}
-
-
-.front-page-technology h2 {
-		text-decoration: underline;
-		text-align: center;
-}
-
-.front-page-technology .icons {
-		text-align: center;
-		width: 100%;
-		float: left;
-}
-
-.front-page-technology h3 {
-		display: inline;
-}
-
-.front-page-technology .icon i {
-
-}
-
-.page-header {
-		border: 0;
+	border: 0;
 }
 
 .page-holder {
-		width: 100%;
+	width: 100%;
 }
 
 
@@ -161,12 +138,7 @@ footer {
 
 
 /*
-.88b	d88. d88888b d8b	 db db		db
-88'YbdP`88 88'		 888o	88 88		88
-88	88	88 88ooooo 88V8o 88 88		88
-88	88	88 88~~~~~ 88 V8o88 88		88
-88	88	88 88.		 88	V888 88b	d88
-YP	YP	YP Y88888P VP	 V8P ~Y8888P'
+menu
 */
 .banner {
 	position: relative;
@@ -254,10 +226,10 @@ YP	YP	YP Y88888P VP	 V8P ~Y8888P'
 .pt-page-holder {
 	background: $scene-1-color;
 	background: linear-gradient(to bottom,
-		$scene-1-color, $scene-1-color, $scene-1-color,
-		$scene-2-color, $scene-2-color, $scene-2-color,
-		$scene-3-color, $scene-3-color, $scene-3-color,
-		$scene-4-color, $scene-4-color, $scene-4-color
+	$scene-1-color, $scene-1-color, $scene-1-color,
+	$scene-2-color, $scene-2-color, $scene-2-color,
+	$scene-3-color, $scene-3-color, $scene-3-color,
+	$scene-4-color, $scene-4-color, $scene-4-color
 	);
 }
 
@@ -280,15 +252,15 @@ YP	YP	YP Y88888P VP	 V8P ~Y8888P'
 
 @mixin color_elements($color) {
 	h1, h2, h3, h4, h5, h6 {
+		color: darken($color,20%);
+		a {
 			color: darken($color,20%);
-			a {
-				color: darken($color,20%);
 
-				&:hover {
-								color: darken($color,30%);
-						}
+			&:hover {
+				color: darken($color,30%);
 			}
 		}
+	}
 }
 
 .front-page-section:nth-child(1) {
@@ -324,7 +296,7 @@ YP	YP	YP Y88888P VP	 V8P ~Y8888P'
 
 
 .process-panel .text {
-		height: 8em;
+	height: 8em;
 	overflow: hidden;
 
 	p {
@@ -332,50 +304,108 @@ YP	YP	YP Y88888P VP	 V8P ~Y8888P'
 	}
 }
 
-.icons {
-	text-align: center;
+.technologies {
 
-	.icon-holder {
+
+	.technology {
+		width: 23%;
+		margin: 1%;
+		float: left;
+		position: relative;
 		cursor: pointer;
-		margin-bottom: 3em;
-		svg.icon {
+
+		.icon-holder {
+			width: 100%;
+
+			.icon {
+				width: 100%;
+				height: 100%;
+				padding: 10%;
+				fill: transparentize($gray-base,0.1);
+				transition-property: fill;
+				transition-duration: 0.3s;
+
+				@media (pointer:coarse) {
+					fill: transparentize($gray-base,0.5);
+				}
+			}
+
+		}
+
+		.bubble-holder {
+			position: absolute;
+			top: 0;
 			height: 100%;
 			width: 100%;
-			fill: transparentize($gray-base,0.1);
-			transition-property: fill;
-				transition-duration: 0.3s;
-		}
-		.text {
-			width: 100%;
-				right: 0;
-				bottom: -25%;
-				text-align: center;
-			color: transparentize($link-color,1);
-			transition-property: color;
-			transition-duration: 1s;
-			@media (pointer:coarse) {
-				color: transparentize($link-color,0.05);
+
+			.bubble {
+				position: absolute;
+				display: table;
+
+				.text {
+					display: table-cell;
+					vertical-align: middle;
+					text-align: center;
+					color: transparentize(invert($gray-base),1);
+					font-weight: bold;
+
+					transition-property: color;
+					transition-duration: 1s;
+					padding: 10%;
+
+					.extraShort {
+						display: none;
+						@media screen and (max-width: $break-large) {
+							display: block;
+						}
+						@media (pointer:coarse) {
+							display: block;
+						}
+					}
+
+					.extraLong {
+						display: block;
+						@media screen and (max-width: $break-large) {
+							display: none;
+						}
+						@media (pointer:coarse) {
+							display: none;
+						}
+					}
+
+					@media (pointer:coarse) {
+						color: transparentize(invert($gray-base),0);
+					}
+
+					@media screen and (max-width: $break-large) {
+						font-size: 80%;
+					}
+
+					@media screen and (max-width: $break-medium) {
+						font-size: 70%;
+					}
+
+					@media screen and (max-width: $break-small) {
+						font-size: 60%;
+					}
+				}
+
 			}
 		}
+
 		&:hover {
-			svg.icon {
-				fill: transparentize($link-color,0.05);
+			.icon {
+				fill: transparentize($gray-base,0.5);
 			}
-			.text {
-				color: transparentize($link-color,0.05);
+
+			.bubble-holder .bubble .text {
+				color: transparentize(invert($gray-base),0);
 			}
 		}
 	}
-}
 
-.frontpage_square{
-	position:relative;
-	padding-bottom:100%;
-}
-.frontpage_square > *{
-position:absolute;
-}
 
+}
 
 .col-sm-12.technology-panel {
 

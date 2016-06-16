@@ -1,28 +1,28 @@
 <?php
 $areas = array(
 	"frameworks" => array(
-		"wordpress" => array('title' => 'WordPress', 'description' => '', 'extra' => 'Framework'),
-		"laravel" => array('title' => 'Laravel', 'description' => '', 'extra' => 'Framework')
+		"wordpress" => array('title' => 'WordPress', 'description' => '', 'extraShort' => 'Framework', 'extraLong' => 'Framework'),
+		"laravel" => array('title' => 'Laravel', 'description' => '', 'extraShort' => 'Framework', 'extraLong' => 'Framework')
 	),
 	"frontend" => array(
-		"bootstrap" => array('title' => 'Bootstrap', 'description' => '', 'extra' => 'Programació front end'),
-		"html-five" => array('title' => 'HTML-5', 'description' => '', 'extra' => 'Programació front end'),
-		"css3" => array('title' => 'CSS-3', 'description' => '', 'extra' => 'Programació front end'),
-		"sass" => array('title' => 'Sass', 'description' => '', 'extra' => 'Programació front end'),
-		"jquery" => array('title' => 'jQuery', 'description' => '', 'extra' => 'Programació front end'),
-		"javascript" => array('title' => 'JavaScript', 'description' => '', 'extra' => 'Programació front end')
+		"html-five" => array('title' => 'HTML-5', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
+		"css3" => array('title' => 'CSS-3', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
+		"bootstrap" => array('title' => 'Bootstrap', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
+		"sass" => array('title' => 'Sass', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
+		"jquery" => array('title' => 'jQuery', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
+		"javascript" => array('title' => 'JavaScript', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end')
 	),
 	"backend" => array(
-		"php" => array('title' => 'PHP', 'description' => '', 'extra' => 'Programació back end'),
-		"mysql" => array('title' => 'MySQL', 'description' => '', 'extra' => 'Gestió de base de dades'),
-		"mariadb" => array('title' => 'MariaDB', 'description' => '', 'extra' => 'Gestió de base de dades'),
-		"linux" => array('title' => 'Linux', 'description' => '', 'extra' => 'Gestió de servidors'),
-		"docker" => array('title' => 'Docker', 'description' => '', 'extra' => 'Gestió de servidors'),
-		"git" => array('title' => 'Git', 'description' => '', 'extra' => 'Gestió de projectes')
+		"php" => array('title' => 'PHP', 'description' => '', 'extraShort' => 'Programació back end', 'extraLong' => 'Programació back end'),
+		"mysql" => array('title' => 'MySQL', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de base de dades'),
+		"mariadb" => array('title' => 'MariaDB', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de base de dades'),
+		"linux" => array('title' => 'Linux', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de servidors'),
+		"docker" => array('title' => 'Docker', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de servidors'),
+		"git" => array('title' => 'Git', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de projectes')
 	),
 	"integracions" => array(
-		"twitter" => array('title' => 'Twitter', 'description' => '', 'extra' => 'Integració amb API'),
-		"facebook" => array('title' => 'Facebook', 'description' => '', 'extra' => 'Integració amb API')
+		"twitter" => array('title' => 'Twitter', 'description' => '', 'extraShort' => 'API', 'extraLong' => 'Integració amb API'),
+		"facebook" => array('title' => 'Facebook', 'description' => '', 'extraShort' => 'API', 'extraLong' => 'Integració amb API')
 	)
 );
 ?>
@@ -128,33 +128,38 @@ $areas = array(
 	</svg>
 
 	<div class='col-sm-12 technology-panel'>
-		<?php
-			$n = 0;
+		<div class="icons">
+			<?php
 			foreach($areas as $key => $area){
 				?>
-				<div class='icons'>
+				<div class='area <?=$key?>'>
 					<?php
 					foreach($area as $key => $technology){
-						if($n%4 === 0){
-							$offset = $n%4;
-						}
-						else {
-							$offset = "col-sm-offset-1";
-						}
 						?>
-						<div class='col-xs-3 col-sm-2 <?=$offset?>' >
-							<div class="icon-holder frontpage_square">
-								<svg class="icon technology-<?=$key?>"><use xlink:href="#technology-<?=$key?>"></use></svg>
-								<span class="text"><?=$technology['extra']?>: <?=$technology['title']?></span>
+						<div class="technology">
+							<div class="technology-holder">
+								<div class="icon-holder">
+									<svg class="icon technology-<?=$key?>"><use xlink:href="#technology-<?=$key?>"></use></svg>
+
+								</div>
+								<div class="bubble-holder">
+									<div class="bubble">
+										<div class="text">
+											<span class="extraShort"><?=$technology['extraShort']?></span>
+											<span class="extraLong"><?=$technology['extraLong']?></span>
+											<span class="title"><?=$technology['title']?></span>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 						<?php
-						$n++;
 					}
 					?>
-					</div>
-					<?php
+				</div>
+				<?php
 			}
 			?>
+		</div>
 	</div> <!-- technology-panel -->
 </div> <!-- row technology-panel-holder -->
