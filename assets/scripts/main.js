@@ -17,116 +17,7 @@ jQuery.fn.extend({
 		return jQuery(this).position().left+jQuery(this).outerWidth();
 	}
 });
-(function ($) {
-	$.fn.getTextWidth = function() {
-		var spanText = $("BODY #spanCalculateTextWidth");
 
-		if (spanText.size() <= 0) {
-			spanText = $("<span id='spanCalculateTextWidth' style='filter: alpha(0);'></span>");
-			spanText.appendTo("BODY");
-		}
-
-		var valu = this.val();
-		if (!valu) valu = this.text();
-
-		spanText.text(valu);
-
-		spanText.css({
-			"fontSize": this.css('fontSize'),
-			"fontWeight": this.css('fontWeight'),
-			"fontFamily": this.css('fontFamily'),
-			"position": "absolute",
-			"top": 0,
-			"opacity": 0,
-			"left": -2000
-		});
-
-		return spanText.outerWidth() + parseInt(this.css('paddingLeft')) + 'px';
-	};
-
-	$.fn.getTextHeight = function(width) {
-		var spanText = $("BODY #spanCalculateTextHeight");
-
-		if (spanText.size() <= 0) {
-			spanText = $("<span id='spanCalculateTextHeight'></span>");
-			spanText.appendTo("BODY");
-		}
-
-		var valu = this.val();
-		if (!valu) valu = this.text();
-
-		spanText.text(valu);
-
-		spanText.css({
-			"fontSize": this.css('fontSize'),
-			"fontWeight": this.css('fontWeight'),
-			"fontFamily": this.css('fontFamily'),
-			"top": 0,
-			"left": -1 * parseInt(width) + 'px',
-			"position": 'absolute',
-			"display": "inline-block",
-			"width": width
-		});
-
-		return spanText.innerHeight() + 'px';
-	};
-
-	/**
-	* Adjust the font-size of the text so it fits the container.
-	*
-	* @param minSize     Minimum font size?
-	* @param maxSize     Maximum font size?
-	* @param truncate    Truncate text after sizing to make sure it fits?
-	*/
-	$.fn.autoTextSize = function(minSize, maxSize, truncate) {
-		var _self = this,
-		_width = _self.innerWidth(),
-		_textWidth = parseInt(_self.getTextWidth()),
-		_fontSize = parseInt(_self.css('font-size'));
-
-		while (_width < _textWidth || (maxSize && _fontSize > parseInt(maxSize))) {
-			if (minSize && _fontSize <= parseInt(minSize)) break;
-
-			_fontSize--;
-			_self.css('font-size', _fontSize + 'px');
-
-			_textWidth = parseInt(_self.getTextWidth());
-		}
-
-		if (truncate) _self.autoTruncateText();
-	};
-
-	/**
-	* Function that truncates the text inside a container according to the
-	* width and height of that container. In other words, makes it fit by chopping
-	* off characters and adding '...'.
-	*/
-	$.fn.autoTruncateText = function() {
-		var _self = this,
-		_width = _self.outerWidth(),
-		_textHeight = parseInt(_self.getTextHeight(_width)),
-		_text = _self.text();
-
-		// As long as the height of the text is higher than that
-		// of the container, we'll keep removing a character.
-		while (_textHeight > _self.outerHeight()) {
-			_text = _text.slice(0,-1);
-			_self.text(_text);
-			_textHeight = parseInt(_self.getTextHeight(_width));
-			_truncated = true;
-		}
-
-		// When we actually truncated the text, we'll remove the last
-		// 3 characters and replace it with '...'.
-		if (!_truncated) return;
-		_text = _text.slice(0, -3);
-
-		// Make sure there is no dot or space right in front of '...'.
-		var lastChar = _text[_text.length - 1];
-		if (lastChar == ' ' || lastChar == '.') _text = _text.slice(0, -1);
-		_self.text(_text + '...');
-	};
-})(jQuery);
 
 jQuery.fn.cssNum = function(){
 	return parseFloat(jQuery.fn.css.apply(this,arguments));
@@ -175,12 +66,15 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 					var getScrollSection = function(top){
 						var toReturn = null;
 						$('.front-page-section').each(function(){
-							var $section = $(this),
-							sTop = $section.top(),
-							sBottom = $section.bottom();
-							if((top >= sTop) && (top < sBottom)){
-								toReturn = $section.prop('id');
-								return false;
+							var sTop, sBottom;
+							var $section = $(this);
+							if($section.length){
+								sTop = $section.top();
+								sBottom = $section.bottom();
+								if((top >= sTop) && (top < sBottom)){
+									toReturn = $section.prop('id');
+									return false;
+								}
 							}
 						});
 						return toReturn;
@@ -229,23 +123,35 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
 				$(window).on("popstate", function(e) {
 					var section = e.originalEvent.state.section;
-					$('.pt-page-main').animate({
-						scrollTop: $('#'+section).top()
-					}, 1000);
+					if($('#'+section).length){
+						$('.pt-page-main').animate({
+							scrollTop: $('#'+section).top()
+						}, 1000);
+					}
 				});
 
 				// if it's frist load maybe we have something in the url (and not in history) and we need to apply changes
 				if(window.location.pathname !== "/"){
 					var id = window.location.pathname.substring(1);
-					$('.pt-page-main').animate({
-						scrollTop: $('#'+id).top()
-					}, 1000);
+					if($('#'+id).length){
+						$('.pt-page-main').animate({
+							scrollTop: $('#'+id).top()
+						}, 1000);
+					}
 				}
 				$(window).resize(function() {
 					var size = $('.technology-panel .technology').width();
 					$('.technology-panel .technology').height(size);
 					$('.technology-panel .text').height($('.technology-panel .technology .icon').height());
 					$('.technology-panel .text').width(size);
+
+
+					if($('.pt-page-holder').height() < $(window).height()){
+						$('.pt-page-holder').height($(window).height());
+						$('footer').addClass("stick-to-bottom");
+					} else {
+						$('footer').removeClass("stick-to-bottom");
+					}
 				});
 
 			}

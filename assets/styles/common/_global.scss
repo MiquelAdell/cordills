@@ -10,14 +10,6 @@ body {
 	background: $body-background-color;
 	min-height: 100vh;
 }
-.pt-page-holder,
-.pt-page-menu {
-	background: linear-gradient(to bottom,$scene-1-color, $scene-2-color);
-	background-size: 300% !important;
-	.home & {
-		background-size: 100% !important;
-	}
-}
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	color: rgba(256, 256, 256, 0.5);
@@ -48,31 +40,29 @@ header {
 }
 
 footer {
-	&:before {
-		content: "";
-		display: table;
-		/* background-image: url(../images/grain.svg); */
-		width: 100%;
-		height: 0;
-		border-bottom: 2px solid hsla(0,100%,0%,0.5);
+	display: table;
+	// background: linear-gradient(transparentize($scene-4-color,0.4), hsla(0, 0%, 0%, 0.7)), url('../images/earth.jpg');
+	background-image:  url('../images/earth.png');
+	background-position: center top;
+	background-size: cover;
+	width: 100%;
+
+	&.stick-to-bottom {
+		position: absolute;
+		bottom: 0;
 	}
 
-	display: table;
-
-	background:
-	linear-gradient(transparentize($scene-4-color,0.4), hsla(0, 0%, 0%, 0.7)),
-	url('http://pre08.deviantart.net/1e40/th/pre/i/2010/128/a/5/seamless_dirt_texture_by_hhh316.jpg')
-	;
-	background-position: center top;
-	color: white;
-
-
-	width: 100%;
-	height: 6em;
 	p {
 		padding: 0;
-		margin: 2em 0;
-		text-align: left;
+		margin: 3.5em 2em 0.5em 2em;
+		height: 2em;
+		line-height: 2em;
+		text-align: center;
+		font-family: $font-family-sans-serif;
+		font-size: 1.1em;
+		font-weight: bold;
+		letter-spacing: 2px;
+		color: $gray-base;
 	}
 }
 
@@ -239,6 +229,15 @@ menu
 	$scene-3-color, $scene-3-color, $scene-3-color,
 	$scene-4-color, $scene-4-color, $scene-4-color
 	);
+}
+
+.pt-page-holder,
+.pt-page-menu {
+	background-size: 300%;
+
+	.page-template-front-page &, .home & {
+		background-size: 100%;
+	}
 }
 
 
