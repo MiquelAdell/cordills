@@ -187,6 +187,10 @@ menu
 .main {
 	margin: 0;
 	padding: 0;
+	padding-top: 50px;
+	.page-template-front-page &, .home & {
+		padding-top: 0px;
+	}
 }
 
 
@@ -196,7 +200,10 @@ menu
 
 .nav-primary-container,
 .nav-home-container {
-	visibility: hidden;
+		visibility: visible;
+	.page-template-front-page &, .home & {
+		visibility: hidden;
+	}
 	&.visible{
 		visibility: visible;
 	}

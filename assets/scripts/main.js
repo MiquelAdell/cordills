@@ -97,26 +97,28 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 				//all other
 				// JavaScript to be fired on all pages, after page specific JS is fired
 				$('.spi-link').click(function(event) {
-					event.preventDefault();
+					if($('body').hasClass('home') || $('body').hasClass('page-template-front-page')){
+						event.preventDefault();
 
-					var linkElementScroll = function($anchor){
-						var target = $anchor.data().target;
+						var linkElementScroll = function($anchor){
+							var target = $anchor.data().target;
 
-						$('.pt-page-main').animate({
-							scrollTop: $(target).top()
-						}, 1000);
-					};
+							$('.pt-page-main').animate({
+								scrollTop: $(target).top()
+							}, 1000);
+						};
 
-					var $anchor = $(this);
+						var $anchor = $(this);
 
-					if($('.hamburger').hasClass('is-active')){
-						$('.hamburger').click();
-						setTimeout(function(){
+						if($('.hamburger').hasClass('is-active')){
+							$('.hamburger').click();
+							setTimeout(function(){
+								linkElementScroll($anchor);
+							},1000);
+						}
+						else {
 							linkElementScroll($anchor);
-						},1000);
-					}
-					else {
-						linkElementScroll($anchor);
+						}
 					}
 				});
 
