@@ -1,3 +1,5 @@
+<!-- <?php echo "basename: ".basename( __FILE__ ); ?> -->
+
 <?php while (have_posts()) : the_post(); ?>
   <article <?php post_class(); ?>>
     <header>

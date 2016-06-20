@@ -1,3 +1,5 @@
+<!-- <?php echo "basename: ".basename( __FILE__ ); ?> -->
+
 <?php
 if (post_password_required()) {
   return;

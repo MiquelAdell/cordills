@@ -1,3 +1,5 @@
+<!-- <?php echo "basename: ".basename( __FILE__ ); ?> -->
+
 <?php
 $areas = array(
 	"frameworks" => array(

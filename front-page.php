@@ -1,3 +1,5 @@
+<!-- <?php echo "basename: ".basename( __FILE__ ); ?> -->
+
 <?php /* Template Name: Front Page */
 
 $args = array(

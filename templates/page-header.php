@@ -1,3 +1,4 @@
+<!-- <?php echo "basename: ".basename( __FILE__ ); ?> -->
 <?php use Roots\Sage\Titles; ?>
 
 <div class="page-header">

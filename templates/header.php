@@ -1,3 +1,5 @@
+<!-- <?php echo "basename: ".basename( __FILE__ ); ?> -->
+
 <header class="banner nav-primary-container">
   <div class="container section-container">
     <div class="row">

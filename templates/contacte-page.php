@@ -1,8 +1,11 @@
+<!-- <?php echo "basename: ".basename( __FILE__ ); ?> -->
+
+
 <?php /* Template Name: Contact Page */ ?>
 <?php while (have_posts()) : the_post(); ?>
   <?php
   get_template_part('templates/header', 'page');
-  get_template_part('templates/page', 'header'); 
+  get_template_part('templates/page', 'header');
   ?>
 
   <?php

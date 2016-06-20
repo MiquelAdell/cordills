@@ -1,3 +1,5 @@
+<!-- <?php echo "basename: ".basename( __FILE__ ); ?> -->
+
 <?php
 $connected = new WP_Query( array(
 	'connected_type' => 'highlighted_project',
