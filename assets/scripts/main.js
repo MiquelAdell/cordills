@@ -86,6 +86,9 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 						currentSection = scrolledSection;
 						//trigger enter section
 						var url = "/";
+						$('.nav a.active').removeClass('active');
+						$('a[href$="/'+currentSection+'"]').addClass('active');
+
 						if(currentSection !== "presentacio"){
 							url = "/"+currentSection;
 						}

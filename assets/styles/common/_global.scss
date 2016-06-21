@@ -183,7 +183,7 @@ menu
 		a {
 			line-height: 3em;
 
-			&:focus, &:hover {
+			&:active, &:focus, &:hover {
 				background: rgba(0,0,0,0.5);
 			}
 		}
