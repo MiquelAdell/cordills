@@ -95,6 +95,7 @@ footer {
 }
 
 .nav-primary-container {
+	cursor: pointer;
 	$menu-height: 52px;
 	$font-height: $menu-height / 1.5;
 	$margin-top: ($menu-height - $font-height) / 4;
@@ -119,20 +120,30 @@ footer {
 			font-size: $font-height;
 			margin-left: 0.5em;
 
+			transition-property: color, background;
+			transition-duration: 0.6s;
+
 			&:hover {
-				color: darken($scene-1-color,30%);
+				color: darken($scene-1-color,40%);
 			}
 		}
 	}
 	ul li {
 		display: inline;
-		text-transform: uppercase;
+		cursor: pointer;
+
 		a {
+			text-transform: uppercase;
 			display: inline;
 			line-height: 3em;
+			padding: 13px 15px;
 
-			&:focus, &:hover {
-				background: none;
+			transition-property: color, background;
+			transition-duration: 0.6s;
+
+			&.active, &:focus, &:hover {
+				background: $link-color;
+				color: $scene-1-color;
 			}
 		}
 	}
