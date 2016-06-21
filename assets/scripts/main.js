@@ -97,6 +97,71 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 					}
 				});
 
+				var $homeNavbar = $('.nav-home-container'),
+				$primaryNavbar = $('.nav-primary-container'),
+				$scrollElement = $('.pt-page-main'),
+				$mainMenu = $('#menu-main-menu'),
+				distance = $homeNavbar.position().top,
+				fadeTime = 200,
+				$window = $(window);
+
+				var mainMenuVisible = false;
+
+				var toggleMainMenu = function(show){
+					if(show){
+						mainMenuVisible = true;
+						$homeNavbar.removeClass('visible');
+						$primaryNavbar.addClass('visible');
+						$mainMenu.addClass('dettached');
+					} else {
+						mainMenuVisible = false;
+						$primaryNavbar.removeClass('visible');
+						$homeNavbar.addClass('visible');
+						$mainMenu.removeClass('dettached');
+					}
+				};
+
+				$scrollElement.scroll(function() {
+					if ($scrollElement.scrollTop() >= distance ) {
+						if(!mainMenuVisible){
+							toggleMainMenu(true);
+						}
+					} else {
+						if(mainMenuVisible){
+							toggleMainMenu(false);
+						}
+					}
+				});
+
+
+				(function($, viewport){
+					// Executes only in XS breakpoint
+					if(viewport.is('xs')) {
+						// ...
+					}
+
+					// Executes in SM, MD and LG breakpoints
+					if(viewport.is('>=sm')) {
+						myScrollMagic();
+					}
+
+					// Executes in XS and SM breakpoints
+					if(viewport.is('<md')) {
+						// ...
+					}
+
+					// Execute code each time window size changes
+					$(window).resize(
+						viewport.changed(function() {
+							if(viewport.is('xs')) {
+								// ...
+							}
+							// getTextWidth
+						})
+					);
+
+				})(jQuery, ResponsiveBootstrapToolkit);
+
 				//all other
 				// JavaScript to be fired on all pages, after page specific JS is fired
 				$('.spi-link').click(function(event) {
@@ -166,64 +231,6 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 				// JavaScript to be fired on the home page
 			},
 			finalize: function() {
-
-
-				var $homeNavbar = $('.nav-home-container'),
-				$primaryNavbar = $('.nav-primary-container'),
-				$scrollElement = $('.pt-page-main'),
-				$mainMenu = $('#menu-main-menu'),
-				distance = $homeNavbar.position().top,
-				fadeTime = 200,
-				$window = $(window);
-
-				var mainMenuVisible = false;
-
-				$scrollElement.scroll(function() {
-					if ($scrollElement.scrollTop() >= distance ) {
-						if(!mainMenuVisible){
-							mainMenuVisible = true;
-							$homeNavbar.removeClass('visible');
-							$primaryNavbar.addClass('visible');
-							$mainMenu.addClass('dettached');
-						}
-					} else {
-						if(mainMenuVisible){
-							mainMenuVisible = false;
-							$primaryNavbar.removeClass('visible');
-							$homeNavbar.addClass('visible');
-							$mainMenu.removeClass('dettached');
-						}
-					}
-				});
-
-
-				(function($, viewport){
-					// Executes only in XS breakpoint
-					if(viewport.is('xs')) {
-						// ...
-					}
-
-					// Executes in SM, MD and LG breakpoints
-					if(viewport.is('>=sm')) {
-						myScrollMagic();
-					}
-
-					// Executes in XS and SM breakpoints
-					if(viewport.is('<md')) {
-						// ...
-					}
-
-					// Execute code each time window size changes
-					$(window).resize(
-						viewport.changed(function() {
-							if(viewport.is('xs')) {
-								// ...
-							}
-							// getTextWidth
-						})
-					);
-
-				})(jQuery, ResponsiveBootstrapToolkit);
 
 			}
 		},

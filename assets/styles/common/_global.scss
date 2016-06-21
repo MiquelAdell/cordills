@@ -231,17 +231,13 @@ menu
 	text-align: center;
 	margin-top: 3em;
 	margin-bottom: 1em;
+}
 
-	.project-image {
-		width: 100%;
-		margin: 0 auto;
-		clear: both;
-		display: block;
-	    -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
-	    filter: url(#drop-shadow);
-	    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
-	    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
-	}
+.project-image {
+	width: 100%;
+	margin: 0 auto;
+	clear: both;
+	display: block;
 }
 
 
