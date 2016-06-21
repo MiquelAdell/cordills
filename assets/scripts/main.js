@@ -213,13 +213,13 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 					}
 				}
 
-				/* TECHNOLOGIES */
-				$(window).resize(function() {
-					var size = $('.technology-panel .technology').width();
-					$('.technology-panel .technology').height(size);
-					$('.technology-panel .text').height($('.technology-panel .technology .icon').height());
-					$('.technology-panel .text').width(size);
-				});
+				// /* TECHNOLOGIES */
+				// $(window).resize(function() {
+				// 	var size = $('.technology-panel .technology').width();
+				// 	$('.technology-panel .technology').height(size);
+				// 	$('.technology-panel .text').height($('.technology-panel .technology .icon').height());
+				// 	$('.technology-panel .text').width(size);
+				// });
 
 
 				/* STICKY FOOTER */

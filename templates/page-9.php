@@ -1,73 +1,29 @@
 <!-- <?php echo "basename: ".basename( __FILE__ ); ?> -->
 
 <?php
-$areas = array(
-	"frameworks" => array(
-		"wordpress" => array('title' => 'WordPress', 'description' => '', 'extraShort' => 'Framework', 'extraLong' => 'Framework'),
-		"laravel" => array('title' => 'Laravel', 'description' => '', 'extraShort' => 'Framework', 'extraLong' => 'Framework')
-	),
-	"frontend" => array(
-		"html-five" => array('title' => 'HTML-5', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
-		"css3" => array('title' => 'CSS-3', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
-		"bootstrap" => array('title' => 'Bootstrap', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
-		"sass" => array('title' => 'Sass', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
-		"jquery" => array('title' => 'jQuery', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
-		"javascript" => array('title' => 'JavaScript', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end')
-	),
-	"backend" => array(
-		"php" => array('title' => 'PHP', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació back end'),
-		"mysql" => array('title' => 'MySQL', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de base de dades'),
-		"mariadb" => array('title' => 'MariaDB', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de base de dades'),
-		"linux" => array('title' => 'Linux', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de servidors'),
-		"docker" => array('title' => 'Docker', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de servidors'),
-		"git" => array('title' => 'Git', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de projectes')
-	),
-	"integracions" => array(
-		"twitter" => array('title' => 'Twitter', 'description' => '', 'extraShort' => 'API', 'extraLong' => 'Integració amb API'),
-		"facebook" => array('title' => 'Facebook', 'description' => '', 'extraShort' => 'API', 'extraLong' => 'Integració amb API')
-	)
+$technologies = array(
+	array('key' => 'wordpress', 'title' => 'WordPress', 'description' => '', 'extraShort' => 'Framework', 'extraLong' => 'Framework'),
+	array('key' => 'laravel', 'title' => 'Laravel', 'description' => '', 'extraShort' => 'Framework', 'extraLong' => 'Framework'),
+	array('key' => 'html-five', 'title' => 'HTML-5', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
+	array('key' => 'css3', 'title' => 'CSS-3', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
+	array('key' => 'bootstrap', 'title' => 'Bootstrap', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
+	array('key' => 'sass', 'title' => 'Sass', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
+	array('key' => 'jquery', 'title' => 'jQuery', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
+	array('key' => 'javascript', 'title' => 'JavaScript', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
+	array('key' => 'php', 'title' => 'PHP', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació back end'),
+	array('key' => 'mysql', 'title' => 'MySQL', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de base de dades'),
+	array('key' => 'mariadb', 'title' => 'MariaDB', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de base de dades'),
+	array('key' => 'linux', 'title' => 'Linux', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de servidors'),
+	array('key' => 'docker', 'title' => 'Docker', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de servidors'),
+	array('key' => 'git', 'title' => 'Git', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de projectes'),
+	array('key' => 'twitter', 'title' => 'Twitter', 'description' => '', 'extraShort' => 'API', 'extraLong' => 'Integració amb API'),
+	array('key' => 'facebook', 'title' => 'Facebook', 'description' => '', 'extraShort' => 'API', 'extraLong' => 'Integració amb API')
 );
 ?>
 <div class="content"><?php the_content(); ?></div>
 <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
 
 <div clas='row technology-panel-holder'>
-	<?php
-	/*
-	$areas = get_terms( 'area');
-	foreach($areas as $area){
-		$args = array(
-			'post_type' => 'technology',
-			'posts_per_page' => -1,
-			'order'	 => 'ASC',
-			'tax_query' => array(
-				array(
-					'taxonomy' => 'area',
-					'field'		=> 'slug',
-					'terms'		=> $area->slug,
-				)
-			)
-		);
-		$technologies = new WP_Query( $args );
-
-		// Display connected pages
-		if ( $technologies->have_posts() ) {
-			?>
-			<div class='col-sm-6 technology-panel'>
-				<h4><?=$area->name?></h4>
-					<div class='icons'>
-						<?php while ( $technologies->have_posts() ) : $technologies->the_post(); ?>
-							<i class="<?=get_field('icon')?>" data-toggle="tooltip" title="<?=the_title()?>"></i>
-						<?php endwhile; ?>
-				</div>
-			</div> <!-- technology-panel -->
-			<?php
-		}
-	}
-	wp_reset_postdata();
-	*/
-
-	?>
 	<svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 	<defs>
 	<symbol id="technology-wordpress" viewBox="0 0 32 32">
@@ -133,32 +89,19 @@ $areas = array(
 
 	<div class='col-sm-12 technology-panel'>
 		<?php
-			$n = 0;
-			foreach($areas as $key => $area){
+			for($i = 0; $i < sizeof($technologies); $i++){
+				$technology = $technologies[$i];
+				$key = $technology['key'];
 				?>
-				<div class='technologies'>
-					<?php
-					foreach($area as $key => $technology){
-						?>
-						<div class="technology">
-							<div class="technology-holder">
-								<div class="icon-holder">
-									<svg class="icon technology-<?=$key?>"><use xlink:href="#technology-<?=$key?>"></use></svg>
-								</div>
-								<div class="bubble-holder">
-									<div class="bubble">
-										<div class="text">
-											<span class="extraShort"><?=$technology['extraShort']?></span>
-											<span class="extraLong"><?=$technology['extraLong']?></span>
-											<span class="title"><?=$technology['title']?></span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<?php
-					}
-					?>
+				<div class="technology col-xs-6 col-sm-3">
+					<div class="icon-holder">
+						<svg class="icon technology-<?=$key?>"><use xlink:href="#technology-<?=$key?>"></use></svg>
+					</div>
+					<div class="text">
+						<span class="extraShort"><?=$technology['extraShort']?></span>
+						<span class="extraLong"><?=$technology['extraLong']?></span>
+						<span class="title"><?=$technology['title']?></span>
+					</div>
 				</div>
 				<?php
 			}
