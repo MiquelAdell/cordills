@@ -26,16 +26,27 @@ $connected = new WP_Query( array(
 if ( $connected->have_posts() ) {
 		?>
 		<div class="project-on-homepage">
-				<?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
-						<?php
-						$image = get_field('full_mockup');
-						?>
+			<?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
+				<?php
+				$image = get_field('full_mockup');
+				?>
 
-						<?php if( !empty($image) ): ?>
-								<img class="project-image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-						<?php endif; ?>
-						<a href="/project"><?=__('See more')?></a>
-				<?php endwhile; ?>
+				<?php if( !empty($image) ): ?>
+						<img class="project-image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+						<svg height="0" xmlns="http://www.w3.org/2000/svg">
+						    <filter id="drop-shadow">
+						        <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+						        <feOffset dx="12" dy="12" result="offsetblur"/>
+						        <feFlood flood-color="rgba(0,0,0,0.5)"/>
+						        <feComposite in2="offsetblur" operator="in"/>
+						        <feMerge>
+						            <feMergeNode/>
+						            <feMergeNode in="SourceGraphic"/>
+						        </feMerge>
+						    </filter>
+						</svg>
+				<?php endif; ?>
+			<?php endwhile; ?>
 		</div>
 		<?php
 		// Prevent weirdness

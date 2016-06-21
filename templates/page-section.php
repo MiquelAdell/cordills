@@ -2,7 +2,7 @@
 
 <?php
 $call_to_action = null;
-if( get_field( "call_to_action_text" ) ) {
+if( get_field( "call_to_action_target" ) ) {
     ob_start();
     ?>
     <div class='call_to_action'>

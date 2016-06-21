@@ -79,7 +79,7 @@ footer {
 
 .nav-home-container {
 	text-transform: uppercase;
-	border-bottom: 2px solid darken($scene-1-color,10%);
+	// border-bottom: 2px solid darken($scene-1-color,10%);
 	ul li {
 		display: inline;
 		text-transform: uppercase;
@@ -227,18 +227,23 @@ menu
 
 
 // PROJECT SECTION
-
-.project-image {
-	width: 100%;
-	max-width: 500px;
-	margin: 0 auto;
-	clear: both;
-	display: block;
-}
-
 .project-on-homepage h2 {
 	text-align: center;
+	margin-top: 3em;
+	margin-bottom: 1em;
+
+	.project-image {
+		width: 100%;
+		margin: 0 auto;
+		clear: both;
+		display: block;
+	    -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
+	    filter: url(#drop-shadow);
+	    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+	    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+	}
 }
+
 
 
 

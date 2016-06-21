@@ -231,6 +231,8 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 		'contacte': {
 			init: function() {
 				// JavaScript to be fired on the contacte page
+				var currentSection = "contacte";
+				$('a[href$="/'+currentSection+'/"]').addClass('active');
 
 				var $contactContainer = $('.page-template-contacte-page .contact-container');
 				var $imageHolder = $('.page-template-contacte-page .image-holder');
