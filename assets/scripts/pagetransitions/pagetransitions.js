@@ -71,7 +71,7 @@ var PageTransitions = (function() {
 			if(!initialized){
 				initialized = true;
 				$('.pt-page').each( function() {
-					$( this ).data( 'originalClassList', $( this ).attr( 'class' ));
+					$( this ).data( 'originalClassList', $( this ).attr( 'class' ).replace("pt-page-current", ""));
 				} );
 			}
 			var action = "";

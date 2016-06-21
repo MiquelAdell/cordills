@@ -245,7 +245,8 @@ menu
 
 // COLORS
 
-.pt-page-holder {
+.pt-page-holder,
+.pt-page-menu {
 	background: $scene-1-color;
 	background: linear-gradient(to bottom,
 	$scene-1-color, $scene-1-color, $scene-1-color,
@@ -255,8 +256,11 @@ menu
 	);
 }
 
-.pt-page-holder,
 .pt-page-menu {
+	background-size: 300%;	
+}
+
+.pt-page-holder {
 	background-size: 300%;
 
 	.page-template-front-page &, .home & {

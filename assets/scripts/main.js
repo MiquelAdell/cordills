@@ -97,41 +97,44 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 					}
 				});
 
-				var $homeNavbar = $('.nav-home-container'),
-				$primaryNavbar = $('.nav-primary-container'),
-				$scrollElement = $('.pt-page-main'),
-				$mainMenu = $('#menu-main-menu'),
-				distance = $homeNavbar.position().top,
-				fadeTime = 200,
-				$window = $(window);
+				var $homeNavbar = $('.nav-home-container');
+				if($homeNavbar.length){
+					var $primaryNavbar = $('.nav-primary-container'),
+					$scrollElement = $('.pt-page-main'),
+					$mainMenu = $('#menu-main-menu'),
+					distance = $homeNavbar.position().top,
+					fadeTime = 200,
+					$window = $(window);
 
-				var mainMenuVisible = false;
+					var mainMenuVisible = false;
 
-				var toggleMainMenu = function(show){
-					if(show){
-						mainMenuVisible = true;
-						$homeNavbar.removeClass('visible');
-						$primaryNavbar.addClass('visible');
-						$mainMenu.addClass('dettached');
-					} else {
-						mainMenuVisible = false;
-						$primaryNavbar.removeClass('visible');
-						$homeNavbar.addClass('visible');
-						$mainMenu.removeClass('dettached');
-					}
-				};
-
-				$scrollElement.scroll(function() {
-					if ($scrollElement.scrollTop() >= distance ) {
-						if(!mainMenuVisible){
-							toggleMainMenu(true);
+					var toggleMainMenu = function(show){
+						if(show){
+							mainMenuVisible = true;
+							$homeNavbar.removeClass('visible');
+							$primaryNavbar.addClass('visible');
+							$mainMenu.addClass('dettached');
+						} else {
+							mainMenuVisible = false;
+							$primaryNavbar.removeClass('visible');
+							$homeNavbar.addClass('visible');
+							$mainMenu.removeClass('dettached');
 						}
-					} else {
-						if(mainMenuVisible){
-							toggleMainMenu(false);
+					};
+
+
+					$scrollElement.scroll(function() {
+						if ($scrollElement.scrollTop() >= distance ) {
+							if(!mainMenuVisible){
+								toggleMainMenu(true);
+							}
+						} else {
+							if(mainMenuVisible){
+								toggleMainMenu(false);
+							}
 						}
-					}
-				});
+					});
+				}
 
 
 				(function($, viewport){
