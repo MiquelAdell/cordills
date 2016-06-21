@@ -1,14 +1,45 @@
 .page-template-contacte-page {
-	.main * {
-		position: relative;
-		z-index: 1;
+
+
+	.content-holder {
+		padding-top: 150px;
 	}
-	.equal, .equal > div[class*='col-'] {
-		@media only screen and (max-width : 768px) {
-			display: block;
-			flex: none;
+
+	.pt-page-holder {
+		height: auto;
+	}
+
+	.contact-container {
+
+
+	}
+
+	.contact-row {
+		height: 100%;
+	}
+
+
+	.image-holder {
+		.image {
+			height: 100%;
+		    background-image: url(../images/contact-image.png);
+		    background-size: contain;
+		    background-repeat: no-repeat;
+		    background-position-x: center;
+		    background-position-y: 0;
+			@media screen and (max-width: 767px) {
+				background-position-x: center;
+			}
+		}
+		@media screen and (max-width: 767px) {
+			height: 50vh;
 		}
 	}
+
+	.panels-holder {
+	}
+
+
 
 	.lead {
 		@media screen and (max-width: $break-large) {
@@ -19,12 +50,18 @@
 		}
 	}
 
-	#contact-page-image {
-		width: 100%;
-		height: 75vh;
+	.fake-footer {
+		background: rgba(0,0,0,.1);
+	    position: absolute;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    height: 106px;
+	    z-index: 0;
+	}
+
+	.footer {
 		position: relative;
-		top: 0;
-		background-size: cover;
-		z-index: 0;
+		z-index: 1;
 	}
 }

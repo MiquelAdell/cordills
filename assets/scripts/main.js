@@ -147,7 +147,6 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 					$('.technology-panel .text').height($('.technology-panel .technology .icon').height());
 					$('.technology-panel .text').width(size);
 
-
 					if($('.pt-page-holder').height() < $(window).height()){
 						$('.pt-page-holder').height($(window).height());
 						$('footer').addClass("stick-to-bottom");
@@ -443,7 +442,6 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 							if(viewport.is('xs')) {
 								// ...
 							}
-							// 									MAB
 							// getTextWidth
 						})
 					);
@@ -453,9 +451,31 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 			}
 		},
 		// About us page, note the change from about-us to about_us.
-		'about_us': {
+		'contacte': {
 			init: function() {
-				// JavaScript to be fired on the about us page
+				// JavaScript to be fired on the contacte page
+
+				var $contactContainer = $('.page-template-contacte-page .contact-container');
+				var $imageHolder = $('.page-template-contacte-page .image-holder');
+				var $image = $('.page-template-contacte-page .image-holder .image');
+
+				$(window).resize(function() {
+					if($(window).width() > 767){
+						if(!$('.fake-footer').length){
+							$('.pt-page-holder').append('<div class="fake-footer"></div>');
+						}
+						$contactContainer.height($('footer').top() - $('.contact-container').top());
+
+						if($imageHolder.height() < $contactContainer.height()){
+							$imageHolder.height($contactContainer.height());
+						} else {
+						}
+					}
+					else {
+						$('.fake-footer').remove();
+						$contactContainer.height('auto');
+					}
+				});
 			}
 		}
 	};
@@ -492,5 +512,9 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
 	// Load Events
 	$(document).ready(UTIL.loadEvents);
-	setTimeout(function(){$(window).resize();},333);
+	setTimeout(function(){$(window).resize();},0);
+	setTimeout(function(){$(window).resize();},100);
+	setTimeout(function(){$(window).resize();},250);
+	setTimeout(function(){$(window).resize();},500);
+	setTimeout(function(){$(window).resize();},1000);
 })(jQuery); // Fully reference jQuery after this point.

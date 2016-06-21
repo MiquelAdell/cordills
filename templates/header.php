@@ -1,11 +1,13 @@
 <!-- <?php echo "basename: ".basename( __FILE__ ); ?> -->
 <header class="banner nav-primary-container">
-  <div class="container section-container">
+  <div class="container-fluid section-container">
     <div class="row">
-      <a class="brand col-xs-9 col-sm-4 text-center" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
+      <div class="brand col-xs-9 col-sm-4 text-left">
+        <a href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
+      </div>
 
 
-        <nav class="nav-primary col-xs-3 col-sm-8 text-center">
+        <nav class="nav-primary col-xs-3 col-sm-8 text-right">
           <div class="menu-main-menu-container">
             <ul id="menu-main-menu-header" class="main-menu nav">
               <?=the_main_menu()?>

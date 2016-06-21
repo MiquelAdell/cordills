@@ -107,16 +107,21 @@ footer {
 	z-index: 10;
 	height: $menu-height;
 	.brand {
-		float: left;
-		font-weight: bold;
-		color: darken($scene-1-color,20%);
-		font-family: $font-family-serif;
-		font-size: $font-height;
+
 		height: $font-height;
 		line-height: $font-height;
 		margin-top: $margin-top;
-		&:hover {
-			color: darken($scene-1-color,30%);
+
+		a {
+			font-weight: bold;
+			color: darken($scene-1-color,20%);
+			font-family: $font-family-serif;
+			font-size: $font-height;
+			margin-left: 0.5em;
+
+			&:hover {
+				color: darken($scene-1-color,30%);
+			}
 		}
 	}
 	ul li {
