@@ -142,7 +142,9 @@ $areas = array(
 							<div class="technology-holder">
 								<div class="icon-holder">
 									<svg class="icon technology-<?=$key?>"><use xlink:href="#technology-<?=$key?>"></use></svg>
-
+									<? if($key == "twitter" || $key == "facebook") : ?>
+										<i class="fa fa-fw fa-gear"></i>
+									<?php endif;?>
 								</div>
 								<div class="bubble-holder">
 									<div class="bubble">

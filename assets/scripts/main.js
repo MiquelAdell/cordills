@@ -62,7 +62,6 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 				var currentSection = "";
 				$(".pt-page-main").bind('scroll', function() {
 
-
 					var getScrollSection = function(top){
 						var toReturn = null;
 						$('.front-page-section').each(function(){
@@ -101,8 +100,7 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 				if($homeNavbar.length){
 					var $primaryNavbar = $('.nav-primary-container'),
 					$scrollElement = $('.pt-page-main'),
-					$mainMenu = $('#menu-main-menu'),
-					distance = $homeNavbar.position().top,
+					$mainMenu = $('#menu-main-menu-home'),
 					fadeTime = 200,
 					$window = $(window);
 
@@ -124,7 +122,7 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
 
 					$scrollElement.scroll(function() {
-						if ($scrollElement.scrollTop() >= distance ) {
+						if (document.getElementById('menu-main-menu-home').getBoundingClientRect().top <= 0) {
 							if(!mainMenuVisible){
 								toggleMainMenu(true);
 							}
@@ -167,6 +165,8 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
 				//all other
 				// JavaScript to be fired on all pages, after page specific JS is fired
+
+				/* SINGLE PAGE INTERFACE */
 				$('.spi-link').click(function(event) {
 					if($('body').hasClass('home') || $('body').hasClass('page-template-front-page')){
 						event.preventDefault();
@@ -193,7 +193,7 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 					}
 				});
 
-
+				/* HISTORY */
 				$(window).on("popstate", function(e) {
 					var section = e.originalEvent.state.section;
 					if($('#'+section).length){
@@ -212,20 +212,25 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 						}, 1000);
 					}
 				}
+
+				/* TECHNOLOGIES */
 				$(window).resize(function() {
 					var size = $('.technology-panel .technology').width();
 					$('.technology-panel .technology').height(size);
 					$('.technology-panel .text').height($('.technology-panel .technology .icon').height());
 					$('.technology-panel .text').width(size);
+				});
 
-					if($('.pt-page-holder').height() < $(window).height()){
+
+				/* STICKY FOOTER */
+				$(window).resize(function() {
+					if($('.pt-page-holder').height() <= $(window).height()){
 						$('.pt-page-holder').height($(window).height());
 						$('footer').addClass("stick-to-bottom");
 					} else {
 						$('footer').removeClass("stick-to-bottom");
 					}
 				});
-
 			}
 		},
 		// Home page

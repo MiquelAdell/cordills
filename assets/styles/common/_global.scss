@@ -257,7 +257,7 @@ menu
 }
 
 .pt-page-menu {
-	background-size: 300%;	
+	background-size: 300%;
 }
 
 .pt-page-holder {
@@ -342,7 +342,7 @@ menu
 
 	.technology {
 		width: 18%;
-		margin: 3%;
+		margin: 0 3%;
 		float: left;
 		position: relative;
 		cursor: pointer;
@@ -353,11 +353,18 @@ menu
 
 		.icon-holder {
 			width: 100%;
+			padding: 15%;
+
+			@media (pointer:coarse) {
+				padding: 20%;
+				margin-top: -20%;
+			}
+
 
 			.icon {
 				width: 100%;
 				height: 100%;
-				padding: 10%;
+				padding: 0%;
 				fill: transparentize($gray-base,0.1);
 				transition-property: fill;
 				transition-duration: 0.3s;
@@ -409,8 +416,8 @@ menu
 
 					@media (pointer:coarse) {
 						color: transparentize(invert($gray-base),0);
-						vertical-align: top;
-						padding: 20% 10%;
+						vertical-align: bottom;
+						padding: 0%;
 					}
 
 					@media screen and (max-width: $break-large) {

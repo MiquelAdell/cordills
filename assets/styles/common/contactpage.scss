@@ -52,9 +52,12 @@
 
 	.fake-footer {
 		background: rgba(0,0,0,.1);
+		left: 0;
+		right: 0;
 		height: 106px;
-		margin-top: -106px;
+		bottom: 0;
 		z-index: 0;
+		position: absolute;
 	}
 
 	.footer {
