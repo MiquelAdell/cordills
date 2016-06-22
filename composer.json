@@ -32,7 +32,8 @@
     "wpackagist-plugin/advanced-excerpt": ">=4.2.3",
     "roots/wp-password-bcrypt": ">=1.0",
     "wpackagist-plugin/kau-boys-backend-localization": ">=2.1",
-    "automattic/jetpack": ">=4.0"
+    "automattic/jetpack": ">=4.0",
+    "raveren/kint": "^1.0"
   },
   "extra": {
     "installer-paths": {
@@ -41,8 +42,5 @@
       "../../themes/{$name}/": ["type:wordpress-theme"]
     },
     "wordpress-install-dir": "web/wp"
-  },
-  "require-dev": {
-    "raveren/kint": "^1.0"
   }
 }

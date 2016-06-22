@@ -206,7 +206,10 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 				// if it's frist load maybe we have something in the url (and not in history) and we need to apply changes
 				if(window.location.pathname !== "/"){
 					var id = window.location.pathname.substring(1);
-					if($('#'+id).length){
+
+
+
+					if( (id === 'presentacio' || id === 'proces' || id === 'tecnologies' || id === 'fonaments') && $('#'+id).length){
 						$('.pt-page-main').animate({
 							scrollTop: $('#'+id).top()
 						}, 1000);
