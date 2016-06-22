@@ -212,6 +212,7 @@ gulp.task('fonts', function() {
 // ### Images
 // `gulp images` - Run lossless compression on all the images.
 gulp.task('images', function() {
+  // console.info(globs.images);
   return gulp.src(globs.images)
     .pipe(imagemin({
       progressive: true,
@@ -221,6 +222,14 @@ gulp.task('images', function() {
     .pipe(gulp.dest(path.dist + 'images'))
     .pipe(browserSync.stream());
 });
+
+// ### Videos
+// `gulp videos` - Moves videos to dist folder
+gulp.task('videos', function(){
+  gulp.src(path.source + 'videos/**/*').pipe(gulp.dest(path.dist + 'videos/'));
+});
+
+
 
 // ### JSHint
 // `gulp jshint` - Lints configuration JSON and project JS.
@@ -256,6 +265,7 @@ gulp.task('watch', function() {
   gulp.watch([path.source + 'scripts/**/*'], ['jshint', 'scripts']);
   gulp.watch([path.source + 'fonts/**/*'], ['fonts']);
   gulp.watch([path.source + 'images/**/*'], ['images']);
+  gulp.watch([path.source + 'videos/**/*'], ['videos']);
   gulp.watch(['bower.json', 'assets/manifest.json'], ['build']);
 });
 
@@ -265,7 +275,7 @@ gulp.task('watch', function() {
 gulp.task('build', function(callback) {
   runSequence('styles',
               'scripts',
-              ['fonts', 'images'],
+              ['fonts', 'images','videos'],
               callback);
 });
 

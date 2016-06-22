@@ -1,19 +1,57 @@
 .single-project {
 	h1 {
-		font-size: 40px;
+		font-size: 60px;
 	}
 
 	.imacMockup {
-		width: 100%;
+		width: 750px;
 		height: 500px;
-		max-height: 50vh;
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
 
 		background-image: url('../images/imac-mockup.png');
-		background-image: url(../images/imac-mockup.png);
 		background-size: contain;
 		background-repeat: no-repeat;
 		background-position: center;
-		filter: drop-shadow(20px -10px 20px rgba(0, 0, 0, .6))
+		// filter: drop-shadow(20px -10px 20px rgba(0, 0, 0, .6));
+
+		.video {
+			width: 535px;
+			height: 305px;
+			margin: 28px 0px 0px 95px;
+		}
+
+		@media screen and (max-width: $break-medium) {
+			width: 563px;
+			height: 375px;
+
+			.video {
+				width: 401px;
+				height: 229px;
+				margin: 21px 0px 0px 71px;
+			}
+		}
+
+		@media screen and (max-width: $break-small) {
+			width: 375px;
+			height: 250px;
+			.video {
+				width: 268px;
+				height: 153px;
+				margin: 14px 0px 0px 32px;
+			}
+		}
+
+		@media screen and (max-width: $break-x-small) {
+			width: 250px;
+			height: 167px;
+			.video {
+				width: 178px;
+				height: 102px;
+				margin: 9px 0px 0px 21px;
+			}
+		}
 
 	}
 

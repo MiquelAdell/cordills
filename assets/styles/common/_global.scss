@@ -123,6 +123,10 @@ footer {
 			transition-property: color, background;
 			transition-duration: 0.6s;
 
+			@media screen and (max-width: $break-x-small) {
+				font-size: 30px;
+			}
+
 			&:hover {
 				color: darken($scene-1-color,40%);
 			}
@@ -161,7 +165,7 @@ menu
 
 .hamburger {
 	display: none !important;
-	@media screen and (max-width: $break-large) {
+	@media screen and (max-width: $break-x-large) {
 		display: inline-block !important;
 	}
 }
@@ -169,7 +173,7 @@ menu
 
 #menu-main-menu-header {
 	display: none;
-	@media screen and (min-width: $break-large) {
+	@media screen and (min-width: $break-x-large) {
 		display: block;
 	}
 }

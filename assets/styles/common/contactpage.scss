@@ -27,11 +27,11 @@
 		    background-repeat: no-repeat;
 		    background-position-x: center;
 		    background-position-y: bottom;
-			@media screen and (max-width: 767px) {
+			@media screen and (max-width: $break-medium) {
 				background-position-x: center;
 			}
 		}
-		@media screen and (max-width: 767px) {
+		@media screen and (max-width: $break-medium) {
 			height: 50vh;
 		}
 	}
@@ -42,7 +42,7 @@
 
 
 	.lead {
-		@media screen and (max-width: $break-large) {
+		@media screen and (max-width: $break-x-large) {
 			font-size: 19px;
 		}
 		@media screen and (max-width: $break-medium) {

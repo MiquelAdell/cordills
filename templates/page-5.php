@@ -6,6 +6,8 @@ $connected = new WP_Query( array(
 	'connected_items' => 5,
 	'nopaging' => true,
 ) );
+$connected_project = get_post($connected->posts[0]->p2p_from);
+$connected_project_url = get_permalink($connected->posts[0]->p2p_from);
 ?>
 <?php the_content(); ?>
 
@@ -32,7 +34,9 @@ if ( $connected->have_posts() ) {
 				?>
 
 				<?php if( !empty($image) ): ?>
+					<a href="<?=$connected_project_url?>">
 						<img class="project-image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+					</a>
 				<?php endif; ?>
 			<?php endwhile; ?>
 		</div>
