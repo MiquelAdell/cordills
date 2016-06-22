@@ -4,6 +4,11 @@
     flex:1 1 auto;
 }
 
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
 
 body {
 	font-size: $body-font-size;
