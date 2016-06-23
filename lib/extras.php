@@ -20,6 +20,9 @@ function body_class($classes) {
     $classes[] = 'sidebar-primary';
   }
 
+  if(isset($_GET['alt'])){
+    $classes[] = $_GET['alt'];
+  }
   return $classes;
 }
 add_filter('body_class', __NAMESPACE__ . '\\body_class');
