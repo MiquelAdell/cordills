@@ -10,6 +10,14 @@
     float: none;
 }
 
+.float {
+  transition:all .3s ease-out;
+}
+
+.float:hover {
+  transform:translate(0px,-10px);
+}
+
 body {
 	font-size: $body-font-size;
 	background: $body-background-color;
@@ -45,7 +53,7 @@ blockquote small {
 
 p {
 	padding: 1em;
-	margin-bottom: 1em;
+	margin-bottom: 2em;
 	text-align: center;
 }
 
@@ -96,7 +104,6 @@ footer {
 
 .nav-home-container {
 	text-transform: uppercase;
-	// border-bottom: 2px solid darken($scene-1-color,10%);
 	ul li {
 		display: inline;
 		text-transform: uppercase;
@@ -104,11 +111,28 @@ footer {
 			display: inline;
 			line-height: 3em;
 
-			&:focus, &:hover {
+			&:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				right: 100%;
+				bottom: 0;
+				background: $link-color;
+				height: 4px;
+				transition-property: right;
+				transition-duration: 0.3s;
+				transition-timing-function: ease-out;
+			}
+			&:focus, &:hover, &:active {
 				background: none;
+				&:before {
+					right: 0;
+				}
 			}
 		}
 	}
+	margin-bottom: 2em;
+	margin-top: -1em;
 }
 
 .nav-primary-container {
@@ -251,17 +275,12 @@ menu
 
 
 // PROJECT SECTION
-.project-on-homepage h2 {
-	text-align: center;
-	margin-top: 3em;
-	margin-bottom: 1em;
-}
-
-.project-image {
-	width: 100%;
-	margin: 0 auto;
-	clear: both;
-	display: block;
+.project-on-homepage {
+	img {
+		width: 100%;
+		height: auto;
+		padding: 3em 2em;
+	}
 }
 
 

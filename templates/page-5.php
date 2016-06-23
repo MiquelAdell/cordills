@@ -9,8 +9,6 @@ $connected = new WP_Query( array(
 $connected_project = get_post($connected->posts[0]->p2p_from);
 $connected_project_url = get_permalink($connected->posts[0]->p2p_from);
 ?>
-<?php the_content(); ?>
-
 <div class="nav-home-container visible">
 	<nav class="nav-home text-center">
 		<div class="menu-main-menu-container">
@@ -18,7 +16,11 @@ $connected_project_url = get_permalink($connected->posts[0]->p2p_from);
 				<?=the_main_menu()?>
 			</ul>
 		</div>
-	</div>
+	</nav>
+</div>
+
+<?php the_content(); ?>
+
 
 
 <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
@@ -29,15 +31,21 @@ if ( $connected->have_posts() ) {
 		?>
 		<div class="project-on-homepage">
 			<?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
-				<?php
-				$image = get_field('full_mockup');
-				?>
-
-				<?php if( !empty($image) ): ?>
-					<a href="<?=$connected_project_url?>">
-						<img class="project-image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-					</a>
-				<?php endif; ?>
+					<div class='col-xs-12'>
+						<a class="computer" href="<?=$connected_project_url?>">
+							<figure><img class="float" src="<?= get_template_directory_uri(); ?>/dist/images/mackbook-facing-portada.png"></figure>
+						</a>
+					</div>
+					<div class='col-sm-4 col-xs-12'>
+						<a class="iphone" href="<?=$connected_project_url?>">
+							<figure><img class="float" src="<?= get_template_directory_uri(); ?>/dist/images/iphone5c-facing-fitxa-red.png"></figure>
+						</a>
+					</div>
+					<div class='col-sm-8 col-xs-12'>
+						<a class="ipad" href="<?=$connected_project_url?>">
+							<figure><img class="float" src="<?= get_template_directory_uri(); ?>/dist/images/ipad-facing-slideshow-white.png"></figure>
+						</a>
+					</div>
 			<?php endwhile; ?>
 		</div>
 		<?php
