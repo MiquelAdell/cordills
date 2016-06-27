@@ -30,27 +30,44 @@
     top: auto;
     bottom: 0px;
     margin-right: -19px;
+
+    @media screen and (max-width: $break-medium) {
+        position: inherit;
+    }
+
+    li {
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        cursor: pointer;
+        border: 4px solid $scene-4-color;
+        border-radius: 50px;
+        opacity: 0.4;
+        overflow: hidden;
+        transition: all 0.4s;
+
+        @media screen and (max-width: $break-medium) {
+            display: none;
+            margin: 0px auto;
+        }
+
+        &.active {
+            background: $scene-4-color;
+            width: 128px;
+            height: 128px;
+            border-radius: 100px;
+            border-color: $highlight-primary;
+            opacity: 1;
+            overflow: hidden;
+
+            @media screen and (max-width: $break-medium) {
+                display: block;
+
+            }
+        }
+    }
 }
-#quote-carousel .carousel-indicators li {
-    width: 50px;
-    height: 50px;
-    margin: 5px;
-    cursor: pointer;
-    border: 4px solid $scene-4-color;
-    border-radius: 50px;
-    opacity: 0.4;
-    overflow: hidden;
-    transition: all 0.4s;
-}
-#quote-carousel .carousel-indicators .active {
-    background: $scene-4-color;
-    width: 128px;
-    height: 128px;
-    border-radius: 100px;
-    border-color: $highlight-primary;
-    opacity: 1;
-    overflow: hidden;
-}
+
 .carousel-inner {
     min-height: 300px;
 }
