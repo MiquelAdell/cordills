@@ -23,9 +23,7 @@ if( get_field( "call_to_action_button_text" ) ) {
         <div class="container section-container">
             <div class="row">
 
-                <div class="col-xs-12 col-xs-offset-0 col-md-4 col-md-offset-0">
-                    <div class="section-icon"><br></div>
-                </div>
+                <div class="hidden-xs hidden-sm col-md-4"><div class="section-icon"></div></div>
 
                 <div class="section-text col-xs-12 col-xs-offset-0 col-md-8 col-md-offset-0">
                     <div class="vertical-center">

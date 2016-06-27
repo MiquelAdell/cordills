@@ -311,19 +311,20 @@ menu
 
 	@media screen and (max-width: $break-medium) {
 		height: 25vh;
-		margin-top: 10vh;
+		margin-top: 0;
+		margin-bottom: 100px;
 	}
 
 }
 
 @mixin color_elements($color) {
 	h1, h2, h3, h4, h5, h6 {
-		color: darken($color,20%);
+		color: rgba(0,0,0,0.5);
 		a {
-			color: darken($color,20%);
+			color: rgba(0,0,0,0.5);
 
 			&:hover {
-				color: darken($color,30%);
+				color: rgba(0,0,0,0.7);
 			}
 		}
 	}

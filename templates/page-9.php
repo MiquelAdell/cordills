@@ -1,5 +1,5 @@
 <!-- <?php echo "basename: ".basename( __FILE__ ); ?> -->
-
+<div class="hidden-md hidden-lg col-xs-12"><div class="section-icon"></div></div>
 <?php
 $technologies = array(
 	array('key' => 'wordpress', 'title' => 'WordPress', 'description' => '', 'extraShort' => 'Framework', 'extraLong' => 'Framework'),

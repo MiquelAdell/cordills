@@ -19,9 +19,10 @@ $connected_project_url = get_permalink($connected->posts[0]->p2p_from);
 	</nav>
 </div>
 
+
+<div class="hidden-md hidden-lg col-xs-12"><div class="section-icon"></div></div>
+
 <?php the_content(); ?>
-
-
 
 <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
 
