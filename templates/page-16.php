@@ -78,7 +78,7 @@ $testimonialLoop = new WP_Query( $args );
 										<?php
 										the_title();
 										if (!empty(get_field('company_name'))) {
-											echo ", ".__('from')." ".text_with_link(get_field('company_name'),get_field('company_url'));
+											echo ", ".text_with_link(get_field('company_name'),get_field('company_url'));
 										}
 										?>
 									</small>
