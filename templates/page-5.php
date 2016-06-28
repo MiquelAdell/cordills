@@ -9,16 +9,6 @@ $connected = new WP_Query( array(
 $connected_project = get_post($connected->posts[0]->p2p_from);
 $connected_project_url = get_permalink($connected->posts[0]->p2p_from);
 ?>
-<div class="nav-home-container visible">
-	<nav class="nav-home text-center">
-		<div class="menu-main-menu-container">
-			<ul id="menu-main-menu-home" class="main-menu nav text-center">
-				<?=the_main_menu()?>
-			</ul>
-		</div>
-	</nav>
-</div>
-
 
 <div class="hidden-md hidden-lg col-xs-12"><div class="section-icon"></div></div>
 

@@ -39,9 +39,12 @@ $highlight-primary:     $title-color;
 
 
 // Fonts
-$font-family-sans-serif: "refrigerator-deluxe", Helvetica, Arial, sans-serif;
-$font-family-serif:      "ff-tisa-web-pro", "Times New Roman", Times, serif;
-$headings-font-family:   "refrigerator-deluxe", Helvetica, Arial, sans-serif;
+$font-family-highlight: "refrigerator-deluxe", Helvetica, Arial, sans-serif;
+$font-family-basic:     "ff-tisa-web-pro", "Times New Roman", Times, serif;
+$font-family-accent:    "le-monde-livre-classic-std-s", Helvetica, Arial, sans-serif;
+
+$font-family-sans-serif: $font-family-highlight;
+$font-family-serif: $font-family-basic;
 
 $body-font-size:        16px;
 $font-size-base:        16px;
@@ -51,3 +54,6 @@ $font-size-h3:          $font-size-base * 2;
 $font-size-h4:          $font-size-base * 1.5;
 $font-size-h5:          $font-size-base;
 $font-size-h6:          $font-size-base * 0.85;
+
+
+$menu-height: 52px;

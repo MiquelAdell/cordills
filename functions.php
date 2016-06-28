@@ -263,3 +263,14 @@ function my_single_template($single) {
 	return SINGLE_PATH . '/default.php';
 	return $single;
 }
+
+
+function web_title(){
+	?>
+	<a href="<?= esc_url(home_url('/')); ?>">
+		<div class="text"><span>Miquel</span> <span>Adell</span></div>
+		<div class="logo"></div>
+	</a>
+	<h2 class="slogan">Programació web sense complexes</h2>
+	<?php
+}

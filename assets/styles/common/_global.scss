@@ -22,21 +22,22 @@ body {
 	font-size: $body-font-size;
 	background: $body-background-color;
 	min-height: 100vh;
-	font-family: $font-family-serif;
+	font-family: $font-family-basic;
 	text-rendering: geometricPrecision;
 	font-variant-ligatures: common-ligatures;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-	color: rgba(256, 256, 256, 0.5);
-	font-family: $headings-font-family;
+	color: transparentize(black,0.6);
+	font-family: $font-family-highlight;
 	text-align: center;
-	font-weight: bold;
+	font-weight: 900;
+	text-transform: uppercase;
 
 	a {
-		color: rgba(256, 256, 256, 0.5);
+		color: transparentize(black,0.6);
 		&:hover {
-			color: rgba(256, 256, 256, 0.6);
+			color: transparentize(black,0.4);
 		}
 	}
 }
@@ -74,7 +75,7 @@ footer {
 		height: 2em;
 		line-height: 2em;
 		text-align: center;
-		font-family: $font-family-serif;
+		font-family: $font-family-basic;
 		font-size: 1.1em;
 		font-weight: bold;
 		letter-spacing: 2px;
@@ -82,19 +83,26 @@ footer {
 	}
 }
 
-
-.page-header {
-	border-bottom-color: $title-color;
-	border: 0;
-}
-
 .page-holder {
 	width: 100%;
 }
 
+.menu-main-menu-container {
+	font-family: $font-family-highlight;
+	text-transform: uppercase;
+	font-weight: 900;
+
+	a {
+		color: transparentize($link-color, 0.2);
+	}
+
+}
 
 .nav-home-container {
-	text-transform: uppercase;
+	font-size: 30px;
+	margin-bottom: 0em;
+	margin-top: -1em;
+
 	ul li {
 		display: inline;
 		text-transform: uppercase;
@@ -102,13 +110,14 @@ footer {
 			display: inline;
 			line-height: 3em;
 
+
 			&:before {
 				content: "";
 				position: absolute;
 				left: 0;
 				right: 100%;
 				bottom: 0;
-				background: $link-color;
+				background: transparentize($link-color, 0.2);;
 				height: 4px;
 				transition-property: right;
 				transition-duration: 0.3s;
@@ -122,16 +131,11 @@ footer {
 			}
 		}
 	}
-	margin-bottom: 2em;
-	margin-top: -1em;
+
 }
 
 .nav-primary-container {
 	cursor: pointer;
-	$menu-height: 52px;
-	$font-height: $menu-height / 1.5;
-	$margin-top: ($menu-height - $font-height) / 4;
-
 
 	width: 100%;
 	background: $scene-1-color;
@@ -139,31 +143,7 @@ footer {
 	position: fixed;
 	z-index: 10;
 	height: $menu-height;
-	.brand {
 
-		height: $font-height;
-		line-height: $font-height;
-		margin-top: $margin-top;
-
-		a {
-			font-weight: bold;
-			color: darken($scene-1-color,20%);
-			font-family: $font-family-serif;
-			font-size: $font-height;
-			margin-left: 0.5em;
-
-			transition-property: color, background;
-			transition-duration: 0.6s;
-
-			@media screen and (max-width: $break-x-small) {
-				font-size: 30px;
-			}
-
-			&:hover {
-				color: darken($scene-1-color,40%);
-			}
-		}
-	}
 	ul li {
 		display: inline;
 		cursor: pointer;
@@ -173,12 +153,13 @@ footer {
 			display: inline;
 			line-height: 3em;
 			padding: 13px 15px;
+			height: 100%;
 
 			transition-property: color, background;
 			transition-duration: 0.6s;
 
 			&.active, &:focus, &:hover {
-				background: $link-color;
+				background: transparentize($link-color, 0.2);
 				color: $scene-1-color;
 			}
 		}
@@ -317,18 +298,6 @@ menu
 
 }
 
-@mixin color_elements($color) {
-	h1, h2, h3, h4, h5, h6 {
-		color: rgba(0,0,0,0.5);
-		a {
-			color: rgba(0,0,0,0.5);
-
-			&:hover {
-				color: rgba(0,0,0,0.7);
-			}
-		}
-	}
-}
 
 .front-page-section:nth-child(1) {
 	.section-icon {
@@ -336,29 +305,24 @@ menu
 		background-position: 0 0, 100 100;
 
 	}
-	@include color_elements($scene-1-color);
-
 }
 
 .front-page-section:nth-child(2) {
 	.section-icon {
 		background-image: url("../images/bottle.svg");
 	}
-	@include color_elements($scene-2-color);
 }
 
 .front-page-section:nth-child(3) {
 	.section-icon {
 		background-image: url("../images/boiler.svg");
 	}
-	@include color_elements($scene-3-color);
 }
 
 .front-page-section:nth-child(4) {
 	.section-icon {
 		background-image: url("../images/grinder.svg");
 	}
-	@include color_elements($scene-4-color);
 }
 
 

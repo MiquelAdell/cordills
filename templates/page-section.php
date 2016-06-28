@@ -29,7 +29,26 @@ if( get_field( "call_to_action_button_text" ) ) {
                     <div class="vertical-center">
                         <div class="page-holder">
                             <?php
-                            get_template_part('templates/page', 'header');
+                            if($post->ID === 5){
+                                ?>
+                                <div class="brand-in-home">
+                                    <div class="brand col-xs-12 text-center">
+                        				<?php web_title(); ?>
+                        			</div>
+                                </div>
+                                <div class="nav-home-container visible">
+                                	<nav class="nav-home text-center">
+                                		<div class="menu-main-menu-container">
+                                			<ul id="menu-main-menu-home" class="main-menu nav text-center">
+                                				<?=the_main_menu()?>
+                                			</ul>
+                                		</div>
+                                	</nav>
+                                </div>
+                                <?php
+                            } else {
+                                get_template_part('templates/page', 'header');
+                            }
                             get_template_part('templates/page-'.$post->ID);
                             ?>
                             <div class="row col-xs-12"><?=$call_to_action?></div>

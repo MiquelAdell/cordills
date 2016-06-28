@@ -2,9 +2,12 @@
 <header class="banner nav-primary-container">
 	<div class="container-fluid section-container">
 		<div class="row">
-			<div class="brand col-xs-9 col-sm-5 text-left">
-				<a href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
+			<div class="brand-in-header">
+				<div class="brand col-xs-9 col-sm-5 text-left">
+					<?php web_title(); ?>
+				</div>
 			</div>
+
 
 
 			<nav class="nav-primary col-xs-3 col-sm-7 text-right">
