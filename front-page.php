@@ -16,8 +16,6 @@ $page_query = new WP_Query( $args );
 <script type="image/svg+xml"><?php echo file_get_contents(get_stylesheet_directory()."/dist/images/boiler.svg"); ?></script>
 <script type="image/svg+xml"><?php echo file_get_contents(get_stylesheet_directory()."/dist/images/grinder.svg"); ?></script>
 
-
-
 <?php if( $page_query->have_posts() ) : ?>
 	<?php $i = 1; ?>
 

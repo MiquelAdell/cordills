@@ -19,6 +19,24 @@ do_action('get_header');
 get_template_part('templates/header');
 ?>
 <div class="pt-page pt-page-main">
+
+	<div id="brand-container" class="container-fluid brand-container-fluid">
+		<div class="brand-in-home">
+			<div class="brand col-xs-12 text-center">
+				<?php web_title(); ?>
+			</div>
+		</div>
+		<div class="nav-home-container visible">
+			<nav class="nav-home text-center">
+				<div class="menu-main-menu-container">
+					<ul id="menu-main-menu-home" class="main-menu nav text-center">
+						<?=the_main_menu()?>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+
 	<div class="pt-page-holder">
 		<div class="wrap" role="document">
 			<main class="main">

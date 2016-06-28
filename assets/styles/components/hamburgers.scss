@@ -41,7 +41,7 @@
   .hamburger-inner::after {
     width: 40px;
     height: 4px;
-    background-color: darken($scene-1-color,20%);
+    background-color: $gold-color;
     border-radius: 4px;
     position: absolute;
     transition-property: -webkit-transform;
@@ -53,7 +53,7 @@
     .hamburger:hover .hamburger-inner,
     .hamburger:hover .hamburger-inner::before,
     .hamburger:hover .hamburger-inner::after {
-      background-color: darken($scene-1-color,30%);
+      background-color: $gold-color;
     }
 
   .hamburger-inner::before, .hamburger-inner::after {

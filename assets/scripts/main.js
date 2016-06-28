@@ -122,7 +122,7 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
 
 					$scrollElement.scroll(function() {
-						if (document.getElementById('menu-main-menu-home').getBoundingClientRect().top <= 0) {
+						if (document.getElementById('brand-container').getBoundingClientRect().bottom - 53 <= 0) {
 							if(!mainMenuVisible){
 								toggleMainMenu(true);
 							}

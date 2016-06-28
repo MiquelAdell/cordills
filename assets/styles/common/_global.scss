@@ -91,6 +91,7 @@ footer {
 	font-family: $font-family-highlight;
 	text-transform: uppercase;
 	font-weight: 900;
+	clear: both;
 
 	a {
 		color: transparentize($link-color, 0.2);
@@ -100,8 +101,7 @@ footer {
 
 .nav-home-container {
 	font-size: 30px;
-	margin-bottom: 0em;
-	margin-top: -1em;
+	margin-bottom: 0.5em;
 
 	ul li {
 		display: inline;
@@ -138,8 +138,12 @@ footer {
 	cursor: pointer;
 
 	width: 100%;
-	background: $scene-1-color;
-	border-bottom: 2px solid darken($scene-1-color,20%);
+	background: MAB;
+
+	// background: hsla(39, 7%, 18%, 1);
+	// border-bottom: 2px solid darken(hsla(39, 7%, 18%, 1),10%);
+	background: linear-gradient(to bottom,hsla(39, 7%, 18%, 1), darken(hsla(39, 7%, 18%, 1),10%));
+
 	position: fixed;
 	z-index: 10;
 	height: $menu-height;
@@ -147,6 +151,7 @@ footer {
 	ul li {
 		display: inline;
 		cursor: pointer;
+		line-height: 52px;
 
 		a {
 			text-transform: uppercase;
@@ -159,8 +164,8 @@ footer {
 			transition-duration: 0.6s;
 
 			&.active, &:focus, &:hover {
-				background: transparentize($link-color, 0.2);
-				color: $scene-1-color;
+				background: transparentize($link-color, 0.1);
+				color: hsla(39, 7%, 18%, 1);
 			}
 		}
 	}
