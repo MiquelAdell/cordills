@@ -18,9 +18,6 @@ jQuery.fn.extend({
 	}
 });
 
-/*global jQuery */
-
-/*global jQuery */
 /*!
 * FitText.js 1.2
 *
@@ -128,16 +125,10 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 					var getScrollSection = function(top){
 						var toReturn = null;
 						$('.front-page-section').each(function(){
-							var sTop, sBottom;
-							var $section = $(this);
-							if($section.length){
-								sTop = $section.top();
-								sBottom = $section.bottom();
-								if((top >= sTop) && (top < sBottom)){
-									toReturn = $section.prop('id');
-									return false;
-								}
-							}
+              var $section = $(this);
+              if($section.get(0).getBoundingClientRect().top <= 0 && $section.get(0).getBoundingClientRect().bottom >= 0){
+                toReturn = $section.prop('id');
+              }
 						});
 						return toReturn;
 					};
@@ -148,10 +139,16 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 						currentSection = scrolledSection;
 						//trigger enter section
 						var url = "/";
+            if(currentSection){
+              url = "/"+currentSection;
+            }
+
 						$('.nav a.active').removeClass('active');
 						$('a[href$="/'+currentSection+'"]').addClass('active');
 
+
 						var stateObj = { section: currentSection };
+            console.log("url",url);
 						window.history.pushState(stateObj, currentSection, url);
 					}
 				});
@@ -296,7 +293,7 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 				});
         $('.home .fitted-text, .page-template-front-page .fitted-text').fitText(0.5);
         $('.page_id-5 .fitted-text').fitText(0.8);
-        
+
 			}
 
 		},
