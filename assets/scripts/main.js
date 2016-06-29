@@ -88,9 +88,6 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 						$('.nav a.active').removeClass('active');
 						$('a[href$="/'+currentSection+'"]').addClass('active');
 
-						if(currentSection !== "presentacio"){
-							url = "/"+currentSection;
-						}
 						var stateObj = { section: currentSection };
 						window.history.pushState(stateObj, currentSection, url);
 					}
@@ -175,7 +172,7 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 							var target = $anchor.data().target;
 
 							$('.pt-page-main').animate({
-								scrollTop: $(target).top()
+								scrollTop: $(target).top()+$('#brand-container').outerHeight()
 							}, 1000);
 						};
 
@@ -198,7 +195,7 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 					var section = e.originalEvent.state.section;
 					if($('#'+section).length){
 						$('.pt-page-main').animate({
-							scrollTop: $('#'+section).top()
+							scrollTop: $('#'+section).top()+$('#brand-container').outerHeight()
 						}, 1000);
 					}
 				});
@@ -209,9 +206,9 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
 
 
-					if( (id === 'presentacio' || id === 'proces' || id === 'tecnologies' || id === 'fonaments') && $('#'+id).length){
+					if( (id === 'projecte-destacat' || id === 'proces' || id === 'tecnologies' || id === 'fonaments') && $('#'+id).length){
 						$('.pt-page-main').animate({
-							scrollTop: $('#'+id).top()
+							scrollTop: $('#'+id).top()+$('#brand-container').outerHeight()
 						}, 1000);
 					}
 				}

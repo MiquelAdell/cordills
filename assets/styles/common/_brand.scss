@@ -5,8 +5,7 @@ $margin-top: ($menu-height - $font-height) / 4;
 .brand-container-fluid {
 	background: linear-gradient(to bottom,lighten(hsla(39, 7%, 18%, 1),0%), darken(hsla(39, 7%, 18%, 1),10%));
 
-	margin-left: -15px;
-	margin-right: -15px;
+	width: 100%;
 
 	height: 100vh;
 	padding-top: 20vh;

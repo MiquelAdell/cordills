@@ -171,7 +171,7 @@ $testimonials->menu_icon("dashicons-testimonial");
 function the_main_menu(){
 	ob_start();
 	?>
-	<li class="menu-item"><a class="spi-link" data-target="#presentacio" href="/presentacio">Inici</a></li>
+	<li class="menu-item"><a class="spi-link" data-target="#projecte-destacat" href="/projecte-destacat">Inici</a></li>
 	<li class="menu-item"><a class="spi-link" data-target="#proces" href="/proces">Procés</a></li>
 	<li class="menu-item"><a class="spi-link" data-target="#tecnologies" href="/tecnologies">Tecnologies</a></li>
 	<li class="menu-item"><a class="spi-link" data-target="#fonaments" href="/fonaments">Fonaments</a></li>
