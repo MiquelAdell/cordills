@@ -11,6 +11,10 @@
     /* Next button  */
     /* Changes the position of the indicators */
     /* Changes the color of the indicators */
+    small {
+        width: 70%;
+        margin: 20px 15%;
+    }
 }
 #quote-carousel .carousel-control {
     background: none;
@@ -76,7 +80,7 @@
     margin: 0;
 }
 .item blockquote .excerpt {
-    max-width: 616px;
+
 }
 .item blockquote .excerpt:before {
     content: "\f10d";

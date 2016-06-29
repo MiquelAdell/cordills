@@ -3,14 +3,14 @@
 	<div class="container-fluid section-container">
 		<div class="row">
 			<div class="brand-in-header">
-				<div class="brand col-xs-9 col-sm-5 text-left">
+				<div class="brand text-left float-left">
 					<?php web_title(); ?>
 				</div>
 			</div>
 
 
 
-			<nav class="nav-primary col-xs-3 col-sm-7 text-right">
+			<nav class="nav-primary float-right">
 				<div class="menu-main-menu-container">
 					<ul id="menu-main-menu-header" class="main-menu nav">
 						<?=the_main_menu()?>

@@ -17,12 +17,30 @@ $stages = new WP_Query( $args );
 // Display connected pages
 if ( $stages->have_posts() ) {
 	?>
-	<div clas='row process-panel-holder'>
+	<div clas='row process-panel-holder panel-group' id="acordion">
+	<?php
+	$i = 0;
+	?>
 	<?php while ( $stages->have_posts() ) : $stages->the_post(); ?>
-			<div class='col-sm-6 process-panel'>
-					<h4><i class="<?=get_field('icon')?>"></i> <?=the_title()?></h4>
-					<div class='text'><?=the_content()?></div>
-			</div> <!-- col-sm-6 process-panel -->
+			<?php
+			if($i === 0){
+				$collapse = "";
+			} else {
+				$collapse = "collapse";
+			}
+			?>
+				<div class="panel panel-default panel-process" data-toggle="collapse" data-parent="#acordion" href="#collapse<?=$i?>">
+					<a class="panel panel-default panel-process">
+						<div class="panel-heading"><i class="<?=get_field('icon')?>"></i> <?=the_title()?></div>
+					</a>
+					<div id="collapse<?=$i?>" class="panel-collapse <?=$collapse?>">
+						<div class="panel-body"><?=the_content()?></div>
+					</div>
+				</div>
+
+			<?php
+			$i++;
+			?>
 		<?php endwhile; ?>
 	</div> <!-- row process-panel-holder -->
 	<?php

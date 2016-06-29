@@ -25,6 +25,10 @@ $margin-top: ($menu-height - $font-height) / 4;
 		margin-bottom: 2em;
 	}
 
+	.brand-in-header & {
+		position: absolute;
+	}
+
 	a {
 		display: block;
 		width: 100%;
