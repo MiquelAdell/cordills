@@ -362,6 +362,10 @@ menu
 		border: 0;
 		border-radius: 0;
 		color: $link-color;
+		font-family: $font-family-highlight;
+		text-transform: uppercase;
+		font-size: 20px;
+		font-weight: bold;
 	}
 	width: 100%;
 }
