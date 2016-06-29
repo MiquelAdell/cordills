@@ -27,6 +27,14 @@ body {
 	font-variant-ligatures: common-ligatures;
 }
 
+.page-header {
+	width: 100%;
+	.fitted-text {
+		width: 100%;
+		line-height: 0.8em;
+	}
+}
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	color: transparentize(black,0.6);
 	font-family: $font-family-highlight;
@@ -102,6 +110,10 @@ footer {
 .nav-home-container {
 	font-size: 30px;
 	margin-bottom: 0.5em;
+
+	@media screen and (max-width: $break-small) {
+		font-size: 14px;
+	}
 
 	ul li {
 		display: inline;
@@ -296,10 +308,10 @@ menu
 	background-size: contain;
 	background-position: center center;
 
-	@media screen and (max-width: $break-medium) {
+	@media screen and (max-width: $break-large) {
 		height: 25vh;
-		margin-top: 0;
-		margin-bottom: 100px;
+		margin-top: 50px;
+		margin-bottom: 50px;
 	}
 
 }

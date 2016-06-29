@@ -18,6 +18,69 @@ jQuery.fn.extend({
 	}
 });
 
+/*global jQuery */
+
+/*global jQuery */
+/*!
+* FitText.js 1.2
+*
+* Copyright 2011, Dave Rupert http://daverupert.com
+* Released under the WTFPL license
+* http://sam.zoy.org/wtfpl/
+*
+* Date: Thu May 05 14:23:00 2011 -0600
+*/
+
+(function( $ ){
+
+  $.fn.fitText = function( kompressor, options ) {
+
+    // Setup options
+    var compressor = kompressor || 1,
+        settings = $.extend({
+          'minFontSize' : Number.NEGATIVE_INFINITY,
+          'maxFontSize' : Number.POSITIVE_INFINITY
+        }, options);
+
+    return this.each(function(){
+
+      // Store the object
+      var $this = $(this);
+
+      // Resizer() resizes items based on the object width divided by the compressor * 10
+      var resizer = function () {
+        $this.css('font-size', Math.max(Math.min($this.width() / (compressor*10), parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize)));
+      };
+
+      // Call once to set.
+      resizer();
+
+      // Call on resize. Opera debounces their resize by default.
+      $(window).on('resize.fittext orientationchange.fittext', resizer);
+
+    });
+
+  };
+
+})( jQuery );
+
+// custom implementation
+$(function(){
+  $('.fitted-text').each(function(){
+    var widths = [], maxwidth = 0, width = 0;
+    $(this).children('span').each(function(){
+      width = $.textMetrics(this)['width'];
+      widths.push({el: this, width: width});
+      if(maxwidth < width) maxwidth = width;
+    });
+    widths.forEach(function(w,i){
+      $(w.el).css({
+        'font-size': (w.width > 0 ? maxwidth / w.width : 0).toFixed(5) + 'em'
+      });
+    });
+  });
+});
+
 
 jQuery.fn.cssNum = function(){
 	return parseFloat(jQuery.fn.css.apply(this,arguments));
@@ -231,7 +294,11 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 						$('footer').removeClass("stick-to-bottom");
 					}
 				});
+        $('.home .fitted-text, .page-template-front-page .fitted-text').fitText(0.5);
+        $('.page_id-5 .fitted-text').fitText(0.8);
+        
 			}
+
 		},
 		// Home page
 		'home': {

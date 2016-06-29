@@ -32,10 +32,10 @@
 
 	<div class="container-fluid container-showcase dark">
 		<div class="row">
-			<div class="col-xs-12 col-sm-7  equal">
+			<div class="col-xs-12 col-sm-7">
 				<img class="fitted-image" src="<?= get_template_directory_uri(); ?>/dist/images/memoria-viva/mosaic1.png">
 			</div>
-			<div class="col-xs-12 col-sm-5  equal text-holder">
+			<div class="col-xs-12 col-sm-5 text-holder">
 				<h4>Tempora nova illis habentia caelo mollia gravitate fossae. Feras di? Cornua nam habitandae aquae hanc. Temperiemque nam ligavit: terris undas.</h4>
 			</div>
 		</div>

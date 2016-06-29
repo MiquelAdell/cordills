@@ -40,6 +40,9 @@ $margin-top: ($menu-height - $font-height) / 4;
 				font-size: 33px;
 				line-height: 1em;
 				margin-top: 5px;
+				@media screen and (max-width: $break-small) {
+					display: none;
+				}
 			}
 		}
 
@@ -60,12 +63,18 @@ $margin-top: ($menu-height - $font-height) / 4;
 			&:nth-child(1) {
 				.brand-in-home & {
 					font-size: 120px;
+					@media screen and (max-width: $break-small) {
+						font-size: 25vw;
+					}
 				}
 			}
 
 			&:nth-child(2) {
 				.brand-in-home & {
 					font-size: 100px;
+					@media screen and (max-width: $break-small) {
+						font-size: 21vw;
+					}
 				}
 			}
 		}
@@ -87,6 +96,7 @@ $margin-top: ($menu-height - $font-height) / 4;
 				height: 50px;
 				float: left;
 			}
+
 		}
 
 		@media screen and (max-width: $break-x-small) {
@@ -115,6 +125,14 @@ h2.slogan {
 	color: $gold-color;
 	text-transform: lowercase;
 	font-weight: normal;
+
+	@media screen and (max-width: $break-small) {
+		font-size: 5vw;
+	}
+
+	@media screen and (max-width: $break-x-small) {
+		margin-top: -1em;
+	}
 
 	.brand-in-header & {
 		display: none;
