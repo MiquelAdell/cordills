@@ -247,7 +247,7 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 				$(window).resize(function() {
 					if($(window).width() > 767){
 						if(!$('.fake-footer').length){
-							$('.pt-page-holder').append('<div class="fake-footer"></div>');
+							$('body').append('<div class="fake-footer"></div>');
 						}
 						$contactContainer.height($('footer').top() - $('.contact-container').top());
 
