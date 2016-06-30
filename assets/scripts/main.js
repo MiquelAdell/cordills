@@ -87,7 +87,6 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
 
 						var stateObj = { section: currentSection };
-            console.log("url",url);
 						window.history.pushState(stateObj, currentSection, url);
 					}
 				});
@@ -230,7 +229,7 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 						$('footer').removeClass("stick-to-bottom");
 					}
 				});
-        
+
 			}
 
 		},
@@ -262,6 +261,8 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 						$contactContainer.height('auto');
 					}
 				});
+			},
+			finalize: function() {
 			}
 		}
 	};
