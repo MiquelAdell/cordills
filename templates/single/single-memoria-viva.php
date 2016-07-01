@@ -21,30 +21,25 @@
 	</div>
 
 	<div class="container-fluid container-showcase container-showcase-double">
-		<div class="row fill">
-			<div class="wrapper">
-				<div class="col-xs-12 col-sm-5 text-holder">
-					<h4>Mockups, models i prototips per un projecte amb molt espai per creixer encara</h4>
-					<p>En aquesta primera fase el projecte consistia en crear una pàgina web <strong>promocional</strong> per a mostrar la gran quantitat de possibilitats d'organitzar els continguts que han de generar un grup d'historiadors. Fotografies, mapes, infografies i fitxes conceptuals.</p>
-					<p>Per a la primera fase de memòria viva doncs s'havia de crear una pàgina de gran contingut visual organitzat de manera atractiva i, per a aquesta fase, encara amb poc contingut de text tota una oportunitat per fer una pàgina en què lluïssin les transicions, els mosaics d'imatges.</p>
-				</div>
-				<div class="col-xs-12 col-sm-7 image-holder">
-					<img class="fitted-image imac" src="<?= get_template_directory_uri(); ?>/dist/images/memoria-viva/imac1.png">
-				</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-5 text-holder">
+				<h4>Mockups, models i prototips per un projecte amb molt espai per creixer encara</h4>
+				<p>En aquesta primera fase el projecte consistia en crear una pàgina web <strong>promocional</strong> per a mostrar la gran quantitat de possibilitats d'organitzar els continguts que han de generar un grup d'historiadors. Fotografies, mapes, infografies i fitxes conceptuals.</p>
+				<p>Per a la primera fase de memòria viva doncs s'havia de crear una pàgina de gran contingut visual organitzat de manera atractiva i, per a aquesta fase, encara amb poc contingut de text tota una oportunitat per fer una pàgina en què lluïssin les transicions, els mosaics d'imatges.</p>
 			</div>
-		</div>
+			<div class="col-xs-12 col-sm-7 image-holder">
+				<img class="fitted-image imac" src="<?= get_template_directory_uri(); ?>/dist/images/memoria-viva/imac1.png">
+			</div>
 	</div>
 
-	<div class="row container-fluid container-showcase container-showcase-double">
-		<div class="row fill">
-			<div class="wrapper">
-				<div class="col-xs-12 col-sm-7 image-holder">
-					<img class="fitted-image" src="<?= get_template_directory_uri(); ?>/dist/images/memoria-viva/mosaic1.png">
-				</div>
-				<div class="col-xs-12 col-sm-5 text-holder">
-					<h4>La gran qualitat de les fotografies escollides així com els subtils efectes de transició generen la sensació d'estar veient un vídeo al arribar per primer cop a la pàgina</h4>
-					<p>En aquest projecte es va prestar especial atenció a un disseny responsive. Aquesta elecció ha resultat acertada ja que més de la meitat de les visites rebudes han estat des de dispositius mòbils.</p>
-				</div>
+	<div class="container-fluid container-showcase container-showcase-double">
+		<div class="row">
+			<div class="col-xs-12 col-sm-7 image-holder">
+				<img class="fitted-image" src="<?= get_template_directory_uri(); ?>/dist/images/memoria-viva/mosaic1.png">
+			</div>
+			<div class="col-xs-12 col-sm-5 text-holder">
+				<h4>La gran qualitat de les fotografies escollides així com els subtils efectes de transició generen la sensació d'estar veient un vídeo al arribar per primer cop a la pàgina</h4>
+				<p>En aquest projecte es va prestar especial atenció a un disseny responsive. Aquesta elecció ha resultat acertada ja que més de la meitat de les visites rebudes han estat des de dispositius mòbils.</p>
 			</div>
 		</div>
 	</div>
