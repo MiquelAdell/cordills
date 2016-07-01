@@ -1,7 +1,7 @@
 <?php while (have_posts()) : the_post(); ?>
 	<?php get_template_part('templates/page', 'header'); ?>
 
-	<div class="container-fluid container-showcase dark">
+	<div class="container-fluid container-showcase container-showcase-single first">
 		<div class="container">
 			<div class='imac-mockup video-holder col-xs-12'>
 				<video id="imac-video-portada" class="video-js video" no-controls autoplay loop preload="auto" poster="<?= get_template_directory_uri(); ?>/dist/videos/memoria-viva/imac-video-portada.jpg" data-setup="{}">
@@ -15,33 +15,41 @@
 			</div>
 
 			<h3>Un projecte d'alt impacte visual per a causar una gran impressió</h3>
+			<p>El projecte Memòria Viva és una iniciativa per a recuperar la memòria històrica immaterial de la ciutat de Sabadell.</p>
+			<p>En aquest projecte em vaig encarregar del <strong>disseny</strong>, <strong>maquetació</strong> i <strong>instal·lació</strong> i <strong>configuració</strong> d'una plantilla de <strong>WordPress</strong> totalment <strong>personalitzada</strong>.</p>
 		</div>
 	</div>
 
-	<div class="container-fluid container-showcase clear">
-		<div class="row">
-			<div class="col-xs-12 col-sm-5 text-holder">
-				<h4>Aquest text hauria d'anar alineat tant vertical com horitzontalment però ya sabes, costa molt. Tempora nova illis habentia caelo mollia gravitate fossae. Feras di?</h4>
-			</div>
-			<div class="col-xs-12 col-sm-7">
-				<img class="fitted-image imac" src="<?= get_template_directory_uri(); ?>/dist/images/memoria-viva/imac1.png">
-			</div>
-		</div>
-
-	</div>
-
-	<div class="container-fluid container-showcase dark">
-		<div class="row">
-			<div class="col-xs-12 col-sm-7">
-				<img class="fitted-image" src="<?= get_template_directory_uri(); ?>/dist/images/memoria-viva/mosaic1.png">
-			</div>
-			<div class="col-xs-12 col-sm-5 text-holder">
-				<h4>Tempora nova illis habentia caelo mollia gravitate fossae. Feras di? Cornua nam habitandae aquae hanc. Temperiemque nam ligavit: terris undas.</h4>
+	<div class="container-fluid container-showcase container-showcase-double">
+		<div class="row fill">
+			<div class="wrapper">
+				<div class="col-xs-12 col-sm-5 text-holder">
+					<h4>Mockups, models i prototips per un projecte amb molt espai per creixer encara</h4>
+					<p>En aquesta primera fase el projecte consistia en crear una pàgina web <strong>promocional</strong> per a mostrar la gran quantitat de possibilitats d'organitzar els continguts que han de generar un grup d'historiadors. Fotografies, mapes, infografies i fitxes conceptuals.</p>
+					<p>Per a la primera fase de memòria viva doncs s'havia de crear una pàgina de gran contingut visual organitzat de manera atractiva i, per a aquesta fase, encara amb poc contingut de text tota una oportunitat per fer una pàgina en què lluïssin les transicions, els mosaics d'imatges.</p>
+				</div>
+				<div class="col-xs-12 col-sm-7 image-holder">
+					<img class="fitted-image imac" src="<?= get_template_directory_uri(); ?>/dist/images/memoria-viva/imac1.png">
+				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="container-fluid container-showcase">
+	<div class="row container-fluid container-showcase container-showcase-double">
+		<div class="row fill">
+			<div class="wrapper">
+				<div class="col-xs-12 col-sm-7 image-holder">
+					<img class="fitted-image" src="<?= get_template_directory_uri(); ?>/dist/images/memoria-viva/mosaic1.png">
+				</div>
+				<div class="col-xs-12 col-sm-5 text-holder">
+					<h4>La gran qualitat de les fotografies escollides així com els subtils efectes de transició generen la sensació d'estar veient un vídeo al arribar per primer cop a la pàgina</h4>
+					<p>En aquest projecte es va prestar especial atenció a un disseny responsive. Aquesta elecció ha resultat acertada ja que més de la meitat de les visites rebudes han estat des de dispositius mòbils.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid container-showcase container-showcase-single">
 		<div class="row">
 			<div class="col-xs-12">
 				<div class='chrome-mockup video-holder col-xs-12'>
@@ -59,7 +67,7 @@
 			<div class="container">
 				<div class="col-xs-12 text-center">
 					<h4>Agitabilis solum tumescere vis campoque induit spisso locum</h4>
-					<p>Tempora nova illis habentia caelo mollia gravitate fossae. Feras di? Cornua nam habitandae aquae hanc. Temperiemque nam ligavit: terris undas. Praecipites tanto colebat! Obstabatque frigore tenent parte fuerat rerum oppida pugnabant terram. Sectamque umentia omnia et sublime. Ita media diremit cognati fossae ponderibus.</p>
+					<p>En aquest projecte també s'ha fet us extensiu del plugin Revolution Slider aconseguint resultats sorprenents i dinàmics tot i no fer servir en cap pàgina l'estructura tradicional de "carousel" associada amb els sliders.</p>
 					<p><strong>Pots veure la web <a href="http://sabadell.memoriaviva.cat">aquí</a></strong></p>
 				</div>
 

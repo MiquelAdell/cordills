@@ -8,8 +8,16 @@
 		padding: 0;
 	}
 
+	p {
+		font-size: 20px;
+	}
+
 	.container-showcase  {
-		padding: 10vh 0;
+		padding: 100px 0;
+	}
+
+	.container-showcase.first {
+		padding: 0;
 	}
 
 	.container-showcase.dark {
@@ -36,9 +44,70 @@
 		height: auto;
 	}
 
-	.text-holder {
-		padding: 10vh;
+	.container-showcase {
+		padding: 100px;
 	}
+
+	*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html, body, .container-showcase-double.container, .container-showcase-double .col-md-4, .container-showcase-double .col-md-8
+{
+    height: 100%;
+}
+
+.container-showcase-double *:before, .container-showcase-double *:after
+{
+    display: none;
+}
+
+.container-showcase-double.container:before
+{
+    content: '';
+    display: block;
+    float: left;
+    height: 100%;
+}
+
+.container-showcase-double .fill
+{
+    color: #efefef;
+    background-color: blue;
+    position: relative;
+}
+    .container-showcase-double .fill:after
+    {
+        content: '';
+        display: block;
+        clear: left;
+    }
+
+.container-showcase-double .wrapper
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+.container-showcase-double .image-holder
+{
+    float: left;
+    position: static;
+    background-color: yellow;
+}
+
+.container-showcase-double .text-holder
+{
+    position: static;
+    overflow: auto;
+	background-color: green;
+}
+
+
 
 	.imac {
 		padding: 0 5vw;
@@ -153,7 +222,4 @@
 			}
 		}
 	}
-
-
-
 }
