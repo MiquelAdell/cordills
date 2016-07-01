@@ -30,7 +30,6 @@
 			<div class="col-xs-12 col-sm-7 image-holder">
 				<img class="fitted-image imac" src="<?= get_template_directory_uri(); ?>/dist/images/memoria-viva/imac1.png">
 			</div>
-		</div>
 	</div>
 
 	<div class="container-fluid container-showcase container-showcase-double">
