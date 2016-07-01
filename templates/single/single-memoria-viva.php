@@ -30,6 +30,7 @@
 			<div class="col-xs-12 col-sm-7 image-holder">
 				<img class="fitted-image imac" src="<?= get_template_directory_uri(); ?>/dist/images/memoria-viva/imac1.png">
 			</div>
+		</div>
 	</div>
 
 	<div class="container-fluid container-showcase container-showcase-double">
@@ -61,19 +62,17 @@
 
 			<div class="container">
 				<div class="col-xs-12 text-center">
-					<h4>Agitabilis solum tumescere vis campoque induit spisso locum</h4>
-					<p>En aquest projecte també s'ha fet us extensiu del plugin Revolution Slider aconseguint resultats sorprenents i dinàmics tot i no fer servir en cap pàgina l'estructura tradicional de "carousel" associada amb els sliders.</p>
-					<p><strong>Pots veure la web <a href="http://sabadell.memoriaviva.cat">aquí</a></strong></p>
+					<h4>Presentació cuidada sense prendre el control a l'usuari</h4>
+					<p>En aquest projecte també s'ha fet us extensiu del plugin <strong>Revolution Slider</strong> aconseguint resultats sorprenents i dinàmics tot i no fer servir en cap pàgina l'estructura tradicional de "carousel" associada amb els sliders.</p>
+					<p class="lead">Mira la pàgina web <a href="http://sabadell.memoriaviva.cat">memoriaviva.cat</a></p>
 				</div>
 
 				<div class="col-xs-12 text-center">
 					<div class='call_to_action'>
-						<div class='lead'>
-							Si vols una pàgina web com aquesta…
-						</div>
-						<div class="text-center">
-							<a href="/contacte" class="btn btn-default" role="button">Contacta'm</a>
-						</div>
+						<p class='lead'>Tracto tots els meus projectes amb la cura amb la que he tractat el de Memòria Viva.<br/>Si vols que parlem del teu projecte contacta'm</p>
+						<p class="text-center">
+							<a href="/contacte" class="btn btn-default" role="button">Parla'm de la teva pàgina web</a>
+						</p>
 					</div>
 				</div>
 			</div>

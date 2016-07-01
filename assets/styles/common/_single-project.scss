@@ -14,18 +14,20 @@
 
 	.container-showcase  {
 		padding: 100px 0;
+		.row {
+			padding: 0;
+		}
 	}
 
 	.container-showcase.first {
 		padding: 0;
 	}
 
-	.container-showcase.dark {
-		// background: rgba(0,0,0,0.05);
-	}
-
-	.container-showcase.clear {
-		// background: rgba(255,255,255,0.01);
+	.text-holder {
+		& > * {
+			width: 70%;
+			margin: 0 15%;
+		}
 	}
 
 	.page-header {
