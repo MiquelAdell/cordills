@@ -92,8 +92,12 @@ $technologies = array(
 			for($i = 0; $i < sizeof($technologies); $i++){
 				$technology = $technologies[$i];
 				$key = $technology['key'];
+				$extraClass = "";
+				if($key == 'mariadb'){
+					$extraClass = "hidden-xs";
+				}
 				?>
-				<div class="technology col-xs-6 col-sm-3">
+				<div class="technology col-xs-4 col-sm-3 <?=$extraClass?>">
 					<div class="icon-holder">
 						<svg class="icon technology-<?=$key?>"><use xlink:href="#technology-<?=$key?>"></use></svg>
 					</div>

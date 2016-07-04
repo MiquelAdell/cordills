@@ -24,16 +24,16 @@ if ( $stages->have_posts() ) {
 	<?php while ( $stages->have_posts() ) : $stages->the_post(); ?>
 			<?php
 			if($i === 0){
-				$collapse = "";
+				$in = "in";
 			} else {
-				$collapse = "collapse";
+				$in = "";
 			}
 			?>
 				<div class="panel panel-default panel-process" data-toggle="collapse" data-parent="#acordion" href="#collapse<?=$i?>">
 					<a class="panel panel-default panel-process">
 						<div class="panel-heading"><i class="<?=get_field('icon')?>"></i> <?=the_title()?></div>
 					</a>
-					<div id="collapse<?=$i?>" class="panel-collapse <?=$collapse?>">
+					<div id="collapse<?=$i?>" class="panel-collapse collapse <?=$in?>">
 						<div class="panel-body"><?=the_content()?></div>
 					</div>
 				</div>

@@ -23,13 +23,6 @@
 		padding: 0;
 	}
 
-	.text-holder {
-		& > * {
-			width: 70%;
-			margin: 0 15%;
-		}
-	}
-
 	.page-header {
 		padding: 2em;
 	}
@@ -90,7 +83,7 @@
 			.video {
 				width: 268px;
 				height: 153px;
-				margin: 14px 0px 0px 32px;
+				margin: 14px 0px 0px 38px;
 			}
 		}
 
@@ -111,6 +104,8 @@
 		*/
 		width: 750px;
 		height: 505px;
+		max-width: 100%;
+		overflow: hidden;
 		float: none;
 		margin-left: auto;
 		margin-right: auto;
@@ -129,6 +124,7 @@
 			ratio 0.9325
 			*/
 			width: 750px;
+			max-width: 100%;
 			height: 468px;
 			margin: 43px 0 0 0;
 			border-left: 2px solid #c8c7c7;
@@ -137,6 +133,18 @@
 			border-bottom-left-radius: 10px;
 			border-bottom-right-radius: 10px;
 			background: white;
+		}
+
+		@media screen and (max-width: $break-medium) {
+			width: 562px;
+			height: 378px;
+			.video {
+				width: 562px;
+				height: 351px;
+				margin: 32px 0 0 0;
+				border-bottom-left-radius: 7px;
+				border-bottom-right-radius: 7px;
+			}
 		}
 
 		@media screen and (max-width: $break-small) {
@@ -163,4 +171,33 @@
 			}
 		}
 	}
+
+	.text-holder {
+		display: table;
+		.text {
+			display: table-cell;
+			vertical-align: middle;
+			& > * {
+				width: 70%;
+				margin: 0 15%;
+				@media screen and (max-width: $break-x-large) {
+					width: 80%;
+					margin: 0 10%;
+				}
+				@media screen and (max-width: $break-large) {
+					width: 90%;
+					margin: 0 5%;
+				}
+			}
+		}
+	}
+
+	.image-holder {
+		display: table;
+		.image {
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+
 }

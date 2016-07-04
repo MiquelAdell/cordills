@@ -230,6 +230,17 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 					}
 				});
 
+				/* container-double fix height */
+				$(window).resize(function() {
+					$('.container-double').each(function(){
+						$container = $(this);
+						if($container.find('.image-holder').height() > $container.find('.text-holder').height()){
+							$container.find('.text-holder').height($container.find('.image-holder').height());
+						} else {
+							$container.find('.image-holder').height($container.find('.text-holder').height());
+						}
+					});
+				});
 			}
 
 		},

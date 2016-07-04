@@ -255,8 +255,8 @@ menu
 
 
 .front-page-section {
-	padding-top: 100px;
-	padding-bottom: 100px;
+	padding-top: 15vh;;
+	padding-bottom: 0;
 }
 
 .nav-primary-container,
@@ -320,7 +320,7 @@ menu
 
 	@media screen and (max-width: $break-large) {
 		height: 25vh;
-		margin-top: 50px;
+		margin-top: 0px;
 		margin-bottom: 50px;
 	}
 
@@ -467,4 +467,19 @@ menu
 
 .page_id-16 {
 	overflow: hidden;
+}
+
+.technology-panel {
+	.extraShort {
+		display: none;
+	}
+	@media screen and (max-width: $break-small) {
+		.extraShort {
+			display: block;
+		}
+		.extraLong {
+			display: none;
+		}
+	}
+
 }

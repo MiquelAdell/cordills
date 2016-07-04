@@ -32,7 +32,11 @@ if( get_field( "call_to_action_button_text" ) ) {
                             get_template_part('templates/page', 'header');
                             get_template_part('templates/page-'.$post->ID);
                             ?>
-                            <div class="row col-xs-12"><?=$call_to_action?></div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <?=$call_to_action?>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

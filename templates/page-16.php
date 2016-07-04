@@ -23,7 +23,7 @@ $testimonialLoop = new WP_Query( $args );
 					?>
 					<li data-target="#quote-carousel" data-slide-to="<?=$i?>" class="
 						<?php if ($i === 0): ?>active<?php endif ?>
-							"><img class="img-responsive " src="<?=$image['url']?>" alt="<?=$image['alt']?>"></li>
+							"><img class="img-responsive " src="<?=$image['sizes']['medium']?>" alt="<?=$image['alt']?>"></li>
 							<?php
 						}
 						$i++;
@@ -34,7 +34,6 @@ $testimonialLoop = new WP_Query( $args );
 
 				<!-- Carousel Slides / Quotes -->
 				<div class="carousel-inner text-center ">
-
 					<?php
 					$i = 0;
 					while ( $testimonialLoop->have_posts() ) :
