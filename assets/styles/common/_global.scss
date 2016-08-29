@@ -75,35 +75,15 @@ p {
 header {
 }
 
-footer {
-	display: table;
-	// background: linear-gradient(transparentize($scene-4-color,0.4), hsla(0, 0%, 0%, 0.7)), url('../images/earth.jpg');
-	background-image:  url('../images/earth.png');
-	background-position: center top;
-	background-size: cover;
-	width: 100%;
 
-	&.stick-to-bottom {
-		position: absolute;
-		bottom: 0;
-	}
-
-	p {
-		padding: 0;
-		margin: 3.5em 2em 0.5em 2em;
-		height: 2em;
-		line-height: 2em;
-		text-align: center;
-		font-family: $font-family-basic;
-		font-size: 1.1em;
-		font-weight: bold;
-		letter-spacing: 2px;
-		color: $gray-base;
-	}
-}
 
 .page-holder {
 	width: 100%;
+}
+
+.pt-page-main {
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
 }
 
 .menu-main-menu-container {
@@ -482,4 +462,9 @@ menu
 		}
 	}
 
+}
+
+/* MULTILANG */
+#lang_sel_footer {
+	display: none;
 }

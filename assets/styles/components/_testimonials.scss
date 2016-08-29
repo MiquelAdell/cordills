@@ -25,9 +25,15 @@
 }
 #quote-carousel .carousel-control.left {
     left: -60px;
+    @media screen and (max-width: $break-medium) {
+        left: 0;
+    }
 }
 #quote-carousel .carousel-control.right {
     right: -60px;
+    @media screen and (max-width: $break-medium) {
+        right: 0;
+    }
 }
 #quote-carousel .carousel-indicators {
     right: 50%;

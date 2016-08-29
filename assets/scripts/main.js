@@ -57,17 +57,22 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 			},
 			finalize: function() {
 
+				var langs = ['ca','es','en'];
+
 				// scroll and URL
 				var currentSection = "";
+				var currentLang = "";
+				currentLang = "ca";
+
 				$(".pt-page-main").bind('scroll', function() {
 
 					var getScrollSection = function(top){
 						var toReturn = null;
 						$('.front-page-section').each(function(){
-              var $section = $(this);
-              if($section.get(0).getBoundingClientRect().top <= 0 && $section.get(0).getBoundingClientRect().bottom >= 0){
-                toReturn = $section.prop('id');
-              }
+							var $section = $(this);
+							if($section.get(0).getBoundingClientRect().top <= 0 && $section.get(0).getBoundingClientRect().bottom >= 0){
+								toReturn = $section.prop('id');
+							}
 						});
 						return toReturn;
 					};
@@ -78,9 +83,9 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 						currentSection = scrolledSection;
 						//trigger enter section
 						var url = "/";
-            if(currentSection){
-              url = "/"+currentSection;
-            }
+						if(currentSection){
+							url = "/"+currentLang+"/"+currentSection;
+						}
 
 						$('.nav a.active').removeClass('active');
 						$('a[href$="/'+currentSection+'"]').addClass('active');
@@ -88,6 +93,7 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
 						var stateObj = { section: currentSection };
 						window.history.pushState(stateObj, currentSection, url);
+
 					}
 				});
 
@@ -200,14 +206,24 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
 				// if it's frist load maybe we have something in the url (and not in history) and we need to apply changes
 				if(window.location.pathname !== "/"){
-					var id = window.location.pathname.substring(1);
+					var pathname = window.location.pathname.substring(1); //remove the first slash
 
-
-
-					if( (id === 'projecte-destacat' || id === 'proces' || id === 'tecnologies' || id === 'fonaments') && $('#'+id).length){
-						$('.pt-page-main').animate({
-							scrollTop: $('#'+id).top()+$('#brand-container').outerHeight()
-						}, 1000);
+					var isDefaultUrl = function(pathname){
+						for (var i = 0, len = langs.length; i < len; i++) {
+							if(pathname === langs[i] || pathname === langs[i]+"/"){
+								return true;
+							}
+						}
+						return false;
+					};
+					var test = isDefaultUrl(pathname);
+					if(!isDefaultUrl(pathname)){
+						id = pathname.substring(3); //remove the two character lang code + slash
+						if( (id === 'projecte-destacat' || id === 'proces' || id === 'tecnologies' || id === 'fonaments') && $('#'+id).length){
+							$('.pt-page-main').animate({
+								scrollTop: $('#'+id).top()+$('#brand-container').outerHeight()
+							}, 1000);
+						}
 					}
 				}
 

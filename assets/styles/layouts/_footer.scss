@@ -1,0 +1,37 @@
+footer {
+	display: table;
+	// background: linear-gradient(transparentize($scene-4-color,0.4), hsla(0, 0%, 0%, 0.7)), url('../images/earth.jpg');
+	background-image:  url('../images/earth.png');
+	background-position: center top;
+	background-size: cover;
+	width: 100%;
+
+	&.stick-to-bottom {
+		position: absolute;
+		bottom: 0;
+	}
+
+	.language_list {
+		font-family: $font-family-highlight;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 1.1em;
+
+
+		padding: 0;
+		margin: 3.5em 2em 0.5em 2em;
+		height: 2em;
+		line-height: 2em;
+		font-weight: bold;
+		letter-spacing: 0.1em;
+		color: $link-color;
+
+		ul {
+			list-style: none;
+			li {
+				display: inline;
+				margin: 0 1em;
+			}
+		}
+	}
+}
