@@ -1,7 +1,7 @@
 var PageTransitions = (function() {
 
-	var $main = $( '#pt-main' ),
-	$hamburger = $('.hamburger'),
+	var $main = jQuery( '#pt-main' ),
+	$hamburger = jQuery('.hamburger'),
 	pageMain = '.pt-page-main',
 	pageMenu = '.pt-page-menu',
 	isAnimating = false,
@@ -23,8 +23,8 @@ var PageTransitions = (function() {
 		if(!endCurrPage || !endNextPage){
 			return;
 		}
-		$(outpage).attr( 'class', $(outpage).data( 'originalClassList' ) );
-		$(inpage).attr( 'class', $(inpage).data( 'originalClassList' ) + ' pt-page-current' );
+		jQuery(outpage).attr( 'class', jQuery(outpage).data( 'originalClassList' ) );
+		jQuery(inpage).attr( 'class', jQuery(inpage).data( 'originalClassList' ) + ' pt-page-current' );
 		isAnimating = false;
 	}
 
@@ -35,8 +35,8 @@ var PageTransitions = (function() {
 		}
 		isAnimating = true;
 
-		var $nextPage = $(next);
-		var $currPage = $(current);
+		var $nextPage = jQuery(next);
+		var $currPage = jQuery(current);
 		var outClass, inClass;
 		if(action === "left"){
 			outClass = 'pt-page-moveToRightFade';
@@ -65,17 +65,17 @@ var PageTransitions = (function() {
 	}
 
 	function init() {
-		$(pageMain).addClass( 'pt-page-current' );
+		jQuery(pageMain).addClass( 'pt-page-current' );
 
 		$hamburger.click(function(){
 			if(!initialized){
 				initialized = true;
-				$('.pt-page').each( function() {
-					$( this ).data( 'originalClassList', $( this ).attr( 'class' ).replace("pt-page-current", ""));
+				jQuery('.pt-page').each( function() {
+					jQuery( this ).data( 'originalClassList', jQuery( this ).attr( 'class' ).replace("pt-page-current", ""));
 				} );
 			}
 			var action = "";
-			if($(this).hasClass('is-active')){
+			if(jQuery(this).hasClass('is-active')){
 				//close
 				currPage = pageMenu;
 				nextPage = pageMain;

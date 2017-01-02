@@ -84,7 +84,7 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 						//trigger enter section
 						var url = "/";
 						if(currentSection){
-							url = "/"+currentLang+"/"+currentSection;
+							url = "/"+currentSection;
 						}
 
 						$('.nav a.active').removeClass('active');

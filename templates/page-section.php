@@ -30,7 +30,14 @@ if( get_field( "call_to_action_button_text" ) ) {
                         <div class="page-holder">
                             <?php
                             get_template_part('templates/page', 'header');
-                            get_template_part('templates/page-'.$post->ID);
+                            ?>
+                            <?php
+                            $template = get_page_template_slug();
+                            if($template){
+                                $template = pathinfo($template);
+                                $template = $template['dirname']."/".$template['filename'];
+                                get_template_part($template);
+                            }
                             ?>
                             <div class="row">
                                 <div class="col-xs-12">

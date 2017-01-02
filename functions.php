@@ -1,5 +1,6 @@
 <?php
 require_once('vendor/jjgrainger/wp-custom-post-type-class/src/CPT.php');
+require_once('vendor/raveren/kint/Kint.class.php');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -66,12 +67,12 @@ $projects = new CPT(array(
 		'plural' => __('Projects'),
 		'slug' => 'project'
 ));
-
-$projects->columns(array(
-		'cb' => '<input type="checkbox" />',
-		'title' => __('Name'),
-		'image' => __('Full mockup')
-));
+//
+// $projects->columns(array(
+// 		'cb' => '<input type="checkbox" />',
+// 		'title' => __('Name'),
+// 		'image' => __('Full mockup')
+// ));
 
 $projects->populate_column('image', function($column, $post) {
 		$image = get_field('full_mockup');
@@ -175,7 +176,7 @@ function the_main_menu(){
 	<li class="menu-item"><a class="spi-link" data-target="#proces" href="/proces">Procés</a></li>
 	<li class="menu-item"><a class="spi-link" data-target="#tecnologies" href="/tecnologies">Tecnologies</a></li>
 	<li class="menu-item"><a class="spi-link" data-target="#fonaments" href="/fonaments">Fonaments</a></li>
-	<li class="menu-item"><a href="/ca/contacte/">Contacte</a></li>
+	<li class="menu-item"><a href="/contacte/">Contacte</a></li>
 	<?php
 	$the_main_menu = ob_get_contents();
 	ob_end_clean();
@@ -295,4 +296,4 @@ function languages_list(){
 $is_front_page = is_front_page();
 $is_home = is_home();
 $is_root = $_SERVER["REQUEST_URI"] == '/';
-var_dump($is_front_page,$is_home,$is_root); die();
+// var_dump($is_front_page,$is_home,$is_root); die();

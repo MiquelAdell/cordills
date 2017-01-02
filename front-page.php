@@ -2,19 +2,17 @@
 
 <?php /* Template Name: Front Page */
 
+$home_ID = icl_object_id(2, 'page', true);
+
 $args = array(
 	'post_type' => 'page',
-	'post__in' => array( 5, 7, 9, 16 ), //list of page_ids
-	'order' => "ASC"
+	'hierarchical' => 0,
+	'post_parent' => $home_ID,
+	'order' => 'ASC',
+	'orderby' => 'date'
 );
 $page_query = new WP_Query( $args );
 ?>
-
-
-<script type="image/svg+xml"><?php echo file_get_contents(get_stylesheet_directory()."/dist/images/glass.svg"); ?></script>
-<script type="image/svg+xml"><?php echo file_get_contents(get_stylesheet_directory()."/dist/images/tap.svg"); ?></script>
-<script type="image/svg+xml"><?php echo file_get_contents(get_stylesheet_directory()."/dist/images/boiler.svg"); ?></script>
-<script type="image/svg+xml"><?php echo file_get_contents(get_stylesheet_directory()."/dist/images/grinder.svg"); ?></script>
 
 <?php if( $page_query->have_posts() ) : ?>
 	<?php $i = 1; ?>
@@ -27,5 +25,12 @@ $page_query = new WP_Query( $args );
 <?php else:
 	throw new Exception("Missing posts", 1);
 endif;
-
 wp_reset_postdata();
+
+?>
+
+<script type="image/svg+xml"><?=file_get_contents(get_stylesheet_directory()."/dist/images/glass.svg"); ?></script>
+<script type="image/svg+xml"><?=file_get_contents(get_stylesheet_directory()."/dist/images/tap.svg"); ?></script>
+<script type="image/svg+xml"><?=file_get_contents(get_stylesheet_directory()."/dist/images/boiler.svg"); ?></script>
+<script type="image/svg+xml"><?=file_get_contents(get_stylesheet_directory()."/dist/images/grinder.svg"); ?></script>
+<php
