@@ -1,18 +1,14 @@
 <?php
+use PostTypes\PostType;
 // Technologies custom post type
-$technologies = new PostType(array(
-		'post_type_name' => 'technology',
-		'singular' => __('Technology'),
-		'plural' => __('Technologies'),
-		'slug' => 'technology'
-));
+$names = [
+	'name' => 'technology',
+	'singular' => __('Technology'),
+	'plural' => __('Technologies'),
+	'slug' => 'technology'
+];
 
-$technologies->register_taxonomy(array(
-		'taxonomy_name' => 'area',
-		'singular' => __('area'),
-		'plural' => __('areas'),
-		'slug' => 'area'
-));
+$technologies = new PostType($names);
 
 $technologies->columns()->add(array(
 		'cb' => '<input type="checkbox" />',
@@ -20,8 +16,8 @@ $technologies->columns()->add(array(
 		'font_icon' => __('Icon')
 ));
 
-$technologies->populate_column('font_icon', function($column, $post) {
+$technologies->columns()->populate('font_icon', function($column, $post) {
 	echo "<i class='".get_field('icon')."'></i> ".get_field('icon');
 });
 
-$technologies->menu_icon("dashicons-awards");
+$technologies->icon("dashicons-awards");

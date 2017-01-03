@@ -1,11 +1,14 @@
 <?php
+use PostTypes\PostType;
 // Testimonials custom post type
-$testimonials = new PostType(array(
-		'post_type_name' => 'testimonial',
-		'singular' => __('Testimonial'),
-		'plural' => __('Testimonials'),
-		'slug' => 'testimonial'
-));
+$names = [
+	'name' => 'testimonial',
+	'singular' => __('Testimonial'),
+	'plural' => __('Testimonials'),
+	'slug' => 'testimonial'
+];
+
+$testimonials = new PostType($names);
 
 $testimonials->columns()->add(array(
 		'cb' => '<input type="checkbox" />',
@@ -15,23 +18,25 @@ $testimonials->columns()->add(array(
 		'image' => __('Image')
 ));
 
-$testimonials->sortable(array(
-		'name' => array('name', false),
-		'company_name' => array('company_name', false),
-		'project_name' => array('project_name', false)
-));
+$testimonials->columns()->sortable(
+	[
+		'name' => ['name', false],
+		'company_name' => ['company_name', false],
+		'project_name' => ['project_name', false]
+	]
+);
 
-$testimonials->populate_column('company_name', function($column, $post) {
+$testimonials->columns()->populate('company_name', function($column, $post) {
 		echo get_field('company_name');
 });
 
-$testimonials->populate_column('project_name', function($column, $post) {
+$testimonials->columns()->populate('project_name', function($column, $post) {
 		echo get_field('project_name');
 });
 
-$testimonials->populate_column('image', function($column, $post) {
+$testimonials->columns()->populate('image', function($column, $post) {
 		$image = get_field('image');
 		echo "<a href='".get_edit_post_link()."'><img src='".$image['sizes']['thumbnail']."'></a>";
 });
 
-$testimonials->menu_icon("dashicons-testimonial");
+$testimonials->icon("dashicons-testimonial");
