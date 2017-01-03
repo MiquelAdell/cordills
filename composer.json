@@ -30,10 +30,10 @@
     "wpackagist-plugin/post-type-switcher": ">=1.5",
     "wpackagist-plugin/posts-to-posts": ">=1.6",
     "wpackagist-plugin/advanced-excerpt": ">=4.2.3",
-    "roots/wp-password-bcrypt": ">=1.0",
     "wpackagist-plugin/kau-boys-backend-localization": ">=2.1",
     "automattic/jetpack": ">=4.0",
-    "raveren/kint": "^1.0"
+    "raveren/kint": "^1.0",
+    "jjgrainger/posttypes": "^1.0"
   },
   "extra": {
     "installer-paths": {

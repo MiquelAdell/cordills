@@ -1,9 +1,8 @@
 <?php
-require_once('vendor/jjgrainger/wp-custom-post-type-class/src/CPT.php');
-require_once('vendor/raveren/kint/Kint.class.php');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
+require_once __DIR__ . '/vendor/autoload.php';
+use PostTypes\PostType;
 
 /**
  * Sage includes
@@ -59,20 +58,19 @@ function text_with_link($text, $link = null) {
 
 
 //** CUSTOM POST TYPES ** //
-
 // Projects custom post type
-$projects = new CPT(array(
+$projects = new PostType(array(
 		'post_type_name' => 'project',
 		'singular' => __('Project'),
 		'plural' => __('Projects'),
 		'slug' => 'project'
 ));
-//
-// $projects->columns(array(
-// 		'cb' => '<input type="checkbox" />',
-// 		'title' => __('Name'),
-// 		'image' => __('Full mockup')
-// ));
+
+$projects->columns()->add(array(
+		'cb' => '<input type="checkbox" />',
+		'title' => __('Name'),
+		'image' => __('Full mockup')
+));
 
 $projects->populate_column('image', function($column, $post) {
 		$image = get_field('full_mockup');
@@ -81,92 +79,9 @@ $projects->populate_column('image', function($column, $post) {
 
 $projects->menu_icon("dashicons-desktop");
 
-
-// Stages in the process custom post type
-$stages = new CPT(array(
-		'post_type_name' => 'stage',
-		'singular' => __('Stages in the process'),
-		'plural' => __('Parts of the process'),
-		'slug' => 'stage'
-));
-
-$stages->columns(array(
-		'cb' => '<input type="checkbox" />',
-		'title' => __('Name'),
-		'font_icon' => __('Icon')
-));
-
-$stages->populate_column('font_icon', function($column, $post) {
-	echo "<i class='".get_field('icon')."'></i> ".get_field('icon');
-});
-
-$stages->menu_icon("dashicons-layout");
-
-
-// Technologies custom post type
-$technologies = new CPT(array(
-		'post_type_name' => 'technology',
-		'singular' => __('Technology'),
-		'plural' => __('Technologies'),
-		'slug' => 'technology'
-));
-
-$technologies->register_taxonomy(array(
-		'taxonomy_name' => 'area',
-		'singular' => __('area'),
-		'plural' => __('areas'),
-		'slug' => 'area'
-));
-
-$technologies->columns(array(
-		'cb' => '<input type="checkbox" />',
-		'title' => __('Name'),
-		'font_icon' => __('Icon')
-));
-
-$technologies->populate_column('font_icon', function($column, $post) {
-	echo "<i class='".get_field('icon')."'></i> ".get_field('icon');
-});
-
-$technologies->menu_icon("dashicons-awards");
-
-
-// Testimonials custom post type
-$testimonials = new CPT(array(
-		'post_type_name' => 'testimonial',
-		'singular' => __('Testimonial'),
-		'plural' => __('Testimonials'),
-		'slug' => 'testimonial'
-));
-
-$testimonials->columns(array(
-		'cb' => '<input type="checkbox" />',
-		'title' => __('Name'),
-		'company_name' => __('Company name'),
-		'date' => __('Date'),
-		'image' => __('Image')
-));
-
-$testimonials->sortable(array(
-		'name' => array('name', false),
-		'company_name' => array('company_name', false),
-		'project_name' => array('project_name', false)
-));
-
-$testimonials->populate_column('company_name', function($column, $post) {
-		echo get_field('company_name');
-});
-
-$testimonials->populate_column('project_name', function($column, $post) {
-		echo get_field('project_name');
-});
-
-$testimonials->populate_column('image', function($column, $post) {
-		$image = get_field('image');
-		echo "<a href='".get_edit_post_link()."'><img src='".$image['sizes']['thumbnail']."'></a>";
-});
-
-$testimonials->menu_icon("dashicons-testimonial");
+require_once('CPT/stage.php');
+require_once('CPT/technology.php');
+require_once('CPT/testimonial.php');
 
 
 function the_main_menu(){

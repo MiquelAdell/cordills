@@ -27,78 +27,79 @@ $testimonialLoop = new WP_Query( $args );
 				if( !empty($image) ){
 					?>
 					<li data-target="#quote-carousel" data-slide-to="<?=$i?>" class="
-						<?php if ($i === 0): ?>active<?php endif ?>
-							"><img class="img-responsive " src="<?=$image['sizes']['medium']?>" alt="<?=$image['alt']?>"></li>
-							<?php
-						}
-						$i++;
-					endwhile;
-					wp_reset_postdata();
-					?>
-				</ol>
-
-				<!-- Carousel Slides / Quotes -->
-				<div class="carousel-inner text-center ">
+						<?php if ($i === 0): ?>active<?php endif ?>">
+						<img class="img-responsive " src="<?=$image['sizes']['medium']?>" alt="<?=$image['alt']?>">
+					</li>
 					<?php
-					$i = 0;
-					while ( $testimonialLoop->have_posts() ) :
-						$testimonialLoop->the_post();
-						$testimonial = get_post();
+				}
+				$i++;
+			endwhile;
+			wp_reset_postdata();
+			?>
+		</ol>
 
-						$has_read_more = strpos($testimonial->post_content,'<!--more-->') !== false;
-						$text = get_the_excerpt();
-						if($has_read_more){
-							$text .= "…";
-						}
-						// If the text is an excerpt:
-						$connected = new WP_Query( array(
-							'connected_type' => 'testimonied_project',
-							'connected_items' => $testimonial->ID,
-							'orderby' => 'DESC',
-							'posts_per_page' => 1
-						) );
+		<!-- Carousel Slides / Quotes -->
+		<div class="carousel-inner text-center ">
+			<?php
+			$i = 0;
+			while ( $testimonialLoop->have_posts() ) :
+				$testimonialLoop->the_post();
+				$testimonial = get_post();
 
-						$connected_project = false;
-						if ( $connected->have_posts() ) {
-							$connected_project = $connected->post;
-						}
+				$has_read_more = strpos($testimonial->post_content,'<!--more-->') !== false;
+				$text = get_the_excerpt();
+				if($has_read_more){
+					$text .= "…";
+				}
+				// If the text is an excerpt:
+				$connected = new WP_Query( array(
+					'connected_type' => 'testimonied_project',
+					'connected_items' => $testimonial->ID,
+					'orderby' => 'DESC',
+					'posts_per_page' => 1
+				) );
 
-						$link = false;
-						if($has_read_more){
-							$link = "<div class='read-more-text'><a href='".get_permalink()."'>".__('read the full testimonial')."</a></div>";
-						}
-						else if($connected_project){
-							$link = "<div class='read-more-text'><a href='".get_permalink()."'>".__('see the project')."</a></div>";
-						}
+				$connected_project = false;
+				if ( $connected->have_posts() ) {
+					$connected_project = $connected->post;
+				}
 
-						?>
-						<div class="item
-						<?php if ($i === 0): ?>active<?php endif ?>
-							">
-							<blockquote>
-								<div>
-									<div class='excerpt'><?=$text?></div>
-									<small>
-										<?php
-										the_title();
-										if (!empty(get_field('company_name'))) {
-											echo ", ".text_with_link(get_field('company_name'),get_field('company_url'));
-										}
-										?>
-									</small>
-									<?=$link?>
-								</div>
-							</blockquote>
+				$link = false;
+				if($has_read_more){
+					$link = "<div class='read-more-text'><a href='".get_permalink()."'>".__('read the full testimonial')."</a></div>";
+				}
+				else if($connected_project){
+					$link = "<div class='read-more-text'><a href='".get_permalink()."'>".__('see the project')."</a></div>";
+				}
+
+				?>
+				<div class="item
+				<?php if ($i === 0): ?>active<?php endif ?>
+					">
+					<blockquote>
+						<div>
+							<div class='excerpt'><?=$text?></div>
+							<small>
+								<?php
+								the_title();
+								if (!empty(get_field('company_name'))) {
+									echo ", ".text_with_link(get_field('company_name'),get_field('company_url'));
+								}
+								?>
+							</small>
+							<?=$link?>
 						</div>
-						<?php
-						$i++;
-					endwhile;
-					wp_reset_postdata();
-					?>
+					</blockquote>
 				</div>
-
-				<!-- Carousel Buttons Next/Prev -->
-				<a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-				<a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
-			</div>
+				<?php
+				$i++;
+			endwhile;
+			wp_reset_postdata();
+			?>
 		</div>
+
+		<!-- Carousel Buttons Next/Prev -->
+		<a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+		<a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+	</div>
+</div>
