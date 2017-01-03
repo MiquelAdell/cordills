@@ -24,6 +24,20 @@ jQuery.fn.cssNum = function(){
 
 jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 
+function findGetParameter(parameterName) {
+	var result = null,
+	tmp = [];
+	location.search
+	.substr(1)
+	.split("&")
+	.forEach(function (item) {
+		tmp = item.split("=");
+		if (tmp[0] === parameterName) {
+			result = decodeURIComponent(tmp[1]);
+		}
+	});
+	return result;
+}
 
 /* ========================================================================
 * DOM-based Routing
@@ -57,12 +71,8 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 			},
 			finalize: function() {
 
-				var langs = ['ca','es','en'];
-
 				// scroll and URL
 				var currentSection = "";
-				var currentLang = "";
-				currentLang = "ca";
 
 				$(".pt-page-main").bind('scroll', function() {
 
@@ -168,128 +178,144 @@ jQuery(function () { jQuery("[data-toggle='tooltip']").tooltip(); });
 				// JavaScript to be fired on all pages, after page specific JS is fired
 
 				/* SINGLE PAGE INTERFACE */
-				$('.spi-link').click(function(event) {
-					if($('body').hasClass('home') || $('body').hasClass('page-template-front-page')){
-						event.preventDefault();
 
-						var linkElementScroll = function($anchor){
-							var target = $anchor.data().target;
+				// if we landed with ?section it means we have been redirected and need to update the url acordingly
+				var availableSections = ['projecte-destacat','proces','tecnologies','fonaments'];
+				if(availableSections.indexOf(findGetParameter('section')) >= 0){
+					//window.location.href = window.location.origin+"/"+findGetParameter('section');
+					//trigger enter section
+					var url = "/"+findGetParameter('section');
+					$('.nav a.active').removeClass('active');
+					$('a[href$="/'+findGetParameter('section')+'"]').addClass('active');
+					var stateObj = { section: findGetParameter('section') };
+					$('.pt-page-main').animate({
+						scrollTop: $('#'+findGetParameter('section')).top()+$('#brand-container').outerHeight()
+					}, 1000);
+					window.history.pushState(stateObj, findGetParameter('section'), url);
 
-							$('.pt-page-main').animate({
-								scrollTop: $(target).top()+$('#brand-container').outerHeight()
-							}, 1000);
-						};
 
-						var $anchor = $(this);
+				}
+				var id = window.location.pathname.substring(1); //remove the first slash
 
-						if($('.hamburger').hasClass('is-active')){
-							$('.hamburger').click();
-							setTimeout(function(){
+				if( (id === 'projecte-destacat' || id === 'proces' || id === 'tecnologies' || id === 'fonaments') && $('#'+id).length){
+
+
+
+					$('.spi-link').click(function(event) {
+						if($('body').hasClass('home') || $('body').hasClass('page-template-front-page')){
+							event.preventDefault();
+
+							var linkElementScroll = function($anchor){
+								var target = $anchor.data().target;
+
+								$('.pt-page-main').animate({
+									scrollTop: $(target).top()+$('#brand-container').outerHeight()
+								}, 1000);
+							};
+
+							var $anchor = $(this);
+
+							if($('.hamburger').hasClass('is-active')){
+								$('.hamburger').click();
+								setTimeout(function(){
+									linkElementScroll($anchor);
+								},1000);
+							}
+							else {
 								linkElementScroll($anchor);
-							},1000);
-						}
-						else {
-							linkElementScroll($anchor);
-						}
-					}
-				});
-
-				/* HISTORY */
-				$(window).on("popstate", function(e) {
-					var section = e.originalEvent.state.section;
-					if($('#'+section).length){
-						$('.pt-page-main').animate({
-							scrollTop: $('#'+section).top()+$('#brand-container').outerHeight()
-						}, 1000);
-					}
-				});
-
-				// if it's frist load maybe we have something in the url (and not in history) and we need to apply changes
-				if(window.location.pathname !== "/"){
-					var pathname = window.location.pathname.substring(1); //remove the first slash
-
-					var isDefaultUrl = function(pathname){
-						for (var i = 0, len = langs.length; i < len; i++) {
-							if(pathname === langs[i] || pathname === langs[i]+"/"){
-								return true;
 							}
 						}
-						return false;
-					};
-					var test = isDefaultUrl(pathname);
-					if(!isDefaultUrl(pathname)){
-						id = pathname.substring(3); //remove the two character lang code + slash
-						if( (id === 'projecte-destacat' || id === 'proces' || id === 'tecnologies' || id === 'fonaments') && $('#'+id).length){
+					});
+
+					/* HISTORY */
+					$(window).on("popstate", function(e) {
+						var section = e.originalEvent.state.section;
+						if($('#'+section).length){
 							$('.pt-page-main').animate({
-								scrollTop: $('#'+id).top()+$('#brand-container').outerHeight()
+								scrollTop: $('#'+section).top()+$('#brand-container').outerHeight()
 							}, 1000);
 						}
+					});
+
+					// if it's frist load maybe we have something in the url (and not in history) and we need to apply changes
+
+					if(window.location.pathname !== "/"){
+						var isDefaultUrl = function(pathname){
+							return (pathname === "/" || pathname === "");
+						};
+						if(!isDefaultUrl(pathname)){
+							if( (id === 'projecte-destacat' || id === 'proces' || id === 'tecnologies' || id === 'fonaments') && $('#'+id).length){
+								$('.pt-page-main').animate({
+									scrollTop: $('#'+id).top()+$('#brand-container').outerHeight()
+								}, 1000);
+							}
+						}
 					}
-				}
 
-				// /* TECHNOLOGIES */
-				// $(window).resize(function() {
-				// 	var size = $('.technology-panel .technology').width();
-				// 	$('.technology-panel .technology').height(size);
-				// 	$('.technology-panel .text').height($('.technology-panel .technology .icon').height());
-				// 	$('.technology-panel .text').width(size);
-				// });
+					// /* TECHNOLOGIES */
+					// $(window).resize(function() {
+					// 	var size = $('.technology-panel .technology').width();
+					// 	$('.technology-panel .technology').height(size);
+					// 	$('.technology-panel .text').height($('.technology-panel .technology .icon').height());
+					// 	$('.technology-panel .text').width(size);
+					// });
 
 
-				/* STICKY FOOTER */
-				$(window).resize(function() {
-					if($('.pt-page-holder').height() <= $(window).height()){
-						$('.pt-page-holder').height($(window).height());
-						$('footer').addClass("stick-to-bottom");
-					} else {
-						$('footer').removeClass("stick-to-bottom");
-					}
-				});
-
-				/* container-double fix height */
-				$(window).resize(function() {
-					$('.container-double').each(function(){
-						$container = $(this);
-						if($container.find('.image-holder').height() > $container.find('.text-holder').height()){
-							$container.find('.text-holder').height($container.find('.image-holder').height());
+					/* STICKY FOOTER */
+					$(window).resize(function() {
+						if($('.pt-page-holder').height() <= $(window).height()){
+							$('.pt-page-holder').height($(window).height());
+							$('footer').addClass("stick-to-bottom");
 						} else {
-							$container.find('.image-holder').height($container.find('.text-holder').height());
+							$('footer').removeClass("stick-to-bottom");
 						}
 					});
-				});
-			}
 
-		},
-		// About us page, note the change from about-us to about_us.
-		'contacte': {
-			init: function() {
-				// JavaScript to be fired on the contacte page
-				var currentSection = "contacte";
-				$('a[href$="/'+currentSection+'/"]').addClass('active');
+					/* container-double fix height */
+					$(window).resize(function() {
+						$('.container-double').each(function(){
+							$container = $(this);
+							if($container.find('.image-holder').height() > $container.find('.text-holder').height()){
+								$container.find('.text-holder').height($container.find('.image-holder').height());
+							} else {
+								$container.find('.image-holder').height($container.find('.text-holder').height());
+							}
+						});
+					});
+				}
 
-				var $contactContainer = $('.page-template-contacte-page .contact-container');
-				var $imageHolder = $('.page-template-contacte-page .image-holder');
-				var $image = $('.page-template-contacte-page .image-holder .image');
-
-				$(window).resize(function() {
-					if($(window).width() > 767){
-						if(!$('.fake-footer').length){
-							$('body').append('<div class="fake-footer"></div>');
-						}
-						$contactContainer.height($('footer').top() - $('.contact-container').top());
-
-						if($imageHolder.height() < $contactContainer.height()){
-							$imageHolder.height($contactContainer.height());
-						} else {
-						}
-					}
-					else {
-						$('.fake-footer').remove();
-						$contactContainer.height('auto');
-					}
-				});
 			},
-			finalize: function() {
+			// About us page, note the change from about-us to about_us.
+			'contacte': {
+				init: function() {
+					// JavaScript to be fired on the contacte page
+					var currentSection = "contacte";
+					$('a[href$="/'+currentSection+'/"]').addClass('active');
+
+					var $contactContainer = $('.page-template-contacte-page .contact-container');
+					var $imageHolder = $('.page-template-contacte-page .image-holder');
+					var $image = $('.page-template-contacte-page .image-holder .image');
+
+					$(window).resize(function() {
+						if($(window).width() > 767){
+							if(!$('.fake-footer').length){
+								$('body').append('<div class="fake-footer"></div>');
+							}
+							$contactContainer.height($('footer').top() - $('.contact-container').top());
+
+							if($imageHolder.height() < $contactContainer.height()){
+								$imageHolder.height($contactContainer.height());
+							} else {
+							}
+						}
+						else {
+							$('.fake-footer').remove();
+							$contactContainer.height('auto');
+						}
+					});
+				},
+				finalize: function() {
+				}
 			}
 		}
 	};
