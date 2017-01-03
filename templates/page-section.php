@@ -36,6 +36,7 @@ if( get_field( "call_to_action_button_text" ) ) {
                             if($template){
                                 $template = pathinfo($template);
                                 $template = $template['dirname']."/".$template['filename'];
+                                $_REQUEST['FROM_TEMPLATE_PART'] = true;
                                 get_template_part($template);
                             }
                             ?>

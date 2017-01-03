@@ -33,7 +33,8 @@
     "wpackagist-plugin/kau-boys-backend-localization": ">=2.1",
     "automattic/jetpack": ">=4.0",
     "raveren/kint": "^1.0",
-    "jjgrainger/posttypes": "^1.0"
+    "jjgrainger/posttypes": "^1.0",
+    "jaybizzle/crawler-detect": "^1.2"
   },
   "extra": {
     "installer-paths": {
