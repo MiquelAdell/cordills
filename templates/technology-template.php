@@ -7,22 +7,22 @@
 <div class="hidden-md hidden-lg col-xs-12"><div class="section-icon"></div></div>
 <?php
 $technologies = array(
-	array('key' => 'wordpress', 'title' => 'WordPress', 'description' => '', 'extraShort' => 'Framework', 'extraLong' => 'Framework'),
-	array('key' => 'laravel', 'title' => 'Laravel', 'description' => '', 'extraShort' => 'Framework', 'extraLong' => 'Framework'),
-	array('key' => 'html-five', 'title' => 'HTML-5', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
-	array('key' => 'css3', 'title' => 'CSS-3', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
-	array('key' => 'bootstrap', 'title' => 'Bootstrap', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
-	array('key' => 'sass', 'title' => 'Sass', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
-	array('key' => 'jquery', 'title' => 'jQuery', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
-	array('key' => 'javascript', 'title' => 'JavaScript', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació front end'),
-	array('key' => 'php', 'title' => 'PHP', 'description' => '', 'extraShort' => '', 'extraLong' => 'Programació back end'),
-	array('key' => 'mysql', 'title' => 'MySQL', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de base de dades'),
-	array('key' => 'mariadb', 'title' => 'MariaDB', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de base de dades'),
-	array('key' => 'linux', 'title' => 'Linux', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de servidors'),
-	array('key' => 'docker', 'title' => 'Docker', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de servidors'),
-	array('key' => 'git', 'title' => 'Git', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió de projectes'),
-	array('key' => 'twitter', 'title' => 'Twitter', 'description' => '', 'extraShort' => 'API', 'extraLong' => 'Integració amb API'),
-	array('key' => 'facebook', 'title' => 'Facebook', 'description' => '', 'extraShort' => 'API', 'extraLong' => 'Integració amb API')
+	array('key' => 'wordpress', 'title' => 'WordPress', 'description' => '', 'extraShort' => 'Framework', 'extraLong' => __('Framework','miqueladell')),
+	array('key' => 'laravel', 'title' => 'Laravel', 'description' => '', 'extraShort' => 'Framework', 'extraLong' => __('Framework','miqueladell')),
+	array('key' => 'html-five', 'title' => 'HTML-5', 'description' => '', 'extraShort' => '', 'extraLong' => __('Programació front end','miqueladell')),
+	array('key' => 'css3', 'title' => 'CSS-3', 'description' => '', 'extraShort' => '', 'extraLong' => __('Programació front end','miqueladell')),
+	array('key' => 'bootstrap', 'title' => 'Bootstrap', 'description' => '', 'extraShort' => '', 'extraLong' => __('Programació front end','miqueladell')),
+	array('key' => 'sass', 'title' => 'Sass', 'description' => '', 'extraShort' => '', 'extraLong' => __('Programació front end','miqueladell')),
+	array('key' => 'jquery', 'title' => 'jQuery', 'description' => '', 'extraShort' => '', 'extraLong' => __('Programació front end','miqueladell')),
+	array('key' => 'javascript', 'title' => 'JavaScript', 'description' => '', 'extraShort' => '', 'extraLong' => __('Programació front end','miqueladell')),
+	array('key' => 'php', 'title' => 'PHP', 'description' => '', 'extraShort' => '', 'extraLong' => __('Programació back end','miqueladell')),
+	array('key' => 'mysql', 'title' => 'MySQL', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió d__(e base de dades','miqueladell')),
+	array('key' => 'mariadb', 'title' => 'MariaDB', 'description' => '', 'extraShort' => '', 'extraLong' => 'Gestió d__(e base de dades','miqueladell')),
+	array('key' => 'linux', 'title' => 'Linux', 'description' => '', 'extraShort' => '', 'extraLong' => __('Gestió de servidors','miqueladell')),
+	array('key' => 'docker', 'title' => 'Docker', 'description' => '', 'extraShort' => '', 'extraLong' => __('Gestió de servidors','miqueladell')),
+	array('key' => 'git', 'title' => 'Git', 'description' => '', 'extraShort' => '', 'extraLong' => __('Gestió de projectes','miqueladell')),
+	array('key' => 'twitter', 'title' => 'Twitter', 'description' => '', 'extraShort' => 'API', 'extraLong' => __('Integració amb API','miqueladell')),
+	array('key' => 'facebook', 'title' => 'Facebook', 'description' => '', 'extraShort' => 'API', 'extraLong' => __('Integració amb API','miqueladell'))
 );
 ?>
 <div class="content"><?php the_content(); ?></div>

@@ -1,10 +1,15 @@
 <?php
 use Jaybizzle\CrawlerDetect\CrawlerDetect;
 
-function my_page_template_redirect() {
+function cordills_redirect() {
 	$CrawlerDetect = new CrawlerDetect;
 	if(!$CrawlerDetect->isCrawler()){
-		$sections = array('projecte-destacat','proces','tecnologies','fonaments');
+		$sections = array(
+			'highlighted-project', 'projecte-destacat', 'proyecto-destacado',
+			'process','proces','proceso',
+			'technologies','tecnologies','tecnologias',
+			'foundations','fonaments','cimientos'
+		);
 		foreach($sections as $section){
 			if( is_page( $section )){
 				wp_redirect( home_url( '/?section='.$section ) );
@@ -13,4 +18,4 @@ function my_page_template_redirect() {
 		}
 	}
 }
-add_action( 'template_redirect', 'my_page_template_redirect' );
+add_action( 'template_redirect', 'cordills_redirect' );

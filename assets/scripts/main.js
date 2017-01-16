@@ -68,6 +68,36 @@ function findGetParameter(parameterName) {
 						$(this).addClass('is-active');
 					}
 				});
+
+
+
+
+				if($('.page-template-contacte-page').length){
+					// JavaScript to be fired on the contacte page
+					var currentSection = "contacte";
+					$('a[href$="/'+currentSection+'/"]').addClass('active');
+					var $contactContainer = $('.page-template-contacte-page .contact-container');
+					var $imageHolder = $('.page-template-contacte-page .image-holder');
+					var $image = $('.page-template-contacte-page .image-holder .image');
+
+					$(window).resize(function() {
+						if($(window).width() > 767){
+					// 		if(!$('.fake-footer').length){
+					// 			$('body').append('<div class="fake-footer"></div>');
+					// 		}
+					// 		console.log($contactContainer.height());
+					// 		$contactContainer.height($('footer').top() - $('.contact-container').top());
+					//
+							if($imageHolder.height() < $contactContainer.height()){
+								$imageHolder.height($contactContainer.height());
+							}
+						}
+						else {
+					// 		$('.fake-footer').remove();
+							$contactContainer.height('auto');
+						}
+					});
+				}
 			},
 			finalize: function() {
 
@@ -180,7 +210,12 @@ function findGetParameter(parameterName) {
 				/* SINGLE PAGE INTERFACE */
 
 				// if we landed with ?section it means we have been redirected and need to update the url acordingly
-				var availableSections = ['projecte-destacat','proces','tecnologies','fonaments'];
+				var availableSections = [];
+				$('.front-page-section').each(function(){
+					availableSections.push($(this).attr('id'));
+				});
+
+
 				if(availableSections.indexOf(findGetParameter('section')) >= 0){
 					//window.location.href = window.location.origin+"/"+findGetParameter('section');
 					//trigger enter section
@@ -197,9 +232,7 @@ function findGetParameter(parameterName) {
 				}
 				var id = window.location.pathname.substring(1); //remove the first slash
 
-				if( (id === 'projecte-destacat' || id === 'proces' || id === 'tecnologies' || id === 'fonaments') && $('#'+id).length){
-
-
+				if( (availableSections.indexOf(id) >= 0) && $('#'+id).length){
 
 					$('.spi-link').click(function(event) {
 						if($('body').hasClass('home') || $('body').hasClass('page-template-front-page')){
@@ -243,8 +276,8 @@ function findGetParameter(parameterName) {
 						var isDefaultUrl = function(pathname){
 							return (pathname === "/" || pathname === "");
 						};
-						if(!isDefaultUrl(pathname)){
-							if( (id === 'projecte-destacat' || id === 'proces' || id === 'tecnologies' || id === 'fonaments') && $('#'+id).length){
+						if(!isDefaultUrl(window.location.pathname)){
+							if( (availableSections.indexOf(id) >= 0) && $('#'+id).length){
 								$('.pt-page-main').animate({
 									scrollTop: $('#'+id).top()+$('#brand-container').outerHeight()
 								}, 1000);
@@ -284,38 +317,6 @@ function findGetParameter(parameterName) {
 					});
 				}
 
-			},
-			// About us page, note the change from about-us to about_us.
-			'contacte': {
-				init: function() {
-					// JavaScript to be fired on the contacte page
-					var currentSection = "contacte";
-					$('a[href$="/'+currentSection+'/"]').addClass('active');
-
-					var $contactContainer = $('.page-template-contacte-page .contact-container');
-					var $imageHolder = $('.page-template-contacte-page .image-holder');
-					var $image = $('.page-template-contacte-page .image-holder .image');
-
-					$(window).resize(function() {
-						if($(window).width() > 767){
-							if(!$('.fake-footer').length){
-								$('body').append('<div class="fake-footer"></div>');
-							}
-							$contactContainer.height($('footer').top() - $('.contact-container').top());
-
-							if($imageHolder.height() < $contactContainer.height()){
-								$imageHolder.height($contactContainer.height());
-							} else {
-							}
-						}
-						else {
-							$('.fake-footer').remove();
-							$contactContainer.height('auto');
-						}
-					});
-				},
-				finalize: function() {
-				}
 			}
 		}
 	};
@@ -335,7 +336,7 @@ function findGetParameter(parameterName) {
 				namespace[func][funcname](args);
 			}
 		},
-		loadEvents: function() {
+		loadEvents: function(y) {
 			// Fire common init JS
 			UTIL.fire('common');
 
@@ -357,4 +358,6 @@ function findGetParameter(parameterName) {
 	setTimeout(function(){$(window).resize();},250);
 	setTimeout(function(){$(window).resize();},500);
 	setTimeout(function(){$(window).resize();},1000);
+
+
 })(jQuery); // Fully reference jQuery after this point.

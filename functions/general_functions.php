@@ -8,19 +8,73 @@ function text_with_link($text, $link = null) {
 	}
 }
 
-function the_main_menu(){
-	ob_start();
-	?>
-	<li class="menu-item"><a class="spi-link" data-target="#projecte-destacat" href="/projecte-destacat">Inici</a></li>
-	<li class="menu-item"><a class="spi-link" data-target="#proces" href="/proces">Procés</a></li>
-	<li class="menu-item"><a class="spi-link" data-target="#tecnologies" href="/tecnologies">Tecnologies</a></li>
-	<li class="menu-item"><a class="spi-link" data-target="#fonaments" href="/fonaments">Fonaments</a></li>
-	<li class="menu-item"><a href="/contacte/">Contacte</a></li>
-	<?php
-	$the_main_menu = ob_get_contents();
-	ob_end_clean();
-	return $the_main_menu;
+
+
+function the_main_menu( $theme_location = null ) {
+    if(is_null($theme_location)){
+        $theme_location = "primary_navigation";
+    }
+	if ( ($theme_location) && ($locations = get_nav_menu_locations()) && isset($locations[$theme_location]) ) {
+        $menu = get_term( $locations[$theme_location], 'nav_menu' );
+        $menu_items = wp_get_nav_menu_items($menu->term_id);
+
+
+        $count = 0;
+        $submenu = false;
+        $menu_list = "";
+
+        foreach( $menu_items as $menu_item ) {
+
+            $link = $menu_item->url;
+            $hash = parse_url($link);
+            $hash = $hash['path'];
+            $hash = ltrim($hash, '/');
+            $title = $menu_item->title;
+			$class = "";
+			if(!in_array($hash,array("contacto/","contacte/","contact/"))){
+				$class = "spi-link";
+			}
+
+            if ( !$menu_item->menu_item_parent ) {
+                $parent_id = $menu_item->ID;
+
+                $menu_list .= '<li class="menu-item">' ."\n";
+				$menu_list .= '<a class="'.$class.'"  data-target="#'.$hash.'" href="'.$link.'" >'.$title.'</a>' ."\n";
+            }
+
+            if ( $parent_id == $menu_item->menu_item_parent ) {
+
+                if ( !$submenu ) {
+                    $submenu = true;
+                    $menu_list .= '<ul class="sub-menu">' ."\n";
+                }
+
+                $menu_list .= '<li class="item">' ."\n";
+                $menu_list .= '<a class="'.$class.'"  data-target="#'.$hash.'" href="'.$link.'" >'.$title.'</a>' ."\n";
+                $menu_list .= '</li>' ."\n";
+
+
+                if ( $menu_items[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ){
+                    $menu_list .= '</ul>' ."\n";
+                    $submenu = false;
+                }
+
+            }
+
+            if ( isset($menu_items[ $count + 1 ]) && $menu_items[ $count + 1 ]->menu_item_parent != $parent_id ) {
+                $menu_list .= '</li>' ."\n";
+                $submenu = false;
+            }
+
+            $count++;
+        }
+
+    } else {
+        $menu_list = '<!-- no menu defined in location "'.$theme_location.'" -->';
+    }
+    echo $menu_list;
 }
+
 
 function web_title(){
 	?>
@@ -28,7 +82,7 @@ function web_title(){
 		<div class="text"><span>Miquel</span> <span>Adell</span></div>
 		<div class="logo"></div>
 	</a>
-	<h2 class="slogan">Programació web sense complexes</h2>
+	<h2 class="slogan"><?=__('Web programming without complexities','miqueladell')?></h2>
 	<?php
 }
 
