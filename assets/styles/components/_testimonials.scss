@@ -105,6 +105,12 @@
 blockquote small {
 }
 
-.read-more-text:first-letter {
+.read-more-text {
+    font-size: 80%;
+    margin-top: -1em;
+    font-family: $font-family-highlight;
     text-transform: uppercase;
+    a {
+        color: white;
+    }
 }

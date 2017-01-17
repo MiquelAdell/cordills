@@ -1,8 +1,13 @@
 <!-- <?php echo "basename: ".basename( __FILE__ ); ?> -->
 
 <?php /* Template Name: Front Page */
+if(function_exists('icl_object_id')){
+	$home_ID = icl_object_id(2, 'page', true);
+}
+else {
+		$home_ID = 2;
+}
 
-$home_ID = icl_object_id(2, 'page', true);
 
 $args = array(
 	'post_type' => 'page',

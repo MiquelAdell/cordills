@@ -66,10 +66,11 @@ $testimonialLoop = new WP_Query( $args );
 
 				$link = false;
 				if($has_read_more){
-					$link = "<div class='read-more-text'><a href='".get_permalink()."'>".__('read the full testimonial')."</a></div>";
+					$link = "<div class='read-more-text'><a href='".get_permalink()."'>".__('read the full testimonial','miqueladell')."</a></div>";
 				}
 				else if($connected_project){
-					$link = "<div class='read-more-text'><a href='".get_permalink()."'>".__('see the project')."</a></div>";
+					$post_link = get_permalink($connected_project->ID);
+					$link = "<div class='read-more-text'><a href='".$post_link."'>".__('see the project','miqueladell')."</a></div>";
 				}
 
 				?>

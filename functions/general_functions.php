@@ -88,6 +88,10 @@ function web_title(){
 
 
 function languages_list(){
+	if(!function_exists('icl_get_languages')){
+		return false;
+	}
+
     $languages = icl_get_languages('skip_missing=0&orderby=code');
     if(!empty($languages)){
         echo '<div class="language_list"><ul>';

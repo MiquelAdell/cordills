@@ -1,0 +1,21 @@
+// PROJECT SECTION
+.project-on-homepage {
+    h3 {
+        margin: 1.5em 0;
+    }
+	img {
+		width: 100%;
+		height: auto;
+		padding: 3em 2em;
+	}
+}
+
+
+#projecte-destacat {
+	.call_to_action {
+		display: none;
+	}
+	.project-on-homepage .call_to_action {
+		display: block;
+	}
+}

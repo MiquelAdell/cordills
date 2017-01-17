@@ -82,18 +82,18 @@ function findGetParameter(parameterName) {
 
 					$(window).resize(function() {
 						if($(window).width() > 767){
-					// 		if(!$('.fake-footer').length){
-					// 			$('body').append('<div class="fake-footer"></div>');
-					// 		}
-					// 		console.log($contactContainer.height());
-					// 		$contactContainer.height($('footer').top() - $('.contact-container').top());
-					//
+							if(!$('.fake-footer').length){
+								$('body').append('<div class="fake-footer"></div>');
+							}
+							console.log($contactContainer.height());
+							$contactContainer.height($('footer').top() - $('.contact-container').top());
+
 							if($imageHolder.height() < $contactContainer.height()){
 								$imageHolder.height($contactContainer.height());
 							}
 						}
 						else {
-					// 		$('.fake-footer').remove();
+							$('.fake-footer').remove();
 							$contactContainer.height('auto');
 						}
 					});
