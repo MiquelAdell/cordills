@@ -2,7 +2,7 @@
 
 <?php
 $call_to_action = null;
-if( get_field( "call_to_action_button_text" ) ) {
+if( function_exists("get_field") && get_field( "call_to_action_button_text" ) ) {
     ob_start();
     ?>
     <div class='call_to_action'>

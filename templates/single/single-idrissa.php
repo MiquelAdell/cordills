@@ -17,7 +17,7 @@
 
 			<div class='col-sm-offset-2 col-sm-8 '>
 				<h3>Una crida a l'acció</h3>
-				<p>El projecte d'Idrissa és una campanya de conscienciació per fer possible un documental sobre la mort d'Idrissa. A inicis del 2017 un projecte encara viu.</p>
+				<p>El projecte d'Idrissa és una campanya per fer possible un documental sobre la mort d'Idrissa. Un projecte que a inicis del 2017 encara està <a href="https://idrissa.cc/" target="_blank">està actiu</a>.</p>
 				<p>Amb el projecte d'Idrissa es busca una interacció amb el públic interpel·lant-lo amb campanyes recurrents i movent-lo a l'acció.</p>
 				<p>Per a aconseguir això es fa servir una home dinàmica que, a més de presentar el projecte insta a l'acció amb formularis i últimes campanyes.</p>
 			</div>
@@ -26,47 +26,42 @@
 
 	<div class="container-fluid container-showcase container-double">
 		<div class="row">
-			<h4>Una col·laboració amb Metromuster</h4>
+			<h3>Una col·laboració amb Metromuster</h3>
 			<div class="col-sm-offset-2 col-sm-8 ">
 				<div class="text">
-					<p>A més el projecte també busca que les persones visitants es subscriguin al butlletí (amb integració personalitzada amb Acumbamail) obtenint un percentatge de conversió molt per sobre dels estàndards gràcies a una campanya ben enfocada al públic objectiu.</p>
-					<p>El més important però és que Idrissa és fruit de la col·laboració amb Metromuster que ha permès treballar amb grans professionals en un projecte de gran càrrega social:</p>
+					<p>A més el projecte també busca que les persones visitants es subscriguin al butlletí (amb integració personalitzada amb <a href="https://acumbamail.com/" rel="nofollow" target="_blank">>Acumbamail</a>) obtenint un percentatge de conversió molt per sobre dels estàndards gràcies a una campanya ben enfocada al públic objectiu.</p>
+					<p>El més important però és que Idrissa és fruit de la <strong>col·laboració amb Metromuster</strong> que ha permès treballar amb grans professionals en un projecte de gran càrrega social:</p>
 				</div>
 			</div>
-			<div class="col-sm-offset-3 col-sm-6 ">
-
-				<div class="carousel slide" data-interval="false" data-ride="carousel" id="quote-carousel">
-					<ol class="carousel-indicators">
-						<li data-target="#quote-carousel" data-slide-to="0" class="active">
-							<img class="img-responsive " src="/wp-content/uploads/2016/02/ahierro-300x300.jpg" alt="">
-						</li>
-
-					</ol>
-
-					<!-- Carousel Slides / Quotes -->
-					<div class="carousel-inner text-center ">
-						<div class="item active ">
-							<blockquote>
-								<div>
-									<div class="excerpt">
-										És molt fàcil treballar amb el Miquel! En tot moment ha sigut fàcil contactar-lo i ha mostrat molta predisposició per fer-nos partíceps del projecte.
-									</div>
-									<small>
-										Alba Hierro, <a href="http://www.ub.edu/jipi/">organitzadora de la Jornada d'Investigadors Predoctorals Interdisciplinària</a>
-									</small>
-								</div>
-							</blockquote>
-						</div>
+		</div>
+	</div>
+	<div class="container-fluid container-showcase container-double highlighted-container">
+		<div class="row side-by-side-testimonial">
+			<div class="col-xs-12 col-xs-offset-0 col-sm-3 col-sm-offset-2">
+				<div class="image-holder">
+					<span class="helper"></span>
+					<img class="img-responsive " src="/wp-content/uploads/2017/01/xnNVclVv-300x300.jpg" alt="">
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-5 item">
+				<blockquote>
+					<div class="excerpt">
+						Impecable i resolutiu en tot el procés de planificació, disseny, programació i feedback. Si es pot fer el Miquel t’ho fa, si no t’ho fa és que no es pot fer.
 					</div>
-				</div>
+					<small>
+						Xapo Ortega, <a href="http://metromuster.cat/">Treballador a la cooperativa Metromuster</a>
+					</small>
+				</blockquote>
 			</div>
+		</div>
+	</div>
 
 	<div class="container-fluid container-showcase container-double">
 		<div class="row">
 			<div class="col-sm-offset-2 col-sm-8 ">
 				<div class="text">
-					<h4>Back end altament personalitzable</h4>
-					<p>Com que en aquest projecte Metromuster comptava amb experiència en edició de webs s'ha fet servir X Theme aconseguint tant un alt grau de personalització sobre la plantilla escollida com la possibilitat per part de Metromuster d'editar la major part del contingut amb un editor visual intuïtiu:</p>
+					<h3>Back end altament personalitzable</h3>
+					<p>Com que en aquest projecte Metromuster comptava amb experiència en edició de webs s'ha fet servir <a href="http://theme.co/x/" rel="nofollow" target="_blank">X Theme aconseguint tant un <strong>alt grau de personalització sobre la plantilla escollida</strong> com la possibilitat per part de Metromuster d'<strong>editar el contingut</strong> amb un <strong>editor visual</strong> intuïtiu:</p>
 				</div>
 			</div>
 			<div class="col-sm-offset-2 col-sm-8 ">
@@ -78,6 +73,16 @@
 
 		</div>
 	</div>
+
+	<div class="col-xs-12 text-center">
+		<div class='call_to_action'>
+			<p class='lead'>Si tens un projecte que t'importa i vols solucions amb les quals puguis confiar contacta'm</p>
+			<p class="text-center">
+				<a href="/contacte" class="btn btn-default" role="button">Parla'm de la teva pàgina web</a>
+			</p>
+		</div>
+	</div>
+
 
 
 <?php endwhile; ?>

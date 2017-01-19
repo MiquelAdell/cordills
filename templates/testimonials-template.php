@@ -23,7 +23,9 @@ $testimonialLoop = new WP_Query( $args );
 			while ( $testimonialLoop->have_posts() ) :
 				$testimonialLoop->the_post();
 
-				$image = get_field('image');
+				if(function_exists("get_field")){
+					$image = get_field('image');
+				}
 				if( !empty($image) ){
 					?>
 					<li data-target="#quote-carousel" data-slide-to="<?=$i?>" class="
@@ -83,7 +85,7 @@ $testimonialLoop = new WP_Query( $args );
 							<small>
 								<?php
 								the_title();
-								if (!empty(get_field('company_name'))) {
+								if (function_exists("get_field") && !empty(get_field('company_name'))) {
 									echo ", ".text_with_link(get_field('company_name'),get_field('company_url'));
 								}
 								?>

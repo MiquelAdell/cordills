@@ -28,6 +28,9 @@ if ( $stages->have_posts() ) {
 	?>
 	<?php while ( $stages->have_posts() ) : $stages->the_post(); ?>
 			<?php
+			if(function_exists("get_field")){
+				$icon = get_field('icon');
+			}
 			if($i === 0){
 				$in = "in";
 			} else {
@@ -36,7 +39,7 @@ if ( $stages->have_posts() ) {
 			?>
 				<div class="panel panel-default panel-process" data-toggle="collapse" data-parent="#acordion" href="#collapse<?=$i?>">
 					<a class="panel panel-default panel-process">
-						<div class="panel-heading"><i class="<?=get_field('icon')?>"></i> <?=the_title()?></div>
+						<div class="panel-heading"><i class="<?=$icon?>"></i> <?=the_title()?></div>
 					</a>
 					<div id="collapse<?=$i?>" class="panel-collapse collapse <?=$in?>">
 						<div class="panel-body"><?=the_content()?></div>
