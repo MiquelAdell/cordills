@@ -6,6 +6,23 @@
       ],
       "main": true
     },
+
+    "pagetransitions.js": {
+      "files": [
+        "scripts/pagetransitions/modernizr.custom.js",
+        "scripts/pagetransitions/pagetransitions.js"
+      ],
+      "main": true
+    },
+
+
+    "smooth-scroll": {
+      "files": [
+        "scripts/smooth-scroll/jquery.smooth-scroll.js"
+      ],
+      "main": true
+    },
+
     "main.css": {
       "files": [
         "styles/main.scss"
@@ -22,6 +39,6 @@
     }
   },
   "config": {
-    "devUrl": "http://local.wordpress.dev"
+    "devUrl": "http://miqueladellca.dev"
   }
 }

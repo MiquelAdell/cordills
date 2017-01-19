@@ -53,6 +53,7 @@
     "minimist": "^1.1.3",
     "run-sequence": "^1.1.2",
     "traverse": "^0.6.6",
+    "video.js": "^5.10.4",
     "wiredep": "^2.2.2"
   },
   "dependencies": {

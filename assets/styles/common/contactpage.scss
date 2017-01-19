@@ -1,0 +1,64 @@
+.page-template-contacte-page {
+
+
+	.content-holder {
+		padding-top: 150px;
+	}
+
+	.pt-page-holder {
+		height: auto;
+	}
+
+	.contact-container {
+
+
+	}
+
+	.contact-row {
+		height: 100%;
+	}
+
+
+	.image-holder {
+		.image {
+			height: 100%;
+		    background-image: url(../images/contact-image.png);
+		    background-size: contain;
+		    background-repeat: no-repeat;
+		    background-position-x: center;
+		    background-position-y: bottom;
+			@media screen and (max-width: $break-medium) {
+				background-position-x: center;
+			}
+		}
+		@media screen and (max-width: $break-medium) {
+			height: 50vh;
+		}
+	}
+
+
+
+	.lead {
+		@media screen and (max-width: $break-x-large) {
+			font-size: 19px;
+		}
+		@media screen and (max-width: $break-medium) {
+			font-size: 16px;
+		}
+	}
+
+	// .fake-footer {
+	// 	background: rgba(0,0,0,.1);
+	// 	left: 0;
+	// 	right: 0;
+	// 	height: 106px;
+	// 	bottom: 0;
+	// 	z-index: 0;
+	// 	position: absolute;
+	// }
+
+	.footer {
+		position: relative;
+		z-index: 1;
+	}
+}

@@ -1,0 +1,146 @@
+
+$font-height: $menu-height / 1.5;
+$margin-top: ($menu-height - $font-height) / 4;
+
+.brand-container-fluid {
+	background: linear-gradient(to bottom,lighten(hsla(39, 7%, 18%, 1),0%), darken(hsla(39, 7%, 18%, 1),10%));
+
+	width: 100%;
+
+	height: 100vh;
+	padding-top: 20vh;
+	padding-bottom: 20vh;
+
+	display: none;
+	.page-template-front-page &, .home & {
+		display: block;
+	}
+}
+
+.brand {
+	color: $gold-color;
+
+	.brand-in-home & {
+		margin-top: 3em;
+		margin-bottom: 2em;
+	}
+
+	.brand-in-header & {
+		position: absolute;
+		margin-left: 1em;
+	}
+
+	a {
+		display: block;
+		width: 100%;
+		color: inherit;
+
+		.brand-in-header & {
+			width: 275px;
+		}
+
+		.text {
+			.brand-in-header & {
+				float: right;
+				font-size: 33px;
+				line-height: 1em;
+				margin-top: 5px;
+				@media screen and (max-width: $break-small) {
+					display: none;
+				}
+			}
+		}
+
+		span {
+			fill: url(#filler);
+
+			text-transform: uppercase;
+			font-family: $font-family-highlight;
+			font-weight: bold;
+
+			.brand-in-home & {
+				line-height: 0.9em;
+				width: 100%;
+				display: block;
+				text-align: center;
+			}
+
+			&:nth-child(1) {
+				.brand-in-home & {
+					font-size: 120px;
+					@media screen and (max-width: $break-small) {
+						font-size: 25vw;
+					}
+				}
+			}
+
+			&:nth-child(2) {
+				.brand-in-home & {
+					font-size: 100px;
+					@media screen and (max-width: $break-small) {
+						font-size: 21vw;
+					}
+				}
+			}
+		}
+
+		.logo {
+			background-image: url("../images/logo.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position-y: center;
+			background-position-x: center;
+			display: block;
+			.brand-in-home & {
+				margin-top: -50px;
+				width: 100%;
+				height: 150px;
+			}
+			.brand-in-header & {
+				width: 100px;
+				height: 50px;
+				float: left;
+			}
+
+		}
+
+		@media screen and (max-width: $break-x-small) {
+			font-size: 30px;
+		}
+
+		&:hover {
+			// color: darken($scene-1-color,40%);
+		}
+	}
+}
+
+.page-header {
+	border-bottom-color: $title-color;
+	border: 0;
+
+}
+
+h2.slogan {
+	color: inherit;
+	display: block;
+	width: 100%;
+
+	font-size: 30px;
+	font-family: $font-family-accent;
+	color: $gold-color;
+	text-transform: lowercase;
+	font-weight: normal;
+
+	@media screen and (max-width: $break-small) {
+		font-size: 5vw;
+	}
+
+	@media screen and (max-width: $break-x-small) {
+		margin-top: -1em;
+	}
+
+	.brand-in-header & {
+		display: none;
+	}
+
+}

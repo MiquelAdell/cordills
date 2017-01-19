@@ -17,21 +17,24 @@
   "repositories":[
        {
            "type":"composer",
-           "url":"http://wpackagist.org"
+           "url":"https://wpackagist.org"
        }
    ],
   "require": {
     "php": ">=5.4.0",
-    "composer/installers": "~1.0",
-    "roots/soil": "3.6.2",
-    "wpackagist-plugin/wp-migrate-db": "^0.7.2",
-    "jjgrainger/wp-custom-post-type-class": "^1.4",
-    "wpackagist-plugin/advanced-custom-fields": "^4.4",
-    "wpackagist-plugin/post-type-switcher": "^1.5",
-    "wpackagist-plugin/posts-to-posts": "^1.6",
-    "wpackagist-plugin/advanced-excerpt": "^4.2.3",
-    "roots/wp-password-bcrypt": "^1.0",
-    "wpackagist-plugin/kau-boys-backend-localization": "^2.1"
+    "composer/installers": ">=1.0",
+    "roots/soil": ">=3.6.2",
+    "wp-sync-db/wp-sync-db": "dev-master",
+    "jjgrainger/wp-custom-post-type-class": ">=1.4",
+    "wpackagist-plugin/advanced-custom-fields": ">=4.4",
+    "wpackagist-plugin/post-type-switcher": ">=1.5",
+    "wpackagist-plugin/posts-to-posts": ">=1.6",
+    "wpackagist-plugin/advanced-excerpt": ">=4.2.3",
+    "wpackagist-plugin/kau-boys-backend-localization": ">=2.1",
+    "automattic/jetpack": ">=4.0",
+    "raveren/kint": "^1.0",
+    "jjgrainger/posttypes": "^1.0",
+    "jaybizzle/crawler-detect": "^1.2"
   },
   "extra": {
     "installer-paths": {
@@ -40,8 +43,5 @@
       "../../themes/{$name}/": ["type:wordpress-theme"]
     },
     "wordpress-install-dir": "web/wp"
-  },
-  "require-dev": {
-    "raveren/kint": "^1.0"
   }
 }

@@ -1,0 +1,255 @@
+.single-project {
+
+	.pt-page-holder {
+		background-size: 100%;
+	}
+
+	.main {
+		padding: 0;
+	}
+
+	p {
+		font-size: 20px;
+	}
+
+	.container-showcase  {
+		padding: 100px 0;
+		.row {
+			padding: 0;
+		}
+	}
+
+	.container-showcase.first {
+		padding: 0;
+	}
+
+	.page-header {
+		padding: 2em;
+	}
+
+	h1 {
+		font-size: 120px;
+		@media screen and (max-width: $break-medium) {
+			font-size: 25vw;
+		}
+	}
+
+	.fitted-image {
+		width: 100%;
+		height: auto;
+	}
+
+	.container-showcase {
+		padding: 100px 0;
+	}
+
+	.imac {
+		padding: 0 5vw;
+	}
+
+	.imac-mockup {
+		width: 750px;
+		height: 500px;
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+
+		background-image: url('../images/imac-mockup.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		// filter: drop-shadow(20px -10px 20px rgba(0, 0, 0, .6));
+
+		.video {
+			width: 535px;
+			height: 305px;
+			margin: 28px 0px 0px 95px;
+		}
+
+		.imac-fitted {
+			width: 74.5%;
+		    height: auto;
+		    margin-left: 13%;
+		    margin-top: 4%;
+		}
+
+		@media screen and (max-width: $break-medium) {
+			width: 563px;
+			height: 375px;
+
+			.video {
+				width: 401px;
+				height: 229px;
+				margin: 21px 0px 0px 71px;
+			}
+		}
+
+		@media screen and (max-width: $break-small) {
+			width: 375px;
+			height: 250px;
+			.video {
+				width: 268px;
+				height: 153px;
+				margin: 14px 0px 0px 38px;
+			}
+		}
+
+		@media screen and (max-width: $break-x-small) {
+			width: 250px;
+			height: 167px;
+			.video {
+				width: 178px;
+				height: 102px;
+				margin: 9px 0px 0px 21px;
+			}
+		}
+	}
+
+	.chrome-mockup {
+		/*
+		original: 1000 x 58
+		*/
+		width: 750px;
+		height: 505px;
+		max-width: 100%;
+		overflow: hidden;
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+
+		padding: 0;
+
+		background-image: url('../images/chrome-mockup.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: top center;
+		margin-bottom: 2em;
+
+		.video {
+			/*
+			original: 800 x 500
+			ratio 0.9325
+			*/
+			width: 750px;
+			max-width: 100%;
+			height: 468px;
+			margin: 43px 0 0 0;
+			border-left: 2px solid #c8c7c7;
+			border-right: 3px solid #c8c7c7;
+			border-bottom: 3px solid #c8c7c7;
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+			background: white;
+		}
+
+		@media screen and (max-width: $break-medium) {
+			width: 562px;
+			height: 378px;
+			.video {
+				width: 562px;
+				height: 351px;
+				margin: 32px 0 0 0;
+				border-bottom-left-radius: 7px;
+				border-bottom-right-radius: 7px;
+			}
+		}
+
+		@media screen and (max-width: $break-small) {
+			width: 375px;
+			height: 253px;
+			.video {
+				width: 375px;
+				height: 234px;
+				margin: 21px 0 0 0;
+				border-bottom-left-radius: 5px;
+				border-bottom-right-radius: 5px;
+			}
+		}
+
+		@media screen and (max-width: $break-x-small) {
+			width: 300px;
+			height: 202px;
+			.video {
+				width: 300px;
+				height: 187px;
+				margin: 17px 0 0 0;
+				border-bottom-left-radius: 4px;
+				border-bottom-right-radius: 4px;
+			}
+		}
+	}
+
+	.text-holder {
+		display: table;
+		.text {
+			display: table-cell;
+			vertical-align: middle;
+			& > * {
+				width: 70%;
+				margin: 0 15%;
+				@media screen and (max-width: $break-x-large) {
+					width: 80%;
+					margin: 0 10%;
+				}
+				@media screen and (max-width: $break-large) {
+					width: 90%;
+					margin: 0 5%;
+				}
+			}
+		}
+	}
+
+	.image-holder {
+		display: table;
+		.image {
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+
+}
+
+.highlighted-container {
+	background: rgba(0,0,0,0.1);
+}
+
+.side-by-side-testimonial {
+
+	.item {
+		height: 250px;
+		margin: 0;
+		padding: 0;
+		display: table;
+		blockquote {
+			padding-top: 0;
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+
+	.image-holder  {
+		height: 200px;
+		width: 100%;
+		white-space: nowrap;
+		text-align: center;
+		margin: 25px 0 0 0;
+		padding: 0;
+
+
+		.helper {
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+		}
+		.img-responsive {
+			vertical-align: middle;
+			display: block;
+			max-width: 50%;
+			height: auto;
+			margin: 0px auto;
+			border-radius: 50%;
+			border: 4px solid $text-color;
+			box-sizing: border-box;
+		}
+	}
+}

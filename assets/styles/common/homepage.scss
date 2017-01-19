@@ -1,110 +1,21 @@
-// HELPERS
-.vertical-center {
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 100vh; /* These two lines are counted as one :-)       */
-
-  display: flex;
-  align-items: center;
-}
-
-
-// HOME PAGE LAYOUT
-header {
-	display: none; // we'll need this eventually
-}
-
-.home.page .main {
-	margin: 0;
-	padding: 0;
-}
-
-
-.front-page-section {
-	height: 100vh;
-}
-
-.section-icon-holder {
-	height: 100%;
-	padding-bottom: 100%;
-	position: relative;
-}
-.section-icon {
-	background-repeat: no-repeat;
-	background-position: center center;
-	border-radius: 50%;
-	background-size: contain;
-
-	position: absolute;
-	top: 0; bottom: 0; left: 0; right: 0;
-}
-
 // PROJECT SECTION
-
-.project-image {
-	width: 100%;
-	max-width: 500px;
-	margin: 0 auto;
-	clear: both;
-	display: block;
-}
-
-.project-on-homepage h2 {
-	text-align: center;
-}
-
-// COLORS
-$darken-icon-ammount: 10%;
-
-.front-page-section:nth-child(1) {
-	background-color: $scene-1-color;
-	color: white;
-
-	.section-icon {
-		background-image: none, url('../images/pint.svg'), url('../images/bottle.svg');
-		background-position: 50% 0, 50% 50%;
-		background-size: 50% 50%, 75% 75%;
-		background-color: darken($scene-1-color,$darken-icon-ammount);
-	}
-	.darken {
-		background-color: darken($scene-2-color,$darken-icon-ammount);
+.project-on-homepage {
+    h3 {
+        margin: 1.5em 0;
+    }
+	img {
+		width: 100%;
+		height: auto;
+		padding: 3em 2em;
 	}
 }
 
-.front-page-section:nth-child(2) {
-	background-color: $scene-2-color;
-	.darken {
-		background-color: darken($scene-2-color,$darken-icon-ammount);
-	}
-	.section-icon {
-		background-image: url('../images/bottle.svg'), url('../images/bottle.svg'), url('../images/bottle.svg'), url('../images/tap.svg');
-		background-position: 33% 75%, 50% 75% , 66% 75%, 50% 50%;
-		background-size: 25% 25%, 25% 25%, 25% 25%, 75% 75%;
-		background-color: darken($scene-2-color,$darken-icon-ammount);
-	}
-}
 
-.front-page-section:nth-child(3) {
-	background-color: $scene-3-color;
-	.section-icon {
-		background-image: url('../images/boiler.svg');
-		background-position: 50% 50%;
-		background-size: 75% 75%;
-		background-color: darken($scene-3-color,$darken-icon-ammount);
+#projecte-destacat {
+	.call_to_action {
+		display: none;
 	}
-	.darken {
-		background-color: darken($scene-3-color,$darken-icon-ammount);
-	}
-}
-
-.front-page-section:nth-child(4) {
-	background-color: $scene-4-color;
-	.section-icon {
-		background-image: url('../images/grain.svg'), url('../images/grain.svg'), url('../images/grain.svg'), url('../images/grinder.svg');
-		background-position: 33% 0, 50% 0, 66% 0, 50% 75%;
-		background-size: 20% 20%, 20% 20%, 20% 20%, 75% 75%;
-		background-color: darken($scene-4-color,$darken-icon-ammount);
-	}
-	.darken {
-		background-color: darken($scene-4-color,$darken-icon-ammount);
+	.project-on-homepage .call_to_action {
+		display: block;
 	}
 }

@@ -1,26 +1,23 @@
-// MY colors
-$title-color:      #EBBD63;
-$link-color:       #EBBD63;
+$break-x-small: 320px;
+$break-small: 480px;
+$break-medium: 767px;
+$break-large: 979px;
+$break-x-large: 1200px;
 
-// other colors:
+$text-color: 		rgba(256, 256, 256, 0.9);
+$gray-base:			rgba(0, 0, 0, 0.8);
 
-$darkest-background-color: #3b2d23;
-$white: #FFF;
-
-
-
-
+$title-color:		rgba(256, 256, 256, 0.5);
 
 
-// $scene-1-color:    #e86062;
-// $scene-2-color:    #EBBD63;
-// $scene-3-color:    #6b8884;
-// $scene-4-color:    #3b2d23;
+$scene-1-color:		hsl(39, 51%, 42%);
+$scene-2-color:		hsl(18, 51%, 42%);
+$scene-3-color:		hsl(204, 26%, 42%);
+$scene-4-color:		hsl(173, 10%, 42%);
 
-$scene-1-color:    #6d8784;
-$scene-2-color:    #b8613b;
-$scene-3-color:    #39759e;
-$scene-4-color:    #ba851e;
+$link-color:		rgba(256, 256, 256, 0.8);
+$link-hover-color:	opacify($link-color,1);
+$link-hover-decoration: inherit;
 
 // Glyphicons font path
 $icon-font-path:        "../fonts/";
@@ -29,26 +26,36 @@ $icon-font-path:        "../fonts/";
 $main-sm-columns:       12;
 $sidebar-sm-columns:    4;
 
-// Colors
-// defaults are for reference
-
-// $brand-primary:         darken(#428bca, 6.5%) !default; // #337ab7
-// $brand-success:         #5cb85c !default;
-// $brand-info:            #5bc0de !default;
-// $brand-warning:         #f0ad4e !default;
-// $brand-danger:          #d9534f !default;
-
-// $body-bg:               #fff !default;
-// $text-color:            $gray-dark !default;
-
-
-$highlight-primary:     $title-color;
+$body-background-color: rgba(38, 38, 38, 1);
+$brand-primary:         $scene-1-color;
+$brand-success:         #5cb85c;
+$brand-info:            #5bc0de;
+$brand-warning:         #f0ad4e;
 $brand-danger:          #e86062;
 
-// Fonts
-$font-family-sans-serif: "ff-tisa-sans-web-pro", Helvetica, Arial, sans-serif;
-$font-family-serif:      "ff-tisa-web-pro", "Times New Roman", Times, serif;
-$headings-font-family:   "ff-tisa-web-pro";
+$gold-color: hsla(39, 77%, 65%, 1);
 
-$font-size-base:        15px; //from 14px
-$font-size-h1:          60px; //from 36 with font 14px
+$body-bg:                $scene-1-color;
+
+$highlight-primary:     $title-color;
+
+
+// Fonts
+$font-family-highlight: "refrigerator-deluxe", Helvetica, Arial, sans-serif;
+$font-family-basic:     "ff-tisa-web-pro", "Times New Roman", Times, serif;
+$font-family-accent:    "le-monde-livre-classic-std-s", Helvetica, Arial, sans-serif;
+
+$font-family-sans-serif: $font-family-highlight;
+$font-family-serif: $font-family-basic;
+
+$body-font-size:        16px;
+$font-size-base:        16px;
+$font-size-h1:          $font-size-base * 5;
+$font-size-h2:          $font-size-base * 3;
+$font-size-h3:          $font-size-base * 2;
+$font-size-h4:          $font-size-base * 1.5;
+$font-size-h5:          $font-size-base;
+$font-size-h6:          $font-size-base * 0.85;
+
+
+$menu-height: 52px;
