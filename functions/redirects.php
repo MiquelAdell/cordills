@@ -5,7 +5,7 @@ function cordills_redirect() {
 	$CrawlerDetect = new CrawlerDetect;
 	if(!$CrawlerDetect->isCrawler()){
 		$sections = array(
-			'highlighted-project', 'projecte-destacat', 'proyecto-destacado',
+			'highlighted-projects', 'projectes-destacats', 'proyectos-destacados',
 			'process','proces','proceso',
 			'technologies','tecnologies','tecnologias',
 			'foundations','fonaments','cimientos'

@@ -8,7 +8,10 @@ $names = [
 	'slug' => 'project'
 ];
 
-$projects = new PostType($names);
+$options['rewrite'] = array( 'slug' => __('project','miqueladell') );
+
+
+$projects = new PostType($names, $options);
 
 $projects->columns()->add(array(
 	'title' => __('Name'),
