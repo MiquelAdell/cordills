@@ -8,7 +8,35 @@ function text_with_link($text, $link = null) {
 	}
 }
 
+function wpml_menu_item() {
+	$languages = apply_filters( 'wpml_active_languages', NULL, 'skip_missing=0' );
+	// ddd($languages);
 
+	if ( $languages ) {
+
+		if(!empty($languages)){
+			ob_start();
+			?>
+			<li class="language-menu-item"><a><span class="icon"><?=__( 'Languages', 'cordills' )?></span></a>
+				<ul class="sub-menu">
+					<?php
+					foreach($languages as $l){
+						if(!$l['active']){
+							?>
+							<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?=$l['url']?>"><span><?=$l['native_name']?></span></a></li>
+							<?php
+						}
+					}
+					?>
+				</ul>
+			</li>
+			<?php
+			$items .= ob_get_contents();
+			ob_end_clean();
+		}
+	}
+	return $items;
+}
 
 function the_main_menu( $theme_location = null ) {
     if(is_null($theme_location)){
@@ -68,6 +96,7 @@ function the_main_menu( $theme_location = null ) {
 
             $count++;
         }
+		$menu_list .= wpml_menu_item();
 
     } else {
         $menu_list = '<!-- no menu defined in location "'.$theme_location.'" -->';

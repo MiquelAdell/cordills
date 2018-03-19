@@ -1,0 +1,42 @@
+
+
+.language-menu-item {
+
+	#menu-main-menu-home & {
+		display: none;
+	}
+
+	display: inline-block;
+	.icon {
+		text-indent: -9999px;
+		background-image: url("../images/translation.svg");
+		background-repeat: no-repeat;
+		background-size: auto 80%;
+		cursor: pointer;
+		display: inline-block;
+		margin: 0px;
+		width: 27px;
+		height: 35px;
+		position: relative;
+		top: 9px;
+	}
+
+	.nav-primary-container ul & a {
+		padding: 0;
+		margin: 0;
+	}
+	@media only screen and (min-width: 768px) {
+		margin: 0px 20px 0 0;
+	}
+
+	& > ul {
+		margin: 0px;
+		padding: 0px;
+
+		& > li {
+			list-style: none;
+			margin: 0px;
+			padding: 0px;
+		}
+	}
+}
