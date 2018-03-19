@@ -22,7 +22,7 @@ if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
 }
 
 // look through sorted list and use first one that matches our languages
-$availableLangs = array('ca' => 'http://miqueladellca.dev','es' => 'http://miqueladelles.dev','en' => 'http://miqueladellcom.dev');
+$availableLangs = array('ca' => 'http://miqueladellca.test','es' => 'http://miqueladelles.test','en' => 'http://miqueladellcom.test');
 foreach ($langs as $lang => $val) {
     foreach($availableLangs as $availableLang => $domain){
         if (strpos($lang, $availableLang) === 0) {
