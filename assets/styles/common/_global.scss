@@ -1,13 +1,13 @@
 /* fixes */
 .equal, .equal > div[class*='col-'] {
-    display: flex;
-    flex:1 1 auto;
+	display: flex;
+	flex:1 1 auto;
 }
 
 .vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
+	display: inline-block;
+	vertical-align: middle;
+	float: none;
 }
 
 .float {
@@ -49,7 +49,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   line-height: 1.4;
 
   @media (min-width: $screen-sm-min) {
-    font-size: ($font-size-base * 1.5);
+	font-size: ($font-size-base * 1.5);
   }
 }
 
@@ -94,6 +94,19 @@ header {
 
 	a {
 		color: transparentize($link-color, 0.2);
+	}
+
+	.language_list {
+		font-size: 75%;
+		ul {
+			padding-left: 0;
+		}
+		li {
+			margin: 0 0.5em;
+		}
+		a.active {
+			color: inherit;
+		}
 	}
 
 }
@@ -377,7 +390,7 @@ menu
 
 
 .computer img {
-    margin-top: -65px;
+	margin-top: -65px;
 }
 
 .page-header {

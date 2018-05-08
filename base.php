@@ -32,6 +32,7 @@ get_template_part('templates/header');
 					<ul id="menu-main-menu-home" class="main-menu nav text-center">
 						<?=the_main_menu()?>
 					</ul>
+					<?php languages_list_home() ?>
 				</div>
 			</nav>
 		</div>

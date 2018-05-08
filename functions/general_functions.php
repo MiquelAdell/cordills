@@ -39,69 +39,69 @@ function wpml_menu_item() {
 }
 
 function the_main_menu( $theme_location = null ) {
-    if(is_null($theme_location)){
-        $theme_location = "primary_navigation";
-    }
+	if(is_null($theme_location)){
+		$theme_location = "primary_navigation";
+	}
 	if ( ($theme_location) && ($locations = get_nav_menu_locations()) && isset($locations[$theme_location]) ) {
-        $menu = get_term( $locations[$theme_location], 'nav_menu' );
-        $menu_items = wp_get_nav_menu_items($menu->term_id);
+		$menu = get_term( $locations[$theme_location], 'nav_menu' );
+		$menu_items = wp_get_nav_menu_items($menu->term_id);
 
 
-        $count = 0;
-        $submenu = false;
-        $menu_list = "";
+		$count = 0;
+		$submenu = false;
+		$menu_list = "";
 
-        foreach( $menu_items as $menu_item ) {
+		foreach( $menu_items as $menu_item ) {
 
-            $link = $menu_item->url;
-            $hash = parse_url($link);
-            $hash = $hash['path'];
-            $hash = ltrim($hash, '/');
-            $title = $menu_item->title;
+			$link = $menu_item->url;
+			$hash = parse_url($link);
+			$hash = $hash['path'];
+			$hash = ltrim($hash, '/');
+			$title = $menu_item->title;
 			$class = "";
 			if(!in_array($hash,array("contacto/","contacte/","contact/"))){
 				$class = "spi-link";
 			}
 
-            if ( !$menu_item->menu_item_parent ) {
-                $parent_id = $menu_item->ID;
+			if ( !$menu_item->menu_item_parent ) {
+				$parent_id = $menu_item->ID;
 
-                $menu_list .= '<li class="menu-item">' ."\n";
+				$menu_list .= '<li class="menu-item">' ."\n";
 				$menu_list .= '<a class="'.$class.'"  data-target="#'.$hash.'" href="'.$link.'" >'.$title.'</a>' ."\n";
-            }
+			}
 
-            if ( $parent_id == $menu_item->menu_item_parent ) {
+			if ( $parent_id == $menu_item->menu_item_parent ) {
 
-                if ( !$submenu ) {
-                    $submenu = true;
-                    $menu_list .= '<ul class="sub-menu">' ."\n";
-                }
+				if ( !$submenu ) {
+					$submenu = true;
+					$menu_list .= '<ul class="sub-menu">' ."\n";
+				}
 
-                $menu_list .= '<li class="item">' ."\n";
-                $menu_list .= '<a class="'.$class.'"  data-target="#'.$hash.'" href="'.$link.'" >'.$title.'</a>' ."\n";
-                $menu_list .= '</li>' ."\n";
+				$menu_list .= '<li class="item">' ."\n";
+				$menu_list .= '<a class="'.$class.'"  data-target="#'.$hash.'" href="'.$link.'" >'.$title.'</a>' ."\n";
+				$menu_list .= '</li>' ."\n";
 
 
-                if ( $menu_items[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ){
-                    $menu_list .= '</ul>' ."\n";
-                    $submenu = false;
-                }
+				if ( $menu_items[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ){
+					$menu_list .= '</ul>' ."\n";
+					$submenu = false;
+				}
 
-            }
+			}
 
-            if ( isset($menu_items[ $count + 1 ]) && $menu_items[ $count + 1 ]->menu_item_parent != $parent_id ) {
-                $menu_list .= '</li>' ."\n";
-                $submenu = false;
-            }
+			if ( isset($menu_items[ $count + 1 ]) && $menu_items[ $count + 1 ]->menu_item_parent != $parent_id ) {
+				$menu_list .= '</li>' ."\n";
+				$submenu = false;
+			}
 
-            $count++;
-        }
+			$count++;
+		}
 		$menu_list .= wpml_menu_item();
 
-    } else {
-        $menu_list = '<!-- no menu defined in location "'.$theme_location.'" -->';
-    }
-    echo $menu_list;
+	} else {
+		$menu_list = '<!-- no menu defined in location "'.$theme_location.'" -->';
+	}
+	echo $menu_list;
 }
 
 
@@ -116,21 +116,62 @@ function web_title(){
 }
 
 
-function languages_list(){
+function languages_list($displayActive = true){
 	if(!function_exists('icl_get_languages')){
 		return false;
 	}
 
-    $languages = icl_get_languages('skip_missing=0&orderby=code');
-    if(!empty($languages)){
-        echo '<div class="language_list"><ul>';
-        foreach($languages as $l){
-            echo '<li>';
-            if(!$l['active']) echo '<a href="'.$l['url'].'">';
-            echo icl_disp_language($l['native_name']);
-            if(!$l['active']) echo '</a>';
-            echo '</li>';
-        }
-        echo '</ul></div>';
-    }
+	$languages = icl_get_languages('skip_missing=0&orderby=code');
+	if(!empty($languages)){
+		echo '<div class="language_list"><ul>';
+		foreach($languages as $l){
+			echo '<li>';
+			if(!$l['active'] || $displayActive){
+				if(!$l['active']) echo '<a href="'.$l['url'].'">';
+				echo icl_disp_language($l['native_name']);
+				if(!$l['active']) echo '</a>';
+			}
+			echo '</li>';
+		}
+		echo '</ul></div>';
+	}
+}
+
+function languages_list_home($displayActive = true){
+	if(!function_exists('icl_get_languages')){
+		return false;
+	}
+
+	$languages = icl_get_languages('skip_missing=0&orderby=code');
+	if(!empty($languages)){
+		echo '<div class="language_list"><ul>';
+		foreach($languages as $l){
+			$first_section_link = "";
+			switch($l['code']){
+				case "ca":
+					$first_section_link = "projectes-destacats";
+					break;
+				case "en":
+					$first_section_link = "highlighted-projects";
+					break;
+				case "es":
+					$first_section_link = "proyectos-destacados";
+					break;
+			}
+
+			echo '<li>';
+			if(!$l['active'] || $displayActive){
+				if($l['active']) {
+					echo '<a href="'.$first_section_link.'" class="active">';
+
+				} else {
+					echo '<a href="'.$l['url'].'">';
+				}
+				echo icl_disp_language($l['native_name']);
+				echo '</a>';
+			}
+			echo '</li>';
+		}
+		echo '</ul></div>';
+	}
 }
