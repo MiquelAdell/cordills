@@ -39,6 +39,6 @@
     }
   },
   "config": {
-    "devUrl": "http://miqueladellca.dev"
+    "devUrl": "http://miqueladellca.test"
   }
 }
