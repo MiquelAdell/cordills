@@ -49,10 +49,11 @@
 		width: 100%;
 		position: relative;
 		left: 0px;
+
 		@media only screen and (min-width: 768px) {
 			width: auto;
 			left: auto;
-			position: inherit;
+			position: absolute;
 			height: 0;
 			overflow: hidden;
 		}

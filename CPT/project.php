@@ -5,7 +5,8 @@ $names = [
 	'name' => 'project',
 	'singular' => __('Project'),
 	'plural' => __('Projects'),
-	'slug' => 'project'
+	'slug' => 'project',
+	'has_archive' => true
 ];
 
 $options['rewrite'] = array( 'slug' => __('project','miqueladell') );
